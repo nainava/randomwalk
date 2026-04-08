@@ -1,0 +1,131 @@
+{
+  "number": "005",
+  "discovery_name": "CRISPR Gene Editing",
+  "tracker_summary": {
+    "invention": "CRISPR-Cas9 programmable gene editing",
+    "inventor": "Jennifer Doudna, Emmanuelle Charpentier (key 2012 paper); Francisco Mojica (foundational discovery); Feng Zhang (first mammalian cell application)",
+    "date": "2012 (landmark Science paper); 1987 (initial observation); 2023 (first FDA-approved therapy)",
+    "current_use": "Treating sickle cell disease and beta-thalassemia (FDA-approved Casgevy, 2023); cancer immunotherapy; agricultural bioengineering; diagnostics",
+    "initial_funding_source": "Japanese Ministry of Education (Ishino, 1987); Spanish Ministry of Education / University of Alicante (Mojica, 1990s)",
+    "initial_funding_reason": "Basic microbiology research into E. coli DNA replication; ecology of salt-tolerant microorganisms in Mediterranean saltpans",
+    "chain_length": "11 steps · 36 years"
+  },
+  "the_x": "Curiosity-driven funding for obscure microbial ecology and bacterial genetics with no envisioned application",
+  "the_y": "A programmable molecular scissors capable of rewriting the human genome, yielding the first curative gene therapies for inherited blood disorders and a 2020 Nobel Prize",
+  "summary": "In 1987 a Japanese microbiologist noticed something strange in an E. coli gene sequence. A Spanish graduate student later spent years wading through salt marshes near Alicante studying microbes no one cared about, and noticed the same pattern. His papers were rejected for years. He coined the acronym CRISPR and slowly pieced together that bacteria were running a sophisticated adaptive immune system. Yogurt-company scientists proved it. Then Jennifer Doudna and Emmanuelle Charpentier realized the bacterial machinery could be reprogrammed as a universal genetic cut-and-paste tool. In 2023 the FDA approved the first CRISPR therapy — 36 years after Ishino's footnote.",
+  "chain": [
+    {
+      "year": "1987",
+      "who": "Yoshizumi Ishino and colleagues",
+      "where": "Osaka University, Japan",
+      "what_they_were_doing": "Sequencing the iap gene in E. coli, noticed an unusual cluster of repeated sequences separated by non-repetitive spacers. Noted them as 'an unusual structure' in a one-paragraph footnote. Had no idea what they did.",
+      "the_jump": null,
+      "funding": "Japanese Ministry of Education, Science and Culture (Monbusho) basic research grant.",
+      "critical": true
+    },
+    {
+      "year": "1989–1993",
+      "who": "Francisco Juan Martínez Mojica",
+      "where": "University of Alicante, Spain; Santa Pola salt marshes",
+      "what_they_were_doing": "PhD student studying Haloferax mediterranei — an extremophile in Mediterranean saltpans. Found the same type of repeats Ishino had seen, but in archaea — a completely different domain of life separated by billions of years of evolution. Became obsessed.",
+      "the_jump": "Independently rediscovering the same anomalous repeat structure across two domains of life — a clue that the sequences might be ancient, conserved, and functional.",
+      "funding": "Spanish Ministry of Education PhD fellowship; University of Alicante departmental budget.",
+      "critical": true
+    },
+    {
+      "year": "1993–2003",
+      "who": "Francisco Mojica",
+      "where": "University of Alicante",
+      "what_they_were_doing": "For a decade, Mojica submitted papers trying to publish his hypothesis that the repeats were biologically significant. Rejected by Nature, Nucleic Acids Research, Molecular Microbiology. Using the BLAST tool, he had a eureka moment in October 2003: spacer sequences matched viral DNA. Bacteria were storing genetic 'mugshots' of past infections.",
+      "the_jump": "The pivotal intellectual leap: spacers between repeats were derived from viruses and plasmids — bacteria were storing immunological memory. This was the moment CRISPR was understood as an adaptive immune system.",
+      "funding": "Spanish Ministry of Science and Technology grant BMC2000-1385.",
+      "critical": true
+    },
+    {
+      "year": "2001–2002",
+      "who": "Francisco Mojica and Ruud Jansen",
+      "where": "University of Alicante; Utrecht University, Netherlands",
+      "what_they_were_doing": "Mojica coined 'CRISPR.' Jansen's team formally introduced the acronym and identified CRISPR-associated (Cas) genes with nuclease and helicase domains. Mojica's immune-function paper was finally published in 2005 after rejection by Nature, Science, and PNAS.",
+      "the_jump": "Naming the phenomenon and identifying Cas genes gave scattered observations a unified identity.",
+      "funding": "Dutch NWO; Spanish MCYT.",
+      "critical": false
+    },
+    {
+      "year": "2005",
+      "who": "Alexander Bolotin and colleagues",
+      "where": "INRA, Jouy-en-Josas, France",
+      "what_they_were_doing": "Sequencing Streptococcus thermophilus (the yogurt bacterium) for food-science purposes. Identified Cas9 as an unusually large dual-nuclease protein. Noticed spacers matching phage sequences only in resistant strains.",
+      "the_jump": "Identifying Cas9 specifically set the stage for both the immune-system proof and the eventual use as molecular scissors.",
+      "funding": "INRA institutional funding; French Ministry of Agriculture.",
+      "critical": false
+    },
+    {
+      "year": "2007",
+      "who": "Philippe Horvath and Rodolphe Barrangou",
+      "where": "Danisco A/S (now DuPont), France and Wisconsin",
+      "what_they_were_doing": "Working for a dairy company solving a costly problem: phages destroying yogurt starter cultures. Challenged S. thermophilus with phages, sequenced survivors — they had acquired new CRISPR spacers matching the attacking phage. Deleting spacers removed immunity. Published in Science.",
+      "the_jump": "The definitive experimental proof that CRISPR is a heritable, adaptive immune system — the first ever found in prokaryotes. Published in Science, finally giving the field visibility. Done in a corporate dairy science lab.",
+      "funding": "Danisco A/S (private industrial R&D) — a rare case of basic biological discovery in a corporate lab.",
+      "critical": true
+    },
+    {
+      "year": "2011–2012",
+      "who": "Emmanuelle Charpentier and Jennifer Doudna",
+      "where": "Umeå University, Sweden; UC Berkeley; collaboration began at a 2011 ASM conference in Puerto Rico",
+      "what_they_were_doing": "Charpentier discovered tracrRNA was essential for CRISPR. Met Doudna, a leading RNA structural biologist with no prior CRISPR background, at ASM. Their labs engineered a single synthetic guide RNA and showed Cas9 could cut any target DNA sequence. Published June 28, 2012 in Science: 'A Programmable Dual-RNA–Guided DNA Endonuclease in Adaptive Bacterial Immunity.'",
+      "the_jump": "The leap from 'bacteria use this to fight viruses' to 'we can reprogram this with a 20-letter RNA sequence to cut any DNA we choose, in any organism.' This is the moment CRISPR became a tool.",
+      "funding": "HHMI; NIH GM081882; Gates Foundation; Swedish Research Council.",
+      "critical": true
+    },
+    {
+      "year": "2012–2013",
+      "who": "Feng Zhang",
+      "where": "Broad Institute of MIT and Harvard, Cambridge, Massachusetts",
+      "what_they_were_doing": "Zhang read the Doudna-Charpentier preprint and pivoted his lab to apply CRISPR-Cas9 in mammalian cells. Solved codon optimization, nuclear localization, and promoter engineering. Paper submitted December 2012, published January 2013. Filed patent covering eukaryotic cell use.",
+      "the_jump": "Crossing the threshold from bacterial biochemistry to therapeutic relevance — and triggering the patent war that defined the field's commercialization.",
+      "funding": "NIH Director's Pioneer Award; Broad Institute; Paul Allen Family Foundation; HHMI.",
+      "critical": true
+    },
+    {
+      "year": "2013–2022",
+      "who": "UC legal team vs. Broad Institute legal team; USPTO",
+      "where": "USPTO, Alexandria, Virginia; Federal courts",
+      "what_they_were_doing": "One of the most consequential patent disputes in biotechnology history. Billions in licensing revenue at stake. Broad won key rulings. The patent war paradoxically accelerated commercialization by flooding the field with private capital from competing companies.",
+      "the_jump": null,
+      "funding": "University of California and Broad Institute legal budgets ($65M+ in legal costs). Investor capital behind Editas, Intellia, CRISPR Therapeutics.",
+      "critical": false
+    },
+    {
+      "year": "2018",
+      "who": "He Jiankui",
+      "where": "Southern University of Science and Technology, Shenzhen, China",
+      "what_they_were_doing": "Announced via YouTube that he had implanted CRISPR-edited embryos, resulting in twin girls with edits to CCR5. Conducted in secret, without ethics review. Universally condemned. Imprisoned by Chinese authorities.",
+      "the_jump": "NEAR-DEATH MOMENT: Threatened worldwide regulatory bans on CRISPR research. The field's swift self-condemnation — led by Doudna's moratorium call — preserved public trust enough to allow clinical programs to continue.",
+      "funding": "Southern University of Science and Technology; undisclosed private funding.",
+      "critical": true
+    },
+    {
+      "year": "2020–2023",
+      "who": "Nobel Committee; Vertex Pharmaceuticals and CRISPR Therapeutics; Victoria Gray (first patient)",
+      "where": "Stockholm; clinical sites across USA and Europe",
+      "what_they_were_doing": "2020 Nobel Prize in Chemistry to Doudna and Charpentier. Victoria Gray, treated in 2019, was effectively cured of sickle cell disease. On December 8, 2023, FDA approved Casgevy — the first CRISPR-based medicine — 36 years after Ishino's footnote.",
+      "the_jump": "The complete arc: a curious genomic footnote in bacterial DNA became a Nobel Prize-winning tool and then an FDA-approved cure for a disease that had no cure for 65 years since its molecular cause was identified.",
+      "funding": "Nobel Foundation; Vertex Pharmaceuticals ($900M+); NIH NHLBI.",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "Ishino Y, et al. (1987). J Bacteriology, 169(12):5429–5433. https://doi.org/10.1128/jb.169.12.5429-5433.1987",
+    "Mojica FJM, et al. (2005). J Mol Evol, 60(2):174–182. https://doi.org/10.1007/s00239-004-0046-3",
+    "Jansen R, et al. (2002). Mol Microbiology, 43(6):1565–1575. https://doi.org/10.1046/j.1365-2958.2002.02839.x",
+    "Barrangou R, et al. (2007). Science, 315(5819):1709–1712. https://doi.org/10.1126/science.1138140",
+    "Deltcheva E, et al. (2011). Nature, 471:602–607. https://doi.org/10.1038/nature09886",
+    "Jinek M, et al. (2012). Science, 337(6096):816–821. https://doi.org/10.1126/science.1225829",
+    "Cong L, et al. (2013). Science, 339(6121):819–823. https://doi.org/10.1126/science.1231143",
+    "Nobel Prize in Chemistry 2020. https://www.nobelprize.org/prizes/chemistry/2020/advanced-information/",
+    "FDA approval of Casgevy, Dec 8, 2023. https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
+    "Isaacson W. (2021). The Code Breaker. Simon & Schuster.",
+    "Mojica FJM. (2016). FEMS Microbiol Letters. https://doi.org/10.1093/femsle/fnw056",
+    "Doudna JA. (2019). Science, 366(6467):777. https://doi.org/10.1126/science.aba1751"
+  ]
+}

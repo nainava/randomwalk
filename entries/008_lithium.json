@@ -1,0 +1,97 @@
+{
+  "number": "008",
+  "discovery_name": "Lithium for Bipolar Disorder",
+  "tracker_summary": {
+    "invention": "Lithium carbonate as a mood stabilizer for manic-depressive illness",
+    "inventor": "John Frederick Joseph Cade (clinical discovery, 1948); Mogens Schou (clinical validation, 1950s–1960s)",
+    "date": "FDA approved October 14, 1970",
+    "current_use": "First-line mood stabilizer for bipolar disorder; suicide prevention; antidepressant augmentation",
+    "initial_funding_source": "Repatriation Mental Hospital, Bundoora, Victoria, Australia (state public hospital budget)",
+    "initial_funding_reason": "Investigating a metabolic toxin hypothesis — that manic patients produced excess uric acid causing symptoms",
+    "chain_length": "8 steps · 22 years"
+  },
+  "the_x": "John Cade's hypothesis that mania was caused by a urinary toxin, tested in a repurposed hospital kitchen",
+  "the_y": "The first effective pharmacological treatment for a major psychiatric disorder — delayed 22 years in the US because lithium is unpatentable",
+  "summary": "Working in a repurposed kitchen at a mental hospital with almost no resources, Australian psychiatrist John Cade injected guinea pigs with urine from manic patients. To make uric acid soluble for injection, he used lithium urate — and noticed the guinea pigs became unexpectedly calm. He tested lithium on himself first, then on patients. The results were dramatic. Yet for two decades no pharmaceutical company invested in proper trials because lithium cannot be patented. Danish psychiatrist Mogens Schou ran the rigorous trials that finally convinced the FDA in 1970.",
+  "chain": [
+    {
+      "year": "Antiquity–1800s",
+      "who": "Various physicians and spa-goers",
+      "where": "Greece, Rome, European lithium-rich mineral springs",
+      "what_they_were_doing": "Mineral waters rich in lithium salts appeared to calm 'nervous' patients. 19th-century physicians used lithium for gout. Dr. William Hammond prescribed lithium bromide for mania in 1871.",
+      "the_jump": null,
+      "funding": "None formal; anecdotal medical practice.",
+      "critical": false
+    },
+    {
+      "year": "1940s",
+      "who": "U.S. food industry",
+      "where": "United States",
+      "what_they_were_doing": "Lithium chloride sold as a salt substitute for cardiac patients. Multiple deaths from lithium toxicity. FDA banned it in food products in 1949 — this stigma would later delay Cade's work gaining acceptance in America.",
+      "the_jump": null,
+      "funding": "Commercial food industry.",
+      "critical": false
+    },
+    {
+      "year": "1948",
+      "who": "Dr. John Frederick Joseph Cade",
+      "where": "Repatriation Mental Hospital, Bundoora (near Melbourne), Australia",
+      "what_they_were_doing": "Testing the hypothesis that manic episodes were caused by excess uric acid acting as a toxin. Injecting urine from manic, depressed, and control patients into guinea pigs. Using lithium urate to dissolve uric acid because lithium was known to make urate soluble.",
+      "the_jump": "The guinea pigs injected with lithium urate became unusually calm and lethargic — a side effect of the lithium itself, not the urate. Cade recognized this as a sedative effect worth investigating.",
+      "funding": "No external funding. Cade worked in a repurposed hospital kitchen using equipment he bought himself.",
+      "critical": true
+    },
+    {
+      "year": "1948",
+      "who": "Dr. John Cade",
+      "where": "Repatriation Mental Hospital, Bundoora",
+      "what_they_were_doing": "Before administering lithium carbonate to patients, Cade tested it on himself for several weeks to establish safety at proposed doses.",
+      "the_jump": null,
+      "funding": "Self-funded/hospital resources.",
+      "critical": false
+    },
+    {
+      "year": "1948–1949",
+      "who": "Dr. John Cade and 10 manic patients",
+      "where": "Repatriation Mental Hospital, Bundoora",
+      "what_they_were_doing": "Administering lithium carbonate to 10 manic, 6 schizophrenic, and 3 depressed patients. Results for manic patients were striking — patients hospitalized for years became well enough to be discharged.",
+      "the_jump": "Published in Medical Journal of Australia, September 1949: 'Lithium salts in the treatment of psychotic excitement.' Reported remission of mania in all 10 patients — but attracted little attention outside Australia.",
+      "funding": "Repatriation Mental Hospital operating budget.",
+      "critical": true
+    },
+    {
+      "year": "1954–1970",
+      "who": "Dr. Mogens Schou",
+      "where": "Aarhus University Psychiatric Hospital, Denmark",
+      "what_they_were_doing": "Running the first randomized double-blind controlled trials of lithium for mania — motivated partly by his own brother's successful lithium treatment. Demonstrated lithium's prophylactic effect in preventing both manic and depressive episodes.",
+      "the_jump": "Schou's rigorous trial methodology provided the evidence base Cade's work lacked. He fought sustained opposition from British psychiatrist Michael Shepherd, who disputed his methods. His 1954 paper and decades of advocacy gradually built international acceptance.",
+      "funding": "Aarhus University; Danish Medical Research Council; Lundbeck Foundation.",
+      "critical": true
+    },
+    {
+      "year": "1950s–1969",
+      "who": "Pharmaceutical industry (collective inaction)",
+      "where": "USA and Europe",
+      "what_they_were_doing": "Declining to fund trials or seek FDA approval because lithium — atomic number 3 — is a naturally occurring element that cannot be patented. Commercially unattractive despite clear clinical signals.",
+      "the_jump": "NEAR-DEATH MOMENT: The 'patent gap' meant a drug used widely in Australia and Denmark was entirely unavailable in the US for over two decades. A stark demonstration of how IP structures determine which discoveries reach patients.",
+      "funding": "No pharmaceutical company would fund trials.",
+      "critical": true
+    },
+    {
+      "year": "1970",
+      "who": "U.S. FDA; Ronald Fieve (Columbia University)",
+      "where": "Washington, D.C.",
+      "what_they_were_doing": "FDA approved lithium carbonate for acute mania on October 14, 1970 — 22 years after Cade's first observations. US trials by Ronald Fieve at Columbia helped build the case.",
+      "the_jump": "Lithium remains on the WHO Essential Medicines List and is one of the most cost-effective psychiatric treatments known. It is also one of the only psychiatric drugs proven to reduce suicide risk.",
+      "funding": "NIMH grants (Fieve); no pharmaceutical sponsor.",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "Cade JFJ. 'Lithium salts in the treatment of psychotic excitement.' MJA. 1949;2(10):349-352. https://pubmed.ncbi.nlm.nih.gov/18142718/",
+    "Schou M, et al. 'The treatment of manic psychoses by lithium salts.' J Neurol Neurosurg Psychiatry. 1954;17(4):250-260. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC503457/",
+    "Mitchell PB, Hadzi-Pavlovic D. 'John Cade and the discovery of lithium treatment.' MJA. 1999;171(5):262-264. https://pubmed.ncbi.nlm.nih.gov/10495756/",
+    "Shorter E. 'The history of lithium therapy.' Bipolar Disorders. 2009;11(Suppl 2):4-9. https://pubmed.ncbi.nlm.nih.gov/19538681/",
+    "FDA Drug Approval Records, Lithium Carbonate. 1970. https://www.accessdata.fda.gov/scripts/cder/daf/"
+  ]
+}

@@ -1,0 +1,402 @@
+[
+  {
+    "number": "012",
+    "name": "Vulcanized Rubber",
+    "the_x": "Charles Goodyear was trying to stabilize natural rubber for commercial use.",
+    "the_y": "He accidentally discovered vulcanization, creating durable rubber that transformed transportation, industry, and medicine.",
+    "key_jump": "In 1839, Goodyear accidentally dropped a rubber-sulfur mixture onto a hot stove. Instead of melting, it charred at the edges but remained elastic — the stability he had chased for years.",
+    "era": "pre-1950",
+    "field": "chemistry",
+    "mechanism": "failed_experiment"
+  },
+  {
+    "number": "013",
+    "name": "Cardiac Pacemaker",
+    "the_x": "Wilson Greatbatch was building a heart rhythm recording device at the University of Buffalo in 1956.",
+    "the_y": "He accidentally created the first implantable cardiac pacemaker, saving millions of lives.",
+    "key_jump": "Greatbatch pulled a 1-megaohm resistor instead of a 10,000-ohm one. The circuit pulsed at 1.8 milliseconds — exactly mimicking the human heartbeat. He immediately recognized the medical implication.",
+    "era": "1950-2000",
+    "field": "biomedical",
+    "mechanism": "failed_experiment"
+  },
+  {
+    "number": "014",
+    "name": "X-Rays",
+    "the_x": "Wilhelm Röntgen was studying cathode ray tubes and fluorescence at the University of Würzburg.",
+    "the_y": "He discovered X-rays in 1895, founding modern medical imaging and winning the first Nobel Prize in Physics.",
+    "key_jump": "On November 8, 1895, Röntgen noticed a barium platinocyanide screen glowed even though the cathode tube was covered in black cardboard. He placed his wife Anna's hand in the beam and produced history's first medical radiograph.",
+    "era": "pre-1950",
+    "field": "physics",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "015",
+    "name": "Saccharin",
+    "the_x": "Constantin Fahlberg at Johns Hopkins was studying coal tar derivatives in Ira Remsen's lab in 1879.",
+    "the_y": "He discovered saccharin, the world's first artificial sweetener.",
+    "key_jump": "Fahlberg forgot to wash his hands and noticed his dinner roll tasted overwhelmingly sweet. He ran back to the lab, tasted every beaker, and traced the sweetness to an oxidized sulfonamide compound.",
+    "era": "pre-1950",
+    "field": "chemistry",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "016",
+    "name": "Safety Glass",
+    "the_x": "Édouard Bénédictus was a French chemist working with cellulose nitrate solutions in his Paris lab in 1903.",
+    "the_y": "He invented laminated safety glass, now standard in automobile windshields.",
+    "key_jump": "Bénédictus knocked a flask off a shelf; it shattered but held its shape. A cellulose nitrate solution had evaporated into a thin film. After reading about car accident lacerations, he connected the observation to a protective windshield.",
+    "era": "pre-1950",
+    "field": "materials",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "017",
+    "name": "Velcro",
+    "the_x": "Swiss engineer George de Mestral went on walks with his dog in the Jura mountains in 1941.",
+    "the_y": "He invented Velcro, now used in everything from space suits to cardiac surgery.",
+    "key_jump": "De Mestral kept removing burdock burrs from his dog's fur. Under a microscope, he discovered hundreds of tiny hooks catching on looped fibers. He spent eight years replicating the hook-and-loop system in nylon.",
+    "era": "pre-1950",
+    "field": "materials",
+    "mechanism": "analogy"
+  },
+  {
+    "number": "018",
+    "name": "Radioactivity",
+    "the_x": "Henri Becquerel was testing whether uranium salts fluoresce after sunlight exposure, following up on Röntgen's X-rays.",
+    "the_y": "He discovered radioactivity in 1896, launching nuclear physics.",
+    "key_jump": "On a cloudy week, Becquerel stored uranium-wrapped photographic plates in a dark drawer. When developed, they were strongly exposed — the uranium radiated without sunlight. The radiation was intrinsic to the material.",
+    "era": "pre-1950",
+    "field": "physics",
+    "mechanism": "failed_experiment"
+  },
+  {
+    "number": "019",
+    "name": "Super Glue",
+    "the_x": "Harry Coover at Eastman Kodak was developing clear plastic gun sights for WWII rifles in 1942.",
+    "the_y": "He discovered cyanoacrylate adhesive (Super Glue), one of the strongest fast-bonding adhesives ever.",
+    "key_jump": "Coover discarded cyanoacrylate because it stuck to everything, ruining equipment. Nine years later, colleague Fred Joyner rediscovered it and recognized what Coover had dismissed as a defect was actually an extraordinary property.",
+    "era": "pre-1950",
+    "field": "chemistry",
+    "mechanism": "failed_experiment"
+  },
+  {
+    "number": "020",
+    "name": "Pulsars",
+    "the_x": "Jocelyn Bell Burnell and Antony Hewish at Cambridge were mapping quasars using interplanetary scintillation in 1967.",
+    "the_y": "Bell Burnell discovered pulsars — rapidly rotating neutron stars — opening an entire field of extreme astrophysics.",
+    "key_jump": "Bell Burnell noticed a repeating signal she labeled 'scruff' — a clock-like pulse every 1.337 seconds. The team briefly nicknamed it 'LGM-1' (Little Green Men) before identifying it as a rotating neutron star.",
+    "era": "1950-2000",
+    "field": "physics",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "021",
+    "name": "Cosmic Microwave Background",
+    "the_x": "Arno Penzias and Robert Wilson at Bell Labs were calibrating a horn antenna for satellite communication in 1964.",
+    "the_y": "They detected the CMB radiation, providing direct evidence for the Big Bang and winning the 1978 Nobel Prize.",
+    "key_jump": "A persistent 3.5-Kelvin noise refused to go away regardless of direction or attempts to remove pigeon droppings. Penzias called Robert Dicke at Princeton, who had just predicted this signal. Dicke told his team: 'We've been scooped.'",
+    "era": "1950-2000",
+    "field": "physics",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "022",
+    "name": "GPS",
+    "the_x": "The U.S. Navy developed atomic clocks for precise military timekeeping and navigation.",
+    "the_y": "GPS became a global civilian navigation infrastructure embedded in smartphones, finance, and autonomous vehicles.",
+    "key_jump": "After Sputnik, MIT's Guier and Weiffenbach realized the satellite's Doppler shift could pinpoint its position. The inverse insight — knowing a satellite's position lets you find your own — led Frank McClure to propose the Transit system, GPS's ancestor.",
+    "era": "1950-2000",
+    "field": "defense",
+    "mechanism": "analogy"
+  },
+  {
+    "number": "023",
+    "name": "Graphene",
+    "the_x": "Andre Geim and Konstantin Novoselov at Manchester were investigating graphite's electronic properties in 2003.",
+    "the_y": "They isolated graphene — a single-atom-thick carbon sheet — winning the 2010 Nobel Prize in Physics.",
+    "key_jump": "During a Friday-night experiment, a lab member used Scotch tape to peel graphite layers for polishing. Geim and Novoselov realized the discarded flakes contained progressively thinner fragments, and methodically peeled until they isolated a single atomic layer.",
+    "era": "post-2000",
+    "field": "materials",
+    "mechanism": "tool_migration"
+  },
+  {
+    "number": "024",
+    "name": "Checkpoint Inhibitor Immunotherapy",
+    "the_x": "James Allison at UC Berkeley was studying T-cell biology and the CTLA-4 protein as fundamental immunology.",
+    "the_y": "His work led to ipilimumab (Yervoy), the first checkpoint inhibitor, transforming cancer treatment (2018 Nobel Prize).",
+    "key_jump": "Allison noticed CTLA-4 acted as a brake on T-cells. While others used this to suppress autoimmunity, he had the counterintuitive idea to block the brake in cancer patients — an idea so foreign that pharma companies ignored him for years.",
+    "era": "1950-2000",
+    "field": "biomedical",
+    "mechanism": "misapplication"
+  },
+  {
+    "number": "025",
+    "name": "Blue LEDs",
+    "the_x": "Shuji Nakamura at Nichia Corporation was assigned to develop a red laser diode for optical storage.",
+    "the_y": "He invented the high-brightness blue LED, completing the RGB set for white LEDs (2014 Nobel Prize) and enabling LED lighting.",
+    "key_jump": "Against orders and conventional wisdom — the industry had given up on gallium nitride — Nakamura secretly pivoted to GaN, built a custom MOCVD reactor, and cracked the crystal growth problem the field had abandoned.",
+    "era": "1950-2000",
+    "field": "physics",
+    "mechanism": "failed_experiment"
+  },
+  {
+    "number": "026",
+    "name": "Kevlar",
+    "the_x": "Stephanie Kwolek at DuPont was searching for a lightweight polymer to replace steel in car tires in 1965.",
+    "the_y": "She discovered Kevlar, five times stronger than steel by weight, now used in bulletproof vests and aircraft.",
+    "key_jump": "Kwolek produced a cloudy, low-viscosity solution that convention said should be discarded as degraded. She convinced a skeptical technician to spin it anyway. The resulting fiber was unlike any synthetic polymer previously made.",
+    "era": "1950-2000",
+    "field": "chemistry",
+    "mechanism": "failed_experiment"
+  },
+  {
+    "number": "027",
+    "name": "Warfarin (Blood Thinner from Rat Poison)",
+    "the_x": "Karl Paul Link at Wisconsin was investigating cattle hemorrhage from moldy sweet clover in the 1930s.",
+    "the_y": "He isolated dicoumarol and synthesized warfarin — originally rat poison, now the world's most prescribed anticoagulant.",
+    "key_jump": "A farmer arrived with a dead cow, unclotted blood, and moldy hay. Link spent four years isolating the agent, then developed warfarin as rat poison. After Eisenhower received it for a heart attack in 1955, its human potential was recognized.",
+    "era": "pre-1950",
+    "field": "biomedical",
+    "mechanism": "cross_pollination"
+  },
+  {
+    "number": "028",
+    "name": "Nylon",
+    "the_x": "Wallace Carothers at DuPont was conducting fundamental polymer chemistry research with no specific product in mind.",
+    "the_y": "He invented nylon in 1935, the first fully synthetic fiber, transforming textiles and launching the modern plastics industry.",
+    "key_jump": "Carothers' assistant Julian Hill noticed that pulling a glass rod from a polyester melt created an impossibly thin, strong fiber that could be stretched down the hallway. This 'cold drawing' aligned polymer chains — the key to making synthetic fibers commercially viable.",
+    "era": "pre-1950",
+    "field": "chemistry",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "029",
+    "name": "LSD",
+    "the_x": "Albert Hofmann at Sandoz was synthesizing lysergic acid derivatives hoping to find a respiratory and circulatory stimulant.",
+    "the_y": "He synthesized LSD-25 in 1938, the most potent psychoactive compound known, now in clinical trials for depression and PTSD.",
+    "key_jump": "In 1943, Hofmann accidentally absorbed LSD through his fingertips while re-synthesizing a sample shelved for five years. He bicycled home in the world's first acid trip, then deliberately took 250μg three days later (effective dose: ~25μg).",
+    "era": "pre-1950",
+    "field": "biomedical",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "030",
+    "name": "Stainless Steel",
+    "the_x": "Harry Brearley at Sheffield was commissioned in 1912 to develop harder steel for gun barrels resistant to erosion.",
+    "the_y": "He discovered stainless steel, now essential in surgery, architecture, cookware, and transportation.",
+    "key_jump": "Brearley was discarding failed gun barrel samples when he noticed months later that high-chromium samples hadn't rusted while all others had. He pivoted to making cutlery, not cannons.",
+    "era": "pre-1950",
+    "field": "materials",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "031",
+    "name": "Minoxidil (Rogaine)",
+    "the_x": "Upjohn was testing minoxidil as an oral antihypertensive for severe high blood pressure in the 1970s.",
+    "the_y": "Minoxidil became Rogaine, the first FDA-approved topical hair loss treatment, generating over $1B annually.",
+    "key_jump": "Trial participants reported unexpected hair growth, including on foreheads and backs. Dermatologist Guinter Kahn at Miami had the insight to reformulate as a topical scalp solution.",
+    "era": "1950-2000",
+    "field": "biomedical",
+    "mechanism": "side_effect"
+  },
+  {
+    "number": "032",
+    "name": "Silly Putty",
+    "the_x": "GE engineer James Wright was trying to create a synthetic rubber substitute during WWII when natural rubber was scarce.",
+    "the_y": "He created Silly Putty — one of the best-selling toys in history, later used in physical therapy and by astronauts.",
+    "key_jump": "Wright's bouncing, stretching blob failed every rubber test. GE circulated samples for five years without finding a use. Toy store owner Peter Hodgson saw it at a party, packaged it in plastic eggs, and sold 250,000 units in three days.",
+    "era": "pre-1950",
+    "field": "materials",
+    "mechanism": "failed_experiment"
+  },
+  {
+    "number": "033",
+    "name": "Chlorpromazine (First Antipsychotic)",
+    "the_x": "French naval surgeon Henri Laborit was searching for a drug to prevent surgical shock in 1950.",
+    "the_y": "He identified chlorpromazine's calming properties, leading to Thorazine — the first antipsychotic that emptied psychiatric wards.",
+    "key_jump": "Laborit noticed chlorpromazine made patients profoundly indifferent rather than simply sedated — awake but detached from anxiety. Psychiatrists Delay and Deniker's 1952 trials showed dramatic reduction in schizophrenic symptoms.",
+    "era": "1950-2000",
+    "field": "biomedical",
+    "mechanism": "side_effect"
+  },
+  {
+    "number": "034",
+    "name": "Buckminsterfullerene (Buckyballs)",
+    "the_x": "Harold Kroto and Richard Smalley were simulating carbon chemistry in stellar atmospheres using laser vaporization in 1985.",
+    "the_y": "They discovered the C60 molecule, inaugurating nanochemistry (1996 Nobel Prize in Chemistry).",
+    "key_jump": "The mass spectrometer showed an inexplicably stable peak at 60 carbons. Smalley spent a sleepless weekend building paper models until he recalled Buckminster Fuller's geodesic domes and constructed a truncated icosahedron — a soccer ball of carbon.",
+    "era": "1950-2000",
+    "field": "chemistry",
+    "mechanism": "analogy"
+  },
+  {
+    "number": "035",
+    "name": "Mauveine (First Synthetic Dye)",
+    "the_x": "18-year-old William Henry Perkin was attempting to synthesize quinine for malaria at the Royal College of Chemistry in 1856.",
+    "the_y": "He created the first synthetic aniline dye, launching the synthetic dye and modern pharmaceutical industry.",
+    "key_jump": "After his quinine synthesis produced sludge, Perkin tried aniline and got a black precipitate that dissolved into brilliant purple — it dyed silk. He built a factory at age 18; the discovery that coal tar yielded dyes also revealed it could yield drugs.",
+    "era": "pre-1950",
+    "field": "chemistry",
+    "mechanism": "failed_experiment"
+  },
+  {
+    "number": "036",
+    "name": "Azole Antifungals (From Potato Blight Research)",
+    "the_x": "ICI and Janssen chemists in the 1960s were synthesizing fungicides for agriculture to combat crop molds.",
+    "the_y": "The azole compound class became medicine's dominant antifungal family, treating thrush and meningitis in AIDS patients.",
+    "key_jump": "Jan Heeres at Janssen noticed azole compounds also inhibited fungal growth in mammalian tissue cultures. Paul Janssen redirected from agronomy to medicine; ketoconazole became the first oral antifungal.",
+    "era": "1950-2000",
+    "field": "biomedical",
+    "mechanism": "cross_pollination"
+  },
+  {
+    "number": "037",
+    "name": "Imatinib (Gleevec)",
+    "the_x": "Researchers were pursuing basic kinase biochemistry in the 1980s, studying protein phosphorylation as general cellular signaling.",
+    "the_y": "Imatinib became the first molecularly targeted cancer therapy, turning CML from a death sentence into a manageable condition.",
+    "key_jump": "Novartis had shelved lead compound STI-571 as poorly bioavailable, but Brian Druker pushed for trials. Phase I results showed near-complete response rates never seen in oncology, validating the entire targeted therapy paradigm.",
+    "era": "post-2000",
+    "field": "biomedical",
+    "mechanism": "cross_pollination"
+  },
+  {
+    "number": "038",
+    "name": "Nitrous Oxide Anesthesia",
+    "the_x": "Humphry Davy at Bristol's Pneumatic Institution was studying physiological effects of gases on humans in 1799.",
+    "the_y": "His observation that nitrous oxide relieved pain laid the foundation for surgical anesthesia.",
+    "key_jump": "Davy wrote that nitrous oxide 'may probably be used with advantage during surgical operations' but was too engaged in chemistry to pursue it. His idea lay dormant for 45 years until dentist Horace Wells saw a man injure his leg at a laughing gas show without noticing.",
+    "era": "pre-1950",
+    "field": "biomedical",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "039",
+    "name": "Positron (Antimatter)",
+    "the_x": "Carl Anderson at Caltech was photographing cosmic ray tracks in a cloud chamber in 1932.",
+    "the_y": "He discovered the positron — the first antiparticle — now used in PET scans.",
+    "key_jump": "Anderson saw a track that curved the wrong way in the magnetic field — a positively charged particle with electron mass, theoretically impossible. A lead plate proved it was moving upward, matching Dirac's 1928 equation's bizarre negative-energy solution.",
+    "era": "pre-1950",
+    "field": "physics",
+    "mechanism": "serendipity"
+  },
+  {
+    "number": "040",
+    "name": "Integrated Circuit (Microchip)",
+    "the_x": "Jack Kilby at Texas Instruments was trying to solve the 'tyranny of numbers' — too many discrete components making military electronics unreliable.",
+    "the_y": "He invented the integrated circuit, foundation of all modern computing and electronics.",
+    "key_jump": "Left alone in the lab during company vacation (too new for time off), Kilby conceived of making all components from the same semiconductor — abandoning the orthodoxy that different components required different materials.",
+    "era": "1950-2000",
+    "field": "computing",
+    "mechanism": "analogy"
+  },
+  {
+    "number": "041",
+    "name": "Lithium-Ion Battery",
+    "the_x": "M. Stanley Whittingham at Exxon studied fast ionic conductors during the oil crisis, looking for energy storage.",
+    "the_y": "The lithium-ion battery powers all portable electronics and EVs (2019 Nobel Prize in Chemistry).",
+    "key_jump": "Goodenough at Oxford switched the cathode to lithium cobalt oxide, doubling voltage. US companies all rejected licensing; Sony commercialized it in 1991 after Yoshino added a carbon anode — foreign commercial risk-taking completed what American oil company research started.",
+    "era": "1950-2000",
+    "field": "chemistry",
+    "mechanism": "cross_pollination"
+  },
+  {
+    "number": "042",
+    "name": "Cisplatin (Chemotherapy from Platinum Electrodes)",
+    "the_x": "Barnett Rosenberg at Michigan State was studying electric fields' effect on bacterial cell division using platinum electrodes in 1965.",
+    "the_y": "He discovered platinum compounds inhibit cell division, leading to cisplatin — the most widely used cancer chemotherapy drug.",
+    "key_jump": "His 'inert' platinum electrodes were dissolving into the growth medium, chemically paralyzing bacteria. The bacteria stopped dividing not from electricity but from an accidental byproduct — platinum-ammonia compounds.",
+    "era": "1950-2000",
+    "field": "biomedical",
+    "mechanism": "failed_experiment"
+  },
+  {
+    "number": "043",
+    "name": "Monte Carlo Method",
+    "the_x": "Stanislaw Ulam at Los Alamos was convalescing and playing solitaire, wondering about winning probabilities in 1946.",
+    "the_y": "He and von Neumann invented Monte Carlo simulation, now foundational in physics, finance, drug design, and AI training.",
+    "key_jump": "Unable to solve solitaire probability analytically, Ulam realized you could just play 100 games and count wins. He connected this to intractable neutron diffusion problems in nuclear weapons. Von Neumann designed the implementation in one weekend.",
+    "era": "pre-1950",
+    "field": "computing",
+    "mechanism": "analogy"
+  },
+  {
+    "number": "044",
+    "name": "Dopamine and Parkinson's",
+    "the_x": "Arvid Carlsson at Lund was investigating why reserpine caused animal rigidity as basic pharmacology.",
+    "the_y": "He discovered dopamine as a neurotransmitter and its depletion as Parkinson's cause (2000 Nobel Prize).",
+    "key_jump": "Carlsson found reserpine depleted dopamine causing Parkinson-like rigidity, and L-DOPA reversed it. The establishment rejected dopamine's importance — serotonin was king. His pivotal step was measuring dopamine separately from noradrenaline.",
+    "era": "1950-2000",
+    "field": "biomedical",
+    "mechanism": "side_effect"
+  },
+  {
+    "number": "045",
+    "name": "Radiocarbon Dating",
+    "the_x": "Willard Libby at Chicago was studying cosmic ray interactions with the atmosphere in 1945.",
+    "the_y": "He invented radiocarbon dating, transforming archaeology, geology, and climatology.",
+    "key_jump": "Libby realized cosmic rays produce C-14 at a constant rate, living organisms absorb it, and after death it decays predictably — every dead organism has a built-in atomic clock. He verified by dating pharaoh Zoser's tomb wood.",
+    "era": "pre-1950",
+    "field": "physics",
+    "mechanism": "analogy"
+  },
+  {
+    "number": "046",
+    "name": "Optogenetics",
+    "the_x": "Peter Hegemann was studying how single-celled algae swim toward light using a mysterious protein in 2002.",
+    "the_y": "His channelrhodopsin discovery became optogenetics — controlling specific neurons with light, revolutionizing neuroscience.",
+    "key_jump": "Karl Deisseroth, reading Hegemann's paper at 2am, realized the single protein could be inserted into mammalian neurons via viral vectors and switched with fiber optics — turning an algae curiosity into the most precise neuroscience tool ever created.",
+    "era": "post-2000",
+    "field": "biomedical",
+    "mechanism": "tool_migration"
+  },
+  {
+    "number": "047",
+    "name": "fMRI (Functional MRI)",
+    "the_x": "Seiji Ogawa at Bell Labs was studying MRI properties of blood oxygenation in mouse brains in 1990.",
+    "the_y": "He discovered the BOLD signal, becoming the basis of fMRI — the primary tool for mapping brain function.",
+    "key_jump": "Ogawa noticed deoxygenated blood created dark MRI streaks while oxygenated did not — meaning MRI could detect oxygen differences without dye. He connected this to the fact that active brain regions consume more oxygen, enabling real-time brain mapping.",
+    "era": "1950-2000",
+    "field": "biomedical",
+    "mechanism": "cross_pollination"
+  },
+  {
+    "number": "048",
+    "name": "Haber-Bosch Process (Synthetic Fertilizer)",
+    "the_x": "Fritz Haber was fixing atmospheric nitrogen as fundamental chemistry; wartime Germany needed alternatives to Chilean nitrate for explosives.",
+    "the_y": "Synthetic nitrogen fertilizer now feeds approximately half the world's population.",
+    "key_jump": "The initial military application was explosives. The pivot to agricultural fertilizer came after WWI when the German chemical industry needed peacetime applications — from killing to feeding.",
+    "era": "pre-1950",
+    "field": "chemistry",
+    "mechanism": "misapplication"
+  },
+  {
+    "number": "049",
+    "name": "AlphaFold (Protein Structure Prediction)",
+    "the_x": "DeepMind was developing game-playing algorithms (AlphaGo, AlphaZero) and reinforcement learning for general AI.",
+    "the_y": "AlphaFold2 solved the 50-year protein folding problem, releasing structures for virtually every known protein.",
+    "key_jump": "DeepMind entered the CASP competition as an outsider using attention-based networks from language/game tasks. Their 2020 results were so accurate that assessors said the problem was 'largely solved' — game-playing AI architecture migrating into structural biology.",
+    "era": "post-2000",
+    "field": "computing",
+    "mechanism": "tool_migration"
+  },
+  {
+    "number": "050",
+    "name": "GANs (Generative Adversarial Networks)",
+    "the_x": "Ian Goodfellow was arguing about generative models at a bar in Montreal in 2014.",
+    "the_y": "He invented GANs that night — foundation of AI-generated images, deepfakes, synthetic data, and modern generative AI.",
+    "key_jump": "Goodfellow coded his idea in a single night: two neural networks competing in a zero-sum game. He expected it to fail. It worked on the first run. The adversarial concept from game theory bypassed intractable computations that had blocked generative modeling for decades.",
+    "era": "post-2000",
+    "field": "computing",
+    "mechanism": "analogy"
+  },
+  {
+    "number": "051",
+    "name": "High-Temperature Superconductors",
+    "the_x": "Bednorz and Müller at IBM Zurich were studying copper oxide ceramics in 1986, considered unlikely for superconductivity.",
+    "the_y": "They discovered high-temperature superconductivity (1987 Nobel Prize), opening the field of room-temperature superconductor research.",
+    "key_jump": "They deliberately worked outside orthodoxy, which held that oxides can't superconduct and 30K is the ceiling. Their 35K result caused the 1987 APS March Meeting to become known as the 'Woodstock of Physics.'",
+    "era": "1950-2000",
+    "field": "physics",
+    "mechanism": "failed_experiment"
+  }
+]

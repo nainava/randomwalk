@@ -1,0 +1,159 @@
+{
+  "number": "004",
+  "discovery_name": "The Internet",
+  "tracker_summary": {
+    "invention": "The Internet (packet-switched global computer network) and the World Wide Web",
+    "inventor": "No single inventor — key figures include Paul Baran, Donald Davies, Lawrence Roberts, Vint Cerf, Bob Kahn, and Tim Berners-Lee",
+    "date": "1969 (ARPANET first link); 1983 (TCP/IP switch-over); 1991 (World Wide Web public release)",
+    "current_use": "Global infrastructure connecting ~5.4 billion people, underpinning commerce, communication, science, and culture",
+    "initial_funding_source": "U.S. Department of Defense Advanced Research Projects Agency (ARPA)",
+    "initial_funding_reason": "Fear that a Soviet nuclear first strike could destroy centralized U.S. command-and-control communications",
+    "chain_length": "14 steps · ~40 years"
+  },
+  "the_x": "ARPA funding to survive nuclear decapitation of U.S. command communications",
+  "the_y": "The World Wide Web and the modern Internet used by over half of humanity",
+  "summary": "In the late 1950s, U.S. military planners were terrified that a Soviet ICBM strike could sever all command-and-control communications in a single blow. ARPA funded research into a network with no center. That idea — packet switching — was invented independently by Paul Baran at RAND and Donald Davies at NPL, became ARPANET, evolved into the Internet through TCP/IP, and was transformed by Tim Berners-Lee's World Wide Web — originally a document management hack at a physics lab. A weapon against nuclear annihilation became the connective tissue of civilization.",
+  "chain": [
+    {
+      "year": "1957–1958",
+      "who": "Eisenhower administration; ARPA founded February 7, 1958",
+      "where": "Washington D.C., Pentagon",
+      "what_they_were_doing": "Responding to Sputnik and the realization that Soviet ICBMs could deliver warheads in 30 minutes. All U.S. command-and-control ran through centralized switching nodes. One bomb could silence the nuclear response. ARPA was created to fund unconventional research.",
+      "the_jump": null,
+      "funding": "U.S. Congress / Department of Defense. ARPA initial budget approximately $520 million (1958 dollars).",
+      "critical": true
+    },
+    {
+      "year": "1959–1964",
+      "who": "Paul Baran",
+      "where": "RAND Corporation, Santa Monica, California",
+      "what_they_were_doing": "Baran produced an eleven-volume study answering: how do you build a communications network that survives nuclear attack? His answer: chop messages into small 'message blocks,' give each the destination address, and let them route through a distributed mesh. No center to destroy.",
+      "the_jump": "NEAR-DEATH MOMENT: AT&T declared it 'impossible' and 'unnecessary.' AT&T president told Baran: 'First, it can't work, and if it could work, we don't want it.' The project was shelved.",
+      "funding": "RAND Corporation contract with U.S. Air Force.",
+      "critical": true
+    },
+    {
+      "year": "1965–1967",
+      "who": "Donald Davies",
+      "where": "National Physical Laboratory (NPL), Teddington, UK",
+      "what_they_were_doing": "Independently arrived at the same idea from a different angle — not nuclear war but making computers interactive. Coined the term 'packet switching.' Presented at a 1967 NATO conference where ARPA's Lawrence Roberts was present.",
+      "the_jump": "NEAR-DEATH MOMENT: The UK government declined to fund Davies's proposed national network. NPL built only a small testbed. The architecture migrated to America, where ARPA had money and urgency.",
+      "funding": "UK Ministry of Technology / NPL core budget. No dedicated large grant.",
+      "critical": true
+    },
+    {
+      "year": "1966–1968",
+      "who": "Lawrence G. 'Larry' Roberts",
+      "where": "ARPA (Information Processing Techniques Office), Washington D.C.",
+      "what_they_were_doing": "Roberts had conducted the first experimental wide-area computer link in 1965. ARPA director Charles Herzfeld hired him to build a network. Roberts synthesized Baran's and Davies's ideas into a concrete design and issued the RFQ for ARPANET.",
+      "the_jump": "Roberts nearly specified a hybrid circuit/packet design. A 1968 technical meeting persuaded him to commit fully to packets.",
+      "funding": "ARPA IPTO budget. ARPANET contract funded at ~$1 million for the IMP subnetwork.",
+      "critical": true
+    },
+    {
+      "year": "1968–1969",
+      "who": "Frank Heart and team at BBN Technologies",
+      "where": "BBN, Cambridge, Massachusetts",
+      "what_they_were_doing": "BBN won the contract to build Interface Message Processors — dedicated minicomputers for packet switching. Built on modified Honeywell DDP-516s. Delivered IMP #1 to UCLA August 29, 1969.",
+      "the_jump": "NEAR-DEATH MOMENT: The Honeywell 516 kept overheating. A cooling failure one week before delivery nearly pushed them past deadline.",
+      "funding": "ARPA contract DAHC15-69-C-0179, ~$1 million.",
+      "critical": true
+    },
+    {
+      "year": "1969",
+      "who": "Charley Kline (student), Leonard Kleinrock; Bill Duvall at SRI",
+      "where": "UCLA Boelter Hall → Stanford Research Institute, Menlo Park",
+      "what_they_were_doing": "October 29, 1969, 10:30 PM: first ARPANET message. Kline tried to type 'LOGIN.' The system crashed after 'LO.' The first message in Internet history was 'LO' — as in, lo and behold.",
+      "the_jump": null,
+      "funding": "ARPA. UCLA was ARPA Network Measurement Center.",
+      "critical": true
+    },
+    {
+      "year": "1971",
+      "who": "Ray Tomlinson",
+      "where": "BBN Technologies, Cambridge, Massachusetts",
+      "what_they_were_doing": "Tomlinson combined a local mailbox program with a file-transfer program, chose the @ symbol, and sent the first email. Told colleague it was 'a neat hack' and was told not to tell his boss because it wasn't what ARPA had paid for.",
+      "the_jump": "Email was entirely unplanned by ARPA. The 1972 evaluation found email was 75% of all network traffic — predicted by nobody. A sponsored accident became the killer app.",
+      "funding": "BBN ARPA contract; Tomlinson's email work was self-directed, not a funded task.",
+      "critical": true
+    },
+    {
+      "year": "1973–1974",
+      "who": "Vint Cerf (Stanford) and Bob Kahn (ARPA)",
+      "where": "Stanford University; ARPA, Arlington, Virginia",
+      "what_they_were_doing": "Designed TCP/IP to connect incompatible packet-switched networks. Published 'A Protocol for Packet Network Intercommunication' in IEEE Transactions (1974). TCP was split into TCP and IP in 1978.",
+      "the_jump": "NEAR-DEATH MOMENT: The OSI model, backed by ISO, ITU, and every European government, was the official rival standard. The U.S. DoD itself debated mandating OSI. TCP/IP won because it was free, open, and already running.",
+      "funding": "ARPA contract to Stanford; Kahn worked inside ARPA as program manager.",
+      "critical": true
+    },
+    {
+      "year": "1983",
+      "who": "Jon Postel, Robert Braden, and ARPANET network managers",
+      "where": "USC Information Sciences Institute; ARPANET nodes across U.S.",
+      "what_they_were_doing": "January 1, 1983: 'Flag Day' — mandatory cutover from NCP to TCP/IP. Any host that didn't update was cut off. After this, the 'Internet' formally existed as a distinct entity.",
+      "the_jump": "Several institutions resisted. Postel held the line. Migration succeeded within 30 days.",
+      "funding": "DARPA standard network operations budget.",
+      "critical": false
+    },
+    {
+      "year": "1985–1991",
+      "who": "Dennis Jennings, Steve Wolff (NSF); Merit Network, IBM, MCI",
+      "where": "NSF, Washington D.C.; University of Michigan",
+      "what_they_were_doing": "NSFNet connected five supercomputing centers and the broader academic community. Upgraded from 56 Kbps to T3 (45 Mbps). ARPANET was decommissioned February 28, 1990. NSFNet became the Internet's backbone.",
+      "the_jump": "NSF's acceptable-use policy forbidding commerce was the last regulatory barrier. Commercial ISPs applied pressure; restriction ended 1991–1995.",
+      "funding": "NSF grant to Merit/IBM/MCI: $14 million over 5 years. Total NSFNet ~$200 million.",
+      "critical": true
+    },
+    {
+      "year": "1989–1990",
+      "who": "Tim Berners-Lee (with Robert Cailliau)",
+      "where": "CERN, Geneva, Switzerland",
+      "what_they_were_doing": "Berners-Lee was frustrated that he kept losing track of colleagues' work. Submitted 'Information Management: A Proposal' — his supervisor wrote 'Vague but exciting.' Proposed hypertext documents linked by URLs, served over HTTP. He was trying to solve an internal organizational problem at a physics lab.",
+      "the_jump": "Sendall could have simply rejected the proposal. Berners-Lee was not a senior figure. The proposal was submitted, reviewed, and nearly forgotten before being resubmitted.",
+      "funding": "CERN internal budget. The WWW project received approximately $50,000–$100,000 in computing resources.",
+      "critical": true
+    },
+    {
+      "year": "1990–1991",
+      "who": "Tim Berners-Lee",
+      "where": "CERN, Geneva",
+      "what_they_were_doing": "Wrote HTML, HTTP, and the URL scheme, plus the first web server and browser — all on a NeXT workstation. First website info.cern.ch went live August 6, 1991. CERN released the Web protocols royalty-free on April 30, 1993.",
+      "the_jump": "NEAR-DEATH MOMENT: Gopher (University of Minnesota) was more popular in 1992–1993. Then UMinn announced licensing fees. The Web was free. Gopher collapsed overnight. The Web's openness was decisive.",
+      "funding": "CERN internal budget. NeXT workstation cost ~$6,500.",
+      "critical": true
+    },
+    {
+      "year": "1992–1993",
+      "who": "Marc Andreessen and Eric Bina",
+      "where": "NCSA, University of Illinois, Urbana-Champaign",
+      "what_they_were_doing": "Andreessen, a 21-year-old making $6.85/hour, built Mosaic — the first browser with inline images and a point-and-click GUI. Web traffic grew 341,634% in one year. Andreessen co-founded Netscape in 1994.",
+      "the_jump": "NCSA management initially didn't prioritize Mosaic. Andreessen and Bina built much of it on their own time. Had NCSA blocked redistribution, the graphical Web might have been delayed years.",
+      "funding": "NSF grant to NCSA; Andreessen's salary ~$6.85/hour. Development cost under $100,000 total.",
+      "critical": true
+    },
+    {
+      "year": "1994–1995",
+      "who": "Jim Clark and Marc Andreessen (Netscape); NSF",
+      "where": "Mountain View, California; Washington D.C.",
+      "what_they_were_doing": "Netscape captured 75% browser market share. NSF lifted the Acceptable Use Policy in 1995. Netscape IPO'd August 9, 1995 — stock opened at $28, hit $75 on day one without a profit. The commercial Internet era began.",
+      "the_jump": "Microsoft had missed the Internet entirely. Bill Gates's 'Internet Tidal Wave' memo reversed course. The Browser Wars nearly balkanized the Web. Netscape's eventual failure led to Mozilla, Firefox, and the modern open Web.",
+      "funding": "Netscape: $5 million seed from Kleiner Perkins; IPO raised ~$140 million.",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "Paul Baran, 'On Distributed Communications,' RAND, 1964. https://www.rand.org/pubs/research_memoranda/RM3420.html",
+    "Cerf & Kahn, 'A Protocol for Packet Network Intercommunication,' IEEE, 1974. https://ieeexplore.ieee.org/document/1092259",
+    "Berners-Lee, 'Information Management: A Proposal,' CERN, 1989. https://www.w3.org/History/1989/proposal.html",
+    "First ARPANET IMP log, UCLA, Oct 29, 1969. https://www.computerhistory.org/revolution/networking/19/376/1956",
+    "Internet Hall of Fame — Ray Tomlinson. https://internethalloffame.org/inductees/ray-tomlinson",
+    "Internet Hall of Fame — Vint Cerf. https://internethalloffame.org/inductees/vint-cerf",
+    "CERN, 'The birth of the Web.' https://home.cern/science/computing/birth-web",
+    "CERN statement releasing WWW into public domain, April 30, 1993. https://tenyears-www.web.cern.ch/tenyears-www/Welcome.html",
+    "Hafner & Lyon, 'Where Wizards Stay Up Late.' Simon & Schuster, 1996.",
+    "NSFNet history. https://www.nsf.gov/about/history/nsf0050/internet/launch.htm",
+    "Gates, 'The Internet Tidal Wave,' May 26, 1995. https://lettersofnote.com/2011/07/22/the-internet-tidal-wave/",
+    "RFC 1, Steve Crocker, April 7, 1969. https://www.rfc-editor.org/rfc/rfc1",
+    "DARPA history. https://www.darpa.mil/about/history"
+  ]
+}

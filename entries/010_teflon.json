@@ -1,0 +1,88 @@
+{
+  "number": "010",
+  "discovery_name": "Teflon (Polytetrafluoroethylene / PTFE)",
+  "tracker_summary": {
+    "invention": "Polytetrafluoroethylene (PTFE) — inert, nearly frictionless, chemically resistant polymer",
+    "inventor": "Roy J. Plunkett (discovery, 1938); DuPont (development)",
+    "date": "Discovered April 6, 1938; patented 1941; trade-named 'Teflon' 1944; first consumer cookware (Tefal) 1956",
+    "current_use": "Nonstick cookware; aerospace seals; medical implants; semiconductor manufacturing; Gore-Tex",
+    "initial_funding_source": "DuPont / Kinetic Chemicals Inc. (DuPont-GM joint venture)",
+    "initial_funding_reason": "Developing safer, non-toxic refrigerant gases to replace ammonia and sulfur dioxide",
+    "chain_length": "7 steps · ~30 years"
+  },
+  "the_x": "DuPont's refrigerant R&D program searching for safer alternatives to toxic industrial refrigerants",
+  "the_y": "PTFE (Teflon) — one of the most chemically inert substances ever created, from nonstick cookware to spacecraft",
+  "summary": "DuPont chemist Roy Plunkett was working on refrigerant gases in 1938 when he checked a cylinder of tetrafluoroethylene gas that registered empty on the pressure gauge but still had the correct weight. Instead of discarding it, he cut it open and found a slippery white powder — the gas had spontaneously polymerized into PTFE. The material was so inert it was immediately classified and used in the Manhattan Project to contain corrosive uranium hexafluoride. After the war, a French engineer's wife suggested he coat cooking pans with it, launching the Tefal company.",
+  "chain": [
+    {
+      "year": "1930s",
+      "who": "Thomas Midgley Jr. and Charles Kettering (General Motors Research)",
+      "where": "Dayton, Ohio",
+      "what_they_were_doing": "Developing chlorofluorocarbon compounds as safe refrigerant alternatives. Commercialized through Kinetic Chemicals, a DuPont-GM joint venture, leading to extensive research into fluorinated compounds.",
+      "the_jump": null,
+      "funding": "General Motors / DuPont joint venture (Kinetic Chemicals Inc.).",
+      "critical": false
+    },
+    {
+      "year": "1938 (April 6)",
+      "who": "Dr. Roy J. Plunkett (age 27) and Jack Rebok (laboratory assistant)",
+      "where": "DuPont Jackson Laboratory, Deepwater, New Jersey",
+      "what_they_were_doing": "Preparing tetrafluoroethylene gas for refrigerant synthesis. A cylinder stored overnight under pressure appeared empty on the gauge but hadn't lost weight.",
+      "the_jump": "Rather than discard the 'empty' cylinder, Plunkett and Rebok cut it open with a hacksaw. Inside: a white, waxy, slippery powder. The TFE had spontaneously polymerized under pressure and cold into PTFE. Plunkett immediately tested it — extraordinarily inert, heat-stable, and frictionless.",
+      "funding": "DuPont / Kinetic Chemicals refrigerant research budget.",
+      "critical": true
+    },
+    {
+      "year": "1938–1941",
+      "who": "DuPont research team",
+      "where": "DuPont Jackson Laboratory and Experimental Station, Wilmington, Delaware",
+      "what_they_were_doing": "Characterizing PTFE: resistant to virtually all known chemicals, one of the lowest friction coefficients of any solid, withstands -200°C to +260°C. Patent 2,230,654 filed and granted 1941.",
+      "the_jump": null,
+      "funding": "DuPont internal R&D.",
+      "critical": false
+    },
+    {
+      "year": "1943–1945",
+      "who": "Manhattan Project / U.S. Army Corps of Engineers",
+      "where": "Oak Ridge, Tennessee; Hanford, Washington",
+      "what_they_were_doing": "Using PTFE (classified as 'K-416') to line valves, seals, and gaskets in uranium enrichment equipment. Uniquely capable of withstanding corrosive uranium hexafluoride gas. PTFE's existence was classified for the war's duration.",
+      "the_jump": "Large-scale PTFE manufacturing developed for the Manhattan Project established the industrial processes that made post-war commercialization feasible.",
+      "funding": "U.S. Army Manhattan Engineer District (federal wartime contract).",
+      "critical": true
+    },
+    {
+      "year": "1945–1946",
+      "who": "DuPont Company",
+      "where": "Wilmington, Delaware",
+      "what_they_were_doing": "Declassifying PTFE after WWII and trademarking it as 'Teflon.' Beginning commercial sales for industrial applications at very high prices.",
+      "the_jump": null,
+      "funding": "DuPont commercial operations.",
+      "critical": false
+    },
+    {
+      "year": "1954–1956",
+      "who": "Marc Grégoire (French engineer) and his wife Colette Grégoire",
+      "where": "Paris / suburban France",
+      "what_they_were_doing": "Grégoire used PTFE to coat his fishing tackle. His wife Colette suggested applying it to cooking pans. Grégoire spent two years solving the adhesion problem (PTFE bonds to nothing) using chemical etching on aluminum.",
+      "the_jump": "In 1956 Grégoire founded Tefal (Teflon + aluminium) and sold the first nonstick frying pans — an immediate consumer success. Later acquired by Groupe SEB; remains one of the world's largest cookware manufacturers.",
+      "funding": "Self-funded; later private investment in Tefal.",
+      "critical": true
+    },
+    {
+      "year": "1960s–present",
+      "who": "DuPont, NASA, aerospace and medical industries",
+      "where": "Global",
+      "what_they_were_doing": "Expanding PTFE to aerospace heat shields, joint replacements, Gore-Tex (expanded PTFE, Bob Gore, 1969), semiconductor manufacturing. NASA used Teflon in spacesuits and spacecraft. Global PTFE market exceeded $6 billion annually by 2020.",
+      "the_jump": null,
+      "funding": "Commercial R&D and government contracts.",
+      "critical": false
+    }
+  ],
+  "sources": [
+    "U.S. Patent 2,230,654 — Plunkett, Roy J. 1941. https://patents.google.com/patent/US2230654",
+    "Science History Institute. 'Roy Plunkett and the Discovery of Teflon.' https://www.sciencehistory.org/historical-profile/roy-j-plunkett",
+    "ACS. 'Discovery of Teflon — National Historic Chemical Landmark.' 2014. https://www.acs.org/education/whatischemistry/landmarks/teflon.html",
+    "Tefal Corporate History. https://www.tefal.com/Tefal-story/Our-history",
+    "Rhodes R. 'The Making of the Atomic Bomb.' Simon & Schuster, 1986."
+  ]
+}

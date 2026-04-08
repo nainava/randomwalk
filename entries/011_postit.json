@@ -1,0 +1,88 @@
+{
+  "number": "011",
+  "discovery_name": "Post-it Notes",
+  "tracker_summary": {
+    "invention": "Repositionable pressure-sensitive adhesive notes",
+    "inventor": "Spencer Silver (adhesive, 1968); Art Fry (application concept, 1974); 3M Company (commercialization)",
+    "date": "Adhesive 1968; concept 1974; national launch April 6, 1980",
+    "current_use": "Over 50 billion sold annually in 100+ countries; one of 3M's most profitable product lines",
+    "initial_funding_source": "3M Company internal research budget",
+    "initial_funding_reason": "Developing an ultra-strong structural adhesive for aerospace applications",
+    "chain_length": "7 steps · 12 years"
+  },
+  "the_x": "3M's aerospace adhesive research program trying to create a stronger bonding agent",
+  "the_y": "The Post-it Note — one of the most commercially successful office products in history, born from an adhesive rejected for being too weak",
+  "summary": "3M chemist Spencer Silver set out in 1968 to create a super-strong aerospace adhesive. He created the opposite: microspheres that stuck lightly and could be repositioned without residue. Silver spent years promoting his 'solution without a problem' internally. Six years later, colleague Art Fry sat in church frustrated that his hymnal bookmark kept falling out. He remembered Silver's adhesive. Even then, 3M's marketing resisted for years before a 'Boise Blitz' test market — giving away free samples — achieved a 90% repurchase rate and launched a national product.",
+  "chain": [
+    {
+      "year": "1968",
+      "who": "Dr. Spencer Silver (senior chemist)",
+      "where": "3M Central Research Laboratory, Maplewood (St. Paul), Minnesota",
+      "what_they_were_doing": "Attempting to synthesize a high-strength structural adhesive for aerospace by experimenting with acrylate copolymer microsphere formulations. The goal was maximum bond strength.",
+      "the_jump": "Silver accidentally created an adhesive with the opposite properties: tiny acrylic spheres forming a low-tack, pressure-sensitive bond that peeled off cleanly and could be reapplied without losing effectiveness. It stuck but didn't bond.",
+      "funding": "3M Company internal R&D (Central Research Laboratory budget).",
+      "critical": true
+    },
+    {
+      "year": "1968–1973",
+      "who": "Spencer Silver",
+      "where": "3M Company, Maplewood, Minnesota",
+      "what_they_were_doing": "Evangelizing his adhesive internally through seminars and lobbying product managers. Silver called it a 'solution looking for a problem.' No one could find a use case.",
+      "the_jump": null,
+      "funding": "3M internal. Silver's persistent promotion was only possible because of 3M's culture of tolerating exploratory research.",
+      "critical": false
+    },
+    {
+      "year": "1973",
+      "who": "3M management and product development teams",
+      "where": "3M headquarters, Maplewood, Minnesota",
+      "what_they_were_doing": "Repeatedly evaluating and declining Silver's adhesive. A bulletin board coated with it was trialed internally but generated no commercial interest. The adhesive sat unused.",
+      "the_jump": null,
+      "funding": "3M internal.",
+      "critical": false
+    },
+    {
+      "year": "1974",
+      "who": "Arthur 'Art' Fry (3M product development engineer and choir member)",
+      "where": "North Presbyterian Church, North St. Paul, Minnesota (concept); 3M labs (development)",
+      "what_they_were_doing": "Singing in church choir, frustrated that paper bookmark slips kept falling out of his hymnal. During a Sunday service, recalled attending one of Silver's internal seminars.",
+      "the_jump": "Fry realized a bookmark coated with Silver's adhesive would stay in place but remove cleanly. He prototyped the first adhesive bookmark using 3M's '15% rule' for self-directed projects. The concept evolved from bookmark to general-purpose note.",
+      "funding": "3M Company (Fry used company time under the 15% discretionary research policy).",
+      "critical": true
+    },
+    {
+      "year": "1974–1977",
+      "who": "Art Fry and Spencer Silver",
+      "where": "3M Company, Maplewood, Minnesota",
+      "what_they_were_doing": "Solving manufacturing challenges. Fry reportedly built a coating machine in his home basement. Distributed samples to 3M executives' secretaries — who kept coming back for more. First evidence of organic demand, yet internal marketing studies still predicted no market.",
+      "the_jump": null,
+      "funding": "3M internal. Geoff Nicholson and Joe Ramey provided crucial internal sponsorship.",
+      "critical": false
+    },
+    {
+      "year": "1977–1978",
+      "who": "3M commercial team; Geoff Nicholson",
+      "where": "Four US test cities; then Boise, Idaho",
+      "what_they_were_doing": "Launched as 'Press 'n Peel' in Richmond, Tampa, Tulsa, Denver — results poor because consumers couldn't understand without trying. Then the 'Boise Blitz': flooding Boise with free samples achieved a 90% repurchase rate.",
+      "the_jump": "The Boise test proved consumer sampling — not advertising — was the key. The product needed to be experienced, not described. Four failed test markets almost killed it.",
+      "funding": "3M marketing and commercialization budget.",
+      "critical": true
+    },
+    {
+      "year": "1980",
+      "who": "3M Company",
+      "where": "National US launch April 6, 1980; international rollout followed",
+      "what_they_were_doing": "Renamed from 'Press 'n Peel' to 'Post-it' after consumer feedback. Within a year, 3M's best-selling new product. By 1984, sold in 50 countries. Never required significant reformulation.",
+      "the_jump": "The 12-year journey from Silver's accidental discovery to national launch — through years of internal rejection, a church choir eureka moment, four failed test markets, and one decisive free-sample blitz — is now a canonical innovation case study.",
+      "funding": "3M commercial operations.",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "Nayak PR, Ketteringham JM. 'Breakthroughs!' Rawson Associates. 1986. (Primary-source interviews with Silver and Fry)",
+    "3M Company. 'The History of the Post-it Note.' https://www.3m.com/3M/en_US/post-it-us/contact-us/about-us/",
+    "Silver SM. U.S. Patent 3,691,140. 'Acrylate Copolymer Microspheres.' 1972. https://patents.google.com/patent/US3691140",
+    "Fry A. 'The Post-it Note: An Intrapreneurial Success.' SAM Advanced Management Journal. 1987;52(3):4-9.",
+    "Petroski H. 'The Post-it Note: Stuck on Success.' American Scientist. 2010. https://www.americanscientist.org/article/the-post-it-note"
+  ]
+}

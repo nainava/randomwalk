@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Walk Research — Build Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Playfair+Display:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif; background: #f8f5f0; color: #1a1a1a; padding: 32px; max-width: 1100px; margin: 0 auto; -webkit-font-smoothing: antialiased; }
+  h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 400; color: #1a1a1a; margin-bottom: 4px; }
+  .subtitle { font-size: 11px; color: #8a8a8a; margin-bottom: 28px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .stats-bar { display: flex; gap: 32px; margin-bottom: 28px; padding: 20px 24px; background: #f0ece4; border: 1px solid #e0dbd3; border-radius: 4px; }
+  .stat { text-align: center; }
+  .stat-value { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 400; color: #c1403d; }
+  .stat-value.pending { color: #8a8a8a; }
+  .stat-value.in-progress { color: #b45309; }
+  .stat-label { font-size: 10px; color: #8a8a8a; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; color: #8a8a8a; font-weight: 500; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #e0dbd3; }
+  td { padding: 12px 12px; border-bottom: 1px solid #e0dbd3; }
+  tr:hover { background: #f0ece4; }
+  .status { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 600; }
+  .status-done { background: #f0ece4; color: #2d6a6a; }
+  .status-building { background: #f0ece4; color: #b45309; animation: pulse 2s infinite; }
+  .status-pending { background: #f0ece4; color: #8a8a8a; }
+  .chain-bar { display: flex; gap: 1px; height: 8px; }
+  .chain-step { flex: 1; border-radius: 1px; }
+  .chain-step.filled { background: #c1403d; }
+  .chain-step.critical { background: #b45309; }
+  .chain-step.empty { background: #e0dbd3; }
+  .source-count { color: #5a5a5a; }
+  .refresh-note { font-size: 11px; color: #8a8a8a; margin-top: 20px; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+  .section-label { font-size: 11px; color: #8a8a8a; text-transform: uppercase; letter-spacing: 1px; margin: 28px 0 10px; font-weight: 500; }
+  .suggestions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px; }
+  .suggestion { padding: 10px 12px; background: #f0ece4; border: 1px solid #e0dbd3; border-radius: 4px; font-size: 12px; font-family: 'Crimson Pro', Georgia, serif; }
+  .suggestion.done { border-color: #c1403d; }
+  .suggestion .num { color: #8a8a8a; }
+  .suggestion .name { color: #1a1a1a; font-weight: 500; }
+  .last-updated { font-size: 11px; color: #8a8a8a; position: fixed; bottom: 12px; right: 16px; }
+</style>
+</head>
+<body>
+
+<h1>RANDOM WALK RESEARCH</h1>
+<div class="subtitle">Build Dashboard — Internal</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-value" id="total-done">0</div>
+    <div class="stat-label">Entries Complete</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value in-progress" id="total-building">0</div>
+    <div class="stat-label">Building</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value pending" id="total-pending">10</div>
+    <div class="stat-label">Pending</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value pending" id="total-chains">0</div>
+    <div class="stat-label">Total Chain Steps</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value pending" id="total-sources">0</div>
+    <div class="stat-label">Sources</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value pending" id="suggestions-done">0</div>
+    <div class="stat-label">Suggestions / 40</div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Discovery</th>
+      <th>Status</th>
+      <th>Chain</th>
+      <th>Steps</th>
+      <th>Sources</th>
+      <th>X → Y</th>
+    </tr>
+  </thead>
+  <tbody id="entries-table">
+  </tbody>
+</table>
+
+<div class="section-label" id="suggestions-label" style="display:none;">Additional Discoveries (40)</div>
+<div class="suggestions-grid" id="suggestions-grid"></div>
+
+<div class="refresh-note">Auto-refreshes every 3 seconds from data.js</div>
+<div class="last-updated" id="last-updated"></div>
+
+<script src="data.js"></script>
+<script>
+function render() {
+  if (typeof RANDOM_WALK_DATA === 'undefined') return;
+  const data = RANDOM_WALK_DATA;
+
+  // Stats
+  const entries = data.entries || [];
+  const suggestions = data.suggestions || [];
+  const done = entries.filter(e => e.status === 'done').length;
+  const building = entries.filter(e => e.status === 'building').length;
+  const pending = entries.filter(e => e.status === 'pending').length;
+  const totalChains = entries.reduce((s, e) => s + (e.chain_steps || 0), 0);
+  const totalSources = entries.reduce((s, e) => s + (e.source_count || 0), 0);
+
+  document.getElementById('total-done').textContent = done;
+  document.getElementById('total-building').textContent = building;
+  document.getElementById('total-pending').textContent = pending;
+  document.getElementById('total-chains').textContent = totalChains;
+  document.getElementById('total-sources').textContent = totalSources;
+  document.getElementById('suggestions-done').textContent = suggestions.length;
+
+  // Table
+  const tbody = document.getElementById('entries-table');
+  tbody.innerHTML = entries.map(e => {
+    const statusClass = e.status === 'done' ? 'status-done' : e.status === 'building' ? 'status-building' : 'status-pending';
+    const chainHtml = Array.from({length: e.chain_total || 0}, (_, i) => {
+      const cls = i < (e.chain_steps || 0) ? (e.critical_steps && e.critical_steps.includes(i) ? 'critical' : 'filled') : 'empty';
+      return `<div class="chain-step ${cls}"></div>`;
+    }).join('');
+    return `<tr>
+      <td style="color:#9ca3af">${e.number}</td>
+      <td style="color:#1a1a1a;font-weight:500">${e.name}</td>
+      <td><span class="status ${statusClass}">${e.status}</span></td>
+      <td><div class="chain-bar" style="width:120px">${chainHtml}</div></td>
+      <td>${e.chain_steps || 0}/${e.chain_total || '?'}</td>
+      <td class="source-count">${e.source_count || 0}</td>
+      <td style="color:#6b7280;font-size:11px;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e.xy_summary || ''}</td>
+    </tr>`;
+  }).join('');
+
+  // Suggestions
+  if (suggestions.length > 0) {
+    document.getElementById('suggestions-label').style.display = 'block';
+    document.getElementById('suggestions-grid').innerHTML = suggestions.map((s, i) =>
+      `<div class="suggestion ${s.done ? 'done' : ''}"><span class="num">${i+11}.</span> <span class="name">${s.name}</span></div>`
+    ).join('');
+  }
+
+  document.getElementById('last-updated').textContent = 'Data: ' + (data.last_updated || 'unknown');
+}
+
+render();
+// Auto-refresh
+setInterval(() => {
+  const s = document.createElement('script');
+  s.src = 'data.js?t=' + Date.now();
+  s.onload = render;
+  document.head.appendChild(s);
+}, 3000);
+</script>
+</body>
+</html>

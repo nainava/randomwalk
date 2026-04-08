@@ -1,0 +1,150 @@
+{
+  "number": "003",
+  "discovery_name": "mRNA Vaccines",
+  "tracker_summary": {
+    "invention": "Lipid nanoparticle-encapsulated modified mRNA vaccines",
+    "inventor": "Katalin Karikó and Drew Weissman (key discovery); commercialized via Moderna and BioNTech",
+    "date": "Core discovery: 2005 (modified mRNA); COVID-19 application: 2020–2021",
+    "current_use": "COVID-19 vaccines; pipeline for influenza, RSV, HIV, cancer immunotherapy, and rare genetic diseases",
+    "initial_funding_source": "Hungarian Academy of Sciences (1978–1985); later NIH and American Heart Association grants (repeatedly rejected)",
+    "initial_funding_reason": "Basic research into RNA biology and gene therapy; not specifically targeted at vaccines",
+    "chain_length": "13 steps · 42 years"
+  },
+  "the_x": "Decades of rejected grants, institutional demotion, and basic biochemistry research into how messenger RNA interacts with the innate immune system — work considered a scientific dead end",
+  "the_y": "Two COVID-19 vaccines authorized in under a year, protecting hundreds of millions of people and demonstrating a universal platform for rapid vaccine development",
+  "summary": "In 1978, a young Hungarian biochemist named Katalin Karikó became captivated by the idea that synthetic mRNA could instruct human cells to produce their own medicines. For more than two decades, nearly every institution, grant committee, and peer review panel told her she was wrong. She lost her faculty position at UPenn, was demoted, had her salary cut, and watched her NIH grant applications fail year after year. In 2005, collaborating with Drew Weissman, she discovered that substituting pseudouridine for uridine in synthetic mRNA allowed it to slip past the immune system's sentinels. That single insight — published in Immunity and largely ignored — unlocked mRNA as a therapeutic platform. When SARS-CoV-2 emerged in January 2020, both Moderna and BioNTech had optimized mRNA platforms ready. Pfizer-BioNTech received FDA authorization 326 days after the virus's genome was sequenced.",
+  "chain": [
+    {
+      "year": "1978–1985",
+      "who": "Katalin Karikó",
+      "where": "Biological Research Centre, Hungarian Academy of Sciences, Szeged, Hungary",
+      "what_they_were_doing": "Karikó completed her PhD and began postdoctoral work studying RNA biology, specifically how lipids could deliver RNA into cells. Among the first researchers to take seriously the idea that synthetic mRNA could function therapeutically.",
+      "the_jump": null,
+      "funding": "Hungarian Academy of Sciences state research budget; extremely limited resources.",
+      "critical": true
+    },
+    {
+      "year": "1985",
+      "who": "Katalin Karikó",
+      "where": "Temple University, Philadelphia",
+      "what_they_were_doing": "When Hungary cut funding for her RNA research, Karikó negotiated a postdoctoral position at Temple University. She and her husband sold their car to raise the $900 for plane tickets. She sewed the cash into their daughter's teddy bear to smuggle it past Hungarian border controls.",
+      "the_jump": "NEAR-DEATH MOMENT: Emigration driven entirely by the collapse of state research funding. Without this desperate act, the research stops entirely.",
+      "funding": "Temple University postdoctoral stipend; personal funds from selling family car.",
+      "critical": true
+    },
+    {
+      "year": "1989",
+      "who": "Katalin Karikó",
+      "where": "University of Pennsylvania, School of Medicine",
+      "what_they_were_doing": "Joined UPenn's Department of Neurosurgery as a research assistant professor. Began applying for NIH grants to fund mRNA research. Every single application was rejected. Grant reviewers consistently said mRNA was too unstable, too immunogenic, too impractical.",
+      "the_jump": null,
+      "funding": "Attempted NIH R01 grants — all rejected. Dependent on soft money from whatever lab she could attach herself to.",
+      "critical": true
+    },
+    {
+      "year": "1995",
+      "who": "Katalin Karikó, University of Pennsylvania administration",
+      "where": "University of Pennsylvania",
+      "what_they_were_doing": "After six years of failed grant applications, UPenn demoted Karikó. Her salary was cut. She was told her career was over unless she could secure outside funding. Around the same time, she was diagnosed with cancer.",
+      "the_jump": "NEAR-DEATH MOMENT: Most researchers would have pivoted or left academia. Karikó stayed and kept working, supporting herself by collaborating on other scientists' projects while continuing mRNA work on the side.",
+      "funding": "Reduced UPenn salary; no independent grant funding.",
+      "critical": true
+    },
+    {
+      "year": "1997–1998",
+      "who": "Katalin Karikó and Drew Weissman",
+      "where": "University of Pennsylvania",
+      "what_they_were_doing": "Karikó met immunologist Drew Weissman at a photocopier in the UPenn library. Weissman, from Anthony Fauci's lab at NIH, was working on HIV vaccines. They agreed to collaborate informally. Neither had significant funding for this joint work.",
+      "the_jump": "A chance encounter at a photocopier initiated the collaboration that would solve the central problem of mRNA therapeutics. No grant, no formal program — a hallway conversation.",
+      "funding": "Weissman's NIH-funded HIV vaccine research (adjacent, not directly funding the mRNA collaboration).",
+      "critical": true
+    },
+    {
+      "year": "2005",
+      "who": "Katalin Karikó and Drew Weissman",
+      "where": "University of Pennsylvania",
+      "what_they_were_doing": "Published the breakthrough: 'Suppression of RNA Recognition by Toll-like Receptors: The Impact of Nucleoside Modification' in Immunity. Discovered that substituting pseudouridine for uridine in synthetic mRNA prevented immune system recognition. The modified mRNA was stable, non-immunogenic, and produced dramatically more protein.",
+      "the_jump": "The key scientific leap: the immune system's rejection of synthetic mRNA was not fundamental but an artifact of unmodified nucleosides — correctable by mimicking natural RNA modification patterns. This single paper unlocked the entire field.",
+      "funding": "NIH grants to Weissman's lab (HIV vaccine research); the mRNA-modification work was largely an unfunded side project.",
+      "critical": true
+    },
+    {
+      "year": "2006–2010",
+      "who": "Karikó, Weissman, and UPenn Technology Transfer Office",
+      "where": "University of Pennsylvania",
+      "what_they_were_doing": "Filed patents on modified mRNA technology. Published follow-up papers. The scientific community remained largely skeptical. Major pharmaceutical companies passed on licensing. Karikó continued unable to obtain independent NIH funding.",
+      "the_jump": null,
+      "funding": "NIH (Weissman); UPenn institutional support minimal.",
+      "critical": false
+    },
+    {
+      "year": "2010",
+      "who": "Derrick Rossi",
+      "where": "Harvard Stem Cell Institute, Boston",
+      "what_they_were_doing": "Rossi used pseudouridine-modified mRNA to reprogram adult human cells into stem cells — without viruses. Published in Cell Stem Cell. Immediately recognized the modified mRNA platform itself as enormously commercially valuable. Contacted Robert Langer (MIT) and Noubar Afeyan (Flagship Pioneering). Co-founded Moderna Therapeutics.",
+      "the_jump": "A basic science paper in immunology, ignored by pharma, was read by a stem cell biologist who connected it to a completely different field and immediately saw it as a platform technology. This cross-disciplinary leap created the company that produced one of the two COVID-19 vaccines.",
+      "funding": "Flagship Pioneering venture capital ($4.5 million Series A, 2011).",
+      "critical": true
+    },
+    {
+      "year": "2013",
+      "who": "Uğur Şahin and Özlem Türeci",
+      "where": "BioNTech SE, Mainz, Germany",
+      "what_they_were_doing": "BioNTech licensed UPenn's modified mRNA patents. Karikó herself joined BioNTech as Senior Vice President, finally receiving institutional recognition and resources after decades of marginalization.",
+      "the_jump": "The UPenn IP — rejected by major pharma — was licensed by a German startup focused on cancer immunotherapy. Karikó moved from institutional marginalization to senior leadership.",
+      "funding": "BioNTech private capital; later Pfizer partnership ($185M, 2018) for influenza mRNA vaccines.",
+      "critical": true
+    },
+    {
+      "year": "2017–2019",
+      "who": "Barney Graham, Jason McLellan (NIAID); Moderna research teams",
+      "where": "NIH (NIAID), Bethesda, Maryland; Moderna, Cambridge, Massachusetts",
+      "what_they_were_doing": "Graham and McLellan developed prefusion spike protein stabilization using proline substitutions — originally for MERS-CoV and RSV. Moderna incorporated this into their mRNA vaccine design. Both companies ran Phase I trials for influenza, Zika, CMV vaccines.",
+      "the_jump": "A parallel line of structural biology — prefusion spike stabilization — was developed independently of the mRNA platform. When COVID-19 arrived, these two threads could be combined immediately because both had been developed in advance.",
+      "funding": "NIAID intramural funding; Moderna private capital and BARDA contracts (~$125M for Zika).",
+      "critical": true
+    },
+    {
+      "year": "January 10–11, 2020",
+      "who": "Zhang Yongzhen, Edward Holmes; Moderna and BioNTech design teams",
+      "where": "Shanghai; Moderna Cambridge MA; BioNTech Mainz Germany",
+      "what_they_were_doing": "Zhang Yongzhen publicly released the SARS-CoV-2 genome on GISAID and GitHub. Within 48 hours, Moderna's team had designed the mRNA sequence for their COVID-19 vaccine candidate. BioNTech designed multiple candidates within days.",
+      "the_jump": "Forty-eight hours from genome sequence to vaccine design. Only possible because the modified mRNA platform, lipid nanoparticle delivery, spike stabilization, and manufacturing protocols had all been developed over the preceding decade. The decades of rejected grants paid off in 48 hours.",
+      "funding": "NIAID intramural; Moderna private capital; BioNTech private capital.",
+      "critical": true
+    },
+    {
+      "year": "March–November 2020",
+      "who": "Moderna; Pfizer-BioNTech; Operation Warp Speed",
+      "where": "Cambridge MA; Mainz Germany; global clinical trial sites",
+      "what_they_were_doing": "Operation Warp Speed committed $1.95B each to Moderna and Pfizer-BioNTech. Phase III trials enrolled 30,000+ participants each. Interim results: 94.1% efficacy (mRNA-1273) and 95% efficacy (BNT162b2).",
+      "the_jump": null,
+      "funding": "Operation Warp Speed: $1.95B to Moderna; $1.95B to Pfizer-BioNTech; Pfizer self-funded trial costs (~$2B).",
+      "critical": false
+    },
+    {
+      "year": "December 11–18, 2020",
+      "who": "FDA; Katalin Karikó; Drew Weissman",
+      "where": "FDA, Silver Spring, Maryland",
+      "what_they_were_doing": "FDA granted EUA to Pfizer-BioNTech's BNT162b2 on December 11 — the first mRNA vaccine ever authorized, and the fastest vaccine developed from pathogen identification to authorization (326 days). Moderna's followed December 18. In 2023, Karikó and Weissman received the Nobel Prize in Physiology or Medicine. UPenn, which had demoted Karikó in 1995, named a professorship after her.",
+      "the_jump": "Forty-two years after Karikó began studying RNA in a Szeged laboratory, the technology she refused to abandon — through cancer, demotion, grant rejection, and institutional indifference — was authorized as the fastest vaccine in human history.",
+      "funding": "US government advance purchase agreements ($10B+ total); international COVAX facility.",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "Karikó K, et al. (2005). Suppression of RNA recognition by Toll-like receptors. Immunity, 23(2):165-75. https://doi.org/10.1016/j.immuni.2005.06.008",
+    "Karikó K, et al. (2008). Incorporation of pseudouridine into mRNA. Mol Ther, 16(11):1833-40. https://doi.org/10.1038/mt.2008.200",
+    "Warren L, et al. (2010). Reprogramming with synthetic modified mRNA. Cell Stem Cell, 7(5):618-30. https://doi.org/10.1016/j.stem.2010.08.012",
+    "Baden LR, et al. (2021). Efficacy of mRNA-1273. N Engl J Med, 384(5):403-416. https://doi.org/10.1056/NEJMoa2035389",
+    "Polack FP, et al. (2020). Safety and Efficacy of BNT162b2. N Engl J Med, 383(27):2603-2615. https://doi.org/10.1056/NEJMoa2034577",
+    "Wrapp D, et al. (2020). Cryo-EM structure of 2019-nCoV spike. Science, 367(6483):1260-1263. https://doi.org/10.1126/science.abb2507",
+    "Nobel Prize 2023 Scientific Background. https://www.nobelprize.org/prizes/medicine/2023/advanced-information/",
+    "Kolata G (2021). Kati Karikó Helped Shield the World. NYT. https://www.nytimes.com/2021/04/08/health/coronavirus-mrna-kariko.html",
+    "Garde D, Saltzman J (2020). The story of mRNA. STAT News. https://www.statnews.com/2020/11/10/the-story-of-mrna-how-a-once-dismissed-idea-became-a-leading-technology-in-the-covid-vaccine-race/",
+    "Lasker Foundation 2021 Award. https://laskerfoundation.org/winners/mrna-vaccine-technology/",
+    "Dolgin E (2021). The tangled history of mRNA vaccines. Nature, 597:318-324. https://doi.org/10.1038/d41586-021-02483-w",
+    "FDA EUA letter, Pfizer-BioNTech, Dec 11, 2020. https://www.fda.gov/media/144412/download",
+    "FDA EUA letter, Moderna, Dec 18, 2020. https://www.fda.gov/media/144636/download"
+  ]
+}

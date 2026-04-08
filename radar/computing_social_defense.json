@@ -1,0 +1,1940 @@
+[
+  {
+    "area_name": "Mechanistic Interpretability for Compiler Optimization",
+    "category": "Computing / AI",
+    "description": "Techniques developed to understand neural network internals (circuits, superposition) are being applied to understand what compiler IR transformations a model has 'learned'. This could yield self-documenting compilers and auto-discovered optimization passes that outperform hand-tuned heuristics. The field collision between PL theory and mech-interp is almost entirely unexplored.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 7,
+      "stigma_discount": 3,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 72,
+    "evidence": [
+      "Cummins et al. 'CompilerGym' (Facebook AI, 2021) \u2014 RL for compiler optimization showing learned heuristics",
+      "Noci et al. 'Shaped Attention' (ETH Zurich, 2022) analyzing transformer attention circuits",
+      "LLVM ML-driven inlining work at Google (2020-2023) showing learned passes",
+      "Anthropic mech-interp team's circuit discovery papers (2022-2024)"
+    ],
+    "adjacent_fields": [
+      "Mechanistic interpretability",
+      "Compiler theory",
+      "Program synthesis",
+      "PL semantics"
+    ],
+    "who_is_working_on_this": [
+      "Chris Cummins (Google DeepMind, compiler ML)",
+      "Neel Nanda (Google DeepMind, mech interp)",
+      "Mangpo Phothilimthana (Google Brain, ML for compilers)"
+    ],
+    "random_walk_hypothesis": "A mech-interp analysis of a trained compiler model reveals that it has discovered a provably correct optimization pass unknown to human compiler engineers, leading to a new theorem in program equivalence.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Sparse Autoencoders for Genomic Feature Discovery",
+    "category": "Computing / AI",
+    "description": "Sparse autoencoders (SAEs), developed in AI safety to decompose polysemantic neurons, are structurally identical to dictionary learning problems in genomics. Applying SAE methodology to single-cell RNA-seq latent spaces could disentangle gene expression programs with far greater resolution than existing NMF methods. Almost no one has made this connection explicit.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 9,
+      "funding_valley": 6,
+      "stigma_discount": 2,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 76,
+    "evidence": [
+      "Bricken et al. 'Towards Monosemanticity' (Anthropic, 2023) \u2014 SAE decomposition of MLP layers",
+      "Townes et al. 'Feature selection and dimension reduction for scRNA-seq' (Genome Biology, 2019)",
+      "scVI latent space analysis papers from Yosef lab (Berkeley, 2018-2024)",
+      "Cunningham et al. SAE scaling laws (EleutherAI, 2023)"
+    ],
+    "adjacent_fields": [
+      "AI safety / interpretability",
+      "Single-cell genomics",
+      "Dictionary learning",
+      "Computational biology"
+    ],
+    "who_is_working_on_this": [
+      "Nir Yosef (Weizmann / Berkeley, scRNA-seq methods)",
+      "Tom Henighan (Anthropic, SAE research)",
+      "Early crossover work appearing at NeurIPS ML4H workshops (2024-2025)"
+    ],
+    "random_walk_hypothesis": "SAEs applied to cancer transcriptomics identify a previously unknown cell-state attractor that explains therapy resistance across multiple cancer types \u2014 discovered not by biologists but by an AI safety researcher exploring tool transfer.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Formal Verification of Learned Reward Functions",
+    "category": "Computing / AI",
+    "description": "Formal methods (model checking, theorem provers) have not been systematically applied to verifying properties of learned reward functions in RL systems. Given that reward misspecification is a core AI safety problem, importing Coq/Lean-style verification into RLHF pipelines could provide correctness guarantees currently absent. The gap between formal methods and RL theory communities is surprisingly large.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 8,
+      "funding_valley": 7,
+      "stigma_discount": 3,
+      "regulatory_lag": 5,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 74,
+    "evidence": [
+      "Seshia et al. 'Formal Specification for Deep Neural Networks' (Berkeley, 2018)",
+      "Krakovna et al. 'Avoiding Side Effects in Complex Environments' (DeepMind, 2020)",
+      "Leike et al. reward modeling papers (DeepMind/OpenAI, 2018-2022)",
+      "Verified AI workshop at CAV 2023 \u2014 notable absence of RL reward work"
+    ],
+    "adjacent_fields": [
+      "Formal verification",
+      "Reinforcement learning",
+      "AI alignment",
+      "Type theory"
+    ],
+    "who_is_working_on_this": [
+      "Sanjit Seshia (Berkeley, formal methods for AI)",
+      "David Krueger (Cambridge, AI safety)",
+      "Joar Skalse (Oxford, reward learning theory)"
+    ],
+    "random_walk_hypothesis": "A type-theoretic framework for reward functions reveals that a large class of RLHF reward misspecifications are structurally equivalent to known bugs in distributed systems protocols \u2014 enabling automated reward debugging tools.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Topological Data Analysis for Training Dynamics",
+    "category": "Computing / AI",
+    "description": "Persistent homology and other TDA tools have been applied to static neural network weights but rarely to the dynamic trajectory of training runs. The topology of loss landscape traversal and weight-space paths may predict grokking, phase transitions, and emergent capabilities before they manifest. This is a genuine blind spot at the intersection of algebraic topology and deep learning theory.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 7,
+      "funding_valley": 7,
+      "stigma_discount": 4,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 68,
+    "evidence": [
+      "Naitzat et al. 'Topology of Deep Neural Networks' (U Chicago, 2020)",
+      "Power et al. 'Grokking: Generalization Beyond Overfitting' (OpenAI, 2022)",
+      "Chazal & Michel TDA survey (Inria, 2021) showing under-application in dynamic settings",
+      "Carlsson group (Stanford) TDA tools widely available but rarely used in ML dynamics"
+    ],
+    "adjacent_fields": [
+      "Algebraic topology",
+      "Deep learning theory",
+      "Dynamical systems",
+      "Loss landscape geometry"
+    ],
+    "who_is_working_on_this": [
+      "Gunnar Carlsson (Stanford, TDA foundations)",
+      "Neel Nanda (grokking dynamics)",
+      "Mikail Khona (MIT, neural manifold geometry)"
+    ],
+    "random_walk_hypothesis": "TDA of training trajectories reveals that emergent capabilities correspond to specific topological phase transitions (e.g., first Betti number changes) \u2014 enabling a quantitative 'capability emergence forecast' 10,000 steps before the capability appears.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Causal Abstraction Theory Applied to Model Merging",
+    "category": "Computing / AI",
+    "description": "Causal abstraction (Geiger et al.) provides a mathematical framework for when a high-level causal model is faithfully implemented by a lower-level system. Model merging (SLERP, TIES, DARE) currently lacks theoretical foundations. Applying causal abstraction to understand when merged models preserve causal structure could transform model merging from a black art to an engineering discipline.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 6,
+      "stigma_discount": 3,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 71,
+    "evidence": [
+      "Geiger et al. 'Causal Abstraction for Faithful Model Explanations' (Stanford, 2021-2024)",
+      "Yadav et al. 'TIES-Merging' (Purdue, NeurIPS 2023)",
+      "Yu et al. 'Language Model Arithmetic' (CMU, 2023)",
+      "Ilharco et al. 'Task Arithmetic' (Washington/OpenAI, 2022)"
+    ],
+    "adjacent_fields": [
+      "Causal inference",
+      "Model merging",
+      "Mechanistic interpretability",
+      "Multi-task learning"
+    ],
+    "who_is_working_on_this": [
+      "Atticus Geiger (Stanford/Pr(Ai)SE lab)",
+      "Charles Yu (independent, model merging community)",
+      "Mergekit open-source community (Charles Goddard et al.)"
+    ],
+    "random_walk_hypothesis": "Causal abstraction analysis shows that model merging inadvertently creates models with causal structures absent in either parent \u2014 effectively a form of accidental capability combination that can be deliberately engineered.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Neuromorphic Computing for Real-Time Protein Dynamics",
+    "category": "Computing / AI",
+    "description": "Neuromorphic chips (Intel Loihi, IBM NorthPole) process sparse, event-driven data with extreme energy efficiency \u2014 a profile that matches molecular dynamics simulation data structures. MD simulations of protein conformational changes generate sparse, temporally correlated signals that are poorly matched to GPU architectures. No serious bridge between neuromorphic hardware and MD simulation pipelines exists yet.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 7,
+      "stigma_discount": 2,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 73,
+    "evidence": [
+      "Davies et al. 'Loihi: A Neuromorphic Manycore Processor' (Intel, 2018)",
+      "Jumper et al. AlphaFold2 \u2014 but static structure, not dynamics (DeepMind, 2021)",
+      "Lindorff-Larsen et al. millisecond MD folding (D.E. Shaw Research, 2011) showing compute cost",
+      "IBM NorthPole architecture paper (Science, 2023) \u2014 25x energy efficiency gains"
+    ],
+    "adjacent_fields": [
+      "Neuromorphic computing",
+      "Molecular dynamics",
+      "Computational biophysics",
+      "Computer architecture"
+    ],
+    "who_is_working_on_this": [
+      "Mike Davies (Intel Labs, neuromorphic)",
+      "D.E. Shaw Research group (MD simulation)",
+      "Vijay Pande (a16z bio, formerly Stanford MD)"
+    ],
+    "random_walk_hypothesis": "A neuromorphic MD pipeline achieves 100x energy reduction for protein dynamics simulations, making room-temperature quantum effects in enzyme catalysis computationally tractable to study, leading to a new class of biomimetic catalysts.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Algorithmic Information Theory for Neural Scaling Laws",
+    "category": "Computing / AI",
+    "description": "Kolmogorov complexity and Solomonoff induction provide a theoretical framework for compression and prediction that has never been rigorously applied to empirical neural scaling law derivation. The observed power-law scaling of loss with compute may have a deeper derivation from algorithmic complexity principles that would predict deviation points (scaling cliffs) before they occur.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 6,
+      "funding_valley": 7,
+      "stigma_discount": 4,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 64,
+    "evidence": [
+      "Hoffmann et al. 'Chinchilla' scaling laws (DeepMind, 2022)",
+      "Hutter Prize for text compression \u2014 long-known connection to intelligence",
+      "Deletang et al. 'Language Modeling is Compression' (DeepMind, 2023)",
+      "Li & Vitanyi 'Introduction to Kolmogorov Complexity' \u2014 foundational but rarely cited in ML"
+    ],
+    "adjacent_fields": [
+      "Algorithmic information theory",
+      "Neural scaling",
+      "Statistical learning theory",
+      "Compression"
+    ],
+    "who_is_working_on_this": [
+      "Marcus Hutter (DeepMind, AIXI/AIT)",
+      "Gregoire Deletang (DeepMind, compression-intelligence)",
+      "Jack Rae (DeepMind, scaling)"
+    ],
+    "random_walk_hypothesis": "An AIT-derived scaling law reveals a phase transition at a specific model complexity level where networks begin learning 'meta-algorithmic' patterns \u2014 predicting the exact compute point where chain-of-thought reasoning spontaneously emerges.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Differentiable Logic Programming for Relational Reasoning",
+    "category": "Computing / AI",
+    "description": "Neurosymbolic approaches combining differentiable programming with logic (Problog, DeepProbLog, LNN) remain niche despite solving known failure modes of pure neural approaches on relational tasks. The maturation of JAX-based differentiable programming and advances in logic tensor networks create conditions for a genuine synthesis that has not yet been achieved at scale.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 7,
+      "tool_overhang": 8,
+      "funding_valley": 6,
+      "stigma_discount": 4,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 65,
+    "evidence": [
+      "Manhaeve et al. 'DeepProbLog' (KU Leuven, 2018-2021)",
+      "Riegel et al. 'Logical Neural Networks' (IBM Research, 2020)",
+      "Evans & Grefenstette 'Learning Explanatory Rules from Noisy Data' (DeepMind, 2018)",
+      "Yang et al. 'NLProlog' (UCL, 2020)"
+    ],
+    "adjacent_fields": [
+      "Logic programming",
+      "Differentiable programming",
+      "Inductive logic",
+      "Constraint reasoning"
+    ],
+    "who_is_working_on_this": [
+      "Luc De Raedt (KU Leuven, probabilistic logic)",
+      "Tim Rocktaschel (UCL/DeepMind, NLP + logic)",
+      "Sebastian Riedel (UCL, neurosymbolic)"
+    ],
+    "random_walk_hypothesis": "Differentiable logic programming at scale discovers a class of proofs of mathematical conjectures that are neither human-readable nor standard-neural \u2014 a 'sublogical' reasoning mode that solves IMO-level problems through a mechanism no one anticipated.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Quantum Error Correction Codes for Classical Distributed Systems",
+    "category": "Computing / AI",
+    "description": "Quantum error correction (surface codes, toric codes) are mathematically equivalent to certain problems in distributed consensus and Byzantine fault tolerance. The enormous investment in QEC theory since 2020 has produced code families with properties potentially useful for classical distributed systems reliability \u2014 yet almost no one has made this translation.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 9,
+      "funding_valley": 7,
+      "stigma_discount": 3,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 77,
+    "evidence": [
+      "Fowler et al. 'Surface Codes: Towards Practical Large-Scale Quantum Computation' (2012, 5000+ citations)",
+      "Leverrier et al. 'Quantum Tanner codes' (Inria, 2022) \u2014 good LDPC codes",
+      "Dennis et al. topological quantum memory equivalence to statistical mechanics (2002)",
+      "Lamport's Byzantine generals and algebraic coding theory connections"
+    ],
+    "adjacent_fields": [
+      "Quantum error correction",
+      "Distributed systems",
+      "Coding theory",
+      "Byzantine fault tolerance"
+    ],
+    "who_is_working_on_this": [
+      "Sergey Bravyi (IBM Quantum, QEC)",
+      "Antoine Leverrier (Inria, quantum LDPC)",
+      "No known bridge researchers \u2014 this gap appears genuine"
+    ],
+    "random_walk_hypothesis": "Quantum Tanner codes inspire a new class of classical distributed consensus protocols with provably optimal fault tolerance thresholds, resolving a 20-year open problem in distributed systems theory.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "In-Context Learning as Bayesian Program Induction",
+    "category": "Computing / AI",
+    "description": "In-context learning (ICL) in LLMs is empirically effective but theoretically poorly understood. Bayesian program induction (Tenenbaum et al.) provides a framework where learning from few examples corresponds to posterior inference over program hypotheses. A rigorous unification could explain ICL failure modes and suggest prompt structures that provably maximize posterior probability of correct hypotheses.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 6,
+      "funding_valley": 5,
+      "stigma_discount": 2,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 62,
+    "evidence": [
+      "Lake et al. 'Human-level concept learning through probabilistic program induction' (Science, 2015)",
+      "Akyurek et al. 'What learning algorithm is in-context learning?' (MIT, 2022)",
+      "Xie et al. 'An Explanation of In-Context Learning as Implicit Bayesian Inference' (Stanford, 2021)",
+      "Garg et al. 'What Can Transformers Learn In-Context?' (Stanford, 2022)"
+    ],
+    "adjacent_fields": [
+      "Bayesian program induction",
+      "In-context learning",
+      "Cognitive science",
+      "Program synthesis"
+    ],
+    "who_is_working_on_this": [
+      "Josh Tenenbaum (MIT, program induction)",
+      "Percy Liang (Stanford, ICL theory)",
+      "Ekin Akyurek (MIT, ICL algorithms)"
+    ],
+    "random_walk_hypothesis": "A rigorous Bayesian program induction model of ICL reveals that certain 'weird' prompting techniques (e.g., wrong-label ICL) are actually optimal for specific hypothesis classes \u2014 yielding a principled theory of adversarial prompting and jailbreak resistance.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Stochastic Thermodynamics of Learning Systems",
+    "category": "Computing / AI",
+    "description": "Stochastic thermodynamics (Jarzynski, Crooks) relates free energy dissipation to information processing in physical systems. Applying these fluctuation theorems to SGD dynamics and neural network training could provide fundamental bounds on learning efficiency analogous to Landauer's principle. The physics community has not engaged seriously with modern ML training dynamics despite the mathematical alignment.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 7,
+      "funding_valley": 8,
+      "stigma_discount": 5,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 69,
+    "evidence": [
+      "Seifert 'Stochastic thermodynamics, fluctuation theorems' (Reports on Progress in Physics, 2012)",
+      "Goldt & Engel 'Stochastic thermodynamics of learning' (Physical Review Letters, 2017)",
+      "Zdeborova & Krzakala spin glass / ML connections (IPhT CEA Saclay, 2016-2022)",
+      "England 'Statistical physics of self-replication' (Journal of Chemical Physics, 2013)"
+    ],
+    "adjacent_fields": [
+      "Stochastic thermodynamics",
+      "Statistical physics",
+      "Machine learning theory",
+      "Information theory"
+    ],
+    "who_is_working_on_this": [
+      "Lenka Zdeborova (EPFL, statistical physics of ML)",
+      "Florent Krzakala (ENS Paris, physics of learning)",
+      "Jeremy England (GlaxoSmithKline/MIT, non-equilibrium physics)"
+    ],
+    "random_walk_hypothesis": "Jarzynski equality applied to SGD yields a non-equilibrium free energy bound showing that certain curriculum learning schedules are thermodynamically optimal \u2014 explaining why models trained with specific annealing schedules generalize better, from first principles.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Epigenetic Clocks as Training Signal for Aging Biomarker Models",
+    "category": "Computing / AI",
+    "description": "Epigenetic clocks (Horvath, GrimAge) provide precise biological age estimates that have become the gold standard training signal for aging research. These clocks are now being used as differentiable loss functions in drug screening models \u2014 but the models are not being interrogated for what biological mechanisms they've implicitly learned. Mech-interp tools could extract novel aging biology from these models.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 9,
+      "funding_valley": 6,
+      "stigma_discount": 3,
+      "regulatory_lag": 4,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 72,
+    "evidence": [
+      "Horvath 'DNA methylation age of human tissues and cell types' (Genome Biology, 2013)",
+      "Lu et al. 'DNA methylation GrimAge' (Aging, 2019)",
+      "Gladyshev lab aging models (Harvard, 2021-2024)",
+      "Altos Labs and Retro Biosciences using epigenetic readouts as training signals (2022-2025)"
+    ],
+    "adjacent_fields": [
+      "Epigenetics",
+      "Aging biology",
+      "ML interpretability",
+      "Drug screening"
+    ],
+    "who_is_working_on_this": [
+      "Steve Horvath (Altos Labs, epigenetic clocks)",
+      "Vadim Gladyshev (Harvard, aging computation)",
+      "Morgan Levine (Altos Labs, biological age models)"
+    ],
+    "random_walk_hypothesis": "Mechanistic analysis of an aging prediction model reveals that the 15 most predictive CpG sites correspond to a single, previously uncharacterized transcriptional regulatory hub \u2014 providing a single-target intervention point for reversing biological age.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Geometric Deep Learning for Crystal Defect Engineering",
+    "category": "Computing / AI",
+    "description": "E(3)-equivariant neural networks (SE(3)-Transformers, NequIP, MACE) were built for molecular property prediction but their mathematical foundations equally apply to crystallographic defect structures (dislocations, grain boundaries, vacancies). Defect engineering in semiconductors and structural materials requires exactly the symmetry-aware representations these models provide, yet materials defect applications remain rare.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 9,
+      "funding_valley": 6,
+      "stigma_discount": 2,
+      "regulatory_lag": 2,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 72,
+    "evidence": [
+      "Batzner et al. 'NequIP: E(3)-equivariant neural network potentials' (Nature Communications, 2022)",
+      "Batatia et al. 'MACE' (Cambridge, NeurIPS 2022)",
+      "Larsen et al. dislocation dynamics in metals (DTU, 2020-2023)",
+      "Google DeepMind GNoME materials discovery paper (Nature, 2023) \u2014 defect properties not addressed"
+    ],
+    "adjacent_fields": [
+      "Geometric deep learning",
+      "Materials science",
+      "Crystal defect physics",
+      "Semiconductor engineering"
+    ],
+    "who_is_working_on_this": [
+      "Boris Kozinsky (Harvard, equivariant MLIPs for materials)",
+      "Gabor Csanyi (Cambridge, MACE potentials)",
+      "Julia Korringa-Kohn-Rostoker group work on defects (various institutions)"
+    ],
+    "random_walk_hypothesis": "MACE-style equivariant models trained on grain boundary structures discover a class of dislocation configurations in tungsten that are mechanically stable at fusion-reactor temperatures \u2014 enabling viable plasma-facing materials for compact fusion reactors.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Conformal Prediction for Clinical Decision Support Under Distribution Shift",
+    "category": "Computing / AI",
+    "description": "Conformal prediction provides distribution-free coverage guarantees for predictive models under exchangeability assumptions. Clinical deployment of ML models faces severe distribution shift (hospital to hospital, year to year) which violates exchangeability. Recent weighted conformal prediction methods handle covariate shift rigorously \u2014 yet clinical ML deployment almost universally ignores this literature.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 7,
+      "tool_overhang": 9,
+      "funding_valley": 6,
+      "stigma_discount": 2,
+      "regulatory_lag": 7,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 73,
+    "evidence": [
+      "Tibshirani et al. 'Conformal Prediction Under Covariate Shift' (NeurIPS 2019, Stanford)",
+      "Angelopoulos & Bates 'A Gentle Introduction to Conformal Prediction' (2021, 2000+ citations)",
+      "FDA guidance on AI/ML-based Software as a Medical Device \u2014 no mention of conformal methods (2021-2023)",
+      "Finlayson et al. 'The clinician and dataset shift' (NEJM, 2021) \u2014 identifies problem, not solution"
+    ],
+    "adjacent_fields": [
+      "Conformal prediction",
+      "Clinical AI deployment",
+      "Distribution shift",
+      "Regulatory science"
+    ],
+    "who_is_working_on_this": [
+      "Emmanuel Candes (Stanford, conformal prediction)",
+      "Anastasios Angelopoulos (Berkeley, conformal methods)",
+      "Marzyeh Ghassemi (MIT, clinical ML fairness and shift)"
+    ],
+    "random_walk_hypothesis": "Weighted conformal prediction applied across 50 hospital systems reveals that clinical AI models have systematic distribution shift patterns that correlate with hospital socioeconomic status \u2014 turning a statistical tool into evidence for a structural health equity finding.",
+    "confidence": "high"
+  },
+  {
+    "area_name": "Prediction Markets as Real-Time Macroeconomic Sensors",
+    "category": "Social science / economics",
+    "description": "Decentralized prediction markets (Polymarket, Manifold, Metaculus) now generate continuous probability estimates on geopolitical and economic events at a resolution and latency impossible for traditional indicators. The integration of these market signals into real-time macroeconomic nowcasting models is in its infancy despite their demonstrated calibration advantages over expert surveys.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 7,
+      "tool_overhang": 9,
+      "funding_valley": 6,
+      "stigma_discount": 6,
+      "regulatory_lag": 7,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 73,
+    "evidence": [
+      "Wolfers & Zitzewitz 'Prediction Markets' (JEP, 2004) \u2014 foundational but pre-blockchain",
+      "Polymarket volume exceeded $1B/month in 2024 election cycle",
+      "Tetlock 'Superforecasting' calibration data vs. expert consensus",
+      "Atanasov et al. 'Distilling the Wisdom of Crowds' (Management Science, 2017)"
+    ],
+    "adjacent_fields": [
+      "Prediction markets",
+      "Macroeconomic nowcasting",
+      "Decentralized finance",
+      "Forecasting science"
+    ],
+    "who_is_working_on_this": [
+      "Robin Hanson (GMU, prediction market theory)",
+      "Philip Tetlock (Penn, forecasting)",
+      "Hyun Song Shin (BIS, financial market information)"
+    ],
+    "random_walk_hypothesis": "Real-time prediction market signals replace lagged GDP revisions as primary inputs to central bank policy models, revealing that traditional official statistics have a systematic 6-month lag that has been causing policy overcorrection for decades.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Moral Intuition Elicitation via Adversarial Vignettes",
+    "category": "Social science / economics",
+    "description": "LLMs can generate unlimited precisely-controlled moral vignettes varying single dimensions, enabling large-scale mapping of moral intuition spaces impossible with traditional survey methods. Combining adversarial vignette generation with crowdsourced response collection could reveal the deep structure of moral psychology at a resolution the field has never had, effectively creating a 'moral genome' across populations.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 9,
+      "funding_valley": 5,
+      "stigma_discount": 3,
+      "regulatory_lag": 3,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 72,
+    "evidence": [
+      "Awad et al. 'Moral Machine Experiment' (Nature, 2018) \u2014 40M decisions across 233 countries",
+      "Hendrycks et al. ETHICS benchmark (UC Berkeley, 2021)",
+      "Levine et al. 'The Weirdest People in the World' (Behavioral and Brain Sciences, 2010) \u2014 WEIRD sampling bias",
+      "Graham et al. 'Moral Foundations Theory' \u2014 but limited to 5-6 dimensions"
+    ],
+    "adjacent_fields": [
+      "Moral psychology",
+      "LLM-driven survey methods",
+      "Cross-cultural psychology",
+      "Computational social science"
+    ],
+    "who_is_working_on_this": [
+      "Jonathan Haidt (NYU Stern, moral foundations)",
+      "Edmond Awad (Exeter, Moral Machine follow-ups)",
+      "Iason Gabriel (DeepMind, AI ethics and values)"
+    ],
+    "random_walk_hypothesis": "Adversarial vignette mapping across 50 languages reveals a universal 'moral geometry' with 12 dimensions (not 5-6) where cultural variation is explained by continuous position along shared axes \u2014 overturning moral relativism with a new empirical framework.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Network Epidemiology of Belief Cascades",
+    "category": "Social science / economics",
+    "description": "Epidemiological models (SIR, SEIR) adapted for information diffusion ignore the qualitative content of beliefs \u2014 treating all 'infections' as equivalent. Coupling content-aware LLM embeddings to network epidemiology models could distinguish between belief 'strains' with different transmission and mutation rates, enabling public health-style interventions for epistemic crises.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 7,
+      "funding_valley": 6,
+      "stigma_discount": 5,
+      "regulatory_lag": 6,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 70,
+    "evidence": [
+      "Vosoughi et al. 'The spread of true and false news online' (Science, 2018, MIT)",
+      "Centola 'How Behavior Spreads' (Princeton UP, 2018) \u2014 complex contagion",
+      "Del Vicario et al. echo chambers on Facebook (PNAS, 2016)",
+      "Lewandowsky et al. 'The Misinformation Virus' (Current Directions, 2020)"
+    ],
+    "adjacent_fields": [
+      "Network epidemiology",
+      "Computational social science",
+      "NLP/LLMs",
+      "Political science"
+    ],
+    "who_is_working_on_this": [
+      "Sinan Aral (MIT, social contagion)",
+      "Filippo Menczer (Indiana U, Observatory on Social Media)",
+      "Kate Starbird (UW, crisis misinformation)"
+    ],
+    "random_walk_hypothesis": "Content-aware epidemic models reveal that factually true but emotionally arousing content has higher 'R0' than false content \u2014 upending the 'fake news causes misinformation' narrative and suggesting emotional regulation, not fact-checking, is the correct intervention.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Housing Market Microstructure and Algorithmic Landlords",
+    "category": "Social science / economics",
+    "description": "Algorithmic rent-setting tools (RealPage, Yardi) used by institutional landlords create coordinated pricing dynamics that may constitute tacit collusion without explicit communication. The microstructure finance literature (Glosten-Milgrom, Kyle models) provides tools to analyze information asymmetries in rental markets that housing economists have never applied \u2014 yet DOJ investigations have created rich discovery datasets.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 7,
+      "funding_valley": 5,
+      "stigma_discount": 2,
+      "regulatory_lag": 8,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 74,
+    "evidence": [
+      "DOJ antitrust case against RealPage (filed 2024) \u2014 algorithmic collusion",
+      "Wachter et al. 'Algorithmic Collusion' (Yale Law Journal, 2023)",
+      "Reher & Schwandt 'Algorithmic Pricing and Housing Affordability' (working paper, Chicago Fed 2023)",
+      "Glosten-Milgrom (JF, 1985) \u2014 microstructure model applicable to rental markets"
+    ],
+    "adjacent_fields": [
+      "Market microstructure finance",
+      "Housing economics",
+      "Antitrust law",
+      "Algorithmic pricing"
+    ],
+    "who_is_working_on_this": [
+      "Neale Mahoney (Stanford, antitrust economics)",
+      "Janice Eberly (Northwestern, housing finance)",
+      "Hal Singer (Georgetown, algorithmic collusion)"
+    ],
+    "random_walk_hypothesis": "Microstructure analysis of RealPage pricing data reveals that algorithmic landlord tools function as a 'dark pool' for rental price discovery, with price impacts equivalent to a monopoly \u2014 providing a tractable model for regulating algorithmic pricing across industries.",
+    "confidence": "high"
+  },
+  {
+    "area_name": "Psychedelic-Assisted Therapy Mechanism via Predictive Processing",
+    "category": "Social science / economics",
+    "description": "The predictive processing framework (Friston, Clark) offers a rigorous mechanistic account of why psychedelic states might produce lasting therapeutic change \u2014 by temporarily flattening the precision weighting of prior beliefs, enabling Bayesian model updates that are normally inaccessible. This theoretical bridge between clinical psychiatry and computational neuroscience has clear testable predictions that remain largely untested.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 7,
+      "funding_valley": 7,
+      "stigma_discount": 7,
+      "regulatory_lag": 9,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 80,
+    "evidence": [
+      "Carhart-Harris & Friston 'REBUS and the Anarchic Brain' (Pharmacological Reviews, 2019)",
+      "Davis et al. psilocybin for major depression (JAMA Psychiatry, 2021)",
+      "Timmermann et al. '5-MeO-DMT alters predictive coding' (Frontiers, 2023)",
+      "FDA Breakthrough Therapy designation for psilocybin (COMPASS Pathways, 2018)"
+    ],
+    "adjacent_fields": [
+      "Computational psychiatry",
+      "Predictive processing",
+      "Psychopharmacology",
+      "Clinical psychology"
+    ],
+    "who_is_working_on_this": [
+      "Karl Friston (UCL, predictive processing)",
+      "Robin Carhart-Harris (UCSF, psychedelic neuroscience)",
+      "Christopher Timmermann (Imperial College, psychedelic EEG)"
+    ],
+    "random_walk_hypothesis": "Predictive processing models of psychedelic action identify specific prior belief structures (measured via pre-treatment fMRI) that predict non-responders to psilocybin therapy \u2014 enabling personalized psychedelic treatment selection with >90% response rates.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Computational Analysis of Legal Judgment Consistency",
+    "category": "Social science / economics",
+    "description": "Large databases of court decisions, combined with NLP tools, now make it possible to measure consistency of legal judgment across judges, jurisdictions, and time at scale. The judicial behavior literature (Sunstein, Epstein) has described inconsistency qualitatively but never had tools to measure it quantitatively across millions of decisions. This could reveal systematic rule-of-law failure patterns invisible to traditional legal scholarship.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 7,
+      "tool_overhang": 8,
+      "funding_valley": 6,
+      "stigma_discount": 3,
+      "regulatory_lag": 4,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 67,
+    "evidence": [
+      "Sunstein et al. 'Judging by the Numbers' (Harvard Law Review, 2004)",
+      "Chen et al. 'Decision-Making Under the Gambler's Fallacy' (QJE, 2016) \u2014 lunch effect in sentencing",
+      "CourtListener and PACER digitization \u2014 10M+ federal documents available",
+      "Ash & MacLeod 'Reducing Partisanship in Judicial Elections' (NBER, 2022)"
+    ],
+    "adjacent_fields": [
+      "Legal informatics",
+      "NLP",
+      "Judicial behavior",
+      "Rule of law measurement"
+    ],
+    "who_is_working_on_this": [
+      "Elliott Ash (ETH Zurich, empirical legal studies)",
+      "Daniel Chen (Toulouse School of Economics, judicial ML)",
+      "Adrian Vermeule (Harvard Law, legal theory)"
+    ],
+    "random_walk_hypothesis": "Large-scale consistency analysis of federal circuit court decisions reveals that legal doctrine divergence can be predicted from judge appointment metadata alone with 85% accuracy \u2014 demonstrating that legal reasoning is more politically determined than rule-determined.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Behavioral Economics of AI Interaction Design",
+    "category": "Social science / economics",
+    "description": "The behavioral economics literature on choice architecture and nudging has not been systematically applied to AI interface design, even though conversational AI systems present unprecedented opportunity for behavioral influence. The interaction between known cognitive biases (anchoring, framing, sycophancy susceptibility) and LLM response patterns creates a new domain of 'AI behavioral economics' with significant welfare implications.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 7,
+      "funding_valley": 5,
+      "stigma_discount": 3,
+      "regulatory_lag": 8,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 70,
+    "evidence": [
+      "Thaler & Sunstein 'Nudge' (2008) \u2014 foundational, not applied to AI",
+      "Jakesch et al. 'AI-mediated communication and opinion change' (PNAS, 2023)",
+      "FTC report on 'dark patterns' \u2014 AI interfaces unaddressed",
+      "Bender et al. 'Stochastic Parrots' AI influence concerns (ACL, 2021)"
+    ],
+    "adjacent_fields": [
+      "Behavioral economics",
+      "HCI",
+      "AI safety",
+      "Consumer protection"
+    ],
+    "who_is_working_on_this": [
+      "Richard Thaler (Chicago, nudge theory)",
+      "Lior Strahilevitz (Chicago Law, design and law)",
+      "Arvind Narayanan (Princeton, AI harms)"
+    ],
+    "random_walk_hypothesis": "Systematic measurement of AI interface nudging effects reveals that default response length and hedging language in LLMs systematically shifts user policy preferences on complex issues \u2014 leading to mandatory 'behavioral impact assessments' for AI product releases.",
+    "confidence": "high"
+  },
+  {
+    "area_name": "Macroeconomics of Attention Scarcity",
+    "category": "Social science / economics",
+    "description": "Herbert Simon's attention economy insight has never been formalized into macroeconomic models that account for attention as a scarce factor of production. As AI floods the information environment, attention scarcity becomes the binding constraint on economic productivity \u2014 yet standard growth models (Solow, endogenous growth) have no attention variable. A formal attention-inclusive growth theory could explain secular stagnation and productivity paradoxes.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 5,
+      "funding_valley": 7,
+      "stigma_discount": 5,
+      "regulatory_lag": 3,
+      "geographical_arbitrage": 2
+    },
+    "composite_score": 62,
+    "evidence": [
+      "Simon 'Designing Organizations for an Information-Rich World' (1971) \u2014 attention scarcity",
+      "Goldin & Katz 'The Race Between Education and Technology' (2008) \u2014 human capital in growth",
+      "Brynjolfsson 'IT Productivity Paradox' work (MIT, 2020-2024) \u2014 unexplained productivity gaps",
+      "Wu 'The Attention Merchants' (2017) \u2014 descriptive but not formal"
+    ],
+    "adjacent_fields": [
+      "Growth theory",
+      "Information economics",
+      "Cognitive science",
+      "Platform economics"
+    ],
+    "who_is_working_on_this": [
+      "Erik Brynjolfsson (Stanford, digital economy)",
+      "Matthew Salganik (Princeton, computational social science)",
+      "Tim Wu (Columbia Law, attention economics)"
+    ],
+    "random_walk_hypothesis": "A formal attention-augmented growth model shows that after a critical AI content threshold, human attention becomes the sole binding input to innovation \u2014 predicting a hard ceiling on AI-driven productivity growth that paradoxically requires reducing AI-generated content.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Directed Energy Weapon Atmospheric Propagation Optimization",
+    "category": "Defense / space",
+    "description": "High-energy laser (HEL) effectiveness is severely limited by atmospheric turbulence and thermal blooming, problems that adaptive optics systems partially address. Recent advances in deep learning for wavefront sensing and prediction (using techniques from telescope adaptive optics) could enable real-time turbulence compensation at millisecond timescales. The crossover between astronomy AO and HEL weapons engineering is underexplored.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 8,
+      "funding_valley": 3,
+      "stigma_discount": 2,
+      "regulatory_lag": 3,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 68,
+    "evidence": [
+      "Lukin et al. 'Deep learning wavefront sensing' (Optica, 2022)",
+      "DARPA RELI program \u2014 HEL for counter-drone applications (2020-2025)",
+      "European Extremely Large Telescope SCEXAO adaptive optics architecture",
+      "Vorontsov et al. ML for atmospheric compensation (Army Research Laboratory, 2023)"
+    ],
+    "adjacent_fields": [
+      "Adaptive optics",
+      "Directed energy",
+      "Atmospheric physics",
+      "Deep learning"
+    ],
+    "who_is_working_on_this": [
+      "Mikhail Vorontsov (U Dayton, atmospheric optics + ML)",
+      "Laird Close (U Arizona, astronomical AO)",
+      "Lockheed Martin HELIOS program researchers"
+    ],
+    "random_walk_hypothesis": "Deep learning wavefront prediction trained on astronomical AO data enables HEL systems to pre-compensate for turbulence using wind field predictions \u2014 creating a weapon system that is more effective in adverse atmospheric conditions than in calm ones.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Swarm Intelligence for Satellite Constellation Collision Avoidance",
+    "category": "Defense / space",
+    "description": "With 10,000+ LEO satellites from Starlink, OneWeb, and Chinese constellations, orbital conjunction events require real-time multi-party coordination under adversarial conditions where actors may be reluctant to share true maneuver plans. Mechanism design and distributed optimization (swarm algorithms originally designed for robotics) have not been applied to the orbital traffic management problem despite the structural similarity.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 7,
+      "funding_valley": 5,
+      "stigma_discount": 2,
+      "regulatory_lag": 9,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 73,
+    "evidence": [
+      "LeoLabs conjunction assessment data \u2014 1000+ alerts per day (2024)",
+      "ITU space debris coordination framework \u2014 widely regarded as inadequate",
+      "Dorigo & Stutzle 'Ant Colony Optimization' (MIT Press, 2004) applied to routing",
+      "ESA Space Debris Office reports on Kessler syndrome risk elevation (2023)"
+    ],
+    "adjacent_fields": [
+      "Swarm optimization",
+      "Orbital mechanics",
+      "Mechanism design",
+      "International law"
+    ],
+    "who_is_working_on_this": [
+      "Moriba Jah (UT Austin, space situational awareness)",
+      "Brian Weeden (Secure World Foundation, space governance)",
+      "Marco Dorigo (ULB, swarm intelligence)"
+    ],
+    "random_walk_hypothesis": "A swarm-based orbital traffic protocol proves that decentralized collision avoidance without information sharing is Nash-optimal \u2014 allowing adversarial nations to safely share orbital space without revealing satellite capabilities, resolving a geopolitical deadlock.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Metamaterial Acoustic Signatures for Submarine Detection",
+    "category": "Defense / space",
+    "description": "Acoustic metamaterials (phononic crystals, locally resonant structures) can manipulate sound waves in ways impossible with conventional materials \u2014 including near-perfect anechoic behavior or anomalous scattering. The application of acoustic metamaterial theory to passive submarine detection (exploiting cloaking imperfections or thermal acoustic signatures) represents a nearly unexplored intersection with significant strategic implications.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 7,
+      "funding_valley": 4,
+      "stigma_discount": 2,
+      "regulatory_lag": 2,
+      "geographical_arbitrage": 6
+    },
+    "composite_score": 70,
+    "evidence": [
+      "Cummer et al. 'Controlling sound with acoustic metamaterials' (Nature Reviews Materials, 2016)",
+      "Zhang et al. acoustic cloak demonstrations (Tongji University, 2011, 2019)",
+      "DARPA Ocean of Things program \u2014 distributed ocean sensing (2018-2024)",
+      "Chinese research on underwater acoustic metamaterials (NUDT, 2020-2024) \u2014 heavy publication"
+    ],
+    "adjacent_fields": [
+      "Acoustic metamaterials",
+      "Underwater acoustics",
+      "ASW warfare",
+      "Condensed matter physics"
+    ],
+    "who_is_working_on_this": [
+      "Steven Cummer (Duke, acoustic metamaterials)",
+      "Nicholas Fang (MIT, acoustic and optical metamaterials)",
+      "Chinese NUDT/HUST research groups (undersea acoustics)"
+    ],
+    "random_walk_hypothesis": "Metamaterial cloaking imperfections create a unique 'anti-signature' \u2014 a distinctive negative scattering pattern that is actually more detectable than a conventional submarine \u2014 meaning metamaterial-cloaked submarines are easier to detect if you know the signature.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "In-Situ Resource Utilization for Radiation Shielding on Mars",
+    "category": "Defense / space",
+    "description": "Mars missions face a showstopper radiation problem: GCR and SPE exposure during multi-year missions exceeds NASA career limits. In-situ Martian regolith processing for radiation shielding is under-researched relative to its mission-critical importance. Recent MOXIE success (Mars oxygen production on Perseverance) demonstrates ISRU feasibility, but regolith-based shielding material optimization has seen little systematic study.",
+    "primary_indicator": "funding_valley",
+    "indicator_scores": {
+      "field_collision": 6,
+      "tool_overhang": 6,
+      "funding_valley": 8,
+      "stigma_discount": 2,
+      "regulatory_lag": 3,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 62,
+    "evidence": [
+      "MOXIE (Mars Oxygen ISRU Experiment) \u2014 successful O2 production (NASA, 2021-2023)",
+      "Zeitlin et al. 'Measurements of Energetic Particle Radiation in Transit to Mars' (Science, 2013)",
+      "Rahmanifard et al. radiation risk modeling for crewed Mars mission (Life Sciences in Space, 2020)",
+      "NASA Human Research Program radiation risk reports (2022-2024)"
+    ],
+    "adjacent_fields": [
+      "ISRU",
+      "Radiation physics",
+      "Materials science",
+      "Human spaceflight medicine"
+    ],
+    "who_is_working_on_this": [
+      "Charles Zeitlin (Southwest Research Institute, space radiation)",
+      "Doris Boenhardt (ESA, radiation protection)",
+      "SpaceX life support engineering (Mars architecture teams)"
+    ],
+    "random_walk_hypothesis": "Optimal packing algorithms applied to perchlorated Martian regolith reveal a specific layered composite structure that achieves Earth-equivalent radiation protection at 40% less mass than water shielding \u2014 making a minimal Mars surface habitat feasible within Starship payload constraints.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Autonomous Systems Rules of Engagement via Formal Game Theory",
+    "category": "Defense / space",
+    "description": "As lethal autonomous weapon systems (LAWS) approach deployment readiness, the rules of engagement programming requires a formalism that military lawyers and ethicists cannot currently provide. Formal game theory (mechanism design, correlated equilibria) offers tools to specify verifiable, complete rules-of-engagement programs that could be formally proven to satisfy IHL proportionality constraints \u2014 yet lawyers and game theorists have barely engaged.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 6,
+      "stigma_discount": 4,
+      "regulatory_lag": 9,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 79,
+    "evidence": [
+      "ICRC 'Autonomous Weapon Systems and IHL' report (2014, 2021 updates)",
+      "CCW discussions on LAWS \u2014 no technical framework for verification (2022-2025)",
+      "Roughgarden 'Algorithmic Game Theory' (Cambridge UP, 2007)",
+      "Roff 'The Strategic Robot Problem' (Journal of Military Ethics, 2014)"
+    ],
+    "adjacent_fields": [
+      "Game theory",
+      "International humanitarian law",
+      "Autonomous systems",
+      "Formal verification"
+    ],
+    "who_is_working_on_this": [
+      "Heather Roff (Johns Hopkins SAIS, LAWS ethics)",
+      "Paul Scharre (CNAS, autonomous weapons)",
+      "Tim Roughgarden (Columbia, algorithmic game theory)"
+    ],
+    "random_walk_hypothesis": "A formal game-theoretic IHL compliance framework, when applied to realistic combat scenarios, reveals that IHL-compliant LAWS are actually more strategically effective than unconstrained LAWS \u2014 providing a novel game-theoretic argument for international LAWS regulation that appeals to military strategists.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Lunar Permanently Shadowed Region Volatile Extraction",
+    "category": "Defense / space",
+    "description": "LCROSS and SOFIA confirmed water ice in lunar PSRs, but the physical form of the ice (pore ice, cementing ice, buried layers) critically determines extraction feasibility and is unknown. Mining engineering techniques for permafrost and methane clathrates (Arctic resource extraction) have never been systematically applied to lunar ice extraction planning despite near-perfect technical analogy.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 6,
+      "stigma_discount": 2,
+      "regulatory_lag": 5,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 73,
+    "evidence": [
+      "Colaprete et al. 'Detection of Water in the LCROSS Ejecta Plume' (Science, 2010)",
+      "Hayne et al. 'Global Regolith Thermophysical Properties of the Moon' (JGR, 2017)",
+      "NASA Artemis ISRU plans \u2014 ice extraction methods underdeveloped (2022-2025)",
+      "Arctic permafrost extraction engineering literature (Norwegian and Canadian practice)"
+    ],
+    "adjacent_fields": [
+      "Planetary geology",
+      "Mining engineering",
+      "Cryosphere science",
+      "Space resources"
+    ],
+    "who_is_working_on_this": [
+      "Paul Hayne (CU Boulder, lunar thermal modeling)",
+      "Lunar Resources Inc (startup, ice extraction)",
+      "Pedro Schiuma (ESA ISRU team)"
+    ],
+    "random_walk_hypothesis": "Permafrost extraction modeling reveals that lunar PSR ice exists predominantly as vapor-deposited pore ice at 0.1-1 wt% \u2014 making thermal extraction with low-power resistive heating the optimal method, enabling a 100kg/day water production facility within a 50W power budget.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Cognitive Electronic Warfare via Adversarial ML",
+    "category": "Defense / space",
+    "description": "Modern radar systems use ML-based signal processing for target classification. Adversarial machine learning attacks (FGSM, PGD, physical adversarial patches) designed for vision systems have direct analogs in radar signal space \u2014 yet the radar/EW community has barely engaged with the adversarial ML literature despite obvious implications for electronic countermeasures.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 9,
+      "funding_valley": 4,
+      "stigma_discount": 2,
+      "regulatory_lag": 3,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 75,
+    "evidence": [
+      "Goodfellow et al. 'Explaining and Harnessing Adversarial Examples' (ICLR 2015)",
+      "DARPA CASTLE program (cognitive EW, 2018-2023)",
+      "Kim & Amin 'Adversarial Radar Sensing' (IEEE TGRS, 2021) \u2014 early work",
+      "Chinese PLA research on ML radar classification vulnerabilities (CETC publications, 2022)"
+    ],
+    "adjacent_fields": [
+      "Adversarial ML",
+      "Radar engineering",
+      "Electronic warfare",
+      "Signal processing"
+    ],
+    "who_is_working_on_this": [
+      "Nathan Inkawhich (JHU APL, adversarial RF)",
+      "Bhavya Kailkhura (LLNL, adversarial robustness for defense)",
+      "Siheng Chen (Shanghai Jiaotong, adversarial radar \u2014 Chinese research)"
+    ],
+    "random_walk_hypothesis": "Physical adversarial perturbations applied to aircraft surfaces (specific radar-absorbent material patterns) can fool ML-based ISAR radar classifiers into misidentifying military aircraft as civilian \u2014 creating a new stealth paradigm based on classifier confusion rather than RCS reduction.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Quantum Sensing for Underground Infrastructure Mapping",
+    "category": "Defense / space",
+    "description": "Quantum gravimeters and magnetometers have achieved sensitivities that can, in principle, detect underground tunnels, nuclear facilities, and infrastructure at depth without surface access. The gap between laboratory demonstrations of quantum sensing and field-deployable platforms for military reconnaissance or urban infrastructure mapping is narrowing rapidly, yet almost no transition programs exist.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 7,
+      "tool_overhang": 9,
+      "funding_valley": 5,
+      "stigma_discount": 2,
+      "regulatory_lag": 4,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 70,
+    "evidence": [
+      "Bongs et al. 'Taking atom interferometry into the field' (Nature Reviews Physics, 2019)",
+      "Stray et al. 'Quantum sensing for gravity cartography' (Nature, 2022, Birmingham group)",
+      "DSTL UK quantum gravimeter field trials (2022) \u2014 10cm depth resolution",
+      "DARPA SIGMA+ program \u2014 quantum sensing for physical security"
+    ],
+    "adjacent_fields": [
+      "Quantum sensing",
+      "Geophysics",
+      "Counterproliferation",
+      "Underground facility detection"
+    ],
+    "who_is_working_on_this": [
+      "Kai Bongs (Birmingham, cold atom sensors)",
+      "Mark Kasevich (Stanford, atom interferometry)",
+      "UK DSTL quantum sensing program"
+    ],
+    "random_walk_hypothesis": "Airborne quantum gravimetry achieves sufficient resolution to map underground nuclear facility layouts from commercial aircraft flight paths \u2014 transforming nonproliferation verification from site-access-dependent to standoff surveillance, making covert nuclear programs unverifiable.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Organ-on-Chip Models for Spaceflight Physiology",
+    "category": "Defense / space",
+    "description": "Microgravity causes multi-organ physiological changes (bone loss, fluid shifts, immune dysregulation, vision changes) that are expensive to study in astronauts and poorly recapitulated by bed rest or hindlimb unloading. Organ-on-chip platforms that can be rotated to simulate microgravity gradients could enable high-throughput pharmacological screening for spaceflight countermeasures at a fraction of current costs.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 7,
+      "stigma_discount": 2,
+      "regulatory_lag": 4,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 73,
+    "evidence": [
+      "Ingber lab 'Organs-on-Chips' program (Wyss Institute Harvard, 2010-2024)",
+      "NASA GeneLab spaceflight omics database \u2014 multi-organism data available",
+      "Ronca et al. spaceflight physiology comprehensive review (NPJ Microgravity, 2019)",
+      "SpaceX / Axiom commercial crew health monitoring data (2021-2025)"
+    ],
+    "adjacent_fields": [
+      "Organ-on-chip",
+      "Spaceflight medicine",
+      "Pharmacology",
+      "Microgravity biology"
+    ],
+    "who_is_working_on_this": [
+      "Donald Ingber (Wyss Institute, organ-on-chip)",
+      "Ruth Globus (NASA Ames, bone spaceflight physiology)",
+      "Stem Cell Theranostics / IBEX Biosciences startups"
+    ],
+    "random_walk_hypothesis": "Microgravity organ-on-chip screening identifies an existing FDA-approved drug that prevents spaceflight-associated neuro-ocular syndrome (SANS) \u2014 the vision impairment affecting ~70% of astronauts \u2014 enabling safe year-long deep space missions.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Cephalopod Chromatophore Networks as Programmable Matter Templates",
+    "category": "Cross-cutting",
+    "description": "Cephalopod skin contains distributed chromatophore networks controlled by a decentralized neural architecture with no central processor \u2014 achieving remarkable pattern computation without a 'brain'. This biological system is structurally analogous to reservoir computing and cellular automata. No serious effort to extract the computational architecture for implementation in synthetic programmable matter exists, despite detailed neuroanatomy now being available.",
+    "primary_indicator": "stigma",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 7,
+      "funding_valley": 8,
+      "stigma_discount": 7,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 76,
+    "evidence": [
+      "Hanlon & Messenger 'Cephalopod Behaviour' (Cambridge UP, 2018)",
+      "Turchetti-Maia et al. chromatophore neural control (Journal of Neuroscience, 2020)",
+      "Nakajima et al. reservoir computing in physical systems (Nature Communications, 2015)",
+      "DARPA BRICS (Biological Robustness in Complex Settings) \u2014 cephalopod-inspired work adjacent"
+    ],
+    "adjacent_fields": [
+      "Cephalopod neuroscience",
+      "Reservoir computing",
+      "Programmable matter",
+      "Soft robotics"
+    ],
+    "who_is_working_on_this": [
+      "Roger Hanlon (MBL Woods Hole, cephalopod biology)",
+      "Barbara Webb (Edinburgh, invertebrate neurorobotics)",
+      "Daniela Rus (MIT CSAIL, programmable matter \u2014 not yet cephalopod-inspired)"
+    ],
+    "random_walk_hypothesis": "Mapping cephalopod chromatophore network architecture onto an electronic fabric yields a programmable display/sensor material that performs edge detection and pattern camouflage without any central processor \u2014 enabling adaptive stealth materials for both military and biomedical applications.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Ancient DNA Analysis of Pathogen Virulence Evolution",
+    "category": "Cross-cutting",
+    "description": "Ancient DNA sequencing of plague pathogens from medieval and Bronze Age burial sites is now revealing the evolutionary trajectory of virulence factors at per-century resolution. Combining aDNA pathogen genomics with historical demographic records creates a natural experiment in host-pathogen coevolution that epidemiological models have never had access to \u2014 and could reveal predictive signatures of virulence emergence.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 7,
+      "stigma_discount": 2,
+      "regulatory_lag": 2,
+      "geographical_arbitrage": 6
+    },
+    "composite_score": 77,
+    "evidence": [
+      "Rasmussen et al. 'Early Divergent Strains of Yersinia pestis' (Cell, 2015)",
+      "Spyrou et al. 'Phylogeography of the second plague pandemic' (Nature Communications, 2019)",
+      "Johannes Krause group (MPI Jena, aDNA pathogens) \u2014 extensive output 2018-2024",
+      "Eske Willerslev group (Copenhagen/Cambridge, aDNA methods)"
+    ],
+    "adjacent_fields": [
+      "Ancient DNA",
+      "Evolutionary epidemiology",
+      "Historical demography",
+      "Microbial genomics"
+    ],
+    "who_is_working_on_this": [
+      "Johannes Krause (MPI for Evolutionary Anthropology, Leipzig)",
+      "Hendrik Poinar (McMaster, aDNA pathogens)",
+      "Marcel Keller (MPI Jena, plague aDNA)"
+    ],
+    "random_walk_hypothesis": "aDNA analysis reveals that Yersinia pestis acquired its most lethal virulence factors (pMT1 plasmid) not during the Black Death but during a Bronze Age population bottleneck event \u2014 suggesting virulence evolution is triggered by host genetic diversity collapse, not pathogen-side factors.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Fungal Network Computation for Distributed Logistics",
+    "category": "Cross-cutting",
+    "description": "Mycelial networks solve Steiner tree optimization problems during growth, producing near-optimal transportation networks in environments with complex resource distributions. The computational principles underlying this biological optimization have been partially formalized but never implemented in artificial distributed systems beyond laboratory curiosities. Real-world logistics network design (last-mile delivery, sensor networks) could benefit enormously from mycelial algorithms.",
+    "primary_indicator": "stigma",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 7,
+      "funding_valley": 8,
+      "stigma_discount": 8,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 74,
+    "evidence": [
+      "Tero et al. 'Rules for Biologically Inspired Adaptive Network Design' (Science, 2010)",
+      "Adamatzky 'Fungal Machines' (Springer, 2018) \u2014 programmable mycelium",
+      "Heaton et al. 'Analysis of mycelial network growth' (PNAS, 2012)",
+      "Fricker et al. network analysis of mycelial transport (Annual Review of Plant Biology, 2017)"
+    ],
+    "adjacent_fields": [
+      "Mycology",
+      "Distributed optimization",
+      "Network design",
+      "Swarm computing"
+    ],
+    "who_is_working_on_this": [
+      "Toshiyuki Nakagaki (Hokkaido, Physarum computation)",
+      "Andrew Adamatzky (UWE Bristol, unconventional computing)",
+      "Merlin Sheldrake (independent, fungal networks)"
+    ],
+    "random_walk_hypothesis": "Mycelial growth algorithms, implemented as an anytime distributed routing protocol for drone swarm navigation, outperform all existing methods on the traveling salesman problem in dynamic environments \u2014 winning a DARPA challenge using an algorithm inspired by Armillaria ostoyae.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Gut Microbiome Modulation of Investment Decision-Making",
+    "category": "Cross-cutting",
+    "description": "The gut-brain axis (vagus nerve, microbial metabolite signaling) demonstrably affects risk preference, impulsivity, and emotional regulation. The behavioral economics literature on financial decision-making has never been connected to microbiome research despite the fact that microbiome composition varies systematically with diet, stress, and sleep \u2014 all variables known to affect trading behavior. This is a genuinely unseen connection.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 6,
+      "funding_valley": 8,
+      "stigma_discount": 8,
+      "regulatory_lag": 5,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 75,
+    "evidence": [
+      "Cryan et al. 'The Microbiota-Gut-Brain Axis' (Physiological Reviews, 2019)",
+      "Sudo et al. gut microbiota and stress response (Journal of Physiology, 2004)",
+      "Lo & Repin 'The Psychophysiology of Real-Time Financial Risk Processing' (JCN, 2002)",
+      "Genereux et al. SCFA effects on prefrontal cortex excitability (Nature Neuroscience, 2021)"
+    ],
+    "adjacent_fields": [
+      "Microbiome science",
+      "Neuroeconomics",
+      "Behavioral finance",
+      "Psychophysiology"
+    ],
+    "who_is_working_on_this": [
+      "John Cryan (UCC Cork, gut-brain axis)",
+      "Andrew Lo (MIT, financial psychophysiology)",
+      "No known direct bridge researchers \u2014 highly speculative gap"
+    ],
+    "random_walk_hypothesis": "A controlled microbiome intervention study on professional traders shows that probiotic supplementation with specific Lactobacillus strains reduces loss-aversion bias by 30% \u2014 leading to both a blockbuster probiotic and a new SEC disclosure requirement for trading desk wellness programs.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Acoustic Levitation for Contamination-Free Pharmaceutical Manufacturing",
+    "category": "Cross-cutting",
+    "description": "Acoustic levitation uses standing ultrasonic waves to suspend particles and droplets without container contact \u2014 enabling processing of materials that are contaminated or structurally altered by surface contact. The technology has been demonstrated in space but barely applied to pharmaceutical manufacturing despite solving known problems in protein biologic formulation (denaturation at container surfaces during lyophilization).",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 9,
+      "funding_valley": 7,
+      "stigma_discount": 4,
+      "regulatory_lag": 7,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 74,
+    "evidence": [
+      "Foresti et al. 'Acoustophoretic contactless transport' (PNAS, 2013, ETH Zurich)",
+      "Santesson & Nilsson 'Airborne chemistry: acoustic levitation' (Analytical and Bioanalytical Chemistry, 2004)",
+      "FDA guidance on container-closure integrity for biologics \u2014 surface contact issues noted",
+      "Braun et al. protein aggregation at container surfaces (Pharmaceutical Research, 2022)"
+    ],
+    "adjacent_fields": [
+      "Acoustic physics",
+      "Pharmaceutical manufacturing",
+      "Protein chemistry",
+      "Process engineering"
+    ],
+    "who_is_working_on_this": [
+      "Daniele Foresti (ETH Zurich / Penn, acoustic manipulation)",
+      "Thomas Laurell (Lund, acoustofluidics)",
+      "No known pharmaceutical industry programs \u2014 significant gap"
+    ],
+    "random_walk_hypothesis": "Acoustic levitation processing of mRNA vaccine formulations eliminates lipid nanoparticle aggregation during manufacturing \u2014 increasing yield by 400% and enabling room-temperature storage, making the cold chain requirement obsolete for next-generation mRNA vaccines.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Symbolic AI for Legal Contract Simulation",
+    "category": "Cross-cutting",
+    "description": "Legal contracts are formal specifications of conditional obligations \u2014 a structure directly amenable to temporal logic and model checking. Applying symbolic AI verification tools to contracts before signing could detect conflicts, ambiguities, and scenarios where the contract produces unintended outcomes. The legal technology market has pursued NLP extraction but almost entirely ignored formal verification despite the superior guarantees it provides.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 9,
+      "funding_valley": 6,
+      "stigma_discount": 4,
+      "regulatory_lag": 5,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 73,
+    "evidence": [
+      "Governatori et al. 'Detecting Inconsistencies in Normative Documents' (Artificial Intelligence and Law, 2021)",
+      "Frantz & Nowogrodzki 'Smart contracts from a legal perspective' (SCRIPTed, 2017)",
+      "Clack et al. 'Smart Contract Templates' (UCL, 2016)",
+      "Clarke et al. 'Model Checking' (MIT Press, 2018) \u2014 formal verification methods ready to deploy"
+    ],
+    "adjacent_fields": [
+      "Formal verification",
+      "Legal informatics",
+      "Contract law",
+      "Smart contracts"
+    ],
+    "who_is_working_on_this": [
+      "Guido Governatori (CSIRO, normative systems)",
+      "Christopher Clack (UCL, smart contract templates)",
+      "Nicol\u00e1s Asorey (LegalTech community, contract formalization)"
+    ],
+    "random_walk_hypothesis": "Model checking of standard ISDA master agreements for derivatives reveals a previously unknown class of scenarios where both counterparties have simultaneous valid termination rights \u2014 explaining a class of disputed trades that have cost the industry billions in litigation.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Geospatial Remote Sensing for Informal Economy Measurement",
+    "category": "Cross-cutting",
+    "description": "Night-light satellite data, building footprint ML extraction, and mobile phone mobility data can now measure informal economic activity at resolutions impossible with official statistics. The informal economy represents 30-60% of GDP in developing countries but is largely invisible to policy. Combining these remote sensing signals into calibrated informal economy indices could transform development economics and policy without requiring census infrastructure.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 9,
+      "funding_valley": 6,
+      "stigma_discount": 2,
+      "regulatory_lag": 5,
+      "geographical_arbitrage": 9
+    },
+    "composite_score": 80,
+    "evidence": [
+      "Henderson et al. 'Measuring Economic Growth from Outer Space' (AER, 2012)",
+      "Jean et al. 'Combining satellite imagery and ML to predict poverty' (Science, 2016, Stanford)",
+      "Chi et al. 'Microestimates of wealth for all low- and middle-income countries' (PNAS, 2022)",
+      "ILO informal economy statistics showing 61% of global workforce informal (2018)"
+    ],
+    "adjacent_fields": [
+      "Remote sensing",
+      "Development economics",
+      "Geospatial ML",
+      "Urban informatics"
+    ],
+    "who_is_working_on_this": [
+      "Marshall Burke (Stanford, satellite + economics)",
+      "Joshua Blumenstock (Berkeley, mobile data for development)",
+      "Stefano Caria (Warwick, labor markets in developing economies)"
+    ],
+    "random_walk_hypothesis": "Informal economy satellite indices reveal that the 'missing middle' of firm-size distribution in Sub-Saharan Africa is an artifact of measurement \u2014 informal firms are actually growing normally but are invisible to standard surveys \u2014 overturning decades of development policy focused on the wrong problem.",
+    "confidence": "high"
+  },
+  {
+    "area_name": "Bat Echolocation Algorithms for Autonomous Vehicle Sensor Fusion",
+    "category": "Cross-cutting",
+    "description": "Bats navigate cluttered dynamic environments at high speed using Doppler-shifted echolocation with neural processing far more efficient than any LiDAR + compute stack. The neural encoding of echolocation pulses (FM sweeps, CF tones) and Doppler compensation algorithms have been studied in detail but no serious engineering effort has extracted these algorithms for autonomous vehicle sensor fusion. The cognitive-to-engineering transfer is missing.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 7,
+      "stigma_discount": 5,
+      "regulatory_lag": 4,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 75,
+    "evidence": [
+      "Simmons 'A view of the world through the bat's ear' (Science, 1989)",
+      "Moss & Surlykke 'Probing the natural scene by echolocation in bats' (Frontiers, 2010)",
+      "DARPA BATS program \u2014 bio-inspired sensing (historical)",
+      "Tesla FSD compute architecture \u2014 no bat-inspired algorithmic components"
+    ],
+    "adjacent_fields": [
+      "Bat neurophysiology",
+      "Autonomous vehicles",
+      "Sensor fusion",
+      "Biomimetic algorithms"
+    ],
+    "who_is_working_on_this": [
+      "Cynthia Moss (JHU, bat echolocation neuroscience)",
+      "Herbert Peremans (UAntwerp, bat-inspired robotics)",
+      "Rolf Muller (Virginia Tech, bat sonar geometry)"
+    ],
+    "random_walk_hypothesis": "Bat Doppler neural processing algorithms implemented in automotive ultrasonic arrays provide reliable dynamic obstacle detection in rain and fog conditions where LiDAR and cameras fail \u2014 solving a critical AV safety problem using 1940s-era biology.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Atmospheric CO2 Direct Measurement via Laser Heterodyne Radiometry from CubeSats",
+    "category": "Cross-cutting",
+    "description": "Laser heterodyne radiometry (LHR) can measure atmospheric CO2 column density with unprecedented precision from compact platforms. Deploying LHR instruments on CubeSat constellations could provide per-facility carbon emission monitoring at a cost 100x lower than current GOSAT/OCO-2 missions. The technology exists; the business model and data pipeline to use it for carbon credit verification do not.",
+    "primary_indicator": "regulatory",
+    "indicator_scores": {
+      "field_collision": 7,
+      "tool_overhang": 9,
+      "funding_valley": 6,
+      "stigma_discount": 2,
+      "regulatory_lag": 9,
+      "geographical_arbitrage": 6
+    },
+    "composite_score": 76,
+    "evidence": [
+      "Weidmann et al. 'Atmospheric sounding by laser heterodyne spectroradiometry' (Tellus B, 2007)",
+      "Ehret et al. MERLIN CO2 lidar mission (ESA/CNES, launch 2027)",
+      "WattTime and CarbonMapper satellite emissions work (2022-2024)",
+      "SEC climate disclosure rules \u2014 verification infrastructure absent"
+    ],
+    "adjacent_fields": [
+      "Atmospheric spectroscopy",
+      "CubeSat technology",
+      "Carbon markets",
+      "Remote sensing"
+    ],
+    "who_is_working_on_this": [
+      "Dirk Weidmann (RAL Space, LHR)",
+      "Riley Duren (U Arizona, Carbon Mapper)",
+      "GHGSat commercial satellite emissions monitoring"
+    ],
+    "random_walk_hypothesis": "A CubeSat LHR constellation reveals that 20% of corporate carbon credit retirements are based on emission reductions that satellites show never occurred \u2014 simultaneously destroying the voluntary carbon market and enabling a mandatory, satellite-verified replacement.",
+    "confidence": "high"
+  },
+  {
+    "area_name": "Ferroelectric Polymers for Implantable Piezoelectric Energy Harvesting",
+    "category": "Cross-cutting",
+    "description": "PVDF and related ferroelectric polymers generate electrical charge from mechanical deformation and are biocompatible. Implantable devices (pacemakers, neural probes) currently require batteries with limited lifespans. Harvesting energy from cardiac motion or respiratory movement using implantable PVDF films is technically demonstrated but has never reached clinical translation \u2014 the gap between materials science proof-of-concept and medical device engineering is essentially unfunded.",
+    "primary_indicator": "funding_valley",
+    "indicator_scores": {
+      "field_collision": 7,
+      "tool_overhang": 8,
+      "funding_valley": 9,
+      "stigma_discount": 2,
+      "regulatory_lag": 8,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 74,
+    "evidence": [
+      "Dagdeviren et al. 'Conformal piezoelectric energy harvesting' (PNAS, 2014, Rogers lab)",
+      "Zheng et al. flexible piezoelectric nanogenerators (ACS Nano, 2018)",
+      "Medtronic and Abbott pacemaker battery life limits (5-12 years) \u2014 replacement surgery required",
+      "FDA implantable medical device energy harvesting guidance \u2014 largely absent"
+    ],
+    "adjacent_fields": [
+      "Ferroelectric materials",
+      "Implantable medical devices",
+      "Bioelectronics",
+      "Energy harvesting"
+    ],
+    "who_is_working_on_this": [
+      "John Rogers (Northwestern, flexible bioelectronics)",
+      "Canan Dagdeviren (MIT Media Lab, conformable devices)",
+      "Younan Xia (Georgia Tech, piezoelectric nanomaterials)"
+    ],
+    "random_walk_hypothesis": "An implantable PVDF film harvesting cardiac motion energy achieves sufficient power output to run a closed-loop neural stimulator indefinitely without battery replacement \u2014 enabling always-on Parkinson's DBS therapy and eliminating the most common cause of DBS failure.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Slime Mold Computation for Urban Traffic Optimization",
+    "category": "Cross-cutting",
+    "description": "Physarum polycephalum solves shortest-path and Steiner tree problems physically through protoplasmic flow dynamics. The mathematical structure of these solutions has been formalized but implementation in software for traffic signal control networks has not progressed beyond academic proofs of concept. Urban traffic networks have identical mathematical structure to the problems Physarum solves naturally.",
+    "primary_indicator": "stigma",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 7,
+      "funding_valley": 8,
+      "stigma_discount": 8,
+      "regulatory_lag": 5,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 75,
+    "evidence": [
+      "Tero et al. 'Rules for Biologically Inspired Adaptive Network Design' (Science, 2010) \u2014 Tokyo rail network",
+      "Adamatzky & Jones 'Physarum road planning' (BioSystems, 2010)",
+      "Calafate et al. bio-inspired traffic control survey (Ad Hoc Networks, 2021)",
+      "OpenTrafficSim \u2014 agent-based traffic simulation without biological algorithms"
+    ],
+    "adjacent_fields": [
+      "Unconventional computation",
+      "Urban traffic engineering",
+      "Network optimization",
+      "Biologically-inspired algorithms"
+    ],
+    "who_is_working_on_this": [
+      "Toshiyuki Nakagaki (Future University Hakodate, Physarum computation)",
+      "Andrew Adamatzky (UWE Bristol, Physarum engineering)",
+      "Atsushi Tero (Kyushu U, Physarum mathematical formalization)"
+    ],
+    "random_walk_hypothesis": "Physarum-algorithm traffic signals in a mid-sized city achieve 23% throughput improvement over SCOOT/SCATS adaptive control, at 1% of the compute cost \u2014 deployed first in a Japanese city and ignored by Western traffic engineers for 3 years due to stigma about 'slime mold traffic planning'.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Microfluidic Brain Organoid Vascularization for Drug Testing",
+    "category": "Cross-cutting",
+    "description": "Brain organoids faithfully recapitulate cortical development but lack vasculature \u2014 making them unsuitable for testing drugs that must cross the blood-brain barrier. Microfluidic integration of organoids with perfused vascular networks is technically feasible with existing organ-on-chip platforms but has barely been attempted. This gap is a fundamental barrier to the $50B CNS drug development market.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 6,
+      "stigma_discount": 2,
+      "regulatory_lag": 7,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 74,
+    "evidence": [
+      "Lancaster et al. 'Cerebral organoids model human brain development' (Nature, 2013)",
+      "Pham et al. 'Brain organoids' review \u2014 vascularization as key limitation (Cell Stem Cell, 2018)",
+      "Nashimoto et al. vascularized brain organoids (Biomaterials, 2020) \u2014 early work",
+      "CNS clinical trial failure rates >95% \u2014 attributed partly to poor BBB models"
+    ],
+    "adjacent_fields": [
+      "Brain organoids",
+      "Organ-on-chip",
+      "Blood-brain barrier",
+      "CNS drug development"
+    ],
+    "who_is_working_on_this": [
+      "Madeline Lancaster (MRC-LMB Cambridge, organoid methods)",
+      "Donald Ingber (Wyss, organ-on-chip)",
+      "Benjamin Freedman (UW, kidney organoid vascularization \u2014 translatable approach)"
+    ],
+    "random_walk_hypothesis": "Vascularized brain organoids reveal that a widely-prescribed antidepressant has significant CNS toxicity effects invisible in standard cell assays but apparent when BBB transport is modeled \u2014 triggering a major pharmacovigilance reassessment and transforming CNS drug approval standards.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Archaeological Predictive Modeling via Paleolandscape Reconstruction",
+    "category": "Cross-cutting",
+    "description": "LiDAR, multibeam bathymetry, and paleoclimate models can now reconstruct prehistoric landscape surfaces (river systems, coastlines, vegetation) at high resolution. Combining these with ML-based archaeological site prediction models could reveal where unexcavated major sites likely exist \u2014 prioritizing survey efforts and potentially transforming knowledge of Bronze Age and Paleolithic human dispersal. The data layers exist; systematic integration does not.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 9,
+      "funding_valley": 7,
+      "stigma_discount": 3,
+      "regulatory_lag": 4,
+      "geographical_arbitrage": 7
+    },
+    "composite_score": 76,
+    "evidence": [
+      "Evans et al. LiDAR reveals Angkor urban complex (PNAS, 2016)",
+      "Ardelean et al. Chiquihuite Cave \u2014 pre-Clovis occupation (Nature, 2020)",
+      "Parcak 'Satellite Remote Sensing for Archaeology' (Routledge, 2009)",
+      "Verhagen et al. 'Predictive Archaeological Modeling' (Journal of Arch Method, 2020)"
+    ],
+    "adjacent_fields": [
+      "Remote sensing archaeology",
+      "Paleolandscape modeling",
+      "Machine learning",
+      "Prehistoric human migration"
+    ],
+    "who_is_working_on_this": [
+      "Sarah Parcak (UAB, satellite archaeology)",
+      "Damian Evans (EFEO, LiDAR archaeology)",
+      "Ciprian Ardelean (UAZ, early Americas archaeology)"
+    ],
+    "random_walk_hypothesis": "Paleolandscape ML models predict high archaeological site density in a now-submerged shelf area of the South China Sea; targeted sub-bottom sonar survey finds preserved Pleistocene village structures at 30m depth \u2014 rewriting the settlement history of Southeast Asia.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Liquid Crystal Elastomer Actuators for Soft Robotics at Scale",
+    "category": "Cross-cutting",
+    "description": "Liquid crystal elastomers (LCEs) undergo large, reversible, programmable shape changes in response to light or heat \u2014 without any electrical wiring, controllers, or motors. The materials science has matured significantly since 2018 but scale-up manufacturing and integration into functional robotic systems remains in the lab. LCEs could enable a class of robots with biological actuator density impossible with conventional motors.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 7,
+      "tool_overhang": 9,
+      "funding_valley": 7,
+      "stigma_discount": 3,
+      "regulatory_lag": 2,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 70,
+    "evidence": [
+      "White & Broer 'Programmable and adaptive mechanics with liquid crystal polymer networks' (Nature Materials, 2015)",
+      "Ware et al. voxelated LCE 3D printing (Science, 2015)",
+      "Kotikian et al. LCE soft actuators (Science Advances, 2019, Lewis group Harvard)",
+      "Toyota Research Institute soft robotics program \u2014 conventional actuator focus"
+    ],
+    "adjacent_fields": [
+      "Liquid crystal materials",
+      "Soft robotics",
+      "Smart materials",
+      "Additive manufacturing"
+    ],
+    "who_is_working_on_this": [
+      "Timothy White (CU Boulder, LCE programming)",
+      "Jennifer Lewis (Harvard, multimaterial 3D printing)",
+      "Yoonho Kim (MIT, soft actuators)"
+    ],
+    "random_walk_hypothesis": "Light-programmed LCE actuators in a millimeter-scale robot allow autonomous locomotion through confined spaces using only ambient light gradients \u2014 enabling swarms of untethered, battery-free micro-robots for in-vivo medical applications.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Stress Protein Archaeology: HSP70 Expression in Mummified Tissue",
+    "category": "Cross-cutting",
+    "description": "Heat shock proteins (HSPs) are upregulated in response to diverse physiological stressors (infection, starvation, toxin exposure) and their expression levels are partially preserved in mummified tissue. Reading HSP expression profiles from ancient mummies using proteomics could provide direct evidence of antemortem physiological stress in historical populations \u2014 a completely unexploited intersection of stress biology and bioarchaeology.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 10,
+      "tool_overhang": 8,
+      "funding_valley": 9,
+      "stigma_discount": 6,
+      "regulatory_lag": 3,
+      "geographical_arbitrage": 6
+    },
+    "composite_score": 80,
+    "evidence": [
+      "Warinner et al. ancient proteomics from dental calculus (Nature, 2014)",
+      "Cappelli et al. 'Multi-omics of mummified tissues' (Philosophical Transactions, 2021)",
+      "Buckley et al. ancient protein survival demonstrated (Journal of Proteomics, 2017)",
+      "Coppola et al. HSP70 preservation in fossil specimens \u2014 theoretical basis established"
+    ],
+    "adjacent_fields": [
+      "Ancient proteomics",
+      "Stress biology",
+      "Bioarchaeology",
+      "Paleopathology"
+    ],
+    "who_is_working_on_this": [
+      "Christina Warinner (Harvard/MPI Jena, ancient proteomics)",
+      "Kirsty Penkman (York, ancient protein survival)",
+      "No known HSP-specific ancient tissue researchers \u2014 genuine blank space"
+    ],
+    "random_walk_hypothesis": "HSP expression profiling of Egyptian mummy tissue reveals coordinated multi-stressor signatures consistent with chronic dietary toxin exposure \u2014 pointing to a specific grain storage fungus (not political events) as the physiological driver of Late Period Egyptian demographic decline.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Fluid Dynamics of Crowd Panic for Architecture Safety Certification",
+    "category": "Cross-cutting",
+    "description": "Crowd dynamics during evacuations exhibits fluid mechanical phase transitions (jamming, density waves) that are well-characterized in physics but not integrated into building safety codes. Pedestrian simulation tools (LEGION, Pathfinder) use empirical models that fail at high-density panic conditions precisely where accuracy matters most. Applying non-equilibrium fluid mechanics to emergency exit design could prevent mass casualty events.",
+    "primary_indicator": "regulatory",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 8,
+      "funding_valley": 6,
+      "stigma_discount": 3,
+      "regulatory_lag": 9,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 76,
+    "evidence": [
+      "Helbing et al. 'Simulating dynamical features of escape panic' (Nature, 2000, 2500+ citations)",
+      "Kretz et al. 'Experimental study of pedestrian flow' (Physical Review E, 2006)",
+      "SFPE Handbook \u2014 crowd dynamics section uses pre-2000 models",
+      "Seoul Itaewon Halloween crowd crush (2022) \u2014 159 deaths, predictable by fluid models"
+    ],
+    "adjacent_fields": [
+      "Non-equilibrium fluid mechanics",
+      "Crowd dynamics",
+      "Building safety codes",
+      "Urban design"
+    ],
+    "who_is_working_on_this": [
+      "Dirk Helbing (ETH Zurich, crowd physics)",
+      "Edwin Galea (Greenwich, evacuation simulation)",
+      "Mehdi Moussaid (MPI for Human Development, crowd cognition)"
+    ],
+    "random_walk_hypothesis": "Fluid mechanical analysis of building codes reveals that the standard 'minimum exit width' formula used in 190 countries contains a phase transition error that makes exits approximately 30% too narrow for high-density events \u2014 a regulatory error affecting every sports stadium, concert venue, and airport built since 1952.",
+    "confidence": "high"
+  },
+  {
+    "area_name": "Sonoluminescence-Based Singlet Oxygen Generation for Photodynamic Therapy",
+    "category": "Cross-cutting",
+    "description": "Sonoluminescence generates intense, localized UV/visible light from acoustic cavitation bubbles \u2014 without any external light source. Photodynamic therapy (PDT) requires light delivery to tumors, severely limiting treatment of deep-seated cancers. Using ultrasound-generated sonoluminescence to activate photosensitizers in deep tissue could eliminate the light penetration barrier in PDT \u2014 a field collision that has barely been explored.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 8,
+      "stigma_discount": 6,
+      "regulatory_lag": 6,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 78,
+    "evidence": [
+      "Brenner et al. 'Single-bubble sonoluminescence' (Reviews of Modern Physics, 2002)",
+      "Pogue et al. deep tissue PDT limitations review (Journal of Biomedical Optics, 2006)",
+      "Xu et al. sonodynamic therapy review (Cancer Letters, 2016) \u2014 adjacent work, different mechanism",
+      "Ndiaye et al. sonoluminescence spectrum characterization (Ultrasonics, 2012)"
+    ],
+    "adjacent_fields": [
+      "Sonoluminescence physics",
+      "Photodynamic therapy",
+      "Cancer treatment",
+      "Acoustic medicine"
+    ],
+    "who_is_working_on_this": [
+      "Seth Putterman (UCLA, sonoluminescence physics)",
+      "Brian Pogue (Dartmouth, deep tissue PDT)",
+      "Zhiyu Liu (Chongqing Medical U, sonodynamic therapy \u2014 closest work)"
+    ],
+    "random_walk_hypothesis": "Sonoluminescence activation of a porphyrin photosensitizer achieves complete tumor regression in a pancreatic cancer model using only transcutaneous ultrasound \u2014 a modality that currently has no curative treatment \u2014 with a single clinical-grade ultrasound device.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Phage Engineering for Microbiome-Targeted Mental Health Interventions",
+    "category": "Cross-cutting",
+    "description": "Bacteriophages can selectively eliminate specific bacterial strains with precision impossible for antibiotics or probiotics. The gut-brain axis literature suggests specific bacterial species (Lactobacillus reuteri, certain Prevotella strains) modulate neural circuits underlying depression and anxiety. Engineering phages to precisely sculpt gut microbiome composition for neuropsychiatric benefit has barely been attempted despite the convergence of mature phage engineering and gut-brain axis evidence.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 7,
+      "stigma_discount": 5,
+      "regulatory_lag": 8,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 78,
+    "evidence": [
+      "Duan et al. 'Bacteriophage targeting of gut bacterium attenuates alcoholic liver disease' (Nature, 2019)",
+      "Sherwin et al. 'Gut microbiota and behavior: focus on neuroactive substances' (Current Opinion, 2018)",
+      "Cryan et al. 'The Microbiota-Gut-Brain Axis' (Physiological Reviews, 2019)",
+      "Phage Biotech and Lumen Bioscience \u2014 early phage-microbiome companies, not CNS-focused"
+    ],
+    "adjacent_fields": [
+      "Phage engineering",
+      "Microbiome science",
+      "Neuropsychiatry",
+      "Gut-brain axis"
+    ],
+    "who_is_working_on_this": [
+      "Frederic Bushman (Penn, gut virome)",
+      "John Cryan (UCC, gut-brain axis)",
+      "Timothy Lu (MIT, phage engineering) \u2014 not combined with gut-brain axis"
+    ],
+    "random_walk_hypothesis": "Phage-mediated elimination of Prevotella copri from treatment-resistant depression patients produces antidepressant effects equivalent to SSRIs within 2 weeks \u2014 through a mechanism involving GABA precursor modulation \u2014 creating a new regulatory category of 'psychobiotic phage therapy'.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Computational Folkloristics: LLMs for Cross-Cultural Myth Comparison",
+    "category": "Cross-cutting",
+    "description": "The comparative mythology tradition (Campbell, Propp) has been limited by the analyst's ability to process texts across languages and cultures. LLMs can now process mythological corpora across hundreds of languages simultaneously, enabling quantitative testing of structuralist hypotheses (monomyth, narrative universals) at population-genetic scale. The bridging of computational linguistics and evolutionary anthropology of culture remains underdeveloped.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 9,
+      "funding_valley": 7,
+      "stigma_discount": 6,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 7
+    },
+    "composite_score": 73,
+    "evidence": [
+      "Julien d'Huy 'A phylogenetic approach to mythology' (Scientific American, 2016)",
+      "da Silva & Tehrani 'Comparative phylogenetic analyses' (Royal Society Open Science, 2016)",
+      "Tehrani 'The Phylogeny of Little Red Riding Hood' (PLOS ONE, 2013)",
+      "E-MELD archive \u2014 200+ indigenous language corpora available"
+    ],
+    "adjacent_fields": [
+      "Computational linguistics",
+      "Evolutionary anthropology",
+      "Comparative mythology",
+      "Cultural phylogenetics"
+    ],
+    "who_is_working_on_this": [
+      "Julien d'Huy (CNRS, phylogenetic mythology)",
+      "Jamshid Tehrani (Durham, cultural phylogenetics)",
+      "Quentin Atkinson (Auckland, cultural evolution)"
+    ],
+    "random_walk_hypothesis": "LLM-driven comparative analysis of 3,000 cosmological myths identifies a cluster of flood narratives sharing a unique structural feature found only in populations with specific Y-chromosome haplogroups \u2014 providing narrative-genomic evidence for a specific migration event 15,000 years ago.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Vibroacoustic Phenotyping of Plant Health via Soil Microphone Arrays",
+    "category": "Cross-cutting",
+    "description": "Plants generate acoustic emissions during cavitation events in xylem, pest feeding, and cellular stress responses. Buried microphone arrays could provide real-time, non-destructive crop stress detection days before visual symptoms appear. The precision agriculture sensor market is entirely focused on optical and chemical sensors \u2014 acoustic plant stress monitoring is a virtually unoccupied space despite compelling preliminary evidence.",
+    "primary_indicator": "stigma",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 8,
+      "funding_valley": 8,
+      "stigma_discount": 8,
+      "regulatory_lag": 2,
+      "geographical_arbitrage": 6
+    },
+    "composite_score": 78,
+    "evidence": [
+      "Khait et al. 'Sounds emitted by plants under stress are airborne' (Cell, 2023, Tel Aviv U)",
+      "Tyree & Sperry 'Do woody plants operate near point of catastrophic xylem failure?' (Plant Physiology, 1988)",
+      "Gagliano et al. 'Towards understanding plant bioacoustics' (Trends in Plant Science, 2012)",
+      "John Deere Operations Center \u2014 no acoustic sensor integration (2024)"
+    ],
+    "adjacent_fields": [
+      "Plant bioacoustics",
+      "Precision agriculture",
+      "Signal processing",
+      "Plant physiology"
+    ],
+    "who_is_working_on_this": [
+      "Itzhak Khait / Lilach Hadany (Tel Aviv, plant sounds)",
+      "Monica Gagliano (Southern Cross U, plant bioacoustics)",
+      "No known agricultural company deployments"
+    ],
+    "random_walk_hypothesis": "Acoustic arrays in cornfields detect xylem cavitation signatures specific to early-stage drought stress 10 days before yield loss begins \u2014 enabling precision irrigation interventions that reduce water use by 40% while maintaining yield, validated at scale in Israel and ignored by US agribusiness for 5 years.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Trabecular Bone Microarchitecture as Forensic Lifetime Physical Load Recorder",
+    "category": "Cross-cutting",
+    "description": "Trabecular bone microarchitecture adapts throughout life to habitual mechanical loading patterns, effectively recording lifetime physical activity in three-dimensional structure. Micro-CT analysis combined with ML classification could reconstruct habitual occupational activities of individuals from skeletal remains \u2014 transforming forensic anthropology and bioarchaeology. The ML tools exist; the training datasets and forensic application pipelines do not.",
+    "primary_indicator": "tool_overhang",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 8,
+      "funding_valley": 8,
+      "stigma_discount": 3,
+      "regulatory_lag": 4,
+      "geographical_arbitrage": 5
+    },
+    "composite_score": 72,
+    "evidence": [
+      "Skinner & Kivell 'The role of structural variation in bone functional adaptation' (AJPA, 2019)",
+      "Chirchir et al. 'Recent origin of low trabecular bone density in modern humans' (PNAS, 2015)",
+      "Ryan & Shaw 'Trabecular bone modelling' (Annual Review of Anthropology, 2015)",
+      "Micro-CT imaging \u2014 now accessible at most major research institutions"
+    ],
+    "adjacent_fields": [
+      "Paleoanthropology",
+      "Forensic anthropology",
+      "Bone biomechanics",
+      "ML image classification"
+    ],
+    "who_is_working_on_this": [
+      "Timothy Ryan (Penn State, trabecular bone analysis)",
+      "Matthew Skinner (Kent, hominin trabecular bone)",
+      "Kristian Carlson (USC, locomotion and bone)"
+    ],
+    "random_walk_hypothesis": "ML trabecular analysis of unidentified remains in mass graves reveals population-level occupational profiles inconsistent with the official narrative of a historical event \u2014 providing forensic evidence that resolves a contested atrocity attribution.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Synthetic Gene Circuits for Environmental Biosensing with Dead Man's Switch Architecture",
+    "category": "Cross-cutting",
+    "description": "Engineered bacteria can detect specific environmental contaminants (heavy metals, explosives, pathogens) and produce reporter signals, but field deployment is blocked by biosafety concerns about environmental persistence. Kill-switch gene circuits (toxin-antitoxin, synthetic auxotrophy) have been developed but not systematically combined with contaminant detection architectures. The biosafety engineering and sensing engineering communities rarely interact.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 8,
+      "funding_valley": 7,
+      "stigma_discount": 4,
+      "regulatory_lag": 9,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 75,
+    "evidence": [
+      "Moe-Behrens et al. 'Preparing synthetic biology for the world' (Frontiers Microbiology, 2013)",
+      "Mandell et al. 'Biocontainment of genetically modified organisms' (Nature, 2015, Church lab Harvard)",
+      "Pardee et al. 'Paper-based synthetic gene networks for field diagnostics' (Cell, 2014)",
+      "EPA regulations on environmental release of GMOs \u2014 effectively prohibitive"
+    ],
+    "adjacent_fields": [
+      "Synthetic biology",
+      "Environmental biosensing",
+      "Biosafety engineering",
+      "Regulatory science"
+    ],
+    "who_is_working_on_this": [
+      "George Church (Harvard, biocontainment)",
+      "Ron Weiss (MIT, synthetic gene circuits)",
+      "Keith Pardee (Toronto, paper-based synthetic biology)"
+    ],
+    "random_walk_hypothesis": "A triply-contained biosensor bacterium with redundant kill switches passes EPA review and is deployed for landmine detection in post-conflict zones, detecting TNT 10x more sensitively than dogs \u2014 establishing the first regulatory framework for engineered organism field deployment.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Quantum Biology of Avian Magnetoreception for Navigation Systems",
+    "category": "Cross-cutting",
+    "description": "Evidence accumulates that birds navigate using quantum coherence in cryptochrome proteins, with radical pair mechanisms sensitive to Earth's magnetic field. If confirmed, this represents quantum effects in warm biological systems \u2014 contradicting standard decoherence arguments. The physics of this mechanism, if extracted, could inspire room-temperature quantum sensors for navigation without GPS dependency \u2014 with obvious defense and civilian applications.",
+    "primary_indicator": "stigma",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 7,
+      "funding_valley": 8,
+      "stigma_discount": 7,
+      "regulatory_lag": 2,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 76,
+    "evidence": [
+      "Ritz et al. 'A model for photoreceptor-based magnetoreception in birds' (Biophysical Journal, 2000)",
+      "Hore & Mouritsen 'The radical-pair mechanism of magnetoreception' (Annual Review Biophysics, 2016)",
+      "Wiltschko et al. 'Magnetite-based magnetoreception in birds' (Naturwissenschaften, 2013)",
+      "Xu et al. quantum coherence in cryptochrome (Nature, 2021)"
+    ],
+    "adjacent_fields": [
+      "Quantum biology",
+      "Avian magnetoreception",
+      "Quantum sensing",
+      "GPS-denied navigation"
+    ],
+    "who_is_working_on_this": [
+      "Henrik Mouritsen (Oldenburg, bird magnetoreception)",
+      "Peter Hore (Oxford, radical pair chemistry)",
+      "Thorsten Ritz (UC Irvine, cryptochrome quantum effects)"
+    ],
+    "random_walk_hypothesis": "Synthetic cryptochrome engineered with optimized radical pair geometry achieves magnetic field sensitivity exceeding Earth's field gradient at room temperature \u2014 enabling a biological-principle quantum compass that operates without cryogenics, solving GPS-denied navigation for deep-sea and underground applications.",
+    "confidence": "speculative"
+  },
+  {
+    "area_name": "Phoneme Universals as Training Signal for Low-Resource Language Models",
+    "category": "Cross-cutting",
+    "description": "Phonological universals (Maddieson, UPSID database) document that the world's 7,000 languages draw from a constrained set of phoneme patterns. These universals reflect cognitive and articulatory constraints that could serve as strong structural priors for training ASR and language models on low-resource languages. The computational linguistics community developing low-resource NLP has largely ignored the phonological typology literature despite its direct relevance.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 7,
+      "funding_valley": 6,
+      "stigma_discount": 3,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 8
+    },
+    "composite_score": 71,
+    "evidence": [
+      "Maddieson 'Patterns of Sounds' (Cambridge UP, 1984) \u2014 UPSID phoneme database",
+      "Cysouw & W\u00e4lchli 'Parallel texts: using translational equivalents in linguistic typology' (Language Typology, 2007)",
+      "Conneau et al. 'Unsupervised Cross-lingual Representation Learning' (NeurIPS 2019)",
+      "XTREME benchmark for cross-lingual evaluation \u2014 typology not used as prior"
+    ],
+    "adjacent_fields": [
+      "Phonological typology",
+      "Low-resource NLP",
+      "Cross-lingual transfer",
+      "Cognitive linguistics"
+    ],
+    "who_is_working_on_this": [
+      "Ryan Cotterell (ETH Zurich, linguistic structure in NLP)",
+      "Graham Neubig (CMU, low-resource NLP)",
+      "Steven Bird (Charles Darwin U, endangered language NLP)"
+    ],
+    "random_walk_hypothesis": "Phonological typology priors reduce required training data for a new language ASR system from 100 hours to 3 hours \u2014 enabling deployment for the 2,000 languages currently without any digital tools, and revealing that universal phonological constraints can substitute for data in neural learning.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Ice Core Volcanic Records as Calibration Dataset for Climate Model Emulators",
+    "category": "Cross-cutting",
+    "description": "Ice cores provide a detailed record of volcanic aerosol forcing over 800,000 years \u2014 the most precise natural experiment in climate forcing available. ML climate model emulators trained to reproduce GCM output have never been validated against this paleoclimate constraint set, meaning they may be accurate for 21st century forcing but wrong for high-forcing scenarios. This is a critical validation gap for climate risk assessment.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 8,
+      "tool_overhang": 8,
+      "funding_valley": 6,
+      "stigma_discount": 2,
+      "regulatory_lag": 4,
+      "geographical_arbitrage": 3
+    },
+    "composite_score": 68,
+    "evidence": [
+      "Sigl et al. 'Timing and climate forcing of volcanic eruptions for the past 2,500 years' (Nature, 2015)",
+      "Watson-Parris et al. 'ClimateBench: A benchmark for climate change emulators' (JAMES, 2022)",
+      "Br\u00f6nnimann et al. PAGES 2k climate reconstruction using ice cores (2019)",
+      "Sacks et al. 'Design and analysis of computer experiments' \u2014 emulator validation gaps"
+    ],
+    "adjacent_fields": [
+      "Ice core paleoclimatology",
+      "ML climate emulation",
+      "Volcanology",
+      "Climate risk assessment"
+    ],
+    "who_is_working_on_this": [
+      "Michael Sigl (Bern, ice core volcanology)",
+      "Duncan Watson-Parris (Oxford/Scripps, climate ML)",
+      "Gabriele Hegerl (Edinburgh, detection and attribution)"
+    ],
+    "random_walk_hypothesis": "Validation of climate emulators against volcanic ice core records reveals systematic underestimation of aerosol forcing in existing ML emulators \u2014 implying that geoengineering via stratospheric aerosol injection will be 40% less effective than current models predict, changing the calculus of climate intervention.",
+    "confidence": "medium"
+  },
+  {
+    "area_name": "Cellular Automata Rules Inferred from Reaction-Diffusion Chemistry",
+    "category": "Cross-cutting",
+    "description": "Turing reaction-diffusion patterns (stripes, spots) in animal coat pigmentation follow local-interaction rules mathematically equivalent to cellular automata. The inverse problem \u2014 inferring CA rules from observed natural patterns \u2014 has been solved computationally but the resulting rule sets have never been evaluated as a source of novel CA rules with interesting computational properties. Biological pattern formation is an unexploited source of complex computational rules.",
+    "primary_indicator": "collision",
+    "indicator_scores": {
+      "field_collision": 9,
+      "tool_overhang": 7,
+      "funding_valley": 9,
+      "stigma_discount": 7,
+      "regulatory_lag": 1,
+      "geographical_arbitrage": 4
+    },
+    "composite_score": 73,
+    "evidence": [
+      "Turing 'The Chemical Basis of Morphogenesis' (Philosophical Transactions, 1952)",
+      "Kondo & Miura 'Reaction-Diffusion Model as a Framework for Understanding Biological Pattern Formation' (Science, 2010)",
+      "Wolfram 'A New Kind of Science' \u2014 CA rule space exploration",
+      "Manukyan et al. living CA in lizard skin (Nature, 2017, Geneva)"
+    ],
+    "adjacent_fields": [
+      "Reaction-diffusion theory",
+      "Cellular automata",
+      "Pattern formation biology",
+      "Theoretical computer science"
+    ],
+    "who_is_working_on_this": [
+      "Shigeru Kondo (Osaka, RD pattern formation)",
+      "Michel Milinkovitch (Geneva, biological CA patterns)",
+      "No known bridge to computational CA research"
+    ],
+    "random_walk_hypothesis": "Biologically-derived CA rules from cheetah spot patterns exhibit universal computation properties with lower algorithmic complexity than Conway's Life \u2014 providing both a new model organism for theoretical CS and evidence that biological evolution discovers computationally efficient local rules.",
+    "confidence": "speculative"
+  }
+]

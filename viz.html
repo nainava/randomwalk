@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Walk Visualizations</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #fff;
+    --surface: #f7f8fa;
+    --surface2: #f0f1f3;
+    --border: #e5e7eb;
+    --text: #1a1a1a;
+    --text-dim: #6b7280;
+    --text-muted: #9ca3af;
+    --accent: #0f766e;
+    --gold: #b45309;
+    --red: #dc2626;
+    --blue: #2563eb;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  header { padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
+  header h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+  header .subtitle { font-size: 16px; color: var(--text-dim); font-weight: 400; }
+
+  .viz-nav {
+    display: flex; gap: 0; padding: 32px 0 0;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: var(--bg); z-index: 100;
+  }
+  .viz-tab {
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .viz-tab:hover { color: var(--text-dim); }
+  .viz-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .viz-panel { display: none; padding: 32px 0 48px; }
+  .viz-panel.active { display: block; }
+  .viz-panel h2 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+  .viz-panel .viz-desc { font-size: 14px; color: var(--text-dim); margin-bottom: 24px; max-width: 720px; line-height: 1.7; }
+
+  .viz-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .viz-container svg { display: block; }
+
+  .tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text);
+    max-width: 340px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.15s;
+    line-height: 1.5;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+  .tooltip.visible { opacity: 1; }
+  .tooltip .tt-title { font-weight: 600; margin-bottom: 4px; color: var(--text); }
+  .tooltip .tt-sub { color: var(--text-dim); font-size: 12px; }
+
+  .sankey-link { fill: none; stroke-opacity: 0.2; }
+  .sankey-link:hover { stroke-opacity: 0.5; }
+  .sankey-node text { font-size: 12px; fill: var(--text-dim); font-weight: 500; }
+
+  .node-label { pointer-events: none; }
+  .link-line { stroke-opacity: 0.12; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    padding: 16px 0; margin-bottom: 8px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--text-dim);
+  }
+  .legend-swatch { width: 12px; height: 12px; border-radius: 3px; }
+
+  .arc-path { fill: none; stroke-opacity: 0.18; }
+  .arc-path:hover { stroke-opacity: 0.5; }
+
+  footer { padding: 48px 0; border-top: 1px solid var(--border); text-align: center; }
+  footer p { font-size: 12px; color: var(--text-muted); }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="tooltip" id="tooltip"></div>
+
+<div class="container">
+  <header>
+    <h1>Random Walk Visualizations</h1>
+    <p class="subtitle">51 discoveries where investment in X led to discovery in Y &mdash; seen through four lenses</p>
+  </header>
+
+  <div class="viz-nav">
+    <div class="viz-tab active" data-panel="funding">1. Funding Sources</div>
+    <div class="viz-tab" data-panel="fields">2. Field Migration</div>
+    <div class="viz-tab" data-panel="institutions">3. Institution Types</div>
+    <div class="viz-tab" data-panel="geography">4. Geography</div>
+  </div>
+
+  <!-- Panel 1: Funding Sankey -->
+  <div class="viz-panel active" id="panel-funding">
+    <h2>Where the Money Came From vs. Where the Breakthrough Landed</h2>
+    <p class="viz-desc">Each flow traces funding sources through discovery mechanisms to outcome industries. The width of each band shows how many discoveries share that path.</p>
+    <div id="legend-funding" class="legend"></div>
+    <div class="viz-container" id="viz-funding"></div>
+  </div>
+
+  <!-- Panel 2: Field Migration Force Graph -->
+  <div class="viz-panel" id="panel-fields">
+    <h2>The Knowledge Web</h2>
+    <p class="viz-desc">Each node is a domain of knowledge. Links connect origin domains to outcome domains &mdash; each link is a discovery that jumped between them. Thicker links mean more discoveries crossed that gap. The node color shifts from teal (mostly an origin) to purple (mostly a destination). Drag nodes to explore.</p>
+    <div id="legend-fields" class="legend"></div>
+    <div class="viz-container" id="viz-fields"></div>
+  </div>
+
+  <!-- Panel 3: Institution Types Arc Diagram -->
+  <div class="viz-panel" id="panel-institutions">
+    <h2>Who Hosts the Random Walk?</h2>
+    <p class="viz-desc">Each arc connects an institution type to an outcome industry. The height and thickness of the arc reflects how many random walks share that path, colored by mechanism.</p>
+    <div id="legend-institutions" class="legend"></div>
+    <div class="viz-container" id="viz-institutions"></div>
+  </div>
+
+  <!-- Panel 4: Geography Chord Diagram -->
+  <div class="viz-panel" id="panel-geography">
+    <h2>Geography of Serendipity</h2>
+    <p class="viz-desc">Each ribbon connects a country of origin to an outcome industry. The thickness represents the number of discoveries flowing through that connection.</p>
+    <div id="legend-geography" class="legend"></div>
+    <div class="viz-container" id="viz-geography"></div>
+  </div>
+
+  <footer>
+    <p><a href="file:///Users/aravarma/randomwalk/index.html">&larr; Back to Random Walk Research</a></p>
+  </footer>
+</div>
+
+<script src="viz_tags.js"></script>
+<script>
+(function() {
+  // --- Tab switching ---
+  const tabs = document.querySelectorAll('.viz-tab');
+  const panels = document.querySelectorAll('.viz-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+    });
+  });
+
+  // --- Tooltip ---
+  const tooltip = document.getElementById('tooltip');
+  function showTip(evt, html) {
+    tooltip.innerHTML = html;
+    tooltip.classList.add('visible');
+    const x = Math.min(evt.clientX + 14, window.innerWidth - 360);
+    const y = Math.min(evt.clientY - 10, window.innerHeight - 120);
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+  }
+  function hideTip() { tooltip.classList.remove('visible'); }
+
+  // --- Color palettes ---
+  const mechColors = {
+    serendipity: '#0f766e',
+    failed_experiment: '#b45309',
+    cross_pollination: '#6d28d9',
+    analogy: '#7c3aed',
+    side_effect: '#dc2626',
+    tool_migration: '#059669',
+    misapplication: '#db2777'
+  };
+  const mechLabels = {
+    serendipity: 'Serendipity',
+    failed_experiment: 'Failed Experiment',
+    cross_pollination: 'Cross-Pollination',
+    analogy: 'Analogy',
+    side_effect: 'Side Effect',
+    tool_migration: 'Tool Migration',
+    misapplication: 'Misapplication'
+  };
+
+  // Category colors for the knowledge web
+  const catColors = {
+    'Biology & Life Sciences': '#059669',
+    'Military & Defense': '#64748b',
+    'Chemistry & Materials': '#d97706',
+    'Physics & Astronomy': '#2563eb',
+    'Medicine & Drug Development': '#dc2626',
+    'Computing & AI': '#7c3aed',
+    'Engineering': '#0891b2',
+    'Agriculture & Food': '#65a30d',
+    'Energy': '#ea580c',
+    'Consumer & Industrial': '#be185d',
+    'Neuroscience & Brain': '#c026d3'
+  };
+
+  function fundingCategory(src) {
+    const s = src.toLowerCase();
+    if (/nih|nsf|darpa|arpa|military|navy|us gov|los alamos|us military/.test(s)) return 'US Government';
+    if (/british|uk science|epsrc|french|german|hungarian|japanese|spanish|swedish|danish|australian/.test(s)) return 'Foreign Government';
+    if (/personal|self/.test(s)) return 'Self-funded';
+    if (/university|college|johns hopkins|caltech|oxford|stanford|rice|michigan|chicago|buffalo|montreal|manchester|humboldt|pneumatic/.test(s)) return 'University';
+    if (/cifar|howard hughes|hhmi|rockefeller|nonprofit/.test(s)) return 'Foundation / Nonprofit';
+    return 'Corporate';
+  }
+
+  function primaryGeo(geo) {
+    if (!geo) return 'Unknown';
+    const g = geo.split('/')[0].trim();
+    if (g === 'US' || g === 'USA') return 'United States';
+    if (g === 'UK') return 'United Kingdom';
+    return g;
+  }
+
+  // ============================================================
+  // PANEL 1: FUNDING SANKEY
+  // ============================================================
+  function buildFundingSankey() {
+    const width = 1152, height = 640;
+    const svg = d3.select('#viz-funding')
+      .append('svg').attr('width', width).attr('height', height);
+
+    // Build flows: Funding Category -> Mechanism -> Outcome Industry
+    const flows = [];
+    VIZ_TAGS.forEach(d => {
+      const cats = new Set(d.funding_sources.map(fundingCategory));
+      cats.forEach(cat => {
+        flows.push({
+          source: cat,
+          via: mechLabels[d.mechanism] || d.mechanism,
+          target: d.outcome_industry,
+          entry: d
+        });
+      });
+    });
+
+    const nodeNames = new Set();
+    const linkMap = {};
+    flows.forEach(f => {
+      nodeNames.add(f.source);
+      nodeNames.add('m_' + f.via);
+      nodeNames.add(f.target);
+      const k1 = f.source + '|||m_' + f.via;
+      linkMap[k1] = (linkMap[k1] || 0) + 1;
+      const k2 = 'm_' + f.via + '|||' + f.target;
+      linkMap[k2] = (linkMap[k2] || 0) + 1;
+    });
+
+    const nodeArr = Array.from(nodeNames);
+    const nodeIndex = {};
+    nodeArr.forEach((n, i) => nodeIndex[n] = i);
+
+    const links = Object.entries(linkMap).map(([k, v]) => {
+      const [s, t] = k.split('|||');
+      return { source: nodeIndex[s], target: nodeIndex[t], value: v };
+    });
+
+    const sankeyGen = d3.sankey()
+      .nodeId(d => d.index)
+      .nodeWidth(16)
+      .nodePadding(16)
+      .nodeAlign(d3.sankeyLeft)
+      .extent([[48, 24], [width - 48, height - 24]]);
+
+    const graph = sankeyGen({
+      nodes: nodeArr.map((n, i) => ({ name: n, index: i })),
+      links: links
+    });
+
+    const colColors = { left: '#0f766e', mid: '#b45309', right: '#2563eb' };
+
+    function nodeColor(n) {
+      const name = n.name || '';
+      if (name.startsWith('m_')) {
+        const mech = name.slice(2);
+        const key = Object.entries(mechLabels).find(([k,v]) => v === mech);
+        return key ? mechColors[key[0]] : colColors.mid;
+      }
+      if (['US Government','Foreign Government','Self-funded','University','Foundation / Nonprofit','Corporate'].includes(name)) return colColors.left;
+      return colColors.right;
+    }
+
+    svg.append('g')
+      .selectAll('path')
+      .data(graph.links)
+      .join('path')
+        .attr('class', 'sankey-link')
+        .attr('d', d3.sankeyLinkHorizontal())
+        .attr('stroke', d => nodeColor(d.source))
+        .attr('stroke-width', d => Math.max(1.5, d.width))
+        .on('mouseover', function(evt, d) {
+          d3.select(this).attr('stroke-opacity', 0.5);
+          const sn = (d.source.name || '').replace(/^m_/, '');
+          const tn = (d.target.name || '').replace(/^m_/, '');
+          showTip(evt, `<div class="tt-title">${sn} &rarr; ${tn}</div><div class="tt-sub">${d.value} discover${d.value > 1 ? 'ies' : 'y'}</div>`);
+        })
+        .on('mousemove', function(evt) {
+          tooltip.style.left = Math.min(evt.clientX + 14, window.innerWidth - 360) + 'px';
+          tooltip.style.top = (evt.clientY - 10) + 'px';
+        })
+        .on('mouseout', function() { d3.select(this).attr('stroke-opacity', 0.2); hideTip(); });
+
+    const node = svg.append('g')
+      .selectAll('g')
+      .data(graph.nodes)
+      .join('g')
+        .attr('class', 'sankey-node');
+
+    node.append('rect')
+      .attr('x', d => d.x0)
+      .attr('y', d => d.y0)
+      .attr('width', d => d.x1 - d.x0)
+      .attr('height', d => Math.max(1, d.y1 - d.y0))
+      .attr('fill', nodeColor)
+      .attr('rx', 2);
+
+    node.append('text')
+      .attr('x', d => d.x0 < width / 3 ? d.x1 + 8 : d.x0 - 8)
+      .attr('y', d => (d.y0 + d.y1) / 2)
+      .attr('dy', '0.35em')
+      .attr('text-anchor', d => d.x0 < width / 3 ? 'start' : 'end')
+      .text(d => (d.name || '').replace(/^m_/, ''))
+      .attr('fill', '#374151')
+      .attr('font-size', '12px')
+      .attr('font-weight', '500');
+
+    document.getElementById('legend-funding').innerHTML = [
+      { color: colColors.left, label: 'Funding Source' },
+      { color: colColors.mid, label: 'Discovery Mechanism' },
+      { color: colColors.right, label: 'Outcome Industry' }
+    ].map(l => `<div class="legend-item"><div class="legend-swatch" style="background:${l.color}"></div>${l.label}</div>`).join('');
+  }
+
+  // ============================================================
+  // PANEL 2: FIELD MIGRATION FORCE GRAPH (KNOWLEDGE WEB)
+  // ============================================================
+  function buildFieldForce() {
+    const width = 1152, height = 800;
+    const svg = d3.select('#viz-fields')
+      .append('svg').attr('width', width).attr('height', height);
+
+    // Use categories for the main graph, but track granular fields for tooltips
+    const catSet = new Set();
+    const linkKey = {};
+    const linkEntries = {};
+
+    VIZ_TAGS.forEach(d => {
+      const o = d.origin_category;
+      const t = d.outcome_category;
+      catSet.add(o);
+      catSet.add(t);
+      const key = o + '||' + t; // directed
+      linkKey[key] = (linkKey[key] || 0) + 1;
+      if (!linkEntries[key]) linkEntries[key] = [];
+      linkEntries[key].push(d);
+    });
+
+    const nodes = Array.from(catSet).map(cat => {
+      let asOrigin = 0, asOutcome = 0;
+      VIZ_TAGS.forEach(d => {
+        if (d.origin_category === cat) asOrigin++;
+        if (d.outcome_category === cat) asOutcome++;
+      });
+      return { id: cat, asOrigin, asOutcome, total: asOrigin + asOutcome };
+    });
+
+    // Build links (combine both directions into single undirected link for force, but keep direction for rendering)
+    const undirectedMap = {};
+    Object.entries(linkKey).forEach(([key, count]) => {
+      const [o, t] = key.split('||');
+      const ukey = [o, t].sort().join('||');
+      if (!undirectedMap[ukey]) undirectedMap[ukey] = { source: o, target: t, value: 0, entries: [], directed: {} };
+      undirectedMap[ukey].value += count;
+      undirectedMap[ukey].entries.push(...linkEntries[key]);
+      undirectedMap[ukey].directed[key] = count;
+    });
+
+    const links = Object.values(undirectedMap);
+
+    // Self-loops (same category origin and outcome)
+    const selfLoops = links.filter(l => l.source === l.target);
+    const nonSelfLinks = links.filter(l => l.source !== l.target);
+
+    const sim = d3.forceSimulation(nodes)
+      .force('link', d3.forceLink(nonSelfLinks).id(d => d.id).distance(d => 220 - d.value * 12).strength(d => 0.3 + d.value * 0.05))
+      .force('charge', d3.forceManyBody().strength(-600))
+      .force('center', d3.forceCenter(width / 2, height / 2))
+      .force('collision', d3.forceCollide().radius(d => Math.sqrt(d.total) * 12 + 20))
+      .force('x', d3.forceX(width / 2).strength(0.03))
+      .force('y', d3.forceY(height / 2).strength(0.03));
+
+    // Arrowhead marker
+    svg.append('defs').append('marker')
+      .attr('id', 'arrowhead')
+      .attr('viewBox', '0 0 10 6')
+      .attr('refX', 10).attr('refY', 3)
+      .attr('markerWidth', 8).attr('markerHeight', 5)
+      .attr('orient', 'auto')
+      .append('path')
+        .attr('d', 'M0,0 L10,3 L0,6 Z')
+        .attr('fill', '#9ca3af');
+
+    // Links
+    const linkG = svg.append('g');
+    const link = linkG.selectAll('path')
+      .data(nonSelfLinks)
+      .join('path')
+        .attr('class', 'link-line')
+        .attr('fill', 'none')
+        .attr('stroke', '#9ca3af')
+        .attr('stroke-width', d => Math.sqrt(d.value) * 3)
+        .attr('marker-end', 'url(#arrowhead)');
+
+    // Self-loop indicators (drawn as small loops on the node)
+    const selfLoopG = svg.append('g');
+
+    // Nodes
+    const nodeG = svg.append('g');
+    const node = nodeG.selectAll('g')
+      .data(nodes)
+      .join('g')
+        .call(d3.drag()
+          .on('start', (evt, d) => { if (!evt.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+          .on('drag', (evt, d) => { d.fx = evt.x; d.fy = evt.y; })
+          .on('end', (evt, d) => { if (!evt.active) sim.alphaTarget(0); d.fx = null; d.fy = null; })
+        );
+
+    const nodeRadius = d => Math.sqrt(d.total) * 10 + 8;
+
+    node.append('circle')
+      .attr('r', nodeRadius)
+      .attr('fill', d => catColors[d.id] || '#6b7280')
+      .attr('fill-opacity', 0.15)
+      .attr('stroke', d => catColors[d.id] || '#6b7280')
+      .attr('stroke-width', 2);
+
+    // Count label inside circle
+    node.append('text')
+      .attr('text-anchor', 'middle')
+      .attr('dy', '0.35em')
+      .attr('font-size', d => Math.min(18, 11 + d.total) + 'px')
+      .attr('font-weight', '700')
+      .attr('fill', d => catColors[d.id] || '#6b7280')
+      .text(d => d.total);
+
+    // Name label below
+    node.append('text')
+      .attr('class', 'node-label')
+      .attr('text-anchor', 'middle')
+      .attr('dy', d => nodeRadius(d) + 16)
+      .attr('font-size', '12px')
+      .attr('font-weight', '600')
+      .attr('fill', '#374151')
+      .text(d => d.id);
+
+    // Origin/outcome sublabel
+    node.append('text')
+      .attr('class', 'node-label')
+      .attr('text-anchor', 'middle')
+      .attr('dy', d => nodeRadius(d) + 30)
+      .attr('font-size', '10px')
+      .attr('fill', '#9ca3af')
+      .text(d => `${d.asOrigin} origin, ${d.asOutcome} outcome`);
+
+    // Hover behavior
+    node.on('mouseover', function(evt, d) {
+      d3.select(this).select('circle').attr('fill-opacity', 0.3).attr('stroke-width', 3);
+
+      // Highlight connected links
+      link.attr('stroke-opacity', l => {
+        const sid = typeof l.source === 'object' ? l.source.id : l.source;
+        const tid = typeof l.target === 'object' ? l.target.id : l.target;
+        return (sid === d.id || tid === d.id) ? 0.4 : 0.04;
+      });
+
+      const connected = [];
+      nonSelfLinks.forEach(l => {
+        const sid = typeof l.source === 'object' ? l.source.id : l.source;
+        const tid = typeof l.target === 'object' ? l.target.id : l.target;
+        if (sid === d.id || tid === d.id) {
+          const other = sid === d.id ? tid : sid;
+          connected.push({ field: other, count: l.value, names: l.entries.map(e => e.name) });
+        }
+      });
+
+      // Check self-loops
+      const selfLoop = selfLoops.find(l => l.source === d.id);
+      let selfHtml = '';
+      if (selfLoop) {
+        selfHtml = `<br><em>${selfLoop.value} within-domain: ${selfLoop.entries.map(e => e.name).join(', ')}</em>`;
+      }
+
+      const connHtml = connected.map(c =>
+        `<br>&rarr; <strong>${c.field}</strong> (${c.count}): ${c.names.join(', ')}`
+      ).join('');
+
+      showTip(evt, `<div class="tt-title">${d.id}</div><div class="tt-sub">${d.asOrigin} as origin, ${d.asOutcome} as destination${selfHtml}${connHtml}</div>`);
+    })
+    .on('mousemove', function(evt) {
+      tooltip.style.left = Math.min(evt.clientX + 14, window.innerWidth - 360) + 'px';
+      tooltip.style.top = (evt.clientY - 10) + 'px';
+    })
+    .on('mouseout', function() {
+      d3.select(this).select('circle').attr('fill-opacity', 0.15).attr('stroke-width', 2);
+      link.attr('stroke-opacity', 0.12);
+      hideTip();
+    });
+
+    link.on('mouseover', function(evt, d) {
+      d3.select(this).attr('stroke-opacity', 0.45).attr('stroke', '#374151');
+      const sid = typeof d.source === 'object' ? d.source.id : d.source;
+      const tid = typeof d.target === 'object' ? d.target.id : d.target;
+      const names = d.entries.map(e => `${e.name} (${e.origin_field} &rarr; ${e.outcome_field})`).join('<br>');
+      showTip(evt, `<div class="tt-title">${sid} &harr; ${tid}</div><div class="tt-sub">${d.value} walk${d.value > 1 ? 's' : ''}:<br>${names}</div>`);
+    })
+    .on('mousemove', function(evt) {
+      tooltip.style.left = Math.min(evt.clientX + 14, window.innerWidth - 360) + 'px';
+      tooltip.style.top = (evt.clientY - 10) + 'px';
+    })
+    .on('mouseout', function() { d3.select(this).attr('stroke-opacity', 0.12).attr('stroke', '#9ca3af'); hideTip(); });
+
+    sim.on('tick', () => {
+      // Curved links
+      link.attr('d', d => {
+        const dx = d.target.x - d.source.x;
+        const dy = d.target.y - d.source.y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        const sr = nodeRadius(d.source);
+        const tr = nodeRadius(d.target);
+        // Start and end offset by node radius
+        const sx = d.source.x + (dx / dist) * sr;
+        const sy = d.source.y + (dy / dist) * sr;
+        const tx = d.target.x - (dx / dist) * (tr + 8);
+        const ty = d.target.y - (dy / dist) * (tr + 8);
+        // Curve amount
+        const curve = dist * 0.15;
+        const mx = (sx + tx) / 2 - (dy / dist) * curve;
+        const my = (sy + ty) / 2 + (dx / dist) * curve;
+        return `M${sx},${sy} Q${mx},${my} ${tx},${ty}`;
+      });
+
+      node.attr('transform', d => `translate(${d.x},${d.y})`);
+
+      // Self-loop arcs
+      selfLoopG.selectAll('*').remove();
+      selfLoops.forEach(sl => {
+        const n = nodes.find(nd => nd.id === sl.source);
+        if (!n) return;
+        const r = nodeRadius(n);
+        const loopR = r * 0.7;
+        selfLoopG.append('circle')
+          .attr('cx', n.x + r + loopR * 0.5)
+          .attr('cy', n.y - r * 0.3)
+          .attr('r', loopR)
+          .attr('fill', 'none')
+          .attr('stroke', catColors[n.id] || '#9ca3af')
+          .attr('stroke-width', Math.sqrt(sl.value) * 2)
+          .attr('stroke-opacity', 0.2)
+          .attr('stroke-dasharray', '4,3');
+      });
+    });
+
+    // Legend
+    document.getElementById('legend-fields').innerHTML = Object.entries(catColors)
+      .map(([k, c]) => `<div class="legend-item"><div class="legend-swatch" style="background:${c}"></div>${k}</div>`)
+      .join('');
+  }
+
+  // ============================================================
+  // PANEL 3: INSTITUTION TYPE ARC DIAGRAM
+  // ============================================================
+  function buildInstitutionArcs() {
+    const width = 1152, height = 620;
+    const svg = d3.select('#viz-institutions')
+      .append('svg').attr('width', width).attr('height', height);
+
+    const instTypes = new Set();
+    const industries = new Set();
+    const arcData = [];
+
+    VIZ_TAGS.forEach(d => {
+      d.institution_types.forEach(inst => {
+        instTypes.add(inst);
+        industries.add(d.outcome_industry);
+        arcData.push({ inst, industry: d.outcome_industry, mechanism: d.mechanism, entry: d });
+      });
+    });
+
+    const instArr = Array.from(instTypes).sort();
+    const indArr = Array.from(industries).sort();
+    const allLabels = [...instArr, ...indArr];
+
+    const xScale = d3.scalePoint()
+      .domain(allLabels)
+      .range([100, width - 100])
+      .padding(0.5);
+
+    const baseline = height - 90;
+
+    // Axis line
+    svg.append('line')
+      .attr('x1', 60).attr('x2', width - 60)
+      .attr('y1', baseline).attr('y2', baseline)
+      .attr('stroke', '#e5e7eb').attr('stroke-width', 1);
+
+    // Dots on axis
+    svg.append('g').selectAll('circle').data(allLabels).join('circle')
+      .attr('cx', d => xScale(d)).attr('cy', baseline)
+      .attr('r', 5)
+      .attr('fill', (d, i) => i < instArr.length ? '#0f766e' : '#2563eb');
+
+    // Labels on axis
+    svg.append('g').selectAll('text').data(allLabels).join('text')
+      .attr('x', d => xScale(d)).attr('y', baseline + 22)
+      .attr('text-anchor', 'middle')
+      .attr('fill', (d, i) => i < instArr.length ? '#0f766e' : '#2563eb')
+      .attr('font-size', '11px').attr('font-weight', '500')
+      .text(d => d);
+
+    // Count links
+    const linkCount = {};
+    arcData.forEach(d => {
+      const k = d.inst + '|||' + d.industry;
+      linkCount[k] = (linkCount[k] || 0) + 1;
+    });
+
+    // Draw arcs (deduplicated)
+    const drawn = {};
+    // Sort by count so larger arcs are drawn first (behind)
+    const sortedArcs = [...arcData].sort((a, b) => {
+      return linkCount[b.inst + '|||' + b.industry] - linkCount[a.inst + '|||' + a.industry];
+    });
+
+    sortedArcs.forEach(d => {
+      const k = d.inst + '|||' + d.industry;
+      if (drawn[k]) return;
+      drawn[k] = true;
+
+      const x1 = xScale(d.inst);
+      const x2 = xScale(d.industry);
+      const count = linkCount[k];
+      const arcHeight = Math.abs(x2 - x1) * 0.35 + count * 20;
+      const midX = (x1 + x2) / 2;
+
+      // Find dominant mechanism for this arc
+      const mechs = {};
+      arcData.filter(a => a.inst === d.inst && a.industry === d.industry).forEach(a => {
+        mechs[a.mechanism] = (mechs[a.mechanism] || 0) + 1;
+      });
+      const topMech = Object.entries(mechs).sort((a,b) => b[1] - a[1])[0][0];
+
+      svg.append('path')
+        .attr('class', 'arc-path')
+        .attr('d', `M ${x1} ${baseline} Q ${midX} ${baseline - arcHeight} ${x2} ${baseline}`)
+        .attr('stroke', mechColors[topMech] || '#6b7280')
+        .attr('stroke-width', Math.sqrt(count) * 3 + 1)
+        .on('mouseover', function(evt) {
+          d3.select(this).attr('stroke-opacity', 0.55);
+          const entries = arcData.filter(a => a.inst === d.inst && a.industry === d.industry);
+          showTip(evt, `<div class="tt-title">${d.inst} &rarr; ${d.industry}</div><div class="tt-sub">${count} walk${count > 1 ? 's' : ''}: ${entries.map(e => e.entry.name).join(', ')}</div>`);
+        })
+        .on('mousemove', function(evt) {
+          tooltip.style.left = Math.min(evt.clientX + 14, window.innerWidth - 360) + 'px';
+          tooltip.style.top = (evt.clientY - 10) + 'px';
+        })
+        .on('mouseout', function() { d3.select(this).attr('stroke-opacity', 0.18); hideTip(); });
+    });
+
+    // Section labels
+    svg.append('text')
+      .attr('x', xScale(instArr[Math.floor(instArr.length / 2)]))
+      .attr('y', baseline + 50).attr('text-anchor', 'middle')
+      .attr('fill', '#0f766e').attr('font-size', '11px').attr('font-weight', '600')
+      .attr('letter-spacing', '1.5px')
+      .text('INSTITUTION TYPES');
+
+    svg.append('text')
+      .attr('x', xScale(indArr[Math.floor(indArr.length / 2)]))
+      .attr('y', baseline + 50).attr('text-anchor', 'middle')
+      .attr('fill', '#2563eb').attr('font-size', '11px').attr('font-weight', '600')
+      .attr('letter-spacing', '1.5px')
+      .text('OUTCOME INDUSTRIES');
+
+    document.getElementById('legend-institutions').innerHTML = Object.entries(mechColors)
+      .map(([k, c]) => `<div class="legend-item"><div class="legend-swatch" style="background:${c}"></div>${mechLabels[k]}</div>`)
+      .join('');
+  }
+
+  // ============================================================
+  // PANEL 4: GEOGRAPHY CHORD DIAGRAM
+  // ============================================================
+  function buildGeoChord() {
+    const size = 680;
+    const outerRadius = size / 2 - 90;
+    const innerRadius = outerRadius - 18;
+
+    const svgEl = d3.select('#viz-geography')
+      .append('svg')
+        .attr('width', size)
+        .attr('height', size)
+        .style('margin', '0 auto')
+        .style('display', 'block');
+
+    const svg = svgEl.append('g')
+      .attr('transform', `translate(${size/2},${size/2})`);
+
+    const countries = new Set();
+    const indSet = new Set();
+    VIZ_TAGS.forEach(d => {
+      countries.add(primaryGeo(d.geography_origin));
+      indSet.add(d.outcome_industry);
+    });
+
+    const countryArr = Array.from(countries).sort();
+    const indArr = Array.from(indSet).sort();
+    const labels = [...countryArr, ...indArr];
+    const n = labels.length;
+    const idx = {};
+    labels.forEach((l, i) => idx[l] = i);
+
+    const matrix = Array.from({length: n}, () => new Array(n).fill(0));
+    VIZ_TAGS.forEach(d => {
+      const c = primaryGeo(d.geography_origin);
+      const ind = d.outcome_industry;
+      matrix[idx[c]][idx[ind]] += 1;
+      matrix[idx[ind]][idx[c]] += 1;
+    });
+
+    const chord = d3.chord().padAngle(0.04).sortSubgroups(d3.descending);
+    const chords = chord(matrix);
+    const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
+    const ribbon = d3.ribbon().radius(innerRadius);
+
+    // Country colors: teal spectrum; Industry colors: blue-purple spectrum
+    const countryColor = d3.scaleOrdinal()
+      .domain(countryArr)
+      .range(countryArr.map((_, i) => d3.interpolateRgb('#0f766e', '#059669')(i / Math.max(1, countryArr.length - 1))));
+
+    const indColor = d3.scaleOrdinal()
+      .domain(indArr)
+      .range(indArr.map((_, i) => d3.interpolateRgb('#2563eb', '#7c3aed')(i / Math.max(1, indArr.length - 1))));
+
+    function labelColor(name) {
+      return countryArr.includes(name) ? countryColor(name) : indColor(name);
+    }
+
+    const group = svg.append('g').selectAll('g').data(chords.groups).join('g');
+
+    group.append('path')
+      .attr('d', arc)
+      .attr('fill', d => labelColor(labels[d.index]))
+      .attr('fill-opacity', 0.7)
+      .attr('stroke', '#fff')
+      .attr('stroke-width', 1);
+
+    group.append('text')
+      .each(d => { d.angle = (d.startAngle + d.endAngle) / 2; })
+      .attr('dy', '0.35em')
+      .attr('transform', d => `rotate(${(d.angle * 180 / Math.PI - 90)}) translate(${outerRadius + 12}) ${d.angle > Math.PI ? 'rotate(180)' : ''}`)
+      .attr('text-anchor', d => d.angle > Math.PI ? 'end' : 'start')
+      .attr('font-size', '11px')
+      .attr('font-weight', '500')
+      .attr('fill', '#374151')
+      .text(d => labels[d.index]);
+
+    svg.append('g').selectAll('path').data(chords).join('path')
+      .attr('d', ribbon)
+      .attr('fill', d => labelColor(labels[d.source.index]))
+      .attr('fill-opacity', 0.15)
+      .attr('stroke', d => labelColor(labels[d.source.index]))
+      .attr('stroke-opacity', 0.3)
+      .attr('stroke-width', 0.5)
+      .on('mouseover', function(evt, d) {
+        d3.select(this).attr('fill-opacity', 0.4);
+        const s = labels[d.source.index];
+        const t = labels[d.target.index];
+        const v = d.source.value;
+        const matches = VIZ_TAGS.filter(e => {
+          const geo = primaryGeo(e.geography_origin);
+          return (geo === s && e.outcome_industry === t) || (geo === t && e.outcome_industry === s);
+        });
+        showTip(evt, `<div class="tt-title">${s} &harr; ${t}</div><div class="tt-sub">${v} walk${v > 1 ? 's' : ''}${matches.length ? ': ' + matches.map(m => m.name).join(', ') : ''}</div>`);
+      })
+      .on('mousemove', function(evt) {
+        tooltip.style.left = Math.min(evt.clientX + 14, window.innerWidth - 360) + 'px';
+        tooltip.style.top = (evt.clientY - 10) + 'px';
+      })
+      .on('mouseout', function() { d3.select(this).attr('fill-opacity', 0.15); hideTip(); });
+
+    document.getElementById('legend-geography').innerHTML = `
+      <div class="legend-item"><div class="legend-swatch" style="background:#0f766e"></div>Countries (origin)</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#2563eb"></div>Industries (outcome)</div>
+    `;
+  }
+
+  // --- Build all ---
+  buildFundingSankey();
+  buildFieldForce();
+  buildInstitutionArcs();
+  buildGeoChord();
+
+})();
+</script>
+</body>
+</html>

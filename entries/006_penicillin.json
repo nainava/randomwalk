@@ -1,0 +1,128 @@
+{
+  "number": "006",
+  "discovery_name": "Penicillin",
+  "tracker_summary": {
+    "invention": "Mass-produced antibiotic medicine",
+    "inventor": "Alexander Fleming (discovery), Howard Florey, Ernst Chain, and Norman Heatley (therapeutic development)",
+    "date": "Discovery: September 1928; First therapeutic use: 1941; Mass production: 1943–1944",
+    "current_use": "Penicillin and derivatives remain among the most widely prescribed antibiotics globally; annual antibiotic market exceeds $40 billion",
+    "initial_funding_source": "British War Office / Medical Research Committee — World War I wound infection research",
+    "initial_funding_reason": "Catastrophic mortality from infected battlefield wounds in WWI",
+    "chain_length": "11 steps · 26 years"
+  },
+  "the_x": "British War Office funding for WWI wound-infection bacteriology research at St. Mary's Hospital, London",
+  "the_y": "The world's first mass-produced antibiotic, saving an estimated 200 million lives in the 20th century",
+  "summary": "The story of penicillin is not one flash of genius but a 16-year chain of accidents, neglect, wartime desperation, and transatlantic collaboration. Fleming's 1928 contaminated petri dish was real but unactionable — he couldn't purify the compound, and the medical establishment ignored his paper for a decade. It restarted only when Florey and Chain at Oxford, funded by the Rockefeller Foundation, picked it up in 1939. Their first patient nearly died when they ran out of drug. Florey flew to America with mold in his coat lining. A lab assistant found the highest-yielding mold in history on a Peoria cantaloupe. By D-Day, enough penicillin existed to treat every Allied wounded soldier.",
+  "chain": [
+    {
+      "year": "1914–1918",
+      "who": "Alexander Fleming, Almroth Wright, Medical Research Committee",
+      "where": "Western Front field hospitals; St. Mary's Hospital, London",
+      "what_they_were_doing": "Fleming was deployed to study infected battlefield wounds. He observed that standard antiseptics were killing white blood cells faster than bacteria, making infections worse. Concluded the real solution must be a bactericidal agent that didn't harm human tissue.",
+      "the_jump": null,
+      "funding": "British War Office; Medical Research Committee.",
+      "critical": true
+    },
+    {
+      "year": "1921–1922",
+      "who": "Alexander Fleming",
+      "where": "St. Mary's Hospital, London",
+      "what_they_were_doing": "Discovered lysozyme — a natural enzyme in tears and mucus that could dissolve certain bacteria. Found it accidentally when a drop of nasal mucus lysed bacterial colonies. Too weak against dangerous pathogens, but trained his eye for zones of bacterial inhibition.",
+      "the_jump": "Fleming's failure with lysozyme left him actively searching for a more potent natural antibacterial. Without this precursor, he might not have recognized the mold's significance in 1928.",
+      "funding": "Medical Research Council; St. Mary's Inoculation Department vaccine revenue.",
+      "critical": false
+    },
+    {
+      "year": "1928",
+      "who": "Alexander Fleming",
+      "where": "St. Mary's Hospital, Inoculation Department, London",
+      "what_they_were_doing": "Returned from vacation to find a petri dish of Staphylococcus contaminated by Penicillium notatum drifting from a mycology lab one floor below. Noticed a clear halo of bacterial death. Isolated the mold and showed it inhibited many gram-positive bacteria without harming white blood cells. The contamination was possible only because London's unusual cold snap had slowed bacterial growth — a one-in-a-million confluence.",
+      "the_jump": "Fleming couldn't purify or concentrate penicillin — it was chemically unstable. His 1929 paper attracted minimal attention. He grew frustrated and stopped pursuing it seriously after 1931.",
+      "funding": "Medical Research Council; St. Mary's Hospital.",
+      "critical": true
+    },
+    {
+      "year": "1929–1938",
+      "who": "The wider bacteriology community; Harold Raistrick (1931–1932)",
+      "where": "St. Mary's Hospital; London School of Hygiene",
+      "what_they_were_doing": "A DECADE OF NEGLECT. Fleming's 1929 paper was received with indifference. Raistrick tried to purify penicillin with MRC funding but the molecule decomposed during extraction. He abandoned the project. No pharmaceutical company expressed interest. Fleming himself later admitted he had essentially given up.",
+      "the_jump": "The gap was not oversight — it reflected real technical barriers. Penicillin required biochemical extraction techniques not yet available in microbiology labs.",
+      "funding": "MRC (Raistrick); otherwise unfunded.",
+      "critical": false
+    },
+    {
+      "year": "1939",
+      "who": "Howard Florey, Ernst Chain, Norman Heatley, Margaret Jennings",
+      "where": "Sir William Dunn School of Pathology, University of Oxford",
+      "what_they_were_doing": "Florey and Chain (a Jewish refugee from Nazi Germany) encountered Fleming's 1929 paper during a literature search. Heatley built improvised extraction apparatus from milk churns and medical paraphernalia. On May 25, 1940: eight mice injected with lethal Streptococcus — four got penicillin, four didn't. Next morning: all untreated dead, all treated alive. Florey said: 'It looks like a miracle.'",
+      "the_jump": "The Oxford team succeeded because of Chain's biochemical training — he identified penicillin as a small, unstable molecule requiring freeze-drying. The critical enabler was Rockefeller Foundation funding that paid for Chain's salary and equipment.",
+      "funding": "Rockefeller Foundation ($5,000 in 1936, $25,000 in 1939); MRC; Nuffield Trust.",
+      "critical": true
+    },
+    {
+      "year": "1941",
+      "who": "Florey, Chain, Heatley, Charles Fletcher; Albert Alexander (patient)",
+      "where": "Radcliffe Infirmary, Oxford",
+      "what_they_were_doing": "Converted the entire Dunn School second floor into a factory using bedpans and biscuit tins. February 12, 1941: Police constable Albert Alexander, dying from a rose-thorn scratch infection, received the first therapeutic penicillin dose. Within 24 hours his fever broke. Then they ran out of drug. They recycled penicillin from his urine. He relapsed and died March 15.",
+      "the_jump": "NEAR-DEATH MOMENT: Alexander's death demonstrated the drug worked but academic micro-batch production was wholly inadequate. Florey concluded only American industrial capacity could produce enough.",
+      "funding": "MRC emergency wartime grant; Rockefeller continuation; improvised — literally using hospital bedpans as fermentation vessels.",
+      "critical": true
+    },
+    {
+      "year": "1941",
+      "who": "Howard Florey, Norman Heatley",
+      "where": "Washington D.C.; USDA Northern Regional Research Laboratory, Peoria, Illinois",
+      "what_they_were_doing": "Florey rubbed Penicillium spores into his coat lining in case they were shot down over the Atlantic. NRRL scientists, experts in deep-tank fermentation (developed for citric acid), proposed replacing surface growth with submerged vats and using corn steep liquor — a Midwest agricultural waste product — which increased yields tenfold.",
+      "the_jump": "The corn steep liquor breakthrough was serendipitous — available in Peoria specifically because the NRRL had been studying agricultural waste valorization since 1938 under New Deal funding.",
+      "funding": "US OSRD; USDA NRRL (New Deal agricultural research); Rockefeller Foundation travel grants.",
+      "critical": true
+    },
+    {
+      "year": "1943",
+      "who": "Mary K. Hunt ('Moldy Mary'), Robert Coghill, Andrew Moyer",
+      "where": "USDA NRRL, Peoria, Illinois",
+      "what_they_were_doing": "Screening hundreds of Penicillium strains for higher yields. Hunt scoured local markets for moldy fruits. Found a cantaloupe covered in golden-brown mold — Penicillium chrysogenum strain NRRL 1951 — yielding 200x more penicillin than Fleming's original. After mutagenesis at University of Wisconsin, 1,000x. Virtually all penicillin produced today descends from that Peoria cantaloupe.",
+      "the_jump": "Hunt's cantaloupe find — genuinely random — unlocked industrial-scale production. Without a high-yielding strain, mass production was economically impossible.",
+      "funding": "USDA NRRL; OSRD; War Production Board.",
+      "critical": true
+    },
+    {
+      "year": "1943–1944",
+      "who": "Pfizer (John L. Smith, Jasper Kane), Merck, Squibb, Eli Lilly, Abbott",
+      "where": "Brooklyn NY; Rahway NJ; New Brunswick NJ; Indianapolis IN",
+      "what_they_were_doing": "War Production Board organized pharmaceutical companies to mass-produce penicillin. Pfizer converted an ice plant in Brooklyn into a fermentation facility ($3M investment). By June 1944, monthly US production reached 650 billion units.",
+      "the_jump": "Pfizer's decision was a massive financial risk taken under government pressure with guaranteed procurement contracts. Without government purchase guarantees, no company would have invested.",
+      "funding": "War Production Board guaranteed procurement; US Army Surgeon General; private capital ($3M+ from Pfizer alone).",
+      "critical": true
+    },
+    {
+      "year": "1944",
+      "who": "US Army Medical Corps; Allied military command",
+      "where": "Normandy, France; global theaters",
+      "what_they_were_doing": "By D-Day June 6, 1944, enough penicillin existed to treat every wounded Allied soldier. Gas gangrene — the scourge of WWI — became manageable. Wound infection mortality dropped from ~18% to below 1%.",
+      "the_jump": "The complete loop: from Fleming's WWI observation that something better was needed, to a drug that delivered it 26 years later in time for the next world war's decisive battle.",
+      "funding": "US Army; British War Office; Allied combined medical logistics.",
+      "critical": true
+    },
+    {
+      "year": "1945",
+      "who": "Alexander Fleming, Howard Florey, Ernst Chain",
+      "where": "Stockholm, Sweden",
+      "what_they_were_doing": "Shared the 1945 Nobel Prize. Norman Heatley — whose engineering made Oxford purification possible — was excluded (Nobel limits to three). In 1990 Oxford awarded Heatley an honorary doctorate of medicine, the first in 800 years.",
+      "the_jump": "The Nobel cemented the lone-genius narrative, obscuring the collaborative, multi-institutional, multi-decade, multi-continental reality.",
+      "funding": "Nobel Foundation.",
+      "critical": false
+    }
+  ],
+  "sources": [
+    "Fleming A (1929). British J Experimental Pathology, 10(3):226–236. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2048009/",
+    "Chain E, Florey HW, et al. (1940). The Lancet, 236(6104):226–228. https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(01)08728-1/fulltext",
+    "Lax E (2004). The Mold in Dr. Florey's Coat. Henry Holt.",
+    "ACS (1999). Discovery and Development of Penicillin. https://www.acs.org/content/acs/en/education/whatischemistry/landmarks/flemingpenicillin.html",
+    "Nobel Prize 1945. https://www.nobelprize.org/prizes/medicine/1945/ceremony-speech/",
+    "NLM/NIH. 'The Discovery and Development of Penicillin 1928–1945.' https://www.nlm.nih.gov/exhibition/penicillin/index.html",
+    "Neushul P (1993). J History of Medicine, 48(4):371–395. https://doi.org/10.1093/jhmas/48.4.371",
+    "Rockefeller Foundation Annual Report 1939. https://www.rockefellerfoundation.org/report/annual-report-1939/",
+    "Hafner K, Lyon M. Where Wizards Stay Up Late. Simon & Schuster, 1996."
+  ]
+}

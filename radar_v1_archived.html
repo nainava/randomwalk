@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabinet of Curiosities &mdash; Random Walk Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #f8f5f0;
+    --text: #1a1a1a;
+    --text-secondary: #5a5a5a;
+    --text-muted: #8a8a8a;
+    --accent: #c1403d;
+    --teal: #2d6a6a;
+    --border: #e0dbd3;
+    --surface: #f0ece4;
+    --serif: 'Crimson Pro', 'Georgia', serif;
+    --display: 'Playfair Display', 'Georgia', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    --col: 640px;
+  }
+
+  html { font-size: 18px; }
+
+  body {
+    font-family: var(--serif);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* --- Navigation --- */
+  nav {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--text); }
+
+  /* --- Content Column --- */
+  .col {
+    max-width: var(--col);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* --- Header --- */
+  .page-header {
+    text-align: center;
+    padding: 80px 24px 48px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .page-header h1 {
+    font-family: var(--display);
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .page-header .subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .header-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--border);
+    margin: 40px auto;
+  }
+
+  /* --- Intro --- */
+  .intro {
+    margin-bottom: 48px;
+  }
+  .intro p {
+    font-size: 1.05rem;
+    line-height: 1.78;
+    color: var(--text-secondary);
+    margin-bottom: 1em;
+  }
+
+  /* --- Stats --- */
+  .stat-note {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 48px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    text-transform: none;
+    display: block;
+    line-height: 1.2;
+  }
+
+  /* --- Filter Controls --- */
+  .controls {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .controls-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+  .filter-btn {
+    font-family: var(--sans);
+    font-size: 11px;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { color: var(--text-secondary); border-color: var(--text-muted); }
+  .filter-btn.active { color: var(--accent); border-color: var(--accent); }
+  .controls .sep {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
+    margin: 0 6px;
+  }
+  .search-input {
+    font-family: var(--sans);
+    font-size: 11px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    padding: 4px 10px;
+    border-radius: 3px;
+    width: 180px;
+  }
+  .search-input:focus { outline: none; border-color: var(--accent); }
+  .controls .count {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* --- Section Rule --- */
+  .section-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--border);
+    margin: 56px auto;
+  }
+
+  /* --- Curiosity Items --- */
+  .curiosity {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .curiosity:first-child { border-top: 1px solid var(--border); }
+
+  .curiosity-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+  .curiosity-title {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.35;
+    flex: 1;
+  }
+  .curiosity-score {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .curiosity-score.high { color: var(--accent); }
+
+  .curiosity-what {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .curiosity-weird {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .curiosity-meta {
+    font-family: var(--sans);
+    font-size: 10px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+  .curiosity-type {
+    font-style: italic;
+    text-transform: lowercase;
+  }
+
+  /* Expanded detail */
+  .curiosity-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .curiosity.open .curiosity-detail {
+    max-height: 600px;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .detail-inner {
+    padding-top: 12px;
+  }
+  .detail-row {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .detail-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .curiosity-head { cursor: pointer; }
+  .curiosity-head:hover .curiosity-title { opacity: 0.7; }
+
+  /* --- Footer --- */
+  footer {
+    padding: 48px 24px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  footer p {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  footer a { color: var(--text-muted); text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    html { font-size: 16px; }
+    nav { padding: 16px 20px; }
+    .page-header { padding: 48px 20px 36px; }
+    .page-header h1 { font-size: 2rem; }
+    .col { padding: 0 20px; }
+    .stat-note { gap: 20px; }
+    .controls { gap: 6px; }
+    .search-input { width: 140px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Random Walk Research</a>
+  <span>Cabinet of Curiosities</span>
+</nav>
+
+<div class="page-header">
+  <h1>Cabinet of Curiosities</h1>
+  <p class="subtitle">107 observations from the edges of settled science &mdash; anomalies, unexplained properties, and cross-field collisions that may be worth a closer look.</p>
+</div>
+
+<div class="header-rule"></div>
+
+<div class="col">
+  <section class="intro">
+    <p>These are not predictions. They are curiosities &mdash; findings that sit in the gap between what has been observed and what has been explained. Each one was noticed by someone, published somewhere, and then largely left alone. Some may turn out to be noise. Others may be the beginning of something.</p>
+  </section>
+
+  <div class="stat-note" id="stats-bar"></div>
+
+  <div class="controls">
+    <span class="controls-label">Type</span>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="anomaly">Anomaly</button>
+    <button class="filter-btn" data-filter="property">Property</button>
+    <button class="filter-btn" data-filter="cross-field">Cross-field</button>
+    <button class="filter-btn" data-filter="mechanism">Mechanism</button>
+    <button class="filter-btn" data-filter="pattern">Pattern</button>
+    <div class="sep"></div>
+    <input type="text" class="search-input" placeholder="Search curiosities..." id="search">
+    <span class="count" id="count"></span>
+  </div>
+
+  <div id="curiosities-list"></div>
+</div>
+
+<footer>
+  <p>A Tideloop project &middot; <a href="index.html">Back to Random Walk Research</a></p>
+</footer>
+
+<script src="radar_data.js"></script>
+<script>
+(function() {
+  if (typeof CURIOSITIES === 'undefined') return;
+
+  var data = CURIOSITIES;
+  var activeFilter = 'all';
+  var searchTerm = '';
+
+  // Stats
+  var avgPoke = (data.reduce(function(s, c) { return s + (c.poke_factor || 0); }, 0) / data.length).toFixed(1);
+  var types = {};
+  data.forEach(function(c) { var t = c.type || '?'; types[t] = (types[t] || 0) + 1; });
+  var fields = {};
+  data.forEach(function(c) { var f = c.field || '?'; fields[f] = (fields[f] || 0) + 1; });
+
+  var statsHTML = [
+    { num: data.length, label: 'Curiosities' },
+    { num: Object.keys(types).length, label: 'Types' },
+    { num: Object.keys(fields).length, label: 'Fields' },
+    { num: avgPoke, label: 'Avg Poke Factor' }
+  ].map(function(s) {
+    return '<div class="stat-item"><span class="stat-num">' + s.num + '</span> ' + s.label + '</div>';
+  }).join('');
+  document.getElementById('stats-bar').innerHTML = statsHTML;
+
+  function render() {
+    var filtered = data.filter(function(c) {
+      if (activeFilter !== 'all' && (c.type || '') !== activeFilter) return false;
+      if (searchTerm) {
+        var hay = (c.title + ' ' + c.what_happened + ' ' + c.why_its_weird + ' ' + (c.field || '') + ' ' + (c.who_noticed || '')).toLowerCase();
+        if (hay.indexOf(searchTerm.toLowerCase()) === -1) return false;
+      }
+      return true;
+    });
+
+    document.getElementById('count').textContent = filtered.length + ' / ' + data.length;
+
+    var listEl = document.getElementById('curiosities-list');
+    listEl.innerHTML = filtered.map(function(c, i) {
+      var scoreClass = (c.poke_factor || 0) >= 8 ? ' high' : '';
+      return '<div class="curiosity" data-idx="' + i + '">' +
+        '<div class="curiosity-head" onclick="this.parentElement.classList.toggle(\'open\')">' +
+          '<div class="curiosity-title">' + c.title + '</div>' +
+          '<div class="curiosity-score' + scoreClass + '">' + (c.poke_factor || '') + '</div>' +
+        '</div>' +
+        '<div class="curiosity-what">' + c.what_happened + '</div>' +
+        '<div class="curiosity-weird">' + c.why_its_weird + '</div>' +
+        '<div class="curiosity-meta">' +
+          '<span class="curiosity-type">' + (c.type || '') + '</span>' +
+          '<span>' + (c.field || '') + '</span>' +
+          (c.year ? '<span>' + c.year + '</span>' : '') +
+        '</div>' +
+        '<div class="curiosity-detail"><div class="detail-inner">' +
+          (c.where_it_sits ? '<div class="detail-row"><span class="detail-label">Where it sits</span><br>' + c.where_it_sits + '</div>' : '') +
+          (c.who_noticed ? '<div class="detail-row"><span class="detail-label">Who noticed</span><br>' + c.who_noticed + '</div>' : '') +
+          (c.who_doesnt_know ? '<div class="detail-row"><span class="detail-label">Who doesn\'t know</span><br>' + c.who_doesnt_know + '</div>' : '') +
+          (c.follow_up_status ? '<div class="detail-row"><span class="detail-label">Follow-up status</span><br>' + c.follow_up_status + '</div>' : '') +
+        '</div></div>' +
+      '</div>';
+    }).join('');
+  }
+
+  // Filter buttons
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      render();
+    });
+  });
+
+  document.getElementById('search').addEventListener('input', function(e) {
+    searchTerm = e.target.value;
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
