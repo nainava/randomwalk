@@ -3,315 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cabinet of Curiosities &mdash; Random Walk Research</title>
+<title>Cabinet of Curiosities — Random Walk Research</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg: #f8f5f0;
-    --text: #1a1a1a;
-    --text-secondary: #5a5a5a;
-    --text-muted: #8a8a8a;
-    --accent: #c1403d;
-    --teal: #2d6a6a;
-    --border: #e0dbd3;
-    --surface: #f0ece4;
-    --serif: 'Crimson Pro', 'Georgia', serif;
-    --display: 'Playfair Display', 'Georgia', serif;
-    --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-    --col: 640px;
+    --bg: #ffffff;
+    --fg: #000000;
+    --fgMix3: #555555;
+    --fgMix5: #8d8d8d;
+    --fgMix6: #aaaaaa;
+    --highlight: #E4001C;
+    --border: #c6c6c6;
+
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    --bodySize: 22px;
+    --bodyLH: 1.4;
+    --bodyMargin: calc(var(--bodyLH) * var(--bodySize));
+
+    --streamSpacing: calc(130 / 1680 * 100vw);
+
+    --gridGap: 10px;
+    --gridMargin: 20px;
   }
 
-  html { font-size: 18px; }
+  html { font-size: 16px; }
 
   body {
-    font-family: var(--serif);
+    font-family: var(--sans);
     background: var(--bg);
-    color: var(--text);
-    line-height: 1.72;
+    color: var(--fg);
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* --- Navigation --- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gridGap);
+    padding: 0 var(--gridMargin);
+    max-width: 1680px;
+    margin: 0 auto;
+  }
+  .g-content { grid-column: 3 / 9; }
+
   nav {
     font-family: var(--sans);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 20px 40px;
+    font-size: 14px;
+    color: var(--fgMix5);
+    padding: 14px var(--gridMargin);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
+    max-width: 1680px;
     margin: 0 auto;
   }
-  nav a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  nav a:hover { color: var(--text); }
+  nav a { color: var(--fgMix5); text-decoration: none; }
+  nav a:hover { color: var(--fg); }
 
-  /* --- Content Column --- */
-  .col {
-    max-width: var(--col);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* --- Header --- */
-  .page-header {
-    text-align: center;
-    padding: 80px 24px 48px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .page-header h1 {
-    font-family: var(--display);
-    font-size: 2.8rem;
-    font-weight: 400;
-    line-height: 1.15;
+  .article-title {
+    font-family: var(--sans);
+    font-size: 100px;
+    font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: 16px;
-    color: var(--text);
-  }
-  .page-header .subtitle {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.65;
-    max-width: 520px;
-    margin: 0 auto;
+    line-height: 1.05;
+    padding-top: var(--streamSpacing);
+    padding-bottom: var(--streamSpacing);
   }
 
-  .header-rule {
-    width: 40px;
-    height: 1px;
-    background: var(--border);
-    margin: 40px auto;
-  }
+  .stream-space { padding-top: var(--streamSpacing); padding-bottom: var(--streamSpacing); }
 
-  /* --- Intro --- */
-  .intro {
-    margin-bottom: 48px;
-  }
-  .intro p {
-    font-size: 1.05rem;
-    line-height: 1.78;
-    color: var(--text-secondary);
-    margin-bottom: 1em;
-  }
-
-  /* --- Stats --- */
-  .stat-note {
-    font-family: var(--sans);
-    font-size: 11px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin: 0 0 48px;
-    padding: 16px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-  .stat-item { text-align: center; }
-  .stat-num {
-    font-family: var(--display);
-    font-size: 28px;
+  .question {
+    font-family: var(--serif);
+    font-size: 36px;
     font-weight: 400;
-    color: var(--text);
-    letter-spacing: -0.02em;
-    text-transform: none;
-    display: block;
-    line-height: 1.2;
+    font-style: italic;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--streamSpacing);
   }
 
-  /* --- Filter Controls --- */
-  .controls {
-    font-family: var(--sans);
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-bottom: 32px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: wrap;
+  .prose {
+    font-family: var(--serif);
+    font-size: var(--bodySize);
+    line-height: var(--bodyLH);
+    font-feature-settings: 'onum';
   }
-  .controls-label {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-right: 4px;
-  }
-  .filter-btn {
+  .prose p { margin-bottom: var(--bodyMargin); }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Category sections */
+  .cat-title {
     font-family: var(--sans);
-    font-size: 11px;
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    padding: 4px 10px;
-    border-radius: 3px;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .cat-intro {
+    font-family: var(--serif);
+    font-size: var(--bodySize);
+    line-height: var(--bodyLH);
+    font-style: italic;
+    color: var(--fgMix3);
+    margin-bottom: calc(var(--bodyMargin) * 2);
+  }
+
+  /* Curiosity items */
+  .c-item {
+    margin-bottom: calc(var(--bodyMargin) * 1.5);
     cursor: pointer;
-    transition: all 0.15s;
   }
-  .filter-btn:hover { color: var(--text-secondary); border-color: var(--text-muted); }
-  .filter-btn.active { color: var(--accent); border-color: var(--accent); }
-  .controls .sep {
-    width: 1px;
-    height: 16px;
-    background: var(--border);
-    margin: 0 6px;
-  }
-  .search-input {
+  .c-name {
     font-family: var(--sans);
-    font-size: 11px;
-    border: 1px solid var(--border);
-    background: #fff;
-    color: var(--text);
-    padding: 4px 10px;
-    border-radius: 3px;
-    width: 180px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin-bottom: 4px;
   }
-  .search-input:focus { outline: none; border-color: var(--accent); }
-  .controls .count {
-    margin-left: auto;
-    font-size: 11px;
-    color: var(--text-muted);
-  }
-
-  /* --- Section Rule --- */
-  .section-rule {
-    width: 40px;
-    height: 1px;
-    background: var(--border);
-    margin: 56px auto;
-  }
-
-  /* --- Curiosity Items --- */
-  .curiosity {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .curiosity:first-child { border-top: 1px solid var(--border); }
-
-  .curiosity-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 6px;
-  }
-  .curiosity-title {
-    font-family: var(--display);
-    font-size: 1.1rem;
+  .c-name .poke {
     font-weight: 400;
-    color: var(--text);
-    line-height: 1.35;
-    flex: 1;
+    color: var(--fgMix5);
+    font-size: 14px;
+    margin-left: 6px;
   }
-  .curiosity-score {
-    font-family: var(--display);
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--text-muted);
-    flex-shrink: 0;
-    line-height: 1;
+  .c-what {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: var(--bodyLH);
+    color: var(--fgMix3);
   }
-  .curiosity-score.high { color: var(--accent); }
-
-  .curiosity-what {
-    font-size: 0.92rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin-bottom: 6px;
-  }
-  .curiosity-weird {
-    font-size: 0.88rem;
-    line-height: 1.65;
-    color: var(--text-muted);
+  .c-weird {
+    font-family: var(--serif);
+    font-size: 18px;
     font-style: italic;
-    margin-bottom: 8px;
+    color: var(--fgMix5);
+    line-height: var(--bodyLH);
+    margin-top: 4px;
   }
-
-  .curiosity-meta {
+  .c-meta {
     font-family: var(--sans);
-    font-size: 10px;
-    color: var(--text-muted);
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    align-items: baseline;
-  }
-  .curiosity-type {
-    font-style: italic;
-    text-transform: lowercase;
+    font-size: 14px;
+    color: var(--fgMix6);
+    margin-top: 4px;
   }
 
-  /* Expanded detail */
-  .curiosity-detail {
+  .c-detail {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: max-height 0.4s ease;
   }
-  .curiosity.open .curiosity-detail {
-    max-height: 600px;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  .c-item.open .c-detail {
+    max-height: 500px;
+    transition: max-height 0.5s ease;
   }
-
-  .detail-inner {
-    padding-top: 12px;
-  }
-  .detail-row {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
+  .c-detail-inner { padding-top: 12px; }
+  .c-field {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--fgMix3);
+    line-height: var(--bodyLH);
     margin-bottom: 6px;
   }
-  .detail-label {
+  .c-field .dl {
     font-family: var(--sans);
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    font-size: 14px;
+    color: var(--fgMix5);
   }
 
-  .curiosity-head { cursor: pointer; }
-  .curiosity-head:hover .curiosity-title { opacity: 0.7; }
+  .closing-line {
+    font-family: var(--serif);
+    font-size: var(--bodySize);
+    font-style: italic;
+    line-height: var(--bodyLH);
+    color: var(--fgMix3);
+  }
 
-  /* --- Footer --- */
   footer {
-    padding: 48px 24px;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    margin-top: 40px;
+    padding-top: calc(var(--streamSpacing) * 2);
+    padding-bottom: var(--streamSpacing);
   }
   footer p {
     font-family: var(--sans);
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
+    font-size: 14px;
+    color: var(--fgMix5);
   }
-  footer a { color: var(--text-muted); text-decoration: none; }
-  footer a:hover { color: var(--text); }
+  footer a { color: var(--fgMix5); text-decoration: none; }
+  footer a:hover { color: var(--fg); }
 
-  /* --- Responsive --- */
+  @media (max-width: 1024px) {
+    :root { --bodySize: 20px; }
+    .article-title { font-size: 56px; }
+    .cat-title { font-size: 21px; }
+    .question { font-size: 24px; }
+    .g-content { grid-column: 2 / 11; }
+  }
   @media (max-width: 768px) {
-    html { font-size: 16px; }
-    nav { padding: 16px 20px; }
-    .page-header { padding: 48px 20px 36px; }
-    .page-header h1 { font-size: 2rem; }
-    .col { padding: 0 20px; }
-    .stat-note { gap: 20px; }
-    .controls { gap: 6px; }
-    .search-input { width: 140px; }
+    :root { --bodySize: 18px; --gridMargin: 16px; --streamSpacing: calc(65 / 768 * 100vw); }
+    .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .g-content { grid-column: 1 / -1; }
+    .article-title { font-size: 40px; }
+    .question { font-size: 22px; }
+  }
+  @media print {
+    nav { display: none; }
+    .c-detail { max-height: none !important; overflow: visible !important; }
   }
 </style>
 </head>
@@ -322,119 +224,124 @@
   <span>Cabinet of Curiosities</span>
 </nav>
 
-<div class="page-header">
-  <h1>Cabinet of Curiosities</h1>
-  <p class="subtitle">107 observations from the edges of settled science &mdash; anomalies, unexplained properties, and cross-field collisions that may be worth a closer look.</p>
-</div>
-
-<div class="header-rule"></div>
-
-<div class="col">
-  <section class="intro">
-    <p>These are not predictions. They are curiosities &mdash; findings that sit in the gap between what has been observed and what has been explained. Each one was noticed by someone, published somewhere, and then largely left alone. Some may turn out to be noise. Others may be the beginning of something.</p>
-  </section>
-
-  <div class="stat-note" id="stats-bar"></div>
-
-  <div class="controls">
-    <span class="controls-label">Type</span>
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="anomaly">Anomaly</button>
-    <button class="filter-btn" data-filter="property">Property</button>
-    <button class="filter-btn" data-filter="cross-field">Cross-field</button>
-    <button class="filter-btn" data-filter="mechanism">Mechanism</button>
-    <button class="filter-btn" data-filter="pattern">Pattern</button>
-    <div class="sep"></div>
-    <input type="text" class="search-input" placeholder="Search curiosities..." id="search">
-    <span class="count" id="count"></span>
+<div class="grid">
+  <div class="g-content">
+    <h1 class="article-title">Cabinet of Curiosities</h1>
   </div>
-
-  <div id="curiosities-list"></div>
 </div>
 
-<footer>
-  <p>A Tideloop project &middot; <a href="index.html">Back to Random Walk Research</a></p>
-</footer>
+<div class="grid">
+  <div class="g-content">
+    <p class="question">Can we brute force random scientific discovery?</p>
+    <p class="question">Can we &ldquo;predict&rdquo; random scientific discovery?</p>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="g-content prose stream-space">
+    <p>We are not sure. This website will be updated to highlight the people trying. In the meantime, we&rsquo;ve collected a list of curiosities that may be worth learning more about.</p>
+
+    <p>These are weird things happening in science right now that nobody knows what to do with. Unexpected results that don&rsquo;t fit models. Properties without applications. Failed experiments with interesting residuals. Observations sitting in one field that would be startling to people in another.</p>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="g-content" id="curiosities"></div>
+</div>
+
+<div class="grid">
+  <div class="g-content stream-space">
+    <p class="closing-line">The history of breakthroughs is the history of people who noticed something weird and decided to poke at it instead of moving on.</p>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="g-content">
+    <footer>
+      <p>A Tideloop project. <a href="index.html">Random Walk Research</a></p>
+    </footer>
+  </div>
+</div>
 
 <script src="radar_data.js"></script>
 <script>
 (function() {
   if (typeof CURIOSITIES === 'undefined') return;
 
-  var data = CURIOSITIES;
-  var activeFilter = 'all';
-  var searchTerm = '';
+  var catMap = {
+    'anomaly': { name: 'Instruments Seeing Things', intro: 'Measurements that don\u2019t match models. Detectors picking up signals nobody expected. Data points that sit outside the distribution and refuse to go away. The history of science is full of instruments seeing things their operators weren\u2019t looking for \u2014 X-rays, cosmic microwave background radiation, pulsars. These are today\u2019s version.' },
+    'property': { name: 'Weird Substances', intro: 'Materials and compounds with properties that shouldn\u2019t exist, or that exist but have no explanation. The kind of things that make a chemist say \u201cthat\u2019s funny.\u201d Teflon was one of these \u2014 a refrigerant experiment that produced a substance with properties nobody had seen before.' },
+    'cross-field': { name: 'Structural Analogies', intro: 'Patterns in one field that look suspiciously like patterns in another. The kind of observation that requires someone fluent in both languages to notice. CRISPR sat in microbiology journals for a decade before anyone in genetics realized what it was.' },
+    'mechanism': { name: 'Therapeutic Side Effects', intro: 'Drugs doing things they weren\u2019t designed to do. Treatments with secondary effects more interesting than the primary ones. Viagra was a failed heart drug. GLP-1 agonists were diabetes drugs before anyone noticed the weight loss.' },
+    'pattern': { name: 'Interesting Failures', intro: 'Experiments that didn\u2019t work the way they were supposed to \u2014 but the way they failed was itself informative. Post-it Notes came from a failed super-adhesive. Penicillin came from a contaminated petri dish.' }
+  };
 
-  // Stats
-  var avgPoke = (data.reduce(function(s, c) { return s + (c.poke_factor || 0); }, 0) / data.length).toFixed(1);
-  var types = {};
-  data.forEach(function(c) { var t = c.type || '?'; types[t] = (types[t] || 0) + 1; });
-  var fields = {};
-  data.forEach(function(c) { var f = c.field || '?'; fields[f] = (fields[f] || 0) + 1; });
+  var order = ['anomaly', 'property', 'cross-field', 'mechanism', 'pattern'];
+  var grouped = {};
+  var other = [];
 
-  var statsHTML = [
-    { num: data.length, label: 'Curiosities' },
-    { num: Object.keys(types).length, label: 'Types' },
-    { num: Object.keys(fields).length, label: 'Fields' },
-    { num: avgPoke, label: 'Avg Poke Factor' }
-  ].map(function(s) {
-    return '<div class="stat-item"><span class="stat-num">' + s.num + '</span> ' + s.label + '</div>';
-  }).join('');
-  document.getElementById('stats-bar').innerHTML = statsHTML;
+  CURIOSITIES.forEach(function(c) {
+    var t = c.type || 'other';
+    if (catMap[t]) {
+      if (!grouped[t]) grouped[t] = [];
+      grouped[t].push(c);
+    } else {
+      other.push(c);
+    }
+  });
 
-  function render() {
-    var filtered = data.filter(function(c) {
-      if (activeFilter !== 'all' && (c.type || '') !== activeFilter) return false;
-      if (searchTerm) {
-        var hay = (c.title + ' ' + c.what_happened + ' ' + c.why_its_weird + ' ' + (c.field || '') + ' ' + (c.who_noticed || '')).toLowerCase();
-        if (hay.indexOf(searchTerm.toLowerCase()) === -1) return false;
-      }
-      return true;
-    });
+  var container = document.getElementById('curiosities');
+  var html = '';
 
-    document.getElementById('count').textContent = filtered.length + ' / ' + data.length;
+  order.forEach(function(type) {
+    var items = grouped[type];
+    if (!items || !items.length) return;
+    var cat = catMap[type];
 
-    var listEl = document.getElementById('curiosities-list');
-    listEl.innerHTML = filtered.map(function(c, i) {
-      var scoreClass = (c.poke_factor || 0) >= 8 ? ' high' : '';
-      return '<div class="curiosity" data-idx="' + i + '">' +
-        '<div class="curiosity-head" onclick="this.parentElement.classList.toggle(\'open\')">' +
-          '<div class="curiosity-title">' + c.title + '</div>' +
-          '<div class="curiosity-score' + scoreClass + '">' + (c.poke_factor || '') + '</div>' +
-        '</div>' +
-        '<div class="curiosity-what">' + c.what_happened + '</div>' +
-        '<div class="curiosity-weird">' + c.why_its_weird + '</div>' +
-        '<div class="curiosity-meta">' +
-          '<span class="curiosity-type">' + (c.type || '') + '</span>' +
-          '<span>' + (c.field || '') + '</span>' +
-          (c.year ? '<span>' + c.year + '</span>' : '') +
-        '</div>' +
-        '<div class="curiosity-detail"><div class="detail-inner">' +
-          (c.where_it_sits ? '<div class="detail-row"><span class="detail-label">Where it sits</span><br>' + c.where_it_sits + '</div>' : '') +
-          (c.who_noticed ? '<div class="detail-row"><span class="detail-label">Who noticed</span><br>' + c.who_noticed + '</div>' : '') +
-          (c.who_doesnt_know ? '<div class="detail-row"><span class="detail-label">Who doesn\'t know</span><br>' + c.who_doesnt_know + '</div>' : '') +
-          (c.follow_up_status ? '<div class="detail-row"><span class="detail-label">Follow-up status</span><br>' + c.follow_up_status + '</div>' : '') +
+    html += '<div class="stream-space"><h3 class="cat-title">' + cat.name + '</h3>' +
+      '<p class="cat-intro">' + cat.intro + '</p>';
+
+    items.forEach(function(c) {
+      var pk = c.poke_factor ? '<span class="poke">' + c.poke_factor + '</span>' : '';
+      html += '<div class="c-item" onclick="this.classList.toggle(\'open\')">' +
+        '<div class="c-name">' + c.title + pk + '</div>' +
+        '<div class="c-what">' + c.what_happened + '</div>' +
+        '<div class="c-weird">' + c.why_its_weird + '</div>' +
+        '<div class="c-meta">' + (c.type || '') + ' \u00b7 ' + (c.field || '') + (c.year ? ' \u00b7 ' + c.year : '') + '</div>' +
+        '<div class="c-detail"><div class="c-detail-inner">' +
+          (c.where_it_sits ? '<div class="c-field"><span class="dl">Where it sits \u2014 </span>' + c.where_it_sits + '</div>' : '') +
+          (c.who_noticed ? '<div class="c-field"><span class="dl">Who noticed \u2014 </span>' + c.who_noticed + '</div>' : '') +
+          (c.who_doesnt_know ? '<div class="c-field"><span class="dl">Who doesn\u2019t know \u2014 </span>' + c.who_doesnt_know + '</div>' : '') +
+          (c.follow_up_status ? '<div class="c-field"><span class="dl">Follow-up \u2014 </span>' + c.follow_up_status + '</div>' : '') +
         '</div></div>' +
       '</div>';
-    }).join('');
+    });
+
+    html += '</div>';
+  });
+
+  if (other.length) {
+    html += '<div class="stream-space"><h3 class="cat-title">Other Curiosities</h3>';
+    html += '<p class="cat-intro">Observations that resist easy categorization.</p>';
+    other.forEach(function(c) {
+      var pk = c.poke_factor ? '<span class="poke">' + c.poke_factor + '</span>' : '';
+      html += '<div class="c-item" onclick="this.classList.toggle(\'open\')">' +
+        '<div class="c-name">' + c.title + pk + '</div>' +
+        '<div class="c-what">' + c.what_happened + '</div>' +
+        '<div class="c-weird">' + c.why_its_weird + '</div>' +
+        '<div class="c-meta">' + (c.type || '') + ' \u00b7 ' + (c.field || '') + (c.year ? ' \u00b7 ' + c.year : '') + '</div>' +
+        '<div class="c-detail"><div class="c-detail-inner">' +
+          (c.where_it_sits ? '<div class="c-field"><span class="dl">Where it sits \u2014 </span>' + c.where_it_sits + '</div>' : '') +
+          (c.who_noticed ? '<div class="c-field"><span class="dl">Who noticed \u2014 </span>' + c.who_noticed + '</div>' : '') +
+          (c.who_doesnt_know ? '<div class="c-field"><span class="dl">Who doesn\u2019t know \u2014 </span>' + c.who_doesnt_know + '</div>' : '') +
+          (c.follow_up_status ? '<div class="c-field"><span class="dl">Follow-up \u2014 </span>' + c.follow_up_status + '</div>' : '') +
+        '</div></div>' +
+      '</div>';
+    });
+    html += '</div>';
   }
 
-  // Filter buttons
-  document.querySelectorAll('.filter-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      activeFilter = btn.dataset.filter;
-      render();
-    });
-  });
-
-  document.getElementById('search').addEventListener('input', function(e) {
-    searchTerm = e.target.value;
-    render();
-  });
-
-  render();
+  container.innerHTML = html;
 })();
 </script>
 </body>
