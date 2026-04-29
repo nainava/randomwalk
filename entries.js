@@ -5,122 +5,86 @@ const ENTRIES = [
   "tracker_summary": {
     "invention": "GLP-1 receptor agonist drugs for type 2 diabetes and obesity",
     "inventor": "Chain began with Joel Habener (GLP-1 discovery), John Eng (exendin-4 isolation), and was commercialized through Amylin Pharmaceuticals and later Novo Nordisk/Eli Lilly",
-    "date": "Scientific chain: 1967–2024; First FDA approval (exenatide): 2005; Semaglutide for obesity: 2021",
+    "date": "Scientific chain: 1967\u20132024; First FDA approval (exenatide): 2005; Semaglutide for obesity: 2021",
     "current_use": "Treatment of type 2 diabetes and obesity; active investigation for Alzheimer's disease, addiction, NASH, and cardiovascular disease",
     "initial_funding_source": "U.S. Veterans Administration (VA) and National Institutes of Health (NIH)",
     "initial_funding_reason": "Basic research into venom peptides as probes for mammalian physiology; diabetes research at VA hospitals",
-    "chain_length": "12 steps · 57+ years"
+    "chain_length": "12 steps \u00b7 57+ years"
   },
   "the_x": "NIH-funded basic research into Gila monster lizard venom peptides, conducted at a VA hospital with catalog-ordered reptiles",
   "the_y": "A $100+ billion global market for GLP-1 obesity drugs, with emerging applications in Alzheimer's disease, addiction, and metabolic disorders",
-  "summary": "In the 1980s, a VA endocrinologist named John Eng, working in a small laboratory at the Bronx Veterans Affairs Medical Center, ordered Gila monster venom from a biological supply catalog on a hunch that reptile venoms might contain peptides that mimic or illuminate human gut hormones. After years of painstaking isolation work, Eng identified a peptide he called exendin-4, which turned out to be a near-perfect mimic of the human hormone GLP-1 — but dramatically more stable. When Eng tried to patent the discovery through the VA, the institution declined. Eng patented it himself, presented a poster at an ADA conference, and a small San Diego biotech saw it. Thirty years later, 9% of the U.S. population is projected to be on GLP-1 drugs by the end of the decade.",
+  "summary": "In the 1980s, a VA endocrinologist named John Eng, working in a small laboratory at the Bronx Veterans Affairs Medical Center, ordered Gila monster venom from a biological supply catalog on a hunch that reptile venoms might contain peptides that mimic or illuminate human gut hormones. After years of painstaking isolation work, Eng identified a peptide he called exendin-4, which turned out to be a near-perfect mimic of the human hormone GLP-1 \u2014 but dramatically more stable. When Eng tried to patent the discovery through the VA, the institution declined. Eng patented it himself, presented a poster at an ADA conference, and a small San Diego biotech saw it. Thirty years later, 9% of the U.S. population is projected to be on GLP-1 drugs by the end of the decade.",
   "chain": [
     {
-      "year": "1967–1975",
-      "who": "Multiple NIH-funded researchers including Rosalyn Yalow (Nobel 1977), Roger Unger, and others studying gut peptide hormones",
-      "where": "Veterans Administration hospitals and NIH-affiliated institutions across the United States",
-      "what_they_were_doing": "Yalow and Solomon Berson at the Bronx VA developed radioimmunoassay (RIA), enabling detection of tiny amounts of peptide hormones in blood. This opened the field of gut hormone research. Separately, NIH programs began funding venom biology as a source of pharmacological probes — venoms had already yielded captopril (from pit viper venom) and other drugs, establishing the paradigm that animal venoms are libraries of bioactive peptides.",
-      "the_jump": null,
-      "funding": "NIH grants and Veterans Administration research funds. Yalow's Nobel-winning RIA work was conducted entirely at the Bronx VA Medical Center with VA funding.",
+      "year": "1967\u20131983",
+      "who": "Rosalyn Yalow, Joel Habener, Graeme Bell",
+      "where": "Bronx VA; Massachusetts General Hospital; University of Chicago",
+      "what_they_were_doing": "Yalow's VA radioimmunoassay enabled gut hormone detection; Habener cloned proglucagon, discovering GLP-1.",
+      "the_jump": "GLP-1 emerged not from diabetes research but from gene sequencing done with no therapeutic target in mind.",
+      "funding": "NIH; Veterans Administration",
       "critical": true
     },
     {
-      "year": "1982–1983",
-      "who": "Joel Habener and colleagues at Massachusetts General Hospital; Graeme Bell at University of Chicago",
-      "where": "Massachusetts General Hospital / Harvard Medical School, Boston, MA",
-      "what_they_were_doing": "Habener's lab cloned the proglucagon gene and discovered it encodes multiple peptides including two novel sequences they named glucagon-like peptide-1 (GLP-1) and GLP-2. The function of GLP-1 was unknown at this stage. This was fundamental molecular biology, funded as basic science with no therapeutic target in mind.",
-      "the_jump": null,
-      "funding": "NIH grants (NIDDK — National Institute of Diabetes and Digestive and Kidney Diseases); Howard Hughes Medical Institute support for Habener.",
+      "year": "1986\u20131987",
+      "who": "Jens Juul Holst; Svetlana Mojsov / Joel Habener",
+      "where": "University of Copenhagen; Massachusetts General Hospital",
+      "what_they_were_doing": "GLP-1 stimulates insulin only when blood sugar is elevated \u2014 theoretically impossible to cause dangerous hypoglycemia.",
+      "the_jump": "This glucose-dependent safety profile reframed GLP-1 from biological curiosity to therapeutic target.",
+      "funding": "Danish Medical Research Council; NIH; Novo Nordisk",
       "critical": true
     },
     {
-      "year": "1986–1987",
-      "who": "Jens Juul Holst (University of Copenhagen) and independently Svetlana Mojsov / Joel Habener (MGH)",
-      "where": "University of Copenhagen, Denmark; Massachusetts General Hospital, Boston",
-      "what_they_were_doing": "Holst's group and the MGH group independently discovered that GLP-1(7-36) amide — a truncated, processed form of GLP-1 — is a potent stimulator of insulin secretion in a glucose-dependent manner. This 'incretin effect' meant GLP-1 only triggered insulin release when blood sugar was elevated, making it theoretically safe compared to existing diabetes drugs.",
-      "the_jump": "The jump was recognizing that GLP-1's glucose-dependent mechanism was a fundamental safety advantage over sulfonylureas — it couldn't cause dangerous hypoglycemia. This reframed GLP-1 from a biological curiosity to a therapeutic target.",
-      "funding": "Danish Medical Research Council; NIH (NIDDK); Novo Nordisk provided early research funding to Holst's lab.",
-      "critical": true
-    },
-    {
-      "year": "1990–1992",
+      "year": "1990\u20131992",
       "who": "Dr. John Eng",
-      "where": "Bronx Veterans Affairs Medical Center, Bronx, New York",
-      "what_they_were_doing": "Eng, working in a modest VA laboratory, was studying peptide hormones and their analogs in animal venoms. Building on the established NIH paradigm that venoms contain pharmacologically active peptides, Eng ordered Gila monster venom from a biological supply company called Peptides International. The Gila monster had been flagged in earlier literature as having unusual gut-active peptides. Using RIA techniques descended directly from Yalow's VA work, Eng screened the venom for sequences similar to known gut hormones.",
-      "the_jump": "The conceptual jump was Eng's hypothesis that the Gila monster, an animal that eats only a few times a year, might have evolved extreme versions of metabolic hormones to manage enormous, infrequent meals — meaning its peptides might be more potent or stable than mammalian equivalents.",
-      "funding": "Veterans Administration Merit Review grant. Budget was modest — the venom itself was ordered from a commercial catalog.",
+      "where": "Bronx Veterans Affairs Medical Center",
+      "what_they_were_doing": "Ordered Gila monster venom from a catalog; hypothesized an animal eating few times yearly evolved extreme metabolic peptides.",
+      "the_jump": "Eng isolated exendin-4 \u2014 53% homology to GLP-1, resistant to degradation, far longer half-life than any mammalian equivalent.",
+      "funding": "Veterans Administration",
       "critical": true
     },
     {
-      "year": "1992",
+      "year": "1993\u20131994",
       "who": "Dr. John Eng",
-      "where": "Bronx VA Medical Center",
-      "what_they_were_doing": "Eng isolated and sequenced a novel 39-amino-acid peptide from Gila monster venom, which he named exendin-4. He found it bore 53% sequence homology to human GLP-1 and, crucially, bound to GLP-1 receptors with high affinity. Unlike GLP-1, which is degraded in the human body within 2 minutes by the enzyme DPP-4, exendin-4 was resistant to degradation — giving it a much longer half-life. Eng published his findings and attempted to patent the peptide through the VA technology transfer office.",
-      "the_jump": null,
-      "funding": "Veterans Administration. The VA technology transfer office reviewed Eng's patent application and declined to pursue it, calling it 'basic science' with no commercial value.",
-      "critical": true
-    },
-    {
-      "year": "1993–1994",
-      "who": "Dr. John Eng (inventor); VA Technology Transfer Office (institutional obstacle)",
-      "where": "Bronx VA Medical Center; Washington D.C. (VA administration)",
-      "what_they_were_doing": "After the VA declined to patent exendin-4, Eng took the extraordinary step of patenting it himself, out of pocket, using personal funds. He filed U.S. Patent 5,424,286 for exendin-4 and related compounds as insulin secretagogues. He then presented findings at the American Diabetes Association annual meeting as a poster.",
-      "the_jump": "NEAR-DEATH MOMENT: Had Eng not personally filed the patent, exendin-4 would have entered the public domain without any commercialization pathway. The VA's refusal, paradoxically, preserved the innovation by placing it in the hands of its most motivated champion.",
-      "funding": "Personal funds (patent filing); VA salary continued. One of the few cases where a government researcher personally financed IP protection of a publicly-funded discovery.",
+      "where": "Bronx VA; Washington D.C.",
+      "what_they_were_doing": "VA declined to patent exendin-4; Eng filed the patent out of pocket and presented findings as a conference poster.",
+      "the_jump": "Had Eng not personally filed, exendin-4 enters the public domain with no commercialization pathway. The VA's refusal accidentally preserved the innovation.",
+      "funding": "Personal funds",
       "critical": true
     },
     {
       "year": "1996",
-      "who": "Andrew Young, PhD (Amylin Pharmaceuticals scientist)",
-      "where": "American Diabetes Association Annual Scientific Sessions; San Diego, CA (Amylin HQ)",
-      "what_they_were_doing": "Amylin Pharmaceuticals, a small San Diego biotech, had been developing pramlintide for diabetes. Andrew Young attended the ADA meeting and saw Eng's poster on exendin-4. Recognizing the peptide's extraordinary stability and GLP-1 receptor activity, Young contacted Eng. Amylin licensed the exendin-4 patent from Eng and began preclinical development of exenatide.",
-      "the_jump": "A single scientific poster at a conference was the entire commercialization mechanism. No formal technology transfer, no institutional licensing deal — one researcher saw another researcher's poster.",
-      "funding": "Amylin Pharmaceuticals venture capital and public market funding (Amylin IPO 1992). License payments to Eng personally.",
+      "who": "Andrew Young, Amylin Pharmaceuticals",
+      "where": "ADA Annual Meeting; San Diego",
+      "what_they_were_doing": "Young saw Eng's poster, recognized exendin-4's stability, licensed the patent to begin development as exenatide.",
+      "the_jump": "A single conference poster was the entire commercialization mechanism \u2014 no formal tech transfer, no institutional deal.",
+      "funding": "Amylin Pharmaceuticals venture capital",
       "critical": true
     },
     {
-      "year": "1999–2002",
-      "who": "Amylin Pharmaceuticals leadership; Eli Lilly partnership",
-      "where": "San Diego, CA; Indianapolis, IN (Eli Lilly)",
-      "what_they_were_doing": "Amylin entered clinical trials for exenatide but faced severe financial difficulties. The company came close to bankruptcy multiple times. In 2002, Amylin struck a co-development deal with Eli Lilly, which provided the financial lifeline necessary to complete trials.",
-      "the_jump": "NEAR-DEATH MOMENT: Amylin's near-bankruptcy almost killed exenatide before Phase 3. The Eli Lilly partnership was essential for survival. Without a large pharma partner, the drug dies in development.",
-      "funding": "Eli Lilly co-development agreement (2002); Eli Lilly invested approximately $325 million in Amylin.",
-      "critical": false
-    },
-    {
-      "year": "2005",
-      "who": "FDA; Amylin Pharmaceuticals; Eli Lilly",
-      "where": "FDA (Silver Spring, MD); marketed across United States",
-      "what_they_were_doing": "The FDA approved exenatide (Byetta) on April 28, 2005, as the first GLP-1 receptor agonist for type 2 diabetes. In clinical trials, patients had lost significant weight — an unexpected and initially secondary finding noted in the label but not the primary claim.",
-      "the_jump": "The weight loss signal in trial data was the beginning of the pivot. Physicians and patients immediately noticed significant weight loss. This 'side effect' would eventually become the primary indication worth hundreds of billions of dollars.",
-      "funding": "Commercial sales revenue. All foundational IP traced back to VA/NIH-funded research.",
+      "year": "1999\u20132005",
+      "who": "Amylin Pharmaceuticals; Eli Lilly; FDA",
+      "where": "San Diego; Indianapolis; Silver Spring MD",
+      "what_they_were_doing": "Amylin nearly went bankrupt before Eli Lilly partnership rescued trials; FDA approved exenatide (Byetta) April 2005.",
+      "the_jump": "Weight loss appeared as an unexpected secondary finding in trial data \u2014 the 'side effect' that would become a hundred-billion-dollar indication.",
+      "funding": "Eli Lilly co-development agreement",
       "critical": true
     },
     {
-      "year": "2000–2012",
-      "who": "Jens Juul Holst (Copenhagen), Lotte Bjerre Knudsen and research teams at Novo Nordisk",
-      "where": "University of Copenhagen, Denmark; Novo Nordisk research facilities, Måløv, Denmark",
-      "what_they_were_doing": "In parallel, Novo Nordisk pursued their own GLP-1 analogue program. Lotte Bjerre Knudsen led the program that chemically modified GLP-1 by attaching a fatty acid chain, enabling once-daily and then once-weekly dosing. This became liraglutide (Victoza, approved 2010) and eventually semaglutide.",
-      "the_jump": "Novo Nordisk's fatty acid modification strategy was independently derived from the same GLP-1 biology. Competition between exenatide and liraglutide/semaglutide drove two separate technological approaches to the same receptor target.",
-      "funding": "Novo Nordisk internal R&D; Danish government research council grants to Holst's academic lab; 25+ year public-private collaboration.",
-      "critical": false
-    },
-    {
-      "year": "2017–2021",
-      "who": "Novo Nordisk clinical teams; SUSTAIN and STEP trial investigators worldwide",
-      "where": "Global clinical trial sites; Novo Nordisk, Bagsværd, Denmark",
-      "what_they_were_doing": "The STEP trials tested semaglutide 2.4mg specifically for obesity in people without diabetes. STEP 1 showed an average 14.9% body weight reduction — unprecedented for a non-surgical intervention. The FDA approved semaglutide as Wegovy for chronic weight management in June 2021. Ozempic became a cultural phenomenon.",
-      "the_jump": "The STEP trials reframed obesity from a 'lifestyle' problem to a biological disease with a pharmaceutical solution, triggering a massive social and medical paradigm shift.",
-      "funding": "Novo Nordisk internal R&D (STEP trials cost estimated at $1B+). Original basic science underpinning remained NIH/VA-funded.",
+      "year": "2000\u20132021",
+      "who": "Lotte Bjerre Knudsen, Novo Nordisk; STEP trial investigators",
+      "where": "Denmark; global trial sites",
+      "what_they_were_doing": "Fatty acid modification enabled once-weekly dosing; STEP 1 showed 14.9% body weight reduction \u2014 unprecedented without surgery.",
+      "the_jump": "STEP trials reframed obesity as a biological disease with a pharmaceutical solution, triggering a global paradigm shift.",
+      "funding": "Novo Nordisk internal R&D",
       "critical": true
     },
     {
-      "year": "2023–present",
-      "who": "Researchers at University of Copenhagen, University College London, National Institute on Aging (NIH)",
-      "where": "Copenhagen; London; Baltimore; clinical trial sites globally",
-      "what_they_were_doing": "GLP-1 receptors discovered to be widely expressed throughout the brain. Epidemiological studies suggested GLP-1 agonist users had lower rates of Alzheimer's and Parkinson's. NIH NIA funded trials, Novo Nordisk launched Phase 3 EVOKE trials of semaglutide for early Alzheimer's. Separately, signals suggest GLP-1 agonists may reduce addiction behaviors.",
-      "the_jump": "The loop closes: NIH-funded basic research that enabled venom peptide biology is now funding investigations of GLP-1 drugs in the brain — the same neuroscience programs that mapped peptide receptor distribution in the 1970s and 1980s are foundational to the Alzheimer's hypothesis.",
-      "funding": "NIH National Institute on Aging (NIA); Novo Nordisk (EVOKE trials, est. $500M+); Eli Lilly (tirzepatide Alzheimer's investigations); ARPA-H exploratory grants.",
+      "year": "2023\u2013present",
+      "who": "NIH National Institute on Aging; Novo Nordisk",
+      "where": "Copenhagen; London; Baltimore",
+      "what_they_were_doing": "GLP-1 receptors found widely in the brain; users showed lower Alzheimer's rates; Phase 3 trials launched.",
+      "the_jump": "NIH-funded venom peptide biology now funds brain disease trials \u2014 the same programs that mapped peptide receptors in the 1970s underpin the Alzheimer's hypothesis.",
+      "funding": "NIH; Novo Nordisk; ARPA-H",
       "critical": false
     }
   ],
@@ -128,7 +92,7 @@ const ENTRIES = [
     "Eng J. (1992). Exendin-4 isolation from Heloderma suspectum venom. Journal of Biological Chemistry. https://www.jbc.org/article/S0021-9258(19)50235-3/pdf",
     "Eng J, Andrews PC, Kleinman WA, Singh L, Raufman JP. Purification and structure of exendin-3. J Biol Chem. 1992;267(12):7402-5. https://pubmed.ncbi.nlm.nih.gov/1313797/",
     "Bell GI, Santerre RF, Mullenbach GT. Hamster preproglucagon contains the sequence of glucagon and two related peptides. Nature. 1983;302:716-718. https://doi.org/10.1038/302716a0",
-    "Mojsov S, Weir GC, Habener JF. Insulinotropin: glucagon-like peptide I (7-37). J Clin Invest. 1987;79(2):616-619. https://doi.org/10.1172/JCI112855",
+    "Mojsov S, Weir GC, Habener JF. Insulinotropin: glucagon-like peptide I (7-37). J Clin Invest. 1987;79(2):616-619. https://doi.org/10.1172/JCI104130",
     "Holst JJ. The physiology of glucagon-like peptide 1. Physiol Rev. 2007;87(4):1409-1439. https://doi.org/10.1152/physrev.00034.2006",
     "Drucker DJ. Mechanisms of Action and Therapeutic Application of Glucagon-like Peptide-1. Cell Metabolism. 2018;27(4):740-756. https://doi.org/10.1016/j.cmet.2018.03.001",
     "FDA approval letter for Byetta (exenatide), NDA 021773, April 28, 2005. https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2005/021773ltr.pdf",
@@ -137,165 +101,110 @@ const ENTRIES = [
     "FDA approval of Wegovy, June 4, 2021. https://www.fda.gov/news-events/press-announcements/fda-approves-new-drug-treatment-chronic-weight-management-first-2014",
     "Novo Nordisk EVOKE trial overview. https://www.novonordisk.com/research-and-pipeline/research-approach/cardiovascular-metabolic-renal/alzheimers-disease.html",
     "Knudsen LB, Lau J. The Discovery and Development of Liraglutide and Semaglutide. Front Endocrinol. 2019;10:155. https://doi.org/10.3389/fendo.2019.00155",
-    "US Patent 5,424,286 — Exendin-4 analogues (inventor: John Eng). https://patents.google.com/patent/US5424286",
+    "US Patent 5,424,286 \u2014 Exendin-4 analogues (inventor: John Eng). https://patents.google.com/patent/US5424286",
     "Yalow RS, Berson SA. Immunoassay of endogenous plasma insulin in man. J Clin Invest. 1960;39:1157-1175. https://doi.org/10.1172/JCI104130",
-    "Novo Nordisk Annual Report 2023 — semaglutide sales exceeding $21 billion. https://www.novonordisk.com/investors/annual-report.html",
+    "Novo Nordisk Annual Report 2023 \u2014 semaglutide sales exceeding $21 billion. https://www.novonordisk.com/investors/annual-report.html",
     "EVOKE trial: ClinicalTrials.gov NCT04777396. https://clinicaltrials.gov/study/NCT04777396",
     "Cohen D. The Ozempic effect. The Guardian, 2023. https://www.theguardian.com/society/2023/sep/04/ozempic-semaglutide-weight-loss-drug"
   ]
-}
-,
+},
 {
   "number": "002",
   "discovery_name": "The Transformer / Modern AI",
   "tracker_summary": {
-    "invention": "The Transformer architecture — a neural network design relying entirely on self-attention mechanisms, eliminating recurrence and convolution",
+    "invention": "The Transformer architecture \u2014 a neural network design relying entirely on self-attention mechanisms, eliminating recurrence and convolution",
     "inventor": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin (Google Brain / Google Research)",
     "date": "June 12, 2017 (arXiv preprint); NeurIPS 2017",
     "current_use": "Foundation of virtually every large language model: GPT-4, Claude, Gemini, LLaMA, Mistral, and thousands of derivative systems",
     "initial_funding_source": "Google LLC (internal research budget, Google Brain team)",
     "initial_funding_reason": "Improve Google Translate's neural machine translation quality and computational efficiency",
-    "chain_length": "14 steps · ~70 years"
+    "chain_length": "14 steps \u00b7 ~70 years"
   },
-  "the_x": "The need to improve Google Translate — a commercial product serving hundreds of millions of users daily, funded by Google's advertising revenue",
+  "the_x": "The need to improve Google Translate \u2014 a commercial product serving hundreds of millions of users daily, funded by Google's advertising revenue",
   "the_y": "The Transformer architecture: the universal substrate of the modern AI revolution, enabling GPT, BERT, Claude, Gemini, and the entire large language model ecosystem",
-  "summary": "In 2017, a team of eight researchers at Google published a 15-page paper titled 'Attention Is All You Need' with the modest goal of making machine translation faster. They had no idea they were writing the foundational document of a technological revolution. But the lineage runs much deeper — through two devastating AI winters, multiple funding collapses, and decades of academic unfashionability. The chain runs from McCulloch and Pitts in 1943, through the brutal Minsky-Papert critique that nearly killed the field, through backpropagation's revival, through LSTMs, through attention mechanisms — and finally to eight engineers who were just trying to make a translation product work better.",
+  "summary": "In 2017, a team of eight researchers at Google published a 15-page paper titled 'Attention Is All You Need' with the modest goal of making machine translation faster. They had no idea they were writing the foundational document of a technological revolution. But the lineage runs much deeper \u2014 through two devastating AI winters, multiple funding collapses, and decades of academic unfashionability. The chain runs from McCulloch and Pitts in 1943, through the brutal Minsky-Papert critique that nearly killed the field, through backpropagation's revival, through LSTMs, through attention mechanisms \u2014 and finally to eight engineers who were just trying to make a translation product work better.",
   "chain": [
     {
-      "year": "1943",
-      "who": "Warren McCulloch and Walter Pitts",
-      "where": "University of Chicago, Chicago, Illinois",
-      "what_they_were_doing": "Published 'A Logical Calculus of the Ideas Immanent in Nervous Activity' — the first mathematical model of a neuron as a binary threshold unit. Networks of such units could compute any logical function. The conceptual birth of artificial neural networks.",
-      "the_jump": null,
-      "funding": "University of Illinois and University of Chicago institutional salaries; no dedicated external grant.",
-      "critical": true
-    },
-    {
-      "year": "1957–1958",
-      "who": "Frank Rosenblatt",
-      "where": "Cornell Aeronautical Laboratory, Buffalo, New York",
-      "what_they_were_doing": "Invented the Perceptron — the first trainable neural network — funded by the U.S. Navy. The New York Times ran a front-page story claiming the Navy had built a machine that 'will be able to walk, talk, see, write, reproduce itself, and be conscious of its existence.'",
-      "the_jump": "Rosenblatt's leap was adding a learning rule — a mechanism for the network to adjust its own weights based on errors. The first proto-gradient-descent.",
-      "funding": "U.S. Office of Naval Research (ONR), contract Nonr-401(40). The Navy wanted pattern recognition for aerial photographs.",
+      "year": "1943\u20131958",
+      "who": "Warren McCulloch, Walter Pitts; Frank Rosenblatt",
+      "where": "University of Chicago; Cornell Aeronautical Laboratory",
+      "what_they_were_doing": "McCulloch and Pitts modeled the neuron mathematically; Rosenblatt built the first trainable network for the U.S. Navy.",
+      "the_jump": "Rosenblatt added a learning rule \u2014 the first proto-gradient-descent, the seed of everything that followed.",
+      "funding": "U.S. Office of Naval Research",
       "critical": true
     },
     {
       "year": "1969",
       "who": "Marvin Minsky and Seymour Papert",
       "where": "MIT, Cambridge, Massachusetts",
-      "what_they_were_doing": "Published 'Perceptrons,' proving single-layer Perceptrons could not solve non-linearly separable problems like XOR. The book effectively killed neural network funding for over a decade. DARPA redirected resources to symbolic AI. THE FIRST AI WINTER.",
-      "the_jump": "NEAR-DEATH MOMENT: Minsky and Papert's academic authority was immense. Neural network research became professionally toxic. Graduate students were advised against the field. Most researchers switched to symbolic AI or left entirely.",
-      "funding": "N/A — this step represents the withdrawal of funding. DARPA's IPTO dramatically reduced neural network grants.",
+      "what_they_were_doing": "Published 'Perceptrons,' proving single-layer nets couldn't solve XOR \u2014 neural network funding collapsed for over a decade.",
+      "the_jump": "Neural network research became professionally toxic. Graduate students were advised against the field.",
+      "funding": "N/A \u2014 DARPA dramatically reduced neural network grants",
       "critical": true
     },
     {
-      "year": "1974–1986",
-      "who": "Paul Werbos (Harvard, 1974), David Rumelhart, Geoffrey Hinton, Ronald Williams",
-      "where": "Harvard University; UC San Diego; Carnegie Mellon University",
-      "what_they_were_doing": "Werbos first described backpropagation in his 1974 PhD thesis — largely unnoticed. In 1986, Rumelhart, Hinton, and Williams published 'Learning Representations by Back-Propagating Errors' in Nature, rediscovering and clearly articulating backpropagation. Multi-layer networks could now learn internal representations.",
-      "the_jump": "Backpropagation provided the missing ingredient: an efficient algorithm for computing how much each weight contributed to the error. This made deeper networks trainable and triggered an explosion of renewed interest.",
-      "funding": "NSF grant BNS-8209499; DARPA contract N00014-82-C-0374; Sloan Foundation fellowship.",
-      "critical": true
-    },
-    {
-      "year": "1991–1995",
-      "who": "Sepp Hochreiter (TU Munich); the broader neural network community",
-      "where": "Technical University of Munich",
-      "what_they_were_doing": "THE SECOND AI WINTER. Neural networks failed to scale. Hochreiter's 1991 diploma thesis formally characterized the vanishing gradient problem. Support Vector Machines appeared to outperform neural nets. Funding agencies shifted massively away.",
-      "the_jump": "Hochreiter's analysis was a precise diagnosis of WHY deep networks failed — the intellectual foundation for every subsequent architectural innovation including LSTMs and attention.",
-      "funding": "DFG (German Research Foundation). Most U.S. neural net funding shifted to SVMs.",
+      "year": "1974\u20131986",
+      "who": "Paul Werbos; David Rumelhart, Geoffrey Hinton, Ronald Williams",
+      "where": "Harvard; UC San Diego; Carnegie Mellon",
+      "what_they_were_doing": "Rumelhart, Hinton, and Williams published backpropagation in Nature, making multi-layer networks trainable for the first time.",
+      "the_jump": "Backpropagation provided the missing ingredient for deep networks and triggered an explosion of renewed interest.",
+      "funding": "NSF; DARPA; Sloan Foundation",
       "critical": true
     },
     {
       "year": "1997",
-      "who": "Sepp Hochreiter and Jürgen Schmidhuber",
-      "where": "IDSIA, Lugano, Switzerland; TU Munich",
-      "what_they_were_doing": "Published 'Long Short-Term Memory' — introducing gating mechanisms that allowed networks to selectively remember or forget information over long sequences, circumventing the vanishing gradient problem.",
-      "the_jump": "LSTMs kept neural networks alive through the late 1990s and 2000s, eventually becoming dominant for speech recognition and machine translation. Without LSTMs surviving the second AI winter, there would have been no trained researchers to build the sequence-to-sequence models that preceded the Transformer.",
-      "funding": "Swiss National Science Foundation. Schmidhuber's IDSIA maintained neural network research when it was deeply unfashionable.",
+      "who": "Sepp Hochreiter and J\u00fcrgen Schmidhuber",
+      "where": "IDSIA, Lugano; TU Munich",
+      "what_they_were_doing": "Published Long Short-Term Memory, solving the vanishing gradient problem with gating mechanisms.",
+      "the_jump": "LSTMs kept neural networks alive through the second AI winter \u2014 without them, no trained researchers exist to build what came next.",
+      "funding": "Swiss National Science Foundation",
       "critical": true
     },
     {
-      "year": "2006–2009",
-      "who": "Geoffrey Hinton (Toronto), Yann LeCun (NYU), Yoshua Bengio (Montréal)",
-      "where": "University of Toronto; NYU; Université de Montréal",
-      "what_they_were_doing": "Hinton showed deep networks could be pre-trained layer by layer, opening the 'deep learning' era. Crucially, CIFAR funded a Neural Computation and Adaptive Perception program, deliberately uniting Hinton, Bengio, and LeCun — three researchers working in near-isolation.",
-      "the_jump": "CIFAR's NCAP program is the institutional bridge between the AI winter and the deep learning revolution. By providing stable funding for neural network research when most agencies considered it dead, CIFAR preserved the intellectual capital needed for everything that followed.",
-      "funding": "CIFAR (~CAD $10M over multiple cycles); NSERC; Ontario government.",
+      "year": "2006\u20132012",
+      "who": "Geoffrey Hinton, Yann LeCun, Yoshua Bengio; Krizhevsky, Sutskever, Hinton",
+      "where": "University of Toronto; NYU; Universit\u00e9 de Montr\u00e9al",
+      "what_they_were_doing": "CIFAR united the three researchers during the AI winter; AlexNet won ImageNet 2012 by a margin that ended all debate.",
+      "the_jump": "AlexNet trained on two $500 GPUs crushed every competitor. Every major tech company immediately began aggressively hiring deep learning researchers.",
+      "funding": "CIFAR; NSERC; Canadian Foundation for Innovation",
       "critical": true
     },
     {
-      "year": "2012",
-      "who": "Alex Krizhevsky, Ilya Sutskever, Geoffrey Hinton",
-      "where": "University of Toronto",
-      "what_they_were_doing": "AlexNet won ImageNet with a top-5 error rate of 15.3% vs. 26.2% for second place — trained on two NVIDIA GTX 580 GPUs. A 'Sputnik moment.' Every major tech company began aggressively hiring deep learning researchers.",
-      "the_jump": "AlexNet ended the second AI winter definitively. The talent and infrastructure built in response directly created the environment from which the Transformer team emerged.",
-      "funding": "NSERC; Canadian Foundation for Innovation. The two GPUs cost approximately $500 each.",
+      "year": "2014\u20132015",
+      "who": "Sutskever, Vinyals, Le; Bahdanau, Cho, Bengio",
+      "where": "Google Brain; Universit\u00e9 de Montr\u00e9al",
+      "what_they_were_doing": "Seq2seq compressed sentences into fixed vectors; Bahdanau attention let the decoder dynamically weight each input word instead.",
+      "the_jump": "Bahdanau attention is the direct ancestor of self-attention in the Transformer. The core idea survived essentially unchanged into 2017.",
+      "funding": "Google LLC; CIFAR; NSERC",
       "critical": true
     },
     {
-      "year": "2014",
-      "who": "Ilya Sutskever, Oriol Vinyals, Quoc V. Le",
-      "where": "Google Brain, Mountain View, California",
-      "what_they_were_doing": "Published 'Sequence to Sequence Learning with Neural Networks' — an encoder-decoder LSTM architecture for end-to-end neural machine translation. Google began integrating neural MT into Google Translate.",
-      "the_jump": "Seq2seq established the paradigm but had a critical flaw: compressing an entire sentence into a single fixed-length vector degraded quality for long sentences. This bottleneck was the direct motivation for the attention mechanism.",
-      "funding": "Google LLC internal research budget (Google Brain).",
+      "year": "2016\u20132017",
+      "who": "Google NMT team; Ashish Vaswani et al.",
+      "where": "Google Brain, Mountain View and New York",
+      "what_they_were_doing": "GNMT deployed to 500M daily users but was too slow to parallelize; Vaswani's team eliminated recurrence entirely with multi-head self-attention.",
+      "the_jump": "The question 'how do we make Google Translate faster?' accidentally produced the substrate of the entire modern AI revolution.",
+      "funding": "Google LLC",
       "critical": true
     },
     {
-      "year": "2014–2015",
-      "who": "Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio",
-      "where": "Université de Montréal; Jacobs University Bremen",
-      "what_they_were_doing": "Published 'Neural Machine Translation by Jointly Learning to Align and Translate' — proposing the attention mechanism: the decoder could learn to 'attend' to different parts of the input at each step, dynamically weighting each word's relevance.",
-      "the_jump": "Bahdanau attention is the direct ancestor of self-attention in the Transformer. The core idea — computing a weighted sum over all input representations — survived essentially unchanged into Vaswani et al. 2017. Without Bahdanau 2014, there is no Transformer.",
-      "funding": "CIFAR; Compute Canada; FRQNT; NSERC; European Research Council.",
-      "critical": true
-    },
-    {
-      "year": "2016",
-      "who": "Yonghui Wu, Mike Schuster, Quoc V. Le, and ~30 engineers",
-      "where": "Google Brain and Google Research",
-      "what_they_were_doing": "Deployed Google Neural Machine Translation (GNMT) to production — an LSTM-based system that reduced translation errors by 55–85% across several language pairs. Served 500+ million daily users.",
-      "the_jump": "GNMT's deployment was the forcing function. The LSTM system was dramatically better but slow — sequential computation couldn't be parallelized across TPUs. This business pressure to find a faster architecture led directly to the Transformer.",
-      "funding": "Google LLC internal budget. Google had invested ~$500M in acquiring DeepMind and was spending hundreds of millions annually on AI research infrastructure.",
-      "critical": true
-    },
-    {
-      "year": "2017",
-      "who": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin",
-      "where": "Google Brain (Mountain View) and Google Research (New York)",
-      "what_they_were_doing": "Published 'Attention Is All You Need' — the Transformer. Eliminated all recurrence and convolution, relying entirely on multi-head self-attention. Trained in 3.5 days on 8 GPUs to achieve state-of-the-art translation at a fraction of prior training costs.",
-      "the_jump": "The Transformer's stated goal was efficient machine translation. Because self-attention has no inherent constraint on sequence length or domain, and can be parallelized across entire sequences, it could scale with compute in ways LSTMs could not. The question 'how do we make Google Translate faster?' accidentally produced the substrate of the entire modern AI revolution.",
-      "funding": "Google LLC internal research budget. No external grant funding acknowledged in the paper.",
-      "critical": true
-    },
-    {
-      "year": "2018",
-      "who": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova",
-      "where": "Google AI Language",
-      "what_they_were_doing": "Published BERT — pre-trained Transformer encoder achieving state-of-the-art on 11 NLP benchmarks simultaneously. Deployed to Google Search in 2019, affecting nearly every English query. Demonstrated the 'pre-train then fine-tune' paradigm.",
-      "the_jump": "BERT showed that simply making the model bigger and training on more data produced systematically better results. This observation drove the race to larger models.",
-      "funding": "Google LLC internal research budget.",
-      "critical": true
-    },
-    {
-      "year": "2018–2024",
-      "who": "OpenAI (GPT series), Google DeepMind (Gemini), Anthropic (Claude), Meta AI (LLaMA), and hundreds more",
+      "year": "2018\u20132024",
+      "who": "OpenAI, Google DeepMind, Anthropic, Meta AI, hundreds more",
       "where": "San Francisco; London; Mountain View; globally",
-      "what_they_were_doing": "GPT-1 through GPT-4, ChatGPT (100M users in 2 months), Claude, Gemini, LLaMA. Every model is a Transformer. Over $500B in venture and corporate investment by 2024. The original goal — improve a translation product — produced an industrial revolution.",
-      "the_jump": "The complete arc: a 1943 theoretical neuron paper → two near-extinction AI winters → eight engineers trying to make Google Translate faster → the most consequential mathematical architecture of the 21st century.",
-      "funding": "Microsoft invested $13B in OpenAI. Aggregate investment in Transformer-based AI companies exceeded $500B by 2024. The original seed: CIFAR's ~CAD $10M and two GPUs costing $1,000.",
+      "what_they_were_doing": "BERT, GPT-1 through GPT-4, Claude, Gemini, LLaMA \u2014 every major AI system built on the Transformer.",
+      "the_jump": "A 1943 theoretical neuron paper \u2192 two near-extinction AI winters \u2192 eight engineers fixing a translation product \u2192 the most consequential architecture of the 21st century.",
+      "funding": "Microsoft invested $13B in OpenAI; aggregate AI investment exceeded $500B by 2024",
       "critical": true
     }
   ],
   "sources": [
-    "McCulloch & Pitts (1943). Bulletin of Mathematical Biophysics, 5, 115–133. https://doi.org/10.1007/BF02478259",
-    "Rosenblatt, F. (1958). Psychological Review, 65(6), 386–408. https://doi.org/10.1037/h0042519",
+    "McCulloch & Pitts (1943). Bulletin of Mathematical Biophysics, 5, 115\u2013133. https://doi.org/10.1007/BF02478259",
+    "Rosenblatt, F. (1958). Psychological Review, 65(6), 386\u2013408. https://doi.org/10.1037/h0042519",
     "Minsky & Papert (1969). Perceptrons. MIT Press.",
-    "Rumelhart, Hinton, Williams (1986). Nature, 323, 533–536. https://doi.org/10.1038/323533a0",
+    "Rumelhart, Hinton, Williams (1986). Nature, 323, 533\u2013536. https://doi.org/10.1038/323533a0",
     "Hochreiter, S. (1991). Diploma thesis, TU Munich. http://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf",
-    "Hochreiter & Schmidhuber (1997). Neural Computation, 9(8), 1735–1780. https://doi.org/10.1162/neco.1997.9.8.1735",
-    "Hinton & Salakhutdinov (2006). Science, 313, 504–507. https://doi.org/10.1126/science.1127647",
+    "Hochreiter & Schmidhuber (1997). Neural Computation, 9(8), 1735\u20131780. https://doi.org/10.1162/neco.1997.9.8.1735",
+    "Hinton & Salakhutdinov (2006). Science, 313, 504\u2013507. https://doi.org/10.1126/science.1127647",
     "Krizhevsky, Sutskever, Hinton (2012). NeurIPS 2012. https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
     "Sutskever, Vinyals, Le (2014). NeurIPS 2014. https://arxiv.org/abs/1409.3215",
     "Bahdanau, Cho, Bengio (2014). ICLR 2015. https://arxiv.org/abs/1409.0473",
@@ -308,299 +217,180 @@ const ENTRIES = [
     "CIFAR Neural Computation program. https://cifar.ca/research-programs/",
     "Metz, C. (2021). Genius Makers. Dutton/Penguin."
   ]
-}
-,
+},
 {
   "number": "003",
   "discovery_name": "mRNA Vaccines",
   "tracker_summary": {
     "invention": "Lipid nanoparticle-encapsulated modified mRNA vaccines",
-    "inventor": "Katalin Karikó and Drew Weissman (key discovery); commercialized via Moderna and BioNTech",
-    "date": "Core discovery: 2005 (modified mRNA); COVID-19 application: 2020–2021",
+    "inventor": "Katalin Karik\u00f3 and Drew Weissman (key discovery); commercialized via Moderna and BioNTech",
+    "date": "Core discovery: 2005 (modified mRNA); COVID-19 application: 2020\u20132021",
     "current_use": "COVID-19 vaccines; pipeline for influenza, RSV, HIV, cancer immunotherapy, and rare genetic diseases",
-    "initial_funding_source": "Hungarian Academy of Sciences (1978–1985); later NIH and American Heart Association grants (repeatedly rejected)",
+    "initial_funding_source": "Hungarian Academy of Sciences (1978\u20131985); later NIH and American Heart Association grants (repeatedly rejected)",
     "initial_funding_reason": "Basic research into RNA biology and gene therapy; not specifically targeted at vaccines",
-    "chain_length": "13 steps · 42 years"
+    "chain_length": "13 steps \u00b7 42 years"
   },
-  "the_x": "Decades of rejected grants, institutional demotion, and basic biochemistry research into how messenger RNA interacts with the innate immune system — work considered a scientific dead end",
+  "the_x": "Decades of rejected grants, institutional demotion, and basic biochemistry research into how messenger RNA interacts with the innate immune system \u2014 work considered a scientific dead end",
   "the_y": "Two COVID-19 vaccines authorized in under a year, protecting hundreds of millions of people and demonstrating a universal platform for rapid vaccine development",
-  "summary": "In 1978, a young Hungarian biochemist named Katalin Karikó became captivated by the idea that synthetic mRNA could instruct human cells to produce their own medicines. For more than two decades, nearly every institution, grant committee, and peer review panel told her she was wrong. She lost her faculty position at UPenn, was demoted, had her salary cut, and watched her NIH grant applications fail year after year. In 2005, collaborating with Drew Weissman, she discovered that substituting pseudouridine for uridine in synthetic mRNA allowed it to slip past the immune system's sentinels. That single insight — published in Immunity and largely ignored — unlocked mRNA as a therapeutic platform. When SARS-CoV-2 emerged in January 2020, both Moderna and BioNTech had optimized mRNA platforms ready. Pfizer-BioNTech received FDA authorization 326 days after the virus's genome was sequenced.",
+  "summary": "In 1978, a young Hungarian biochemist named Katalin Karik\u00f3 became captivated by the idea that synthetic mRNA could instruct human cells to produce their own medicines. For more than two decades, nearly every institution, grant committee, and peer review panel told her she was wrong. She lost her faculty position at UPenn, was demoted, had her salary cut, and watched her NIH grant applications fail year after year. In 2005, collaborating with Drew Weissman, she discovered that substituting pseudouridine for uridine in synthetic mRNA allowed it to slip past the immune system's sentinels. That single insight \u2014 published in Immunity and largely ignored \u2014 unlocked mRNA as a therapeutic platform. When SARS-CoV-2 emerged in January 2020, both Moderna and BioNTech had optimized mRNA platforms ready. Pfizer-BioNTech received FDA authorization 326 days after the virus's genome was sequenced.",
   "chain": [
     {
-      "year": "1978–1985",
-      "who": "Katalin Karikó",
-      "where": "Biological Research Centre, Hungarian Academy of Sciences, Szeged, Hungary",
-      "what_they_were_doing": "Karikó completed her PhD and began postdoctoral work studying RNA biology, specifically how lipids could deliver RNA into cells. Among the first researchers to take seriously the idea that synthetic mRNA could function therapeutically.",
-      "the_jump": null,
-      "funding": "Hungarian Academy of Sciences state research budget; extremely limited resources.",
+      "year": "1978\u20131985",
+      "who": "Katalin Karik\u00f3",
+      "where": "Hungarian Academy of Sciences, Szeged",
+      "what_they_were_doing": "Early RNA-lipid delivery research; state funding cut; smuggled $900 in a teddy bear and emigrated.",
+      "the_jump": "Without this desperate emigration, the research stops entirely.",
+      "funding": "Hungarian Academy of Sciences",
       "critical": true
     },
     {
-      "year": "1985",
-      "who": "Katalin Karikó",
-      "where": "Temple University, Philadelphia",
-      "what_they_were_doing": "When Hungary cut funding for her RNA research, Karikó negotiated a postdoctoral position at Temple University. She and her husband sold their car to raise the $900 for plane tickets. She sewed the cash into their daughter's teddy bear to smuggle it past Hungarian border controls.",
-      "the_jump": "NEAR-DEATH MOMENT: Emigration driven entirely by the collapse of state research funding. Without this desperate act, the research stops entirely.",
-      "funding": "Temple University postdoctoral stipend; personal funds from selling family car.",
-      "critical": true
-    },
-    {
-      "year": "1989",
-      "who": "Katalin Karikó",
-      "where": "University of Pennsylvania, School of Medicine",
-      "what_they_were_doing": "Joined UPenn's Department of Neurosurgery as a research assistant professor. Began applying for NIH grants to fund mRNA research. Every single application was rejected. Grant reviewers consistently said mRNA was too unstable, too immunogenic, too impractical.",
-      "the_jump": null,
-      "funding": "Attempted NIH R01 grants — all rejected. Dependent on soft money from whatever lab she could attach herself to.",
-      "critical": true
-    },
-    {
-      "year": "1995",
-      "who": "Katalin Karikó, University of Pennsylvania administration",
+      "year": "1989\u20131995",
+      "who": "Katalin Karik\u00f3, UPenn administration",
       "where": "University of Pennsylvania",
-      "what_they_were_doing": "After six years of failed grant applications, UPenn demoted Karikó. Her salary was cut. She was told her career was over unless she could secure outside funding. Around the same time, she was diagnosed with cancer.",
-      "the_jump": "NEAR-DEATH MOMENT: Most researchers would have pivoted or left academia. Karikó stayed and kept working, supporting herself by collaborating on other scientists' projects while continuing mRNA work on the side.",
-      "funding": "Reduced UPenn salary; no independent grant funding.",
+      "what_they_were_doing": "Every NIH grant application rejected; UPenn demoted Karik\u00f3, cut her salary, told her career was over \u2014 same year she was diagnosed with cancer.",
+      "the_jump": "Most researchers would have left. Karik\u00f3 stayed, supporting herself on other scientists' projects while continuing mRNA work on the side.",
+      "funding": "Reduced UPenn salary; no independent grants",
       "critical": true
     },
     {
-      "year": "1997–1998",
-      "who": "Katalin Karikó and Drew Weissman",
+      "year": "1997\u20131998",
+      "who": "Katalin Karik\u00f3 and Drew Weissman",
       "where": "University of Pennsylvania",
-      "what_they_were_doing": "Karikó met immunologist Drew Weissman at a photocopier in the UPenn library. Weissman, from Anthony Fauci's lab at NIH, was working on HIV vaccines. They agreed to collaborate informally. Neither had significant funding for this joint work.",
-      "the_jump": "A chance encounter at a photocopier initiated the collaboration that would solve the central problem of mRNA therapeutics. No grant, no formal program — a hallway conversation.",
-      "funding": "Weissman's NIH-funded HIV vaccine research (adjacent, not directly funding the mRNA collaboration).",
+      "what_they_were_doing": "Met at a photocopier in the UPenn library and agreed to collaborate with no dedicated funding.",
+      "the_jump": "A chance encounter at a photocopier initiated the collaboration that would solve the central problem of mRNA therapeutics.",
+      "funding": "Weissman's NIH HIV vaccine grants (adjacent)",
       "critical": true
     },
     {
       "year": "2005",
-      "who": "Katalin Karikó and Drew Weissman",
+      "who": "Katalin Karik\u00f3 and Drew Weissman",
       "where": "University of Pennsylvania",
-      "what_they_were_doing": "Published the breakthrough: 'Suppression of RNA Recognition by Toll-like Receptors: The Impact of Nucleoside Modification' in Immunity. Discovered that substituting pseudouridine for uridine in synthetic mRNA prevented immune system recognition. The modified mRNA was stable, non-immunogenic, and produced dramatically more protein.",
-      "the_jump": "The key scientific leap: the immune system's rejection of synthetic mRNA was not fundamental but an artifact of unmodified nucleosides — correctable by mimicking natural RNA modification patterns. This single paper unlocked the entire field.",
-      "funding": "NIH grants to Weissman's lab (HIV vaccine research); the mRNA-modification work was largely an unfunded side project.",
+      "what_they_were_doing": "Substituting pseudouridine for uridine prevents immune rejection of synthetic mRNA \u2014 published in Immunity, largely ignored.",
+      "the_jump": "The immune system's rejection was not fundamental but an artifact of unmodified nucleosides. One paper unlocked the entire field.",
+      "funding": "NIH (Weissman lab)",
       "critical": true
-    },
-    {
-      "year": "2006–2010",
-      "who": "Karikó, Weissman, and UPenn Technology Transfer Office",
-      "where": "University of Pennsylvania",
-      "what_they_were_doing": "Filed patents on modified mRNA technology. Published follow-up papers. The scientific community remained largely skeptical. Major pharmaceutical companies passed on licensing. Karikó continued unable to obtain independent NIH funding.",
-      "the_jump": null,
-      "funding": "NIH (Weissman); UPenn institutional support minimal.",
-      "critical": false
     },
     {
       "year": "2010",
-      "who": "Derrick Rossi",
-      "where": "Harvard Stem Cell Institute, Boston",
-      "what_they_were_doing": "Rossi used pseudouridine-modified mRNA to reprogram adult human cells into stem cells — without viruses. Published in Cell Stem Cell. Immediately recognized the modified mRNA platform itself as enormously commercially valuable. Contacted Robert Langer (MIT) and Noubar Afeyan (Flagship Pioneering). Co-founded Moderna Therapeutics.",
-      "the_jump": "A basic science paper in immunology, ignored by pharma, was read by a stem cell biologist who connected it to a completely different field and immediately saw it as a platform technology. This cross-disciplinary leap created the company that produced one of the two COVID-19 vaccines.",
-      "funding": "Flagship Pioneering venture capital ($4.5 million Series A, 2011).",
+      "who": "Derrick Rossi; Robert Langer, Noubar Afeyan",
+      "where": "Harvard Stem Cell Institute; Boston",
+      "what_they_were_doing": "Rossi used modified mRNA to reprogram adult cells into stem cells, saw platform potential, co-founded Moderna.",
+      "the_jump": "A stem cell biologist read an immunology paper ignored by pharma and immediately understood it as a platform technology.",
+      "funding": "Flagship Pioneering",
       "critical": true
     },
     {
-      "year": "2013",
-      "who": "Uğur Şahin and Özlem Türeci",
-      "where": "BioNTech SE, Mainz, Germany",
-      "what_they_were_doing": "BioNTech licensed UPenn's modified mRNA patents. Karikó herself joined BioNTech as Senior Vice President, finally receiving institutional recognition and resources after decades of marginalization.",
-      "the_jump": "The UPenn IP — rejected by major pharma — was licensed by a German startup focused on cancer immunotherapy. Karikó moved from institutional marginalization to senior leadership.",
-      "funding": "BioNTech private capital; later Pfizer partnership ($185M, 2018) for influenza mRNA vaccines.",
+      "year": "2013\u20132019",
+      "who": "U\u011fur \u015eahin, \u00d6zlem T\u00fcreci (BioNTech); Barney Graham, Jason McLellan (NIAID); Moderna",
+      "where": "Mainz, Germany; NIH Bethesda; Cambridge MA",
+      "what_they_were_doing": "BioNTech hired Karik\u00f3 as SVP; NIAID developed prefusion spike stabilization; Moderna ran Phase I trials.",
+      "the_jump": "Two independent threads \u2014 modified mRNA and spike protein stabilization \u2014 matured in parallel, ready to be combined the moment a new pathogen appeared.",
+      "funding": "BioNTech private capital; NIAID intramural; Moderna/BARDA",
       "critical": true
     },
     {
-      "year": "2017–2019",
-      "who": "Barney Graham, Jason McLellan (NIAID); Moderna research teams",
-      "where": "NIH (NIAID), Bethesda, Maryland; Moderna, Cambridge, Massachusetts",
-      "what_they_were_doing": "Graham and McLellan developed prefusion spike protein stabilization using proline substitutions — originally for MERS-CoV and RSV. Moderna incorporated this into their mRNA vaccine design. Both companies ran Phase I trials for influenza, Zika, CMV vaccines.",
-      "the_jump": "A parallel line of structural biology — prefusion spike stabilization — was developed independently of the mRNA platform. When COVID-19 arrived, these two threads could be combined immediately because both had been developed in advance.",
-      "funding": "NIAID intramural funding; Moderna private capital and BARDA contracts (~$125M for Zika).",
-      "critical": true
-    },
-    {
-      "year": "January 10–11, 2020",
-      "who": "Zhang Yongzhen, Edward Holmes; Moderna and BioNTech design teams",
-      "where": "Shanghai; Moderna Cambridge MA; BioNTech Mainz Germany",
-      "what_they_were_doing": "Zhang Yongzhen publicly released the SARS-CoV-2 genome on GISAID and GitHub. Within 48 hours, Moderna's team had designed the mRNA sequence for their COVID-19 vaccine candidate. BioNTech designed multiple candidates within days.",
-      "the_jump": "Forty-eight hours from genome sequence to vaccine design. Only possible because the modified mRNA platform, lipid nanoparticle delivery, spike stabilization, and manufacturing protocols had all been developed over the preceding decade. The decades of rejected grants paid off in 48 hours.",
-      "funding": "NIAID intramural; Moderna private capital; BioNTech private capital.",
-      "critical": true
-    },
-    {
-      "year": "March–November 2020",
-      "who": "Moderna; Pfizer-BioNTech; Operation Warp Speed",
-      "where": "Cambridge MA; Mainz Germany; global clinical trial sites",
-      "what_they_were_doing": "Operation Warp Speed committed $1.95B each to Moderna and Pfizer-BioNTech. Phase III trials enrolled 30,000+ participants each. Interim results: 94.1% efficacy (mRNA-1273) and 95% efficacy (BNT162b2).",
-      "the_jump": null,
-      "funding": "Operation Warp Speed: $1.95B to Moderna; $1.95B to Pfizer-BioNTech; Pfizer self-funded trial costs (~$2B).",
-      "critical": false
-    },
-    {
-      "year": "December 11–18, 2020",
-      "who": "FDA; Katalin Karikó; Drew Weissman",
-      "where": "FDA, Silver Spring, Maryland",
-      "what_they_were_doing": "FDA granted EUA to Pfizer-BioNTech's BNT162b2 on December 11 — the first mRNA vaccine ever authorized, and the fastest vaccine developed from pathogen identification to authorization (326 days). Moderna's followed December 18. In 2023, Karikó and Weissman received the Nobel Prize in Physiology or Medicine. UPenn, which had demoted Karikó in 1995, named a professorship after her.",
-      "the_jump": "Forty-two years after Karikó began studying RNA in a Szeged laboratory, the technology she refused to abandon — through cancer, demotion, grant rejection, and institutional indifference — was authorized as the fastest vaccine in human history.",
-      "funding": "US government advance purchase agreements ($10B+ total); international COVAX facility.",
+      "year": "January 2020 \u2013 December 2020",
+      "who": "Moderna; Pfizer-BioNTech; FDA",
+      "where": "Cambridge MA; Mainz Germany; global trial sites",
+      "what_they_were_doing": "Within 48 hours of genome release, both companies designed vaccine candidates; Phase III showed 94\u201395% efficacy; FDA authorized both vaccines by December 18.",
+      "the_jump": "Forty-two years after Karik\u00f3 began RNA work in Szeged, the technology she refused to abandon was authorized as the fastest vaccine in human history.",
+      "funding": "Operation Warp Speed; US government advance purchase agreements",
       "critical": true
     }
   ],
   "sources": [
-    "Karikó K, et al. (2005). Suppression of RNA recognition by Toll-like receptors. Immunity, 23(2):165-75. https://doi.org/10.1016/j.immuni.2005.06.008",
-    "Karikó K, et al. (2008). Incorporation of pseudouridine into mRNA. Mol Ther, 16(11):1833-40. https://doi.org/10.1038/mt.2008.200",
+    "Karik\u00f3 K, et al. (2005). Suppression of RNA recognition by Toll-like receptors. Immunity, 23(2):165-75. https://doi.org/10.1016/j.immuni.2005.06.008",
+    "Karik\u00f3 K, et al. (2008). Incorporation of pseudouridine into mRNA. Mol Ther, 16(11):1833-40. https://doi.org/10.1038/mt.2008.200",
     "Warren L, et al. (2010). Reprogramming with synthetic modified mRNA. Cell Stem Cell, 7(5):618-30. https://doi.org/10.1016/j.stem.2010.08.012",
     "Baden LR, et al. (2021). Efficacy of mRNA-1273. N Engl J Med, 384(5):403-416. https://doi.org/10.1056/NEJMoa2035389",
     "Polack FP, et al. (2020). Safety and Efficacy of BNT162b2. N Engl J Med, 383(27):2603-2615. https://doi.org/10.1056/NEJMoa2034577",
     "Wrapp D, et al. (2020). Cryo-EM structure of 2019-nCoV spike. Science, 367(6483):1260-1263. https://doi.org/10.1126/science.abb2507",
     "Nobel Prize 2023 Scientific Background. https://www.nobelprize.org/prizes/medicine/2023/advanced-information/",
-    "Kolata G (2021). Kati Karikó Helped Shield the World. NYT. https://www.nytimes.com/2021/04/08/health/coronavirus-mrna-kariko.html",
+    "Kolata G (2021). Kati Karik\u00f3 Helped Shield the World. NYT. https://www.nytimes.com/2021/04/08/health/coronavirus-mrna-kariko.html",
     "Garde D, Saltzman J (2020). The story of mRNA. STAT News. https://www.statnews.com/2020/11/10/the-story-of-mrna-how-a-once-dismissed-idea-became-a-leading-technology-in-the-covid-vaccine-race/",
     "Lasker Foundation 2021 Award. https://laskerfoundation.org/winners/mrna-vaccine-technology/",
     "Dolgin E (2021). The tangled history of mRNA vaccines. Nature, 597:318-324. https://doi.org/10.1038/d41586-021-02483-w",
     "FDA EUA letter, Pfizer-BioNTech, Dec 11, 2020. https://www.fda.gov/media/144412/download",
     "FDA EUA letter, Moderna, Dec 18, 2020. https://www.fda.gov/media/144636/download"
   ]
-}
-,
+},
 {
   "number": "004",
   "discovery_name": "The Internet",
   "tracker_summary": {
     "invention": "The Internet (packet-switched global computer network) and the World Wide Web",
-    "inventor": "No single inventor — key figures include Paul Baran, Donald Davies, Lawrence Roberts, Vint Cerf, Bob Kahn, and Tim Berners-Lee",
+    "inventor": "No single inventor \u2014 key figures include Paul Baran, Donald Davies, Lawrence Roberts, Vint Cerf, Bob Kahn, and Tim Berners-Lee",
     "date": "1969 (ARPANET first link); 1983 (TCP/IP switch-over); 1991 (World Wide Web public release)",
     "current_use": "Global infrastructure connecting ~5.4 billion people, underpinning commerce, communication, science, and culture",
     "initial_funding_source": "U.S. Department of Defense Advanced Research Projects Agency (ARPA)",
     "initial_funding_reason": "Fear that a Soviet nuclear first strike could destroy centralized U.S. command-and-control communications",
-    "chain_length": "14 steps · ~40 years"
+    "chain_length": "14 steps \u00b7 ~40 years"
   },
   "the_x": "ARPA funding to survive nuclear decapitation of U.S. command communications",
   "the_y": "The World Wide Web and the modern Internet used by over half of humanity",
-  "summary": "In the late 1950s, U.S. military planners were terrified that a Soviet ICBM strike could sever all command-and-control communications in a single blow. ARPA funded research into a network with no center. That idea — packet switching — was invented independently by Paul Baran at RAND and Donald Davies at NPL, became ARPANET, evolved into the Internet through TCP/IP, and was transformed by Tim Berners-Lee's World Wide Web — originally a document management hack at a physics lab. A weapon against nuclear annihilation became the connective tissue of civilization.",
+  "summary": "In the late 1950s, U.S. military planners were terrified that a Soviet ICBM strike could sever all command-and-control communications in a single blow. ARPA funded research into a network with no center. That idea \u2014 packet switching \u2014 was invented independently by Paul Baran at RAND and Donald Davies at NPL, became ARPANET, evolved into the Internet through TCP/IP, and was transformed by Tim Berners-Lee's World Wide Web \u2014 originally a document management hack at a physics lab. A weapon against nuclear annihilation became the connective tissue of civilization.",
   "chain": [
     {
-      "year": "1957–1958",
-      "who": "Eisenhower administration; ARPA founded February 7, 1958",
-      "where": "Washington D.C., Pentagon",
-      "what_they_were_doing": "Responding to Sputnik and the realization that Soviet ICBMs could deliver warheads in 30 minutes. All U.S. command-and-control ran through centralized switching nodes. One bomb could silence the nuclear response. ARPA was created to fund unconventional research.",
+      "year": "1957\u20131964",
+      "who": "Eisenhower administration; Paul Baran",
+      "where": "Pentagon; RAND Corporation, Santa Monica",
+      "what_they_were_doing": "ARPA founded after Sputnik; Baran proposed chopping messages into addressed blocks through a distributed mesh to survive nuclear attack.",
+      "the_jump": "AT&T declared it 'impossible and unnecessary.' Their president told Baran it couldn't work and they didn't want it. The project was shelved.",
+      "funding": "U.S. Air Force / ARPA",
+      "critical": true
+    },
+    {
+      "year": "1965\u20131969",
+      "who": "Donald Davies (NPL); Lawrence Roberts (ARPA); Frank Heart (BBN)",
+      "where": "Teddington UK; Washington D.C.; Cambridge MA",
+      "what_they_were_doing": "Davies coined 'packet switching' independently; Roberts synthesized both approaches into ARPANET's design; BBN delivered IMP #1 to UCLA August 29, 1969.",
+      "the_jump": "UK government declined to fund Davies's national network \u2014 the architecture migrated to America, where ARPA had money and urgency.",
+      "funding": "UK Ministry of Technology; ARPA",
+      "critical": true
+    },
+    {
+      "year": "October 29, 1969",
+      "who": "Charley Kline, Leonard Kleinrock; Bill Duvall at SRI",
+      "where": "UCLA Boelter Hall \u2192 Stanford Research Institute",
+      "what_they_were_doing": "Kline typed 'LOGIN'; the system crashed after two letters. The first message in Internet history was 'LO.'",
       "the_jump": null,
-      "funding": "U.S. Congress / Department of Defense. ARPA initial budget approximately $520 million (1958 dollars).",
-      "critical": true
-    },
-    {
-      "year": "1959–1964",
-      "who": "Paul Baran",
-      "where": "RAND Corporation, Santa Monica, California",
-      "what_they_were_doing": "Baran produced an eleven-volume study answering: how do you build a communications network that survives nuclear attack? His answer: chop messages into small 'message blocks,' give each the destination address, and let them route through a distributed mesh. No center to destroy.",
-      "the_jump": "NEAR-DEATH MOMENT: AT&T declared it 'impossible' and 'unnecessary.' AT&T president told Baran: 'First, it can't work, and if it could work, we don't want it.' The project was shelved.",
-      "funding": "RAND Corporation contract with U.S. Air Force.",
-      "critical": true
-    },
-    {
-      "year": "1965–1967",
-      "who": "Donald Davies",
-      "where": "National Physical Laboratory (NPL), Teddington, UK",
-      "what_they_were_doing": "Independently arrived at the same idea from a different angle — not nuclear war but making computers interactive. Coined the term 'packet switching.' Presented at a 1967 NATO conference where ARPA's Lawrence Roberts was present.",
-      "the_jump": "NEAR-DEATH MOMENT: The UK government declined to fund Davies's proposed national network. NPL built only a small testbed. The architecture migrated to America, where ARPA had money and urgency.",
-      "funding": "UK Ministry of Technology / NPL core budget. No dedicated large grant.",
-      "critical": true
-    },
-    {
-      "year": "1966–1968",
-      "who": "Lawrence G. 'Larry' Roberts",
-      "where": "ARPA (Information Processing Techniques Office), Washington D.C.",
-      "what_they_were_doing": "Roberts had conducted the first experimental wide-area computer link in 1965. ARPA director Charles Herzfeld hired him to build a network. Roberts synthesized Baran's and Davies's ideas into a concrete design and issued the RFQ for ARPANET.",
-      "the_jump": "Roberts nearly specified a hybrid circuit/packet design. A 1968 technical meeting persuaded him to commit fully to packets.",
-      "funding": "ARPA IPTO budget. ARPANET contract funded at ~$1 million for the IMP subnetwork.",
-      "critical": true
-    },
-    {
-      "year": "1968–1969",
-      "who": "Frank Heart and team at BBN Technologies",
-      "where": "BBN, Cambridge, Massachusetts",
-      "what_they_were_doing": "BBN won the contract to build Interface Message Processors — dedicated minicomputers for packet switching. Built on modified Honeywell DDP-516s. Delivered IMP #1 to UCLA August 29, 1969.",
-      "the_jump": "NEAR-DEATH MOMENT: The Honeywell 516 kept overheating. A cooling failure one week before delivery nearly pushed them past deadline.",
-      "funding": "ARPA contract DAHC15-69-C-0179, ~$1 million.",
-      "critical": true
-    },
-    {
-      "year": "1969",
-      "who": "Charley Kline (student), Leonard Kleinrock; Bill Duvall at SRI",
-      "where": "UCLA Boelter Hall → Stanford Research Institute, Menlo Park",
-      "what_they_were_doing": "October 29, 1969, 10:30 PM: first ARPANET message. Kline tried to type 'LOGIN.' The system crashed after 'LO.' The first message in Internet history was 'LO' — as in, lo and behold.",
-      "the_jump": null,
-      "funding": "ARPA. UCLA was ARPA Network Measurement Center.",
+      "funding": "ARPA",
       "critical": true
     },
     {
       "year": "1971",
       "who": "Ray Tomlinson",
-      "where": "BBN Technologies, Cambridge, Massachusetts",
-      "what_they_were_doing": "Tomlinson combined a local mailbox program with a file-transfer program, chose the @ symbol, and sent the first email. Told colleague it was 'a neat hack' and was told not to tell his boss because it wasn't what ARPA had paid for.",
-      "the_jump": "Email was entirely unplanned by ARPA. The 1972 evaluation found email was 75% of all network traffic — predicted by nobody. A sponsored accident became the killer app.",
-      "funding": "BBN ARPA contract; Tomlinson's email work was self-directed, not a funded task.",
+      "where": "BBN Technologies, Cambridge",
+      "what_they_were_doing": "Combined a mailbox program with file transfer, chose the @ symbol, sent the first email \u2014 then told a colleague not to mention it because ARPA hadn't paid for it.",
+      "the_jump": "By 1972, email was 75% of all network traffic. Nobody predicted it. An unsanctioned side project became the first killer app.",
+      "funding": "BBN ARPA contract (self-directed work)",
       "critical": true
     },
     {
-      "year": "1973–1974",
-      "who": "Vint Cerf (Stanford) and Bob Kahn (ARPA)",
-      "where": "Stanford University; ARPA, Arlington, Virginia",
-      "what_they_were_doing": "Designed TCP/IP to connect incompatible packet-switched networks. Published 'A Protocol for Packet Network Intercommunication' in IEEE Transactions (1974). TCP was split into TCP and IP in 1978.",
-      "the_jump": "NEAR-DEATH MOMENT: The OSI model, backed by ISO, ITU, and every European government, was the official rival standard. The U.S. DoD itself debated mandating OSI. TCP/IP won because it was free, open, and already running.",
-      "funding": "ARPA contract to Stanford; Kahn worked inside ARPA as program manager.",
+      "year": "1973\u20131983",
+      "who": "Vint Cerf, Bob Kahn; Jon Postel",
+      "where": "Stanford; ARPA; USC",
+      "what_they_were_doing": "Cerf and Kahn designed TCP/IP to connect incompatible networks; January 1 1983 'Flag Day' forced mandatory cutover from NCP.",
+      "the_jump": "The OSI model, backed by ISO, ITU, and every European government, was the official rival standard. TCP/IP won because it was free, open, and already running.",
+      "funding": "ARPA; DARPA",
       "critical": true
     },
     {
-      "year": "1983",
-      "who": "Jon Postel, Robert Braden, and ARPANET network managers",
-      "where": "USC Information Sciences Institute; ARPANET nodes across U.S.",
-      "what_they_were_doing": "January 1, 1983: 'Flag Day' — mandatory cutover from NCP to TCP/IP. Any host that didn't update was cut off. After this, the 'Internet' formally existed as a distinct entity.",
-      "the_jump": "Several institutions resisted. Postel held the line. Migration succeeded within 30 days.",
-      "funding": "DARPA standard network operations budget.",
-      "critical": false
-    },
-    {
-      "year": "1985–1991",
-      "who": "Dennis Jennings, Steve Wolff (NSF); Merit Network, IBM, MCI",
-      "where": "NSF, Washington D.C.; University of Michigan",
-      "what_they_were_doing": "NSFNet connected five supercomputing centers and the broader academic community. Upgraded from 56 Kbps to T3 (45 Mbps). ARPANET was decommissioned February 28, 1990. NSFNet became the Internet's backbone.",
-      "the_jump": "NSF's acceptable-use policy forbidding commerce was the last regulatory barrier. Commercial ISPs applied pressure; restriction ended 1991–1995.",
-      "funding": "NSF grant to Merit/IBM/MCI: $14 million over 5 years. Total NSFNet ~$200 million.",
+      "year": "1985\u20131991",
+      "who": "NSF; Tim Berners-Lee (CERN)",
+      "where": "Washington D.C.; CERN, Geneva",
+      "what_they_were_doing": "NSFNet became the backbone after ARPANET was decommissioned; Berners-Lee submitted a proposal his supervisor annotated 'Vague but exciting' and built HTML, HTTP, URLs, and the first web server.",
+      "the_jump": "Gopher was more popular in 1992\u201393, then the University of Minnesota announced licensing fees. The Web was free. Gopher collapsed overnight.",
+      "funding": "NSF; CERN internal budget",
       "critical": true
     },
     {
-      "year": "1989–1990",
-      "who": "Tim Berners-Lee (with Robert Cailliau)",
-      "where": "CERN, Geneva, Switzerland",
-      "what_they_were_doing": "Berners-Lee was frustrated that he kept losing track of colleagues' work. Submitted 'Information Management: A Proposal' — his supervisor wrote 'Vague but exciting.' Proposed hypertext documents linked by URLs, served over HTTP. He was trying to solve an internal organizational problem at a physics lab.",
-      "the_jump": "Sendall could have simply rejected the proposal. Berners-Lee was not a senior figure. The proposal was submitted, reviewed, and nearly forgotten before being resubmitted.",
-      "funding": "CERN internal budget. The WWW project received approximately $50,000–$100,000 in computing resources.",
-      "critical": true
-    },
-    {
-      "year": "1990–1991",
-      "who": "Tim Berners-Lee",
-      "where": "CERN, Geneva",
-      "what_they_were_doing": "Wrote HTML, HTTP, and the URL scheme, plus the first web server and browser — all on a NeXT workstation. First website info.cern.ch went live August 6, 1991. CERN released the Web protocols royalty-free on April 30, 1993.",
-      "the_jump": "NEAR-DEATH MOMENT: Gopher (University of Minnesota) was more popular in 1992–1993. Then UMinn announced licensing fees. The Web was free. Gopher collapsed overnight. The Web's openness was decisive.",
-      "funding": "CERN internal budget. NeXT workstation cost ~$6,500.",
-      "critical": true
-    },
-    {
-      "year": "1992–1993",
-      "who": "Marc Andreessen and Eric Bina",
-      "where": "NCSA, University of Illinois, Urbana-Champaign",
-      "what_they_were_doing": "Andreessen, a 21-year-old making $6.85/hour, built Mosaic — the first browser with inline images and a point-and-click GUI. Web traffic grew 341,634% in one year. Andreessen co-founded Netscape in 1994.",
-      "the_jump": "NCSA management initially didn't prioritize Mosaic. Andreessen and Bina built much of it on their own time. Had NCSA blocked redistribution, the graphical Web might have been delayed years.",
-      "funding": "NSF grant to NCSA; Andreessen's salary ~$6.85/hour. Development cost under $100,000 total.",
-      "critical": true
-    },
-    {
-      "year": "1994–1995",
-      "who": "Jim Clark and Marc Andreessen (Netscape); NSF",
-      "where": "Mountain View, California; Washington D.C.",
-      "what_they_were_doing": "Netscape captured 75% browser market share. NSF lifted the Acceptable Use Policy in 1995. Netscape IPO'd August 9, 1995 — stock opened at $28, hit $75 on day one without a profit. The commercial Internet era began.",
-      "the_jump": "Microsoft had missed the Internet entirely. Bill Gates's 'Internet Tidal Wave' memo reversed course. The Browser Wars nearly balkanized the Web. Netscape's eventual failure led to Mozilla, Firefox, and the modern open Web.",
-      "funding": "Netscape: $5 million seed from Kleiner Perkins; IPO raised ~$140 million.",
+      "year": "1992\u20131995",
+      "who": "Marc Andreessen, Eric Bina (NCSA); Jim Clark; NSF",
+      "where": "University of Illinois; Mountain View CA",
+      "what_they_were_doing": "Andreessen built Mosaic on $6.85/hour, driving 341,634% Web traffic growth; co-founded Netscape, which IPO'd with stock hitting $75 on day one; NSF lifted the Acceptable Use Policy the same year.",
+      "the_jump": "Microsoft had missed the Internet entirely. Gates's 'Internet Tidal Wave' memo reversed course. The commercial Internet era began.",
+      "funding": "NSF; Kleiner Perkins",
       "critical": true
     }
   ],
@@ -609,8 +399,8 @@ const ENTRIES = [
     "Cerf & Kahn, 'A Protocol for Packet Network Intercommunication,' IEEE, 1974. https://ieeexplore.ieee.org/document/1092259",
     "Berners-Lee, 'Information Management: A Proposal,' CERN, 1989. https://www.w3.org/History/1989/proposal.html",
     "First ARPANET IMP log, UCLA, Oct 29, 1969. https://www.computerhistory.org/revolution/networking/19/376/1956",
-    "Internet Hall of Fame — Ray Tomlinson. https://internethalloffame.org/inductees/ray-tomlinson",
-    "Internet Hall of Fame — Vint Cerf. https://internethalloffame.org/inductees/vint-cerf",
+    "Internet Hall of Fame \u2014 Ray Tomlinson. https://internethalloffame.org/inductees/ray-tomlinson",
+    "Internet Hall of Fame \u2014 Vint Cerf. https://internethalloffame.org/inductees/vint-cerf",
     "CERN, 'The birth of the Web.' https://home.cern/science/computing/birth-web",
     "CERN statement releasing WWW into public domain, April 30, 1993. https://tenyears-www.web.cern.ch/tenyears-www/Welcome.html",
     "Hafner & Lyon, 'Where Wizards Stay Up Late.' Simon & Schuster, 1996.",
@@ -619,8 +409,7 @@ const ENTRIES = [
     "RFC 1, Steve Crocker, April 7, 1969. https://www.rfc-editor.org/rfc/rfc1",
     "DARPA history. https://www.darpa.mil/about/history"
   ]
-}
-,
+},
 {
   "number": "005",
   "discovery_name": "CRISPR Gene Editing",
@@ -631,257 +420,174 @@ const ENTRIES = [
     "current_use": "Treating sickle cell disease and beta-thalassemia (FDA-approved Casgevy, 2023); cancer immunotherapy; agricultural bioengineering; diagnostics",
     "initial_funding_source": "Japanese Ministry of Education (Ishino, 1987); Spanish Ministry of Education / University of Alicante (Mojica, 1990s)",
     "initial_funding_reason": "Basic microbiology research into E. coli DNA replication; ecology of salt-tolerant microorganisms in Mediterranean saltpans",
-    "chain_length": "11 steps · 36 years"
+    "chain_length": "11 steps \u00b7 36 years"
   },
   "the_x": "Curiosity-driven funding for obscure microbial ecology and bacterial genetics with no envisioned application",
   "the_y": "A programmable molecular scissors capable of rewriting the human genome, yielding the first curative gene therapies for inherited blood disorders and a 2020 Nobel Prize",
-  "summary": "In 1987 a Japanese microbiologist noticed something strange in an E. coli gene sequence. A Spanish graduate student later spent years wading through salt marshes near Alicante studying microbes no one cared about, and noticed the same pattern. His papers were rejected for years. He coined the acronym CRISPR and slowly pieced together that bacteria were running a sophisticated adaptive immune system. Yogurt-company scientists proved it. Then Jennifer Doudna and Emmanuelle Charpentier realized the bacterial machinery could be reprogrammed as a universal genetic cut-and-paste tool. In 2023 the FDA approved the first CRISPR therapy — 36 years after Ishino's footnote.",
+  "summary": "In 1987 a Japanese microbiologist noticed something strange in an E. coli gene sequence. A Spanish graduate student later spent years wading through salt marshes near Alicante studying microbes no one cared about, and noticed the same pattern. His papers were rejected for years. He coined the acronym CRISPR and slowly pieced together that bacteria were running a sophisticated adaptive immune system. Yogurt-company scientists proved it. Then Jennifer Doudna and Emmanuelle Charpentier realized the bacterial machinery could be reprogrammed as a universal genetic cut-and-paste tool. In 2023 the FDA approved the first CRISPR therapy \u2014 36 years after Ishino's footnote.",
   "chain": [
     {
       "year": "1987",
       "who": "Yoshizumi Ishino and colleagues",
       "where": "Osaka University, Japan",
-      "what_they_were_doing": "Sequencing the iap gene in E. coli, noticed an unusual cluster of repeated sequences separated by non-repetitive spacers. Noted them as 'an unusual structure' in a one-paragraph footnote. Had no idea what they did.",
+      "what_they_were_doing": "Sequencing E. coli; flagged anomalous clustered repeats in a footnote.",
       "the_jump": null,
-      "funding": "Japanese Ministry of Education, Science and Culture (Monbusho) basic research grant.",
+      "funding": "Japanese Ministry of Education (Monbusho).",
       "critical": true
     },
     {
-      "year": "1989–1993",
-      "who": "Francisco Juan Martínez Mojica",
-      "where": "University of Alicante, Spain; Santa Pola salt marshes",
-      "what_they_were_doing": "PhD student studying Haloferax mediterranei — an extremophile in Mediterranean saltpans. Found the same type of repeats Ishino had seen, but in archaea — a completely different domain of life separated by billions of years of evolution. Became obsessed.",
-      "the_jump": "Independently rediscovering the same anomalous repeat structure across two domains of life — a clue that the sequences might be ancient, conserved, and functional.",
-      "funding": "Spanish Ministry of Education PhD fellowship; University of Alicante departmental budget.",
-      "critical": true
-    },
-    {
-      "year": "1993–2003",
+      "year": "1989\u20132003",
       "who": "Francisco Mojica",
-      "where": "University of Alicante",
-      "what_they_were_doing": "For a decade, Mojica submitted papers trying to publish his hypothesis that the repeats were biologically significant. Rejected by Nature, Nucleic Acids Research, Molecular Microbiology. Using the BLAST tool, he had a eureka moment in October 2003: spacer sequences matched viral DNA. Bacteria were storing genetic 'mugshots' of past infections.",
-      "the_jump": "The pivotal intellectual leap: spacers between repeats were derived from viruses and plasmids — bacteria were storing immunological memory. This was the moment CRISPR was understood as an adaptive immune system.",
-      "funding": "Spanish Ministry of Science and Technology grant BMC2000-1385.",
+      "where": "University of Alicante; Santa Pola salt marshes",
+      "what_they_were_doing": "PhD student found identical repeats in saltpan archaea; spent a decade piecing together their function.",
+      "the_jump": "In October 2003, BLAST revealed spacer sequences matched viral DNA \u2014 bacteria were storing genetic mugshots of past infections.",
+      "funding": "Spanish Ministry of Education; Spanish MCYT grant BMC2000-1385.",
       "critical": true
-    },
-    {
-      "year": "2001–2002",
-      "who": "Francisco Mojica and Ruud Jansen",
-      "where": "University of Alicante; Utrecht University, Netherlands",
-      "what_they_were_doing": "Mojica coined 'CRISPR.' Jansen's team formally introduced the acronym and identified CRISPR-associated (Cas) genes with nuclease and helicase domains. Mojica's immune-function paper was finally published in 2005 after rejection by Nature, Science, and PNAS.",
-      "the_jump": "Naming the phenomenon and identifying Cas genes gave scattered observations a unified identity.",
-      "funding": "Dutch NWO; Spanish MCYT.",
-      "critical": false
-    },
-    {
-      "year": "2005",
-      "who": "Alexander Bolotin and colleagues",
-      "where": "INRA, Jouy-en-Josas, France",
-      "what_they_were_doing": "Sequencing Streptococcus thermophilus (the yogurt bacterium) for food-science purposes. Identified Cas9 as an unusually large dual-nuclease protein. Noticed spacers matching phage sequences only in resistant strains.",
-      "the_jump": "Identifying Cas9 specifically set the stage for both the immune-system proof and the eventual use as molecular scissors.",
-      "funding": "INRA institutional funding; French Ministry of Agriculture.",
-      "critical": false
     },
     {
       "year": "2007",
       "who": "Philippe Horvath and Rodolphe Barrangou",
-      "where": "Danisco A/S (now DuPont), France and Wisconsin",
-      "what_they_were_doing": "Working for a dairy company solving a costly problem: phages destroying yogurt starter cultures. Challenged S. thermophilus with phages, sequenced survivors — they had acquired new CRISPR spacers matching the attacking phage. Deleting spacers removed immunity. Published in Science.",
-      "the_jump": "The definitive experimental proof that CRISPR is a heritable, adaptive immune system — the first ever found in prokaryotes. Published in Science, finally giving the field visibility. Done in a corporate dairy science lab.",
-      "funding": "Danisco A/S (private industrial R&D) — a rare case of basic biological discovery in a corporate lab.",
+      "where": "Danisco A/S, France and Wisconsin",
+      "what_they_were_doing": "Protecting yogurt cultures from phages; showed survivors acquired new spacers matching the attacker.",
+      "the_jump": "Definitive experimental proof \u2014 published in Science from a corporate dairy lab \u2014 that CRISPR is a heritable adaptive immune system.",
+      "funding": "Danisco A/S.",
       "critical": true
     },
     {
-      "year": "2011–2012",
+      "year": "2011\u20132012",
       "who": "Emmanuelle Charpentier and Jennifer Doudna",
-      "where": "Umeå University, Sweden; UC Berkeley; collaboration began at a 2011 ASM conference in Puerto Rico",
-      "what_they_were_doing": "Charpentier discovered tracrRNA was essential for CRISPR. Met Doudna, a leading RNA structural biologist with no prior CRISPR background, at ASM. Their labs engineered a single synthetic guide RNA and showed Cas9 could cut any target DNA sequence. Published June 28, 2012 in Science: 'A Programmable Dual-RNA–Guided DNA Endonuclease in Adaptive Bacterial Immunity.'",
-      "the_jump": "The leap from 'bacteria use this to fight viruses' to 'we can reprogram this with a 20-letter RNA sequence to cut any DNA we choose, in any organism.' This is the moment CRISPR became a tool.",
-      "funding": "HHMI; NIH GM081882; Gates Foundation; Swedish Research Council.",
+      "where": "Ume\u00e5 University; UC Berkeley",
+      "what_they_were_doing": "Engineered a single guide RNA; showed Cas9 could cut any chosen DNA target.",
+      "the_jump": "Leap from 'bacteria use this to fight viruses' to 'a 20-letter RNA sequence can cut any DNA in any organism.' CRISPR became a tool.",
+      "funding": "HHMI; NIH; Gates Foundation; Swedish Research Council.",
       "critical": true
     },
     {
-      "year": "2012–2013",
+      "year": "2012\u20132013",
       "who": "Feng Zhang",
-      "where": "Broad Institute of MIT and Harvard, Cambridge, Massachusetts",
-      "what_they_were_doing": "Zhang read the Doudna-Charpentier preprint and pivoted his lab to apply CRISPR-Cas9 in mammalian cells. Solved codon optimization, nuclear localization, and promoter engineering. Paper submitted December 2012, published January 2013. Filed patent covering eukaryotic cell use.",
-      "the_jump": "Crossing the threshold from bacterial biochemistry to therapeutic relevance — and triggering the patent war that defined the field's commercialization.",
-      "funding": "NIH Director's Pioneer Award; Broad Institute; Paul Allen Family Foundation; HHMI.",
+      "where": "Broad Institute, Cambridge, Massachusetts",
+      "what_they_were_doing": "Applied CRISPR-Cas9 in mammalian cells; filed the eukaryotic-use patent.",
+      "the_jump": "Crossed the threshold from bacterial biochemistry to therapeutic relevance \u2014 and triggered the billion-dollar patent war.",
+      "funding": "NIH Director's Pioneer Award; Broad Institute; HHMI.",
       "critical": true
-    },
-    {
-      "year": "2013–2022",
-      "who": "UC legal team vs. Broad Institute legal team; USPTO",
-      "where": "USPTO, Alexandria, Virginia; Federal courts",
-      "what_they_were_doing": "One of the most consequential patent disputes in biotechnology history. Billions in licensing revenue at stake. Broad won key rulings. The patent war paradoxically accelerated commercialization by flooding the field with private capital from competing companies.",
-      "the_jump": null,
-      "funding": "University of California and Broad Institute legal budgets ($65M+ in legal costs). Investor capital behind Editas, Intellia, CRISPR Therapeutics.",
-      "critical": false
     },
     {
       "year": "2018",
       "who": "He Jiankui",
-      "where": "Southern University of Science and Technology, Shenzhen, China",
-      "what_they_were_doing": "Announced via YouTube that he had implanted CRISPR-edited embryos, resulting in twin girls with edits to CCR5. Conducted in secret, without ethics review. Universally condemned. Imprisoned by Chinese authorities.",
-      "the_jump": "NEAR-DEATH MOMENT: Threatened worldwide regulatory bans on CRISPR research. The field's swift self-condemnation — led by Doudna's moratorium call — preserved public trust enough to allow clinical programs to continue.",
-      "funding": "Southern University of Science and Technology; undisclosed private funding.",
+      "where": "Southern University of Science and Technology, Shenzhen",
+      "what_they_were_doing": "Secretly implanted CRISPR-edited embryos; announced twin girls with CCR5 edits via YouTube.",
+      "the_jump": "NEAR-DEATH MOMENT: Threatened global research bans. Doudna's swift moratorium call preserved public trust enough to keep clinical programs alive.",
+      "funding": "Southern University of Science and Technology.",
       "critical": true
     },
     {
-      "year": "2020–2023",
-      "who": "Nobel Committee; Vertex Pharmaceuticals and CRISPR Therapeutics; Victoria Gray (first patient)",
+      "year": "2020\u20132023",
+      "who": "Nobel Committee; Vertex / CRISPR Therapeutics; Victoria Gray",
       "where": "Stockholm; clinical sites across USA and Europe",
-      "what_they_were_doing": "2020 Nobel Prize in Chemistry to Doudna and Charpentier. Victoria Gray, treated in 2019, was effectively cured of sickle cell disease. On December 8, 2023, FDA approved Casgevy — the first CRISPR-based medicine — 36 years after Ishino's footnote.",
-      "the_jump": "The complete arc: a curious genomic footnote in bacterial DNA became a Nobel Prize-winning tool and then an FDA-approved cure for a disease that had no cure for 65 years since its molecular cause was identified.",
-      "funding": "Nobel Foundation; Vertex Pharmaceuticals ($900M+); NIH NHLBI.",
+      "what_they_were_doing": "Doudna and Charpentier won the 2020 Nobel Prize; FDA approved Casgevy on December 8, 2023.",
+      "the_jump": "A bacterial footnote became a Nobel Prize and an FDA-approved cure for sickle cell disease \u2014 36 years later.",
+      "funding": "Nobel Foundation; Vertex Pharmaceuticals; NIH NHLBI.",
       "critical": true
     }
   ],
   "sources": [
-    "Ishino Y, et al. (1987). J Bacteriology, 169(12):5429–5433. https://doi.org/10.1128/jb.169.12.5429-5433.1987",
-    "Mojica FJM, et al. (2005). J Mol Evol, 60(2):174–182. https://doi.org/10.1007/s00239-004-0046-3",
-    "Jansen R, et al. (2002). Mol Microbiology, 43(6):1565–1575. https://doi.org/10.1046/j.1365-2958.2002.02839.x",
-    "Barrangou R, et al. (2007). Science, 315(5819):1709–1712. https://doi.org/10.1126/science.1138140",
-    "Deltcheva E, et al. (2011). Nature, 471:602–607. https://doi.org/10.1038/nature09886",
-    "Jinek M, et al. (2012). Science, 337(6096):816–821. https://doi.org/10.1126/science.1225829",
-    "Cong L, et al. (2013). Science, 339(6121):819–823. https://doi.org/10.1126/science.1231143",
+    "Ishino Y, et al. (1987). J Bacteriology, 169(12):5429\u20135433. https://doi.org/10.1128/jb.169.12.5429-5433.1987",
+    "Mojica FJM, et al. (2005). J Mol Evol, 60(2):174\u2013182. https://doi.org/10.1007/s00239-004-0046-3",
+    "Jansen R, et al. (2002). Mol Microbiology, 43(6):1565\u20131575. https://doi.org/10.1046/j.1365-2958.2002.02839.x",
+    "Barrangou R, et al. (2007). Science, 315(5819):1709\u20131712. https://doi.org/10.1126/science.1138140",
+    "Deltcheva E, et al. (2011). Nature, 471:602\u2013607. https://doi.org/10.1038/nature09886",
+    "Jinek M, et al. (2012). Science, 337(6096):816\u2013821. https://doi.org/10.1126/science.1225829",
+    "Cong L, et al. (2013). Science, 339(6121):819\u2013823. https://doi.org/10.1126/science.1231143",
     "Nobel Prize in Chemistry 2020. https://www.nobelprize.org/prizes/chemistry/2020/advanced-information/",
     "FDA approval of Casgevy, Dec 8, 2023. https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
     "Isaacson W. (2021). The Code Breaker. Simon & Schuster.",
     "Mojica FJM. (2016). FEMS Microbiol Letters. https://doi.org/10.1093/femsle/fnw056",
     "Doudna JA. (2019). Science, 366(6467):777. https://doi.org/10.1126/science.aba1751"
   ]
-}
-,
+},
 {
   "number": "006",
   "discovery_name": "Penicillin",
   "tracker_summary": {
     "invention": "Mass-produced antibiotic medicine",
     "inventor": "Alexander Fleming (discovery), Howard Florey, Ernst Chain, and Norman Heatley (therapeutic development)",
-    "date": "Discovery: September 1928; First therapeutic use: 1941; Mass production: 1943–1944",
+    "date": "Discovery: September 1928; First therapeutic use: 1941; Mass production: 1943\u20131944",
     "current_use": "Penicillin and derivatives remain among the most widely prescribed antibiotics globally; annual antibiotic market exceeds $40 billion",
-    "initial_funding_source": "British War Office / Medical Research Committee — World War I wound infection research",
+    "initial_funding_source": "British War Office / Medical Research Committee \u2014 World War I wound infection research",
     "initial_funding_reason": "Catastrophic mortality from infected battlefield wounds in WWI",
-    "chain_length": "11 steps · 26 years"
+    "chain_length": "11 steps \u00b7 26 years"
   },
   "the_x": "British War Office funding for WWI wound-infection bacteriology research at St. Mary's Hospital, London",
   "the_y": "The world's first mass-produced antibiotic, saving an estimated 200 million lives in the 20th century",
-  "summary": "The story of penicillin is not one flash of genius but a 16-year chain of accidents, neglect, wartime desperation, and transatlantic collaboration. Fleming's 1928 contaminated petri dish was real but unactionable — he couldn't purify the compound, and the medical establishment ignored his paper for a decade. It restarted only when Florey and Chain at Oxford, funded by the Rockefeller Foundation, picked it up in 1939. Their first patient nearly died when they ran out of drug. Florey flew to America with mold in his coat lining. A lab assistant found the highest-yielding mold in history on a Peoria cantaloupe. By D-Day, enough penicillin existed to treat every Allied wounded soldier.",
+  "summary": "The story of penicillin is not one flash of genius but a 16-year chain of accidents, neglect, wartime desperation, and transatlantic collaboration. Fleming's 1928 contaminated petri dish was real but unactionable \u2014 he couldn't purify the compound, and the medical establishment ignored his paper for a decade. It restarted only when Florey and Chain at Oxford, funded by the Rockefeller Foundation, picked it up in 1939. Their first patient nearly died when they ran out of drug. Florey flew to America with mold in his coat lining. A lab assistant found the highest-yielding mold in history on a Peoria cantaloupe. By D-Day, enough penicillin existed to treat every Allied wounded soldier.",
   "chain": [
     {
-      "year": "1914–1918",
-      "who": "Alexander Fleming, Almroth Wright, Medical Research Committee",
-      "where": "Western Front field hospitals; St. Mary's Hospital, London",
-      "what_they_were_doing": "Fleming was deployed to study infected battlefield wounds. He observed that standard antiseptics were killing white blood cells faster than bacteria, making infections worse. Concluded the real solution must be a bactericidal agent that didn't harm human tissue.",
+      "year": "1914\u20131918",
+      "who": "Alexander Fleming, Almroth Wright",
+      "where": "Western Front; St. Mary's Hospital, London",
+      "what_they_were_doing": "Watched antiseptics kill white blood cells faster than bacteria in infected wounds.",
       "the_jump": null,
       "funding": "British War Office; Medical Research Committee.",
       "critical": true
     },
     {
-      "year": "1921–1922",
-      "who": "Alexander Fleming",
-      "where": "St. Mary's Hospital, London",
-      "what_they_were_doing": "Discovered lysozyme — a natural enzyme in tears and mucus that could dissolve certain bacteria. Found it accidentally when a drop of nasal mucus lysed bacterial colonies. Too weak against dangerous pathogens, but trained his eye for zones of bacterial inhibition.",
-      "the_jump": "Fleming's failure with lysozyme left him actively searching for a more potent natural antibacterial. Without this precursor, he might not have recognized the mold's significance in 1928.",
-      "funding": "Medical Research Council; St. Mary's Inoculation Department vaccine revenue.",
-      "critical": false
-    },
-    {
       "year": "1928",
       "who": "Alexander Fleming",
-      "where": "St. Mary's Hospital, Inoculation Department, London",
-      "what_they_were_doing": "Returned from vacation to find a petri dish of Staphylococcus contaminated by Penicillium notatum drifting from a mycology lab one floor below. Noticed a clear halo of bacterial death. Isolated the mold and showed it inhibited many gram-positive bacteria without harming white blood cells. The contamination was possible only because London's unusual cold snap had slowed bacterial growth — a one-in-a-million confluence.",
-      "the_jump": "Fleming couldn't purify or concentrate penicillin — it was chemically unstable. His 1929 paper attracted minimal attention. He grew frustrated and stopped pursuing it seriously after 1931.",
+      "where": "St. Mary's Hospital, London",
+      "what_they_were_doing": "Returned from vacation; Penicillium mold had drifted onto a staph dish, leaving a clear kill zone.",
+      "the_jump": "Fleming couldn't purify or stabilize it. His 1929 paper was largely ignored; he stopped pursuing it by 1931.",
       "funding": "Medical Research Council; St. Mary's Hospital.",
       "critical": true
     },
     {
-      "year": "1929–1938",
-      "who": "The wider bacteriology community; Harold Raistrick (1931–1932)",
-      "where": "St. Mary's Hospital; London School of Hygiene",
-      "what_they_were_doing": "A DECADE OF NEGLECT. Fleming's 1929 paper was received with indifference. Raistrick tried to purify penicillin with MRC funding but the molecule decomposed during extraction. He abandoned the project. No pharmaceutical company expressed interest. Fleming himself later admitted he had essentially given up.",
-      "the_jump": "The gap was not oversight — it reflected real technical barriers. Penicillin required biochemical extraction techniques not yet available in microbiology labs.",
-      "funding": "MRC (Raistrick); otherwise unfunded.",
-      "critical": false
-    },
-    {
       "year": "1939",
-      "who": "Howard Florey, Ernst Chain, Norman Heatley, Margaret Jennings",
-      "where": "Sir William Dunn School of Pathology, University of Oxford",
-      "what_they_were_doing": "Florey and Chain (a Jewish refugee from Nazi Germany) encountered Fleming's 1929 paper during a literature search. Heatley built improvised extraction apparatus from milk churns and medical paraphernalia. On May 25, 1940: eight mice injected with lethal Streptococcus — four got penicillin, four didn't. Next morning: all untreated dead, all treated alive. Florey said: 'It looks like a miracle.'",
-      "the_jump": "The Oxford team succeeded because of Chain's biochemical training — he identified penicillin as a small, unstable molecule requiring freeze-drying. The critical enabler was Rockefeller Foundation funding that paid for Chain's salary and equipment.",
-      "funding": "Rockefeller Foundation ($5,000 in 1936, $25,000 in 1939); MRC; Nuffield Trust.",
+      "who": "Howard Florey, Ernst Chain, Norman Heatley",
+      "where": "Sir William Dunn School of Pathology, Oxford",
+      "what_they_were_doing": "Found Fleming's paper in a literature search; Heatley built extraction apparatus from milk churns.",
+      "the_jump": "May 25, 1940: all untreated mice died; all penicillin-treated mice survived.",
+      "funding": "Rockefeller Foundation; MRC; Nuffield Trust.",
       "critical": true
     },
     {
       "year": "1941",
-      "who": "Florey, Chain, Heatley, Charles Fletcher; Albert Alexander (patient)",
-      "where": "Radcliffe Infirmary, Oxford",
-      "what_they_were_doing": "Converted the entire Dunn School second floor into a factory using bedpans and biscuit tins. February 12, 1941: Police constable Albert Alexander, dying from a rose-thorn scratch infection, received the first therapeutic penicillin dose. Within 24 hours his fever broke. Then they ran out of drug. They recycled penicillin from his urine. He relapsed and died March 15.",
-      "the_jump": "NEAR-DEATH MOMENT: Alexander's death demonstrated the drug worked but academic micro-batch production was wholly inadequate. Florey concluded only American industrial capacity could produce enough.",
-      "funding": "MRC emergency wartime grant; Rockefeller continuation; improvised — literally using hospital bedpans as fermentation vessels.",
-      "critical": true
-    },
-    {
-      "year": "1941",
-      "who": "Howard Florey, Norman Heatley",
-      "where": "Washington D.C.; USDA Northern Regional Research Laboratory, Peoria, Illinois",
-      "what_they_were_doing": "Florey rubbed Penicillium spores into his coat lining in case they were shot down over the Atlantic. NRRL scientists, experts in deep-tank fermentation (developed for citric acid), proposed replacing surface growth with submerged vats and using corn steep liquor — a Midwest agricultural waste product — which increased yields tenfold.",
-      "the_jump": "The corn steep liquor breakthrough was serendipitous — available in Peoria specifically because the NRRL had been studying agricultural waste valorization since 1938 under New Deal funding.",
-      "funding": "US OSRD; USDA NRRL (New Deal agricultural research); Rockefeller Foundation travel grants.",
+      "who": "Florey, Heatley, Chain; Albert Alexander (patient)",
+      "where": "Radcliffe Infirmary, Oxford; then USA",
+      "what_they_were_doing": "First human patient's fever broke in 24 hours \u2014 then they ran out of drug, recycled penicillin from his urine, and he died. Florey flew to America with mold spores rubbed into his coat lining.",
+      "the_jump": "NEAR-DEATH MOMENT: Alexander's death proved the drug worked but Oxford's micro-batch production was wholly inadequate. Only American industrial scale could save it.",
+      "funding": "MRC emergency wartime grant; Rockefeller Foundation; US OSRD.",
       "critical": true
     },
     {
       "year": "1943",
-      "who": "Mary K. Hunt ('Moldy Mary'), Robert Coghill, Andrew Moyer",
+      "who": "Mary K. Hunt ('Moldy Mary')",
       "where": "USDA NRRL, Peoria, Illinois",
-      "what_they_were_doing": "Screening hundreds of Penicillium strains for higher yields. Hunt scoured local markets for moldy fruits. Found a cantaloupe covered in golden-brown mold — Penicillium chrysogenum strain NRRL 1951 — yielding 200x more penicillin than Fleming's original. After mutagenesis at University of Wisconsin, 1,000x. Virtually all penicillin produced today descends from that Peoria cantaloupe.",
-      "the_jump": "Hunt's cantaloupe find — genuinely random — unlocked industrial-scale production. Without a high-yielding strain, mass production was economically impossible.",
-      "funding": "USDA NRRL; OSRD; War Production Board.",
+      "what_they_were_doing": "Found a cantaloupe at a local market yielding 200x more penicillin than Fleming's strain.",
+      "the_jump": "After mutagenesis, 1,000x yield. Virtually all penicillin today descends from that cantaloupe.",
+      "funding": "USDA NRRL; War Production Board.",
       "critical": true
     },
     {
-      "year": "1943–1944",
-      "who": "Pfizer (John L. Smith, Jasper Kane), Merck, Squibb, Eli Lilly, Abbott",
-      "where": "Brooklyn NY; Rahway NJ; New Brunswick NJ; Indianapolis IN",
-      "what_they_were_doing": "War Production Board organized pharmaceutical companies to mass-produce penicillin. Pfizer converted an ice plant in Brooklyn into a fermentation facility ($3M investment). By June 1944, monthly US production reached 650 billion units.",
-      "the_jump": "Pfizer's decision was a massive financial risk taken under government pressure with guaranteed procurement contracts. Without government purchase guarantees, no company would have invested.",
-      "funding": "War Production Board guaranteed procurement; US Army Surgeon General; private capital ($3M+ from Pfizer alone).",
+      "year": "1943\u20131944",
+      "who": "Pfizer, Merck, Squibb, Eli Lilly",
+      "where": "Brooklyn; Rahway; Indianapolis",
+      "what_they_were_doing": "Pfizer converted a Brooklyn ice plant into a fermentation facility under War Production Board contracts.",
+      "the_jump": "By June 1944: 650 billion units per month. By D-Day, enough to treat every wounded Allied soldier.",
+      "funding": "War Production Board guaranteed procurement; US Army Surgeon General.",
       "critical": true
-    },
-    {
-      "year": "1944",
-      "who": "US Army Medical Corps; Allied military command",
-      "where": "Normandy, France; global theaters",
-      "what_they_were_doing": "By D-Day June 6, 1944, enough penicillin existed to treat every wounded Allied soldier. Gas gangrene — the scourge of WWI — became manageable. Wound infection mortality dropped from ~18% to below 1%.",
-      "the_jump": "The complete loop: from Fleming's WWI observation that something better was needed, to a drug that delivered it 26 years later in time for the next world war's decisive battle.",
-      "funding": "US Army; British War Office; Allied combined medical logistics.",
-      "critical": true
-    },
-    {
-      "year": "1945",
-      "who": "Alexander Fleming, Howard Florey, Ernst Chain",
-      "where": "Stockholm, Sweden",
-      "what_they_were_doing": "Shared the 1945 Nobel Prize. Norman Heatley — whose engineering made Oxford purification possible — was excluded (Nobel limits to three). In 1990 Oxford awarded Heatley an honorary doctorate of medicine, the first in 800 years.",
-      "the_jump": "The Nobel cemented the lone-genius narrative, obscuring the collaborative, multi-institutional, multi-decade, multi-continental reality.",
-      "funding": "Nobel Foundation.",
-      "critical": false
     }
   ],
   "sources": [
-    "Fleming A (1929). British J Experimental Pathology, 10(3):226–236. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2048009/",
-    "Chain E, Florey HW, et al. (1940). The Lancet, 236(6104):226–228. https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(01)08728-1/fulltext",
+    "Fleming A (1929). British J Experimental Pathology, 10(3):226\u2013236. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2048009/",
+    "Chain E, Florey HW, et al. (1940). The Lancet, 236(6104):226\u2013228. https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(01)08728-1/fulltext",
     "Lax E (2004). The Mold in Dr. Florey's Coat. Henry Holt.",
     "ACS (1999). Discovery and Development of Penicillin. https://www.acs.org/content/acs/en/education/whatischemistry/landmarks/flemingpenicillin.html",
     "Nobel Prize 1945. https://www.nobelprize.org/prizes/medicine/1945/ceremony-speech/",
-    "NLM/NIH. 'The Discovery and Development of Penicillin 1928–1945.' https://www.nlm.nih.gov/exhibition/penicillin/index.html",
-    "Neushul P (1993). J History of Medicine, 48(4):371–395. https://doi.org/10.1093/jhmas/48.4.371",
+    "NLM/NIH. 'The Discovery and Development of Penicillin 1928\u20131945.' https://www.nlm.nih.gov/exhibition/penicillin/index.html",
+    "Neushul P (1993). J History of Medicine, 48(4):371\u2013395. https://doi.org/10.1093/jhmas/48.4.371",
     "Rockefeller Foundation Annual Report 1939. https://www.rockefellerfoundation.org/report/annual-report-1939/",
     "Hafner K, Lyon M. Where Wizards Stay Up Late. Simon & Schuster, 1996."
   ]
-}
-,
+},
 {
   "number": "007",
   "discovery_name": "Viagra (Sildenafil)",
@@ -892,73 +598,55 @@ const ENTRIES = [
     "current_use": "Treatment of erectile dysfunction and pulmonary arterial hypertension",
     "initial_funding_source": "Pfizer Inc. internal R&D budget",
     "initial_funding_reason": "Developing a treatment for angina pectoris and hypertension",
-    "chain_length": "7 steps · 18 years"
+    "chain_length": "7 steps \u00b7 18 years"
   },
   "the_x": "Pfizer's cardiovascular drug research program targeting angina and hypertension",
   "the_y": "First oral treatment for erectile dysfunction, generating over $1.9 billion annually at peak",
-  "summary": "Pfizer chemists set out to find a new angina drug by inhibiting PDE5 to relax coronary blood vessels. The compound UK-92480 showed modest cardiovascular effects but produced a striking unreported side effect in male patients. Rather than abandon the compound, Pfizer physician Ian Osterloh championed investigating the side effect, pivoting the entire program to erectile dysfunction. The result was Viagra, approved in 1998 — 2.9 million prescriptions in the first three months.",
+  "summary": "Pfizer chemists set out to find a new angina drug by inhibiting PDE5 to relax coronary blood vessels. The compound UK-92480 showed modest cardiovascular effects but produced a striking unreported side effect in male patients. Rather than abandon the compound, Pfizer physician Ian Osterloh championed investigating the side effect, pivoting the entire program to erectile dysfunction. The result was Viagra, approved in 1998 \u2014 2.9 million prescriptions in the first three months.",
   "chain": [
     {
-      "year": "1980",
-      "who": "Pfizer Central Research Division",
-      "where": "Pfizer Sandwich laboratories, Kent, UK",
-      "what_they_were_doing": "Researching cyclic GMP signaling pathways as a mechanism for relaxing smooth muscle in blood vessels to treat angina and hypertension.",
-      "the_jump": null,
-      "funding": "Pfizer Inc. internal R&D, estimated $150M+ across the cardiovascular program.",
-      "critical": false
-    },
-    {
-      "year": "1986",
-      "who": "Simon Campbell and David Roberts (medicinal chemists)",
+      "year": "1980\u20131989",
+      "who": "Pfizer Central Research, Simon Campbell, David Roberts",
       "where": "Pfizer Sandwich, Kent, UK",
-      "what_they_were_doing": "Designing pyrazolopyrimidinone compounds to inhibit PDE5, which breaks down cGMP — the molecule that signals blood vessel relaxation.",
-      "the_jump": null,
-      "funding": "Pfizer Inc. cardiovascular research budget.",
-      "critical": false
-    },
-    {
-      "year": "1989",
-      "who": "Pfizer medicinal chemistry team",
-      "where": "Pfizer Sandwich, Kent, UK",
-      "what_they_were_doing": "Synthesizing and screening candidates; UK-92480 (sildenafil citrate) identified as lead compound with selective PDE5 inhibition.",
+      "what_they_were_doing": "Designing PDE5-inhibiting compounds to relax blood vessels; identified UK-92480 (sildenafil) as lead.",
       "the_jump": null,
       "funding": "Pfizer Inc.",
-      "critical": true
+      "critical": false
     },
     {
-      "year": "1991–1993",
+      "year": "1991\u20131993",
       "who": "Pfizer clinical trials team",
-      "where": "Multiple trial sites, UK and Wales (including Morriston Hospital, Swansea)",
-      "what_they_were_doing": "Phase I and Phase II trials for angina and hypertension. Results were disappointing — modest blood pressure reduction and limited antianginal effect.",
-      "the_jump": "Male trial participants were reluctant to return unused pills. Nurses noted an unusual pattern of reported erections as a side effect — initially underdocumented in formal reports.",
-      "funding": "Pfizer Inc. clinical development budget.",
+      "where": "UK and Wales (including Morriston Hospital, Swansea)",
+      "what_they_were_doing": "Phase I/II trials for angina \u2014 modest blood pressure reduction, limited antianginal effect.",
+      "the_jump": "Male participants were reluctant to return unused pills. Nurses noted unreported erections as a side effect.",
+      "funding": "Pfizer Inc.",
       "critical": true
     },
     {
       "year": "1993",
-      "who": "Dr. Ian Osterloh (Pfizer clinical physician)",
-      "where": "Pfizer Sandwich / Pfizer UK",
-      "what_they_were_doing": "Reviewing failed cardiovascular trial data and the informal side-effect reports from Morriston Hospital nurses and patients.",
-      "the_jump": "NEAR-DEATH MOMENT: Osterloh made the decision not to terminate UK-92480, instead proposing that the erectile side effect be formally investigated. This reversed the program's trajectory entirely. Without Osterloh's advocacy, the compound would have been shelved.",
+      "who": "Dr. Ian Osterloh",
+      "where": "Pfizer Sandwich, UK",
+      "what_they_were_doing": "Reviewed failed cardiovascular data and informal side-effect reports from trial nurses.",
+      "the_jump": "NEAR-DEATH MOMENT: Osterloh argued against shelving UK-92480 and proposed formally investigating the erectile effect \u2014 reversing the program's trajectory entirely.",
       "funding": "Pfizer Inc.",
       "critical": true
     },
     {
-      "year": "1994–1997",
+      "year": "1994\u20131997",
       "who": "Pfizer global clinical development team",
-      "where": "Trial sites across USA, Europe, and Brazil",
-      "what_they_were_doing": "21 double-blind placebo-controlled trials enrolling over 3,000 men for erectile dysfunction. Demonstrated efficacy and acceptable safety.",
+      "where": "USA, Europe, Brazil",
+      "what_they_were_doing": "21 double-blind trials, over 3,000 men; demonstrated efficacy and acceptable safety for erectile dysfunction.",
       "the_jump": null,
-      "funding": "Pfizer Inc.; estimated ~$70 million post-pivot.",
+      "funding": "Pfizer Inc.",
       "critical": false
     },
     {
       "year": "1998",
       "who": "U.S. Food and Drug Administration",
       "where": "Washington, D.C.",
-      "what_they_were_doing": "FDA approved Viagra on March 27, 1998 — the first oral pill for erectile dysfunction. 2.9 million prescriptions in the first three months. Peak annual sales exceeded $1.9 billion.",
-      "the_jump": "A failed angina drug became one of the most commercially successful pharmaceuticals in history, and later found a second life treating pulmonary arterial hypertension (as Revatio).",
-      "funding": "N/A (regulatory body).",
+      "what_they_were_doing": "FDA approved Viagra on March 27, 1998 \u2014 the first oral pill for erectile dysfunction.",
+      "the_jump": "A failed angina drug became one of the most commercially successful pharmaceuticals in history, later repurposed as Revatio for pulmonary arterial hypertension.",
+      "funding": "N/A.",
       "critical": true
     }
   ],
@@ -969,94 +657,66 @@ const ENTRIES = [
     "Campbell SF. 'Science, art and drug discovery: a personal perspective.' Clinical Science. 2000;99(4):255-260. https://pubmed.ncbi.nlm.nih.gov/10995571/",
     "FDA Drug Approval History for Sildenafil. https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=020895"
   ]
-}
-,
+},
 {
   "number": "008",
   "discovery_name": "Lithium for Bipolar Disorder",
   "tracker_summary": {
     "invention": "Lithium carbonate as a mood stabilizer for manic-depressive illness",
-    "inventor": "John Frederick Joseph Cade (clinical discovery, 1948); Mogens Schou (clinical validation, 1950s–1960s)",
+    "inventor": "John Frederick Joseph Cade (clinical discovery, 1948); Mogens Schou (clinical validation, 1950s\u20131960s)",
     "date": "FDA approved October 14, 1970",
     "current_use": "First-line mood stabilizer for bipolar disorder; suicide prevention; antidepressant augmentation",
     "initial_funding_source": "Repatriation Mental Hospital, Bundoora, Victoria, Australia (state public hospital budget)",
-    "initial_funding_reason": "Investigating a metabolic toxin hypothesis — that manic patients produced excess uric acid causing symptoms",
-    "chain_length": "8 steps · 22 years"
+    "initial_funding_reason": "Investigating a metabolic toxin hypothesis \u2014 that manic patients produced excess uric acid causing symptoms",
+    "chain_length": "8 steps \u00b7 22 years"
   },
   "the_x": "John Cade's hypothesis that mania was caused by a urinary toxin, tested in a repurposed hospital kitchen",
-  "the_y": "The first effective pharmacological treatment for a major psychiatric disorder — delayed 22 years in the US because lithium is unpatentable",
-  "summary": "Working in a repurposed kitchen at a mental hospital with almost no resources, Australian psychiatrist John Cade injected guinea pigs with urine from manic patients. To make uric acid soluble for injection, he used lithium urate — and noticed the guinea pigs became unexpectedly calm. He tested lithium on himself first, then on patients. The results were dramatic. Yet for two decades no pharmaceutical company invested in proper trials because lithium cannot be patented. Danish psychiatrist Mogens Schou ran the rigorous trials that finally convinced the FDA in 1970.",
+  "the_y": "The first effective pharmacological treatment for a major psychiatric disorder \u2014 delayed 22 years in the US because lithium is unpatentable",
+  "summary": "Working in a repurposed kitchen at a mental hospital with almost no resources, Australian psychiatrist John Cade injected guinea pigs with urine from manic patients. To make uric acid soluble for injection, he used lithium urate \u2014 and noticed the guinea pigs became unexpectedly calm. He tested lithium on himself first, then on patients. The results were dramatic. Yet for two decades no pharmaceutical company invested in proper trials because lithium cannot be patented. Danish psychiatrist Mogens Schou ran the rigorous trials that finally convinced the FDA in 1970.",
   "chain": [
-    {
-      "year": "Antiquity–1800s",
-      "who": "Various physicians and spa-goers",
-      "where": "Greece, Rome, European lithium-rich mineral springs",
-      "what_they_were_doing": "Mineral waters rich in lithium salts appeared to calm 'nervous' patients. 19th-century physicians used lithium for gout. Dr. William Hammond prescribed lithium bromide for mania in 1871.",
-      "the_jump": null,
-      "funding": "None formal; anecdotal medical practice.",
-      "critical": false
-    },
-    {
-      "year": "1940s",
-      "who": "U.S. food industry",
-      "where": "United States",
-      "what_they_were_doing": "Lithium chloride sold as a salt substitute for cardiac patients. Multiple deaths from lithium toxicity. FDA banned it in food products in 1949 — this stigma would later delay Cade's work gaining acceptance in America.",
-      "the_jump": null,
-      "funding": "Commercial food industry.",
-      "critical": false
-    },
-    {
-      "year": "1948",
-      "who": "Dr. John Frederick Joseph Cade",
-      "where": "Repatriation Mental Hospital, Bundoora (near Melbourne), Australia",
-      "what_they_were_doing": "Testing the hypothesis that manic episodes were caused by excess uric acid acting as a toxin. Injecting urine from manic, depressed, and control patients into guinea pigs. Using lithium urate to dissolve uric acid because lithium was known to make urate soluble.",
-      "the_jump": "The guinea pigs injected with lithium urate became unusually calm and lethargic — a side effect of the lithium itself, not the urate. Cade recognized this as a sedative effect worth investigating.",
-      "funding": "No external funding. Cade worked in a repurposed hospital kitchen using equipment he bought himself.",
-      "critical": true
-    },
     {
       "year": "1948",
       "who": "Dr. John Cade",
-      "where": "Repatriation Mental Hospital, Bundoora",
-      "what_they_were_doing": "Before administering lithium carbonate to patients, Cade tested it on himself for several weeks to establish safety at proposed doses.",
-      "the_jump": null,
-      "funding": "Self-funded/hospital resources.",
-      "critical": false
+      "where": "Repatriation Mental Hospital, Bundoora, Australia",
+      "what_they_were_doing": "Injecting manic patients' urine into guinea pigs; used lithium urate to dissolve uric acid for injection.",
+      "the_jump": "Guinea pigs given lithium urate became unexpectedly calm \u2014 the lithium itself was the sedative. Cade tested the dose on himself for weeks before treating patients.",
+      "funding": "No external funding; Cade worked in a repurposed kitchen with equipment he bought himself.",
+      "critical": true
     },
     {
-      "year": "1948–1949",
+      "year": "1948\u20131949",
       "who": "Dr. John Cade and 10 manic patients",
       "where": "Repatriation Mental Hospital, Bundoora",
-      "what_they_were_doing": "Administering lithium carbonate to 10 manic, 6 schizophrenic, and 3 depressed patients. Results for manic patients were striking — patients hospitalized for years became well enough to be discharged.",
-      "the_jump": "Published in Medical Journal of Australia, September 1949: 'Lithium salts in the treatment of psychotic excitement.' Reported remission of mania in all 10 patients — but attracted little attention outside Australia.",
-      "funding": "Repatriation Mental Hospital operating budget.",
+      "what_they_were_doing": "Administered lithium carbonate to 10 manic patients; all showed striking remission.",
+      "the_jump": "Patients hospitalized for years were discharged. Published in Medical Journal of Australia, 1949 \u2014 and largely ignored outside Australia.",
+      "funding": "Repatriation Mental Hospital.",
       "critical": true
     },
     {
-      "year": "1954–1970",
-      "who": "Dr. Mogens Schou",
-      "where": "Aarhus University Psychiatric Hospital, Denmark",
-      "what_they_were_doing": "Running the first randomized double-blind controlled trials of lithium for mania — motivated partly by his own brother's successful lithium treatment. Demonstrated lithium's prophylactic effect in preventing both manic and depressive episodes.",
-      "the_jump": "Schou's rigorous trial methodology provided the evidence base Cade's work lacked. He fought sustained opposition from British psychiatrist Michael Shepherd, who disputed his methods. His 1954 paper and decades of advocacy gradually built international acceptance.",
-      "funding": "Aarhus University; Danish Medical Research Council; Lundbeck Foundation.",
-      "critical": true
-    },
-    {
-      "year": "1950s–1969",
+      "year": "1950s\u20131969",
       "who": "Pharmaceutical industry (collective inaction)",
       "where": "USA and Europe",
-      "what_they_were_doing": "Declining to fund trials or seek FDA approval because lithium — atomic number 3 — is a naturally occurring element that cannot be patented. Commercially unattractive despite clear clinical signals.",
-      "the_jump": "NEAR-DEATH MOMENT: The 'patent gap' meant a drug used widely in Australia and Denmark was entirely unavailable in the US for over two decades. A stark demonstration of how IP structures determine which discoveries reach patients.",
-      "funding": "No pharmaceutical company would fund trials.",
+      "what_they_were_doing": "Declined to fund trials; lithium is a naturally occurring element that cannot be patented.",
+      "the_jump": "NEAR-DEATH MOMENT: A drug used widely in Australia and Denmark was entirely unavailable in the US for over two decades due to the patent gap.",
+      "funding": "None.",
+      "critical": true
+    },
+    {
+      "year": "1954\u20131970",
+      "who": "Dr. Mogens Schou",
+      "where": "Aarhus University Psychiatric Hospital, Denmark",
+      "what_they_were_doing": "Ran first randomized double-blind trials of lithium; proved prophylactic effect against both mania and depression.",
+      "the_jump": "Fought sustained opposition from British psychiatry for years; his decades of advocacy built the evidence base that finally moved the FDA.",
+      "funding": "Aarhus University; Danish Medical Research Council; Lundbeck Foundation.",
       "critical": true
     },
     {
       "year": "1970",
       "who": "U.S. FDA; Ronald Fieve (Columbia University)",
       "where": "Washington, D.C.",
-      "what_they_were_doing": "FDA approved lithium carbonate for acute mania on October 14, 1970 — 22 years after Cade's first observations. US trials by Ronald Fieve at Columbia helped build the case.",
-      "the_jump": "Lithium remains on the WHO Essential Medicines List and is one of the most cost-effective psychiatric treatments known. It is also one of the only psychiatric drugs proven to reduce suicide risk.",
-      "funding": "NIMH grants (Fieve); no pharmaceutical sponsor.",
+      "what_they_were_doing": "FDA approved lithium carbonate for acute mania \u2014 22 years after Cade's first observations.",
+      "the_jump": "Lithium remains on the WHO Essential Medicines List and is one of the only psychiatric drugs proven to reduce suicide risk.",
+      "funding": "NIMH grants (Fieve).",
       "critical": true
     }
   ],
@@ -1067,8 +727,7 @@ const ENTRIES = [
     "Shorter E. 'The history of lithium therapy.' Bipolar Disorders. 2009;11(Suppl 2):4-9. https://pubmed.ncbi.nlm.nih.gov/19538681/",
     "FDA Drug Approval Records, Lithium Carbonate. 1970. https://www.accessdata.fda.gov/scripts/cder/daf/"
   ]
-}
-,
+},
 {
   "number": "009",
   "discovery_name": "Microwave Oven",
@@ -1079,174 +738,136 @@ const ENTRIES = [
     "current_use": "Over 90% of US households; global market ~$10 billion annually",
     "initial_funding_source": "U.S. government defense contracts (radar procurement for WWII)",
     "initial_funding_reason": "Manufacturing magnetrons for Allied radar systems",
-    "chain_length": "7 steps · 27 years"
+    "chain_length": "7 steps \u00b7 27 years"
   },
   "the_x": "U.S. military funding of magnetron production for WWII radar systems",
   "the_y": "The microwave oven, now in over 1 billion households worldwide",
   "summary": "Raytheon was manufacturing magnetrons for Allied radar under massive wartime contracts. Engineer Percy Spencer, walking past an active magnetron in 1945, noticed a chocolate bar in his pocket had melted. He aimed microwaves at popcorn kernels (they popped) and an egg (it exploded in a colleague's face). Raytheon filed a patent within months. The first commercial unit was 5.5 feet tall, weighed 750 pounds, and cost $5,000. It took 22 years for a subsidiary to shrink it to a countertop appliance.",
   "chain": [
     {
-      "year": "1940",
-      "who": "Sir John Randall and Dr. Harry Boot",
-      "where": "University of Birmingham, UK",
-      "what_they_were_doing": "Inventing the cavity magnetron — generating high-powered microwave-frequency radio waves for compact radar. The Tizard Mission transferred the design to the USA in 1940.",
-      "the_jump": null,
-      "funding": "UK Air Ministry; shared with US under wartime scientific exchange.",
-      "critical": false
-    },
-    {
-      "year": "1941–1945",
-      "who": "Raytheon Manufacturing Company",
+      "year": "1940\u20131945",
+      "who": "Raytheon Manufacturing; Percy Spencer",
       "where": "Waltham, Massachusetts",
-      "what_they_were_doing": "Mass-producing cavity magnetrons — from 17 per week in 1941 to 2,600 per day by 1944. Percy Spencer was head of the Power Tube Division.",
+      "what_they_were_doing": "Mass-producing cavity magnetrons for Allied radar \u2014 2,600 units per day by 1944.",
       "the_jump": null,
-      "funding": "U.S. government defense contracts (Army Signal Corps and Navy).",
+      "funding": "U.S. Army Signal Corps and Navy defense contracts.",
       "critical": false
     },
     {
       "year": "1945",
-      "who": "Percy LeBaron Spencer (self-taught engineer, no formal degree)",
+      "who": "Percy LeBaron Spencer",
       "where": "Raytheon laboratories, Waltham, Massachusetts",
-      "what_they_were_doing": "Walking past an active magnetron during routine inspection. Had a chocolate bar in his shirt pocket.",
-      "the_jump": "Spencer noticed the chocolate had melted with no conventional heat source. He recognized the magnetron's microwave emissions as the cause and immediately began deliberate experimentation.",
-      "funding": "Raytheon defense contract R&D (incidental to radar production).",
+      "what_they_were_doing": "Walking past an active magnetron; noticed a chocolate bar in his shirt pocket had melted.",
+      "the_jump": "Spencer recognized microwave emissions as the heat source and immediately began deliberate experiments: popcorn kernels popped; an egg exploded in a colleague's face.",
+      "funding": "Raytheon defense contract R&D.",
       "critical": true
     },
     {
       "year": "1945",
-      "who": "Percy Spencer and Raytheon colleagues",
-      "where": "Raytheon laboratories, Waltham, Massachusetts",
-      "what_they_were_doing": "First deliberate microwave food experiments: popcorn kernels near the magnetron (first microwave popcorn), then an egg in its shell (exploded in a colleague's face). Built a metal box to contain microwave energy around food.",
-      "the_jump": "Confirmed microwaves could heat food rapidly from the inside out. The metal box was the conceptual precursor to the oven cavity.",
-      "funding": "Raytheon (exploratory, alongside defense work).",
-      "critical": true
-    },
-    {
-      "year": "1945",
-      "who": "Percy Spencer / Raytheon Corporation",
+      "who": "Percy Spencer / Raytheon",
       "where": "Waltham, Massachusetts",
-      "what_they_were_doing": "Filing U.S. Patent 2,495,429 ('Method of Treating Foodstuffs') on October 8, 1945. Spencer received Raytheon's standard patent bonus of $2. He never received royalties.",
-      "the_jump": null,
+      "what_they_were_doing": "Built a metal box to contain microwave energy around food; filed U.S. Patent 2,495,429.",
+      "the_jump": "Spencer received Raytheon's standard patent bonus: $2. He never received royalties.",
       "funding": "Raytheon Corp.",
       "critical": false
     },
     {
       "year": "1947",
       "who": "Raytheon Corporation",
-      "where": "Marketed to commercial kitchens across USA",
-      "what_they_were_doing": "Introducing the 'Radarange' — 5.5 feet tall, 750 pounds, water-cooled, $5,000 (~$65,000 in 2024 dollars). Marketed to restaurants, railway dining cars, and ocean liners.",
+      "where": "USA (commercial kitchens)",
+      "what_they_were_doing": "Launched the 'Radarange' \u2014 5.5 feet tall, 750 pounds, water-cooled, $5,000.",
       "the_jump": null,
       "funding": "Raytheon commercial revenue.",
       "critical": false
     },
     {
       "year": "1967",
-      "who": "Amana Refrigeration Inc. (Raytheon subsidiary, acquired 1965)",
-      "where": "Amana, Iowa; marketed nationally",
-      "what_they_were_doing": "Launching the first compact countertop microwave for homes: the Amana Radarange at $495 (~$4,400 in 2024 dollars). By the late 1970s, falling prices drove mass adoption. By 1986, 25%+ of US households owned one.",
-      "the_jump": "The transition from a $5,000 commercial appliance to a $495 home product — enabled by two decades of magnetron miniaturization — opened the consumer market. Today there are more microwave ovens than conventional ovens in US homes.",
+      "who": "Amana Refrigeration Inc. (Raytheon subsidiary)",
+      "where": "Amana, Iowa",
+      "what_they_were_doing": "Launched first compact countertop home microwave: Amana Radarange at $495.",
+      "the_jump": "Two decades of magnetron miniaturization converted a 750-pound radar component into a kitchen appliance. By 1986, over 25% of US households owned one.",
       "funding": "Raytheon/Amana commercial investment.",
       "critical": true
     }
   ],
   "sources": [
-    "U.S. Patent 2,495,429 — Spencer, Percy L. 'Method of Treating Foodstuffs.' 1945. https://patents.google.com/patent/US2495429",
+    "U.S. Patent 2,495,429 \u2014 Spencer, Percy L. 'Method of Treating Foodstuffs.' 1945. https://patents.google.com/patent/US2495429",
     "Osepchuk JM. 'A history of microwave heating applications.' IEEE Trans MTT. 1984;32(9):1200-1224. https://ieeexplore.ieee.org/document/1132831",
     "Smithsonian Institution. 'The development of the microwave oven.' https://americanhistory.si.edu/collections/search/object/nmah_1065261",
     "IEEE History Center. 'Percy Spencer and the Microwave Oven.' https://ethw.org/Percy_Spencer_and_the_Microwave_Oven",
     "Scott, Otto J. 'The Creative Ordeal: The Story of Raytheon.' Atheneum. 1974."
   ]
-}
-,
+},
 {
   "number": "010",
   "discovery_name": "Teflon (Polytetrafluoroethylene / PTFE)",
   "tracker_summary": {
-    "invention": "Polytetrafluoroethylene (PTFE) — inert, nearly frictionless, chemically resistant polymer",
+    "invention": "Polytetrafluoroethylene (PTFE) \u2014 inert, nearly frictionless, chemically resistant polymer",
     "inventor": "Roy J. Plunkett (discovery, 1938); DuPont (development)",
     "date": "Discovered April 6, 1938; patented 1941; trade-named 'Teflon' 1944; first consumer cookware (Tefal) 1956",
     "current_use": "Nonstick cookware; aerospace seals; medical implants; semiconductor manufacturing; Gore-Tex",
     "initial_funding_source": "DuPont / Kinetic Chemicals Inc. (DuPont-GM joint venture)",
     "initial_funding_reason": "Developing safer, non-toxic refrigerant gases to replace ammonia and sulfur dioxide",
-    "chain_length": "7 steps · ~30 years"
+    "chain_length": "7 steps \u00b7 ~30 years"
   },
   "the_x": "DuPont's refrigerant R&D program searching for safer alternatives to toxic industrial refrigerants",
-  "the_y": "PTFE (Teflon) — one of the most chemically inert substances ever created, from nonstick cookware to spacecraft",
-  "summary": "DuPont chemist Roy Plunkett was working on refrigerant gases in 1938 when he checked a cylinder of tetrafluoroethylene gas that registered empty on the pressure gauge but still had the correct weight. Instead of discarding it, he cut it open and found a slippery white powder — the gas had spontaneously polymerized into PTFE. The material was so inert it was immediately classified and used in the Manhattan Project to contain corrosive uranium hexafluoride. After the war, a French engineer's wife suggested he coat cooking pans with it, launching the Tefal company.",
+  "the_y": "PTFE (Teflon) \u2014 one of the most chemically inert substances ever created, from nonstick cookware to spacecraft",
+  "summary": "DuPont chemist Roy Plunkett was working on refrigerant gases in 1938 when he checked a cylinder of tetrafluoroethylene gas that registered empty on the pressure gauge but still had the correct weight. Instead of discarding it, he cut it open and found a slippery white powder \u2014 the gas had spontaneously polymerized into PTFE. The material was so inert it was immediately classified and used in the Manhattan Project to contain corrosive uranium hexafluoride. After the war, a French engineer's wife suggested he coat cooking pans with it, launching the Tefal company.",
   "chain": [
     {
-      "year": "1930s",
-      "who": "Thomas Midgley Jr. and Charles Kettering (General Motors Research)",
-      "where": "Dayton, Ohio",
-      "what_they_were_doing": "Developing chlorofluorocarbon compounds as safe refrigerant alternatives. Commercialized through Kinetic Chemicals, a DuPont-GM joint venture, leading to extensive research into fluorinated compounds.",
-      "the_jump": null,
-      "funding": "General Motors / DuPont joint venture (Kinetic Chemicals Inc.).",
-      "critical": false
-    },
-    {
       "year": "1938 (April 6)",
-      "who": "Dr. Roy J. Plunkett (age 27) and Jack Rebok (laboratory assistant)",
+      "who": "Dr. Roy J. Plunkett and Jack Rebok",
       "where": "DuPont Jackson Laboratory, Deepwater, New Jersey",
-      "what_they_were_doing": "Preparing tetrafluoroethylene gas for refrigerant synthesis. A cylinder stored overnight under pressure appeared empty on the gauge but hadn't lost weight.",
-      "the_jump": "Rather than discard the 'empty' cylinder, Plunkett and Rebok cut it open with a hacksaw. Inside: a white, waxy, slippery powder. The TFE had spontaneously polymerized under pressure and cold into PTFE. Plunkett immediately tested it — extraordinarily inert, heat-stable, and frictionless.",
-      "funding": "DuPont / Kinetic Chemicals refrigerant research budget.",
+      "what_they_were_doing": "Preparing TFE gas for refrigerant synthesis; a stored cylinder showed empty pressure but correct weight.",
+      "the_jump": "They cut it open with a hacksaw. Inside: a white, waxy, slippery powder \u2014 TFE had spontaneously polymerized into PTFE. Extraordinarily inert, heat-stable, frictionless.",
+      "funding": "DuPont / Kinetic Chemicals.",
       "critical": true
     },
     {
-      "year": "1938–1941",
-      "who": "DuPont research team",
-      "where": "DuPont Jackson Laboratory and Experimental Station, Wilmington, Delaware",
-      "what_they_were_doing": "Characterizing PTFE: resistant to virtually all known chemicals, one of the lowest friction coefficients of any solid, withstands -200°C to +260°C. Patent 2,230,654 filed and granted 1941.",
-      "the_jump": null,
-      "funding": "DuPont internal R&D.",
-      "critical": false
-    },
-    {
-      "year": "1943–1945",
+      "year": "1943\u20131945",
       "who": "Manhattan Project / U.S. Army Corps of Engineers",
       "where": "Oak Ridge, Tennessee; Hanford, Washington",
-      "what_they_were_doing": "Using PTFE (classified as 'K-416') to line valves, seals, and gaskets in uranium enrichment equipment. Uniquely capable of withstanding corrosive uranium hexafluoride gas. PTFE's existence was classified for the war's duration.",
-      "the_jump": "Large-scale PTFE manufacturing developed for the Manhattan Project established the industrial processes that made post-war commercialization feasible.",
-      "funding": "U.S. Army Manhattan Engineer District (federal wartime contract).",
+      "what_they_were_doing": "Used PTFE (classified 'K-416') to line valves and seals in uranium enrichment equipment.",
+      "the_jump": "Large-scale PTFE manufacturing built for the bomb established the industrial processes needed for post-war commercialization.",
+      "funding": "U.S. Army Manhattan Engineer District.",
       "critical": true
     },
     {
-      "year": "1945–1946",
+      "year": "1945\u20131946",
       "who": "DuPont Company",
       "where": "Wilmington, Delaware",
-      "what_they_were_doing": "Declassifying PTFE after WWII and trademarking it as 'Teflon.' Beginning commercial sales for industrial applications at very high prices.",
+      "what_they_were_doing": "Declassified PTFE; trademarked it 'Teflon'; began high-priced industrial sales.",
       "the_jump": null,
       "funding": "DuPont commercial operations.",
       "critical": false
     },
     {
-      "year": "1954–1956",
-      "who": "Marc Grégoire (French engineer) and his wife Colette Grégoire",
-      "where": "Paris / suburban France",
-      "what_they_were_doing": "Grégoire used PTFE to coat his fishing tackle. His wife Colette suggested applying it to cooking pans. Grégoire spent two years solving the adhesion problem (PTFE bonds to nothing) using chemical etching on aluminum.",
-      "the_jump": "In 1956 Grégoire founded Tefal (Teflon + aluminium) and sold the first nonstick frying pans — an immediate consumer success. Later acquired by Groupe SEB; remains one of the world's largest cookware manufacturers.",
+      "year": "1954\u20131956",
+      "who": "Marc Gr\u00e9goire and his wife Colette",
+      "where": "Paris, France",
+      "what_they_were_doing": "Gr\u00e9goire coated fishing tackle with Teflon; Colette suggested applying it to cooking pans.",
+      "the_jump": "After two years solving the adhesion problem, Gr\u00e9goire founded Tefal in 1956 \u2014 selling the first nonstick frying pans to immediate consumer success.",
       "funding": "Self-funded; later private investment in Tefal.",
       "critical": true
     },
     {
-      "year": "1960s–present",
-      "who": "DuPont, NASA, aerospace and medical industries",
+      "year": "1960s\u2013present",
+      "who": "DuPont, NASA, Bob Gore",
       "where": "Global",
-      "what_they_were_doing": "Expanding PTFE to aerospace heat shields, joint replacements, Gore-Tex (expanded PTFE, Bob Gore, 1969), semiconductor manufacturing. NASA used Teflon in spacesuits and spacecraft. Global PTFE market exceeded $6 billion annually by 2020.",
+      "what_they_were_doing": "PTFE expanded into aerospace heat shields, joint replacements, Gore-Tex (1969), semiconductor manufacturing.",
       "the_jump": null,
       "funding": "Commercial R&D and government contracts.",
       "critical": false
     }
   ],
   "sources": [
-    "U.S. Patent 2,230,654 — Plunkett, Roy J. 1941. https://patents.google.com/patent/US2230654",
+    "U.S. Patent 2,230,654 \u2014 Plunkett, Roy J. 1941. https://patents.google.com/patent/US2230654",
     "Science History Institute. 'Roy Plunkett and the Discovery of Teflon.' https://www.sciencehistory.org/historical-profile/roy-j-plunkett",
-    "ACS. 'Discovery of Teflon — National Historic Chemical Landmark.' 2014. https://www.acs.org/education/whatischemistry/landmarks/teflon.html",
+    "ACS. 'Discovery of Teflon \u2014 National Historic Chemical Landmark.' 2014. https://www.acs.org/education/whatischemistry/landmarks/teflon.html",
     "Tefal Corporate History. https://www.tefal.com/Tefal-story/Our-history",
     "Rhodes R. 'The Making of the Atomic Bomb.' Simon & Schuster, 1986."
   ]
-}
-,
+},
 {
   "number": "011",
   "discovery_name": "Post-it Notes",
@@ -1257,72 +878,63 @@ const ENTRIES = [
     "current_use": "Over 50 billion sold annually in 100+ countries; one of 3M's most profitable product lines",
     "initial_funding_source": "3M Company internal research budget",
     "initial_funding_reason": "Developing an ultra-strong structural adhesive for aerospace applications",
-    "chain_length": "7 steps · 12 years"
+    "chain_length": "7 steps \u00b7 12 years"
   },
   "the_x": "3M's aerospace adhesive research program trying to create a stronger bonding agent",
-  "the_y": "The Post-it Note — one of the most commercially successful office products in history, born from an adhesive rejected for being too weak",
-  "summary": "3M chemist Spencer Silver set out in 1968 to create a super-strong aerospace adhesive. He created the opposite: microspheres that stuck lightly and could be repositioned without residue. Silver spent years promoting his 'solution without a problem' internally. Six years later, colleague Art Fry sat in church frustrated that his hymnal bookmark kept falling out. He remembered Silver's adhesive. Even then, 3M's marketing resisted for years before a 'Boise Blitz' test market — giving away free samples — achieved a 90% repurchase rate and launched a national product.",
+  "the_y": "The Post-it Note \u2014 one of the most commercially successful office products in history, born from an adhesive rejected for being too weak",
+  "summary": "3M chemist Spencer Silver set out in 1968 to create a super-strong aerospace adhesive. He created the opposite: microspheres that stuck lightly and could be repositioned without residue. Silver spent years promoting his 'solution without a problem' internally. Six years later, colleague Art Fry sat in church frustrated that his hymnal bookmark kept falling out. He remembered Silver's adhesive. Even then, 3M's marketing resisted for years before a 'Boise Blitz' test market \u2014 giving away free samples \u2014 achieved a 90% repurchase rate and launched a national product.",
   "chain": [
     {
       "year": "1968",
-      "who": "Dr. Spencer Silver (senior chemist)",
-      "where": "3M Central Research Laboratory, Maplewood (St. Paul), Minnesota",
-      "what_they_were_doing": "Attempting to synthesize a high-strength structural adhesive for aerospace by experimenting with acrylate copolymer microsphere formulations. The goal was maximum bond strength.",
-      "the_jump": "Silver accidentally created an adhesive with the opposite properties: tiny acrylic spheres forming a low-tack, pressure-sensitive bond that peeled off cleanly and could be reapplied without losing effectiveness. It stuck but didn't bond.",
-      "funding": "3M Company internal R&D (Central Research Laboratory budget).",
+      "who": "Dr. Spencer Silver",
+      "where": "3M Central Research Laboratory, Maplewood, Minnesota",
+      "what_they_were_doing": "Attempting to create a maximum-strength aerospace adhesive.",
+      "the_jump": "Accidentally created the opposite: low-tack acrylic microspheres that peeled off cleanly and could be reapplied indefinitely.",
+      "funding": "3M Central Research Laboratory.",
       "critical": true
     },
     {
-      "year": "1968–1973",
+      "year": "1968\u20131973",
       "who": "Spencer Silver",
-      "where": "3M Company, Maplewood, Minnesota",
-      "what_they_were_doing": "Evangelizing his adhesive internally through seminars and lobbying product managers. Silver called it a 'solution looking for a problem.' No one could find a use case.",
-      "the_jump": null,
-      "funding": "3M internal. Silver's persistent promotion was only possible because of 3M's culture of tolerating exploratory research.",
-      "critical": false
-    },
-    {
-      "year": "1973",
-      "who": "3M management and product development teams",
-      "where": "3M headquarters, Maplewood, Minnesota",
-      "what_they_were_doing": "Repeatedly evaluating and declining Silver's adhesive. A bulletin board coated with it was trialed internally but generated no commercial interest. The adhesive sat unused.",
+      "where": "3M, Maplewood, Minnesota",
+      "what_they_were_doing": "Ran internal seminars for five years promoting his 'solution looking for a problem.' No takers.",
       "the_jump": null,
       "funding": "3M internal.",
       "critical": false
     },
     {
       "year": "1974",
-      "who": "Arthur 'Art' Fry (3M product development engineer and choir member)",
-      "where": "North Presbyterian Church, North St. Paul, Minnesota (concept); 3M labs (development)",
-      "what_they_were_doing": "Singing in church choir, frustrated that paper bookmark slips kept falling out of his hymnal. During a Sunday service, recalled attending one of Silver's internal seminars.",
-      "the_jump": "Fry realized a bookmark coated with Silver's adhesive would stay in place but remove cleanly. He prototyped the first adhesive bookmark using 3M's '15% rule' for self-directed projects. The concept evolved from bookmark to general-purpose note.",
-      "funding": "3M Company (Fry used company time under the 15% discretionary research policy).",
+      "who": "Art Fry",
+      "where": "North Presbyterian Church; 3M labs",
+      "what_they_were_doing": "Choir member frustrated that hymnal bookmarks kept falling out during Sunday service.",
+      "the_jump": "Mid-service, recalled Silver's internal seminar. Prototyped an adhesive bookmark under 3M's 15% discretionary research policy \u2014 concept evolved to a general-purpose note.",
+      "funding": "3M (15% rule).",
       "critical": true
     },
     {
-      "year": "1974–1977",
+      "year": "1974\u20131977",
       "who": "Art Fry and Spencer Silver",
-      "where": "3M Company, Maplewood, Minnesota",
-      "what_they_were_doing": "Solving manufacturing challenges. Fry reportedly built a coating machine in his home basement. Distributed samples to 3M executives' secretaries — who kept coming back for more. First evidence of organic demand, yet internal marketing studies still predicted no market.",
-      "the_jump": null,
-      "funding": "3M internal. Geoff Nicholson and Joe Ramey provided crucial internal sponsorship.",
+      "where": "3M, Maplewood, Minnesota",
+      "what_they_were_doing": "Solved manufacturing; distributed samples to executives' secretaries \u2014 who kept asking for more.",
+      "the_jump": "Internal marketing studies still predicted no market, despite organic demand from their own colleagues.",
+      "funding": "3M internal.",
       "critical": false
     },
     {
-      "year": "1977–1978",
+      "year": "1977\u20131978",
       "who": "3M commercial team; Geoff Nicholson",
       "where": "Four US test cities; then Boise, Idaho",
-      "what_they_were_doing": "Launched as 'Press 'n Peel' in Richmond, Tampa, Tulsa, Denver — results poor because consumers couldn't understand without trying. Then the 'Boise Blitz': flooding Boise with free samples achieved a 90% repurchase rate.",
-      "the_jump": "The Boise test proved consumer sampling — not advertising — was the key. The product needed to be experienced, not described. Four failed test markets almost killed it.",
-      "funding": "3M marketing and commercialization budget.",
+      "what_they_were_doing": "Four-city launch as 'Press 'n Peel' failed \u2014 consumers couldn't grasp it without trying.",
+      "the_jump": "The Boise Blitz: flooded the city with free samples; 90% repurchase rate. Four failed test markets nearly killed it.",
+      "funding": "3M marketing budget.",
       "critical": true
     },
     {
       "year": "1980",
       "who": "3M Company",
-      "where": "National US launch April 6, 1980; international rollout followed",
-      "what_they_were_doing": "Renamed from 'Press 'n Peel' to 'Post-it' after consumer feedback. Within a year, 3M's best-selling new product. By 1984, sold in 50 countries. Never required significant reformulation.",
-      "the_jump": "The 12-year journey from Silver's accidental discovery to national launch — through years of internal rejection, a church choir eureka moment, four failed test markets, and one decisive free-sample blitz — is now a canonical innovation case study.",
+      "where": "National US launch; international rollout",
+      "what_they_were_doing": "Renamed 'Post-it'; became 3M's best-selling new product within a year.",
+      "the_jump": "Twelve years from accidental discovery to national launch \u2014 through internal rejection, a church choir moment, and one decisive free-sample blitz.",
       "funding": "3M commercial operations.",
       "critical": true
     }
@@ -1334,10 +946,8 @@ const ENTRIES = [
     "Fry A. 'The Post-it Note: An Intrapreneurial Success.' SAM Advanced Management Journal. 1987;52(3):4-9.",
     "Petroski H. 'The Post-it Note: Stuck on Success.' American Scientist. 2010. https://www.americanscientist.org/article/the-post-it-note"
   ]
-}
-,
+},
 ];
-
 const SUGGESTIONS = [
   {
     "number": "012",
@@ -1347,7 +957,7 @@ const SUGGESTIONS = [
     "key_jump": "In 1839, Goodyear accidentally dropped a rubber-sulfur mixture onto a hot stove. Instead of melting, it charred at the edges but remained elastic — the stability he had chased for years.",
     "era": "pre-1950",
     "field": "chemistry",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   },
   {
     "number": "013",
@@ -1357,7 +967,7 @@ const SUGGESTIONS = [
     "key_jump": "Greatbatch pulled a 1-megaohm resistor instead of a 10,000-ohm one. The circuit pulsed at 1.8 milliseconds — exactly mimicking the human heartbeat. He immediately recognized the medical implication.",
     "era": "1950-2000",
     "field": "biomedical",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   },
   {
     "number": "014",
@@ -1367,7 +977,7 @@ const SUGGESTIONS = [
     "key_jump": "On November 8, 1895, Röntgen noticed a barium platinocyanide screen glowed even though the cathode tube was covered in black cardboard. He placed his wife Anna's hand in the beam and produced history's first medical radiograph.",
     "era": "pre-1950",
     "field": "physics",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "015",
@@ -1377,7 +987,7 @@ const SUGGESTIONS = [
     "key_jump": "Fahlberg forgot to wash his hands and noticed his dinner roll tasted overwhelmingly sweet. He ran back to the lab, tasted every beaker, and traced the sweetness to an oxidized sulfonamide compound.",
     "era": "pre-1950",
     "field": "chemistry",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "016",
@@ -1387,7 +997,7 @@ const SUGGESTIONS = [
     "key_jump": "Bénédictus knocked a flask off a shelf; it shattered but held its shape. A cellulose nitrate solution had evaporated into a thin film. After reading about car accident lacerations, he connected the observation to a protective windshield.",
     "era": "pre-1950",
     "field": "materials",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "017",
@@ -1407,7 +1017,7 @@ const SUGGESTIONS = [
     "key_jump": "On a cloudy week, Becquerel stored uranium-wrapped photographic plates in a dark drawer. When developed, they were strongly exposed — the uranium radiated without sunlight. The radiation was intrinsic to the material.",
     "era": "pre-1950",
     "field": "physics",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   },
   {
     "number": "019",
@@ -1417,7 +1027,7 @@ const SUGGESTIONS = [
     "key_jump": "Coover discarded cyanoacrylate because it stuck to everything, ruining equipment. Nine years later, colleague Fred Joyner rediscovered it and recognized what Coover had dismissed as a defect was actually an extraordinary property.",
     "era": "pre-1950",
     "field": "chemistry",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   },
   {
     "number": "020",
@@ -1427,7 +1037,7 @@ const SUGGESTIONS = [
     "key_jump": "Bell Burnell noticed a repeating signal she labeled 'scruff' — a clock-like pulse every 1.337 seconds. The team briefly nicknamed it 'LGM-1' (Little Green Men) before identifying it as a rotating neutron star.",
     "era": "1950-2000",
     "field": "physics",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "021",
@@ -1437,7 +1047,7 @@ const SUGGESTIONS = [
     "key_jump": "A persistent 3.5-Kelvin noise refused to go away regardless of direction or attempts to remove pigeon droppings. Penzias called Robert Dicke at Princeton, who had just predicted this signal. Dicke told his team: 'We've been scooped.'",
     "era": "1950-2000",
     "field": "physics",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "022",
@@ -1467,7 +1077,7 @@ const SUGGESTIONS = [
     "key_jump": "Allison noticed CTLA-4 acted as a brake on T-cells. While others used this to suppress autoimmunity, he had the counterintuitive idea to block the brake in cancer patients — an idea so foreign that pharma companies ignored him for years.",
     "era": "1950-2000",
     "field": "biomedical",
-    "mechanism": "misapplication"
+    "mechanism": "cross_pollination"
   },
   {
     "number": "025",
@@ -1477,7 +1087,7 @@ const SUGGESTIONS = [
     "key_jump": "Against orders and conventional wisdom — the industry had given up on gallium nitride — Nakamura secretly pivoted to GaN, built a custom MOCVD reactor, and cracked the crystal growth problem the field had abandoned.",
     "era": "1950-2000",
     "field": "physics",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   },
   {
     "number": "026",
@@ -1487,7 +1097,7 @@ const SUGGESTIONS = [
     "key_jump": "Kwolek produced a cloudy, low-viscosity solution that convention said should be discarded as degraded. She convinced a skeptical technician to spin it anyway. The resulting fiber was unlike any synthetic polymer previously made.",
     "era": "1950-2000",
     "field": "chemistry",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   },
   {
     "number": "027",
@@ -1507,7 +1117,7 @@ const SUGGESTIONS = [
     "key_jump": "Carothers' assistant Julian Hill noticed that pulling a glass rod from a polyester melt created an impossibly thin, strong fiber that could be stretched down the hallway. This 'cold drawing' aligned polymer chains — the key to making synthetic fibers commercially viable.",
     "era": "pre-1950",
     "field": "chemistry",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "029",
@@ -1517,7 +1127,7 @@ const SUGGESTIONS = [
     "key_jump": "In 1943, Hofmann accidentally absorbed LSD through his fingertips while re-synthesizing a sample shelved for five years. He bicycled home in the world's first acid trip, then deliberately took 250μg three days later (effective dose: ~25μg).",
     "era": "pre-1950",
     "field": "biomedical",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "030",
@@ -1527,7 +1137,7 @@ const SUGGESTIONS = [
     "key_jump": "Brearley was discarding failed gun barrel samples when he noticed months later that high-chromium samples hadn't rusted while all others had. He pivoted to making cutlery, not cannons.",
     "era": "pre-1950",
     "field": "materials",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "031",
@@ -1547,7 +1157,7 @@ const SUGGESTIONS = [
     "key_jump": "Wright's bouncing, stretching blob failed every rubber test. GE circulated samples for five years without finding a use. Toy store owner Peter Hodgson saw it at a party, packaged it in plastic eggs, and sold 250,000 units in three days.",
     "era": "pre-1950",
     "field": "materials",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   },
   {
     "number": "033",
@@ -1577,7 +1187,7 @@ const SUGGESTIONS = [
     "key_jump": "After his quinine synthesis produced sludge, Perkin tried aniline and got a black precipitate that dissolved into brilliant purple — it dyed silk. He built a factory at age 18; the discovery that coal tar yielded dyes also revealed it could yield drugs.",
     "era": "pre-1950",
     "field": "chemistry",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   },
   {
     "number": "036",
@@ -1607,7 +1217,7 @@ const SUGGESTIONS = [
     "key_jump": "Davy wrote that nitrous oxide 'may probably be used with advantage during surgical operations' but was too engaged in chemistry to pursue it. His idea lay dormant for 45 years until dentist Horace Wells saw a man injure his leg at a laughing gas show without noticing.",
     "era": "pre-1950",
     "field": "biomedical",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "039",
@@ -1617,7 +1227,7 @@ const SUGGESTIONS = [
     "key_jump": "Anderson saw a track that curved the wrong way in the magnetic field — a positively charged particle with electron mass, theoretically impossible. A lead plate proved it was moving upward, matching Dirac's 1928 equation's bizarre negative-energy solution.",
     "era": "pre-1950",
     "field": "physics",
-    "mechanism": "serendipity"
+    "mechanism": "accident"
   },
   {
     "number": "040",
@@ -1647,7 +1257,7 @@ const SUGGESTIONS = [
     "key_jump": "His 'inert' platinum electrodes were dissolving into the growth medium, chemically paralyzing bacteria. The bacteria stopped dividing not from electricity but from an accidental byproduct — platinum-ammonia compounds.",
     "era": "1950-2000",
     "field": "biomedical",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   },
   {
     "number": "043",
@@ -1707,7 +1317,7 @@ const SUGGESTIONS = [
     "key_jump": "The initial military application was explosives. The pivot to agricultural fertilizer came after WWI when the German chemical industry needed peacetime applications — from killing to feeding.",
     "era": "pre-1950",
     "field": "chemistry",
-    "mechanism": "misapplication"
+    "mechanism": "tool_migration"
   },
   {
     "number": "049",
@@ -1737,7 +1347,7 @@ const SUGGESTIONS = [
     "key_jump": "They deliberately worked outside orthodoxy, which held that oxides can't superconduct and 30K is the ceiling. Their 35K result caused the 1987 APS March Meeting to become known as the 'Woodstock of Physics.'",
     "era": "1950-2000",
     "field": "physics",
-    "mechanism": "failed_experiment"
+    "mechanism": "salvaged_failure"
   }
 ]
 ;

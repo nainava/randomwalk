@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Random Walk: Radar</title>
+<title>Random Walk — Radar</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500;1,8..60,600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -19,6 +19,9 @@
     --fgMix6: #aaaaaa;
     --highlight: #E4001C;
     --border: #c6c6c6;
+    --borderLight: #e5e5e5;
+    --rowHover: #fafafa;
+    --rowOpen: #f5f5f5;
 
     --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
     --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -28,7 +31,6 @@
     --bodyMargin: calc(var(--bodyLH) * var(--bodySize));
 
     --streamSpacing: calc(130 / 1680 * 100vw);
-
     --gridGap: 10px;
     --gridMargin: 20px;
   }
@@ -37,10 +39,11 @@
 
   body {
     font-family: var(--sans);
-    background: var(--bg);
+    background: #ffffff;
     color: var(--fg);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .grid {
@@ -52,6 +55,8 @@
     margin: 0 auto;
   }
   .g-content { grid-column: 3 / 9; }
+  .g-wide    { grid-column: 2 / 12; }
+  .g-full    { grid-column: 1 / -1; }
 
   nav {
     font-family: var(--sans);
@@ -60,11 +65,15 @@
     padding: 14px var(--gridMargin);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     max-width: 1680px;
     margin: 0 auto;
   }
   nav a { color: var(--fgMix5); text-decoration: none; }
   nav a:hover { color: var(--fg); }
+  nav .nav-brand { letter-spacing: -0.01em; }
+  nav .nav-brand a { color: inherit; }
+  nav .nav-right { display: flex; gap: 20px; }
 
   .article-title {
     font-family: var(--sans);
@@ -73,15 +82,6 @@
     letter-spacing: -0.02em;
     line-height: 1.05;
     padding-top: var(--streamSpacing);
-    padding-bottom: var(--streamSpacing);
-  }
-
-  .subtitle {
-    font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
-    color: var(--fgMix3);
-    font-style: italic;
     padding-bottom: var(--streamSpacing);
   }
 
@@ -94,152 +94,307 @@
   .prose p { margin-bottom: var(--bodyMargin); }
   .prose p:last-child { margin-bottom: 0; }
 
-  /* Drop cap */
-  .prose p:first-of-type::first-letter {
-    float: left;
-    font-family: var(--serif);
-    font-size: 5.2em;
-    line-height: 0.72;
-    padding-right: 8px;
-    padding-top: 8px;
-    font-weight: 600;
-    color: var(--highlight);
-  }
-
   .stream-space { padding-top: var(--streamSpacing); padding-bottom: var(--streamSpacing); }
   .stream-space-top { padding-top: var(--streamSpacing); }
-  .stream-space-bottom { padding-bottom: var(--streamSpacing); }
 
-  /* Pattern sections */
-  .pattern-title {
+  .heading-medium {
     font-family: var(--sans);
     font-size: 36px;
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.25;
-    margin-bottom: 12px;
   }
-  .pattern-number {
+
+  /* ---------- Toolbar ---------- */
+  .toolbar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
     font-family: var(--sans);
-    font-size: 14px;
-    color: var(--fgMix5);
-    margin-bottom: 8px;
+    font-size: 13px;
   }
-  .pattern-intro {
+  .toolbar input[type="text"],
+  .toolbar select {
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 7px 9px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    border-radius: 2px;
+    outline: none;
+  }
+  .toolbar input[type="text"]:focus,
+  .toolbar select:focus { border-color: var(--fg); }
+  .toolbar input[type="text"] { flex: 1 1 240px; min-width: 180px; }
+  .toolbar .result-count { color: var(--fgMix5); margin-left: auto; }
+
+  /* ---------- Table ---------- */
+  .sheet-wrap { overflow-x: auto; margin-top: 16px; }
+  table.sheet {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  table.sheet thead th {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    text-align: left;
+    font-weight: 600;
+    color: var(--fgMix3);
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    z-index: 2;
+  }
+  table.sheet thead th:hover { color: var(--fg); }
+  table.sheet thead th .sort-ind {
+    display: inline-block;
+    width: 10px;
+    color: var(--fgMix6);
+    margin-left: 4px;
+  }
+  table.sheet thead th.sorted .sort-ind { color: var(--highlight); }
+
+  table.sheet tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--borderLight);
+    vertical-align: top;
+    color: var(--fg);
+  }
+  table.sheet tbody tr.row { cursor: pointer; }
+  table.sheet tbody tr.row:hover td { background: var(--rowHover); }
+  table.sheet tbody tr.row.open td { background: var(--rowOpen); }
+
+  td.col-num     { color: var(--fgMix5); font-variant-numeric: tabular-nums; width: 56px; }
+  td.col-finding { min-width: 280px; max-width: 460px; }
+  td.col-finding .finding-title { font-weight: 600; color: var(--fg); margin-bottom: 4px; line-height: 1.35; }
+  td.col-finding .finding-summary { color: var(--fgMix3); font-family: var(--serif); font-size: 13.5px; line-height: 1.45; }
+
+  td.col-origin, td.col-dest { color: var(--fgMix3); max-width: 180px; }
+  td.col-dest { color: var(--highlight); }
+
+  td.col-stage { white-space: nowrap; width: 120px; }
+  .stage-pill {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border: 1px solid var(--border);
+    color: var(--fgMix5);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .stage-pill.configuration { border-color: #2a7d2a; color: #2a7d2a; }
+  .stage-pill.in-progress { border-color: #b8860b; color: #b8860b; }
+  .stage-pill.early-output { border-color: var(--highlight); color: var(--highlight); }
+
+  td.col-conf { width: 70px; }
+  .confidence-bar { display: inline-flex; gap: 3px; vertical-align: middle; }
+  .confidence-bar .dot { width: 6px; height: 6px; border-radius: 50%; background: #ddd; }
+  .confidence-bar.high .dot.filled { background: #2a7d2a; }
+  .confidence-bar.medium .dot.filled { background: #b8860b; }
+  .confidence-bar.low .dot.filled { background: var(--fgMix5); }
+
+  td.col-signals { color: var(--fgMix5); font-size: 11px; max-width: 200px; line-height: 1.5; }
+
+  td .caret {
+    display: inline-block;
+    width: 12px;
+    color: var(--fgMix6);
+    font-size: 11px;
+    transition: transform 0.2s ease;
+  }
+  tr.row.open td .caret { transform: rotate(90deg); color: var(--highlight); }
+
+  /* ---------- Expanded row ---------- */
+  tr.detail { display: none; }
+  tr.detail.open { display: table-row; }
+  tr.detail td {
+    padding: 0;
+    background: var(--rowOpen);
+    border-bottom: 1px solid var(--border);
+  }
+  .detail-body {
+    padding: 20px 24px 24px;
+    max-width: 820px;
+  }
+  .detail-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 8px 0;
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--borderLight);
+  }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fgMix5);
+    padding-top: 2px;
+  }
+  .detail-value { color: var(--fg); font-family: var(--serif); font-size: 14px; line-height: 1.5; }
+  .detail-value.dim { color: var(--fgMix3); }
+  .detail-value a { color: var(--highlight); text-decoration: none; word-break: break-all; }
+  .detail-value a:hover { text-decoration: underline; }
+
+  .signal-list { list-style: none; }
+  .signal-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--borderLight);
+  }
+  .signal-list li:first-child { padding-top: 0; }
+  .signal-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .signal-type {
+    display: block;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fgMix5);
+    margin-bottom: 2px;
+  }
+
+  .no-results {
+    padding: 40px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--fgMix5);
+    text-align: center;
+  }
+
+  /* ---------- Methodology (legend style, matches atlas) ---------- */
+  .method-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--fgMix3);
+  }
+  .method-heading {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fgMix5);
+    margin-bottom: 14px;
+  }
+  .method-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 36px;
+    row-gap: 12px;
+  }
+  .method-list dt {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--fg);
+    margin-bottom: 2px;
+  }
+  .method-list dd {
+    margin: 0;
+    color: var(--fgMix3);
+  }
+  @media (max-width: 768px) {
+    .method-list { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Nomination form ---------- */
+  .form-section {
+    padding-top: calc(var(--streamSpacing) * 1.5);
+    border-top: 1px solid var(--fg);
+  }
+  .form-intro {
     font-family: var(--serif);
     font-size: var(--bodySize);
     line-height: var(--bodyLH);
     color: var(--fgMix3);
-    margin-bottom: var(--bodyMargin);
+    margin-bottom: calc(var(--bodyMargin) * 1.5);
   }
-  .pattern-history {
+  .nom-form { max-width: 600px; }
+  .form-field { margin-bottom: 24px; }
+  .form-label {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .form-hint {
     font-family: var(--serif);
-    font-size: 18px;
-    line-height: var(--bodyLH);
+    font-size: 14px;
     color: var(--fgMix5);
-    font-style: italic;
-    margin-bottom: calc(var(--bodyMargin) * 2);
+    display: block;
+    margin-bottom: 6px;
   }
-
-  /* Curiosity items */
-  .c-item {
-    padding: var(--bodyMargin) 0;
-    border-bottom: 1px solid var(--border);
+  .form-input, .form-textarea {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: var(--bodyLH);
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    border-radius: 0;
+    -webkit-appearance: none;
+    outline: none;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--fg); }
+  .form-textarea { resize: vertical; min-height: 80px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-optional { font-size: 12px; color: var(--fgMix6); margin-left: 4px; font-weight: 400; }
+  .form-submit {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px 36px;
+    background: var(--fg);
+    color: var(--bg);
+    border: none;
     cursor: pointer;
   }
-  .c-item:first-child { border-top: 1px solid var(--border); }
-
-  .c-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-  }
-  .c-title {
+  .form-submit:hover { background: var(--highlight); }
+  .form-footer {
     font-family: var(--sans);
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-    flex: 1;
-  }
-  .c-poke {
-    font-family: var(--sans);
-    font-size: 14px;
-    color: var(--fgMix5);
-    flex-shrink: 0;
-  }
-  .c-poke.high { color: var(--highlight); }
-
-  .c-desc {
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: var(--bodyLH);
-    color: var(--fgMix3);
-    margin-top: 8px;
-  }
-
-  .c-meta {
-    font-family: var(--sans);
-    font-size: 14px;
+    font-size: 13px;
     color: var(--fgMix6);
-    margin-top: 8px;
+    margin-top: 10px;
   }
-
-  /* Expandable detail */
-  .c-detail {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
+  .signal-box {
+    background: #fafafa;
+    border-left: 3px solid var(--highlight);
+    padding: 16px 20px;
   }
-  .c-item.open .c-detail {
-    max-height: 1200px;
-    transition: max-height 0.7s ease;
-  }
-
-  .c-detail-body {
-    padding-top: var(--bodyMargin);
-  }
-
-  .c-weird {
-    font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
-    font-style: italic;
-    color: var(--fgMix3);
-    padding-left: 1.5em;
-    border-left: 1px solid var(--fgMix5);
-    margin-bottom: var(--bodyMargin);
-  }
-
-  .c-full-desc {
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: var(--bodyLH);
-    color: var(--fgMix3);
-    margin-bottom: var(--bodyMargin);
-  }
-
-  .c-field {
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: var(--bodyLH);
-    color: var(--fgMix3);
-    margin-bottom: 12px;
-  }
-  .c-field .dl {
+  .signal-label {
     font-family: var(--sans);
-    font-size: 14px;
-    color: var(--fgMix5);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--highlight);
+    margin-bottom: 6px;
   }
-
-  /* Closing */
-  .closing {
+  .signal-text {
     font-family: var(--serif);
-    font-size: var(--bodySize);
-    font-style: italic;
+    font-size: 17px;
     line-height: var(--bodyLH);
-    color: var(--fgMix3);
   }
 
   footer {
@@ -251,51 +406,120 @@
     font-size: 14px;
     color: var(--fgMix5);
   }
-  footer a { color: var(--fgMix5); text-decoration: underline; text-decoration-color: var(--fgMix6); text-underline-offset: 2px; }
-  footer a:hover { text-decoration-color: var(--highlight); }
 
+  /* ---------- Responsive ---------- */
   @media (max-width: 1024px) {
     :root { --bodySize: 20px; }
     .article-title { font-size: 56px; }
-    .pattern-title { font-size: 21px; }
-    .g-content { grid-column: 2 / 11; }
+    .heading-medium { font-size: 24px; }
+    .g-content { grid-column: 2 / 12; }
+    .g-wide { grid-column: 1 / -1; }
+    .detail-body { padding: 16px 20px; }
   }
   @media (max-width: 768px) {
     :root { --bodySize: 18px; --gridMargin: 16px; --streamSpacing: calc(65 / 768 * 100vw); }
     .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
     .g-content { grid-column: 1 / -1; }
+    .g-wide { grid-column: 1 / -1; }
     .article-title { font-size: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    table.sheet { font-size: 12px; }
+    table.sheet tbody td { padding: 7px 8px; }
+    .detail-body { padding: 14px 16px; }
+    .detail-row { grid-template-columns: 1fr; gap: 4px; }
   }
-  /* ---------- Random walk canvas ---------- */
-  .header-wrap {
-    position: relative;
-  }
+
+  /* ---------- Header canvas ---------- */
+  .header-wrap { position: relative; }
   .header-wrap canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
   }
-  .header-wrap .grid {
-    position: relative;
-    z-index: 1;
-  }
+  .header-wrap .grid { position: relative; z-index: 1; }
 
   @media print {
     nav { display: none; }
-    .c-detail { max-height: none !important; overflow: visible !important; }
     .header-wrap canvas { display: none; }
+    tr.detail { display: table-row !important; }
+    .about-overlay { display: none; }
+    .toolbar { display: none; }
+  }
+
+  /* ---------- About (sticky note) ---------- */
+  .about-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .about-overlay.open { display: flex; align-items: center; justify-content: center; }
+
+  .about-wrapper {
+    position: relative;
+    width: fit-content;
+  }
+  /* separate blurred shadow layer, offset down-right, behind the note */
+  .about-shadow {
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.18);
+    filter: blur(12px);
+    border-radius: 4px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .about-modal {
+    width: 260px;
+    min-height: 260px;
+    padding: 22px;
+    background: #e6f23a;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    cursor: default;
+    transform: rotate(0.6deg);
+  }
+  /* 135deg light source */
+  .about-modal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), transparent 60%);
+  }
+  .about-modal p {
+    margin: 0 0 14px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #222;
+  }
+  .about-modal .about-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html">Random Walk<span style="color:#8d8d8d">: Atlas</span></a>
-  <span>Radar</span>
+  <span class="nav-brand"><a href="index.html">Random Walk</a></span>
+  <div class="nav-right">
+    <a href="atlas.html">Atlas</a>
+    <span style="color:var(--fg);font-weight:600">Radar</span>
+    <a href="#" id="about-link">About</a>
+  </div>
 </nav>
 
 <div class="header-wrap" id="header-wrap">
@@ -307,133 +531,699 @@
   </div>
 </div>
 
+<!-- Intro -->
 <div class="grid">
   <div class="g-content prose">
-    <p>Can we brute force random scientific discovery? Can we "predict" random scientific discovery? We are not sure. This website will be updated to highlight the people trying. In the meantime, we've collected a list of curiosities that may be worth learning more about.</p>
+    <p>The atlas catalogs breakthroughs after the fact. The radar catalogs active work at crossings between distant fields before outputs arrive. Sources scanned include lab project portfolios, researcher training histories, grant programs, and paper citations.</p>
+    <p>Each entry is a person or lab positioned at a crossing between two fields. Entries are tagged by stage: <em>configuration</em> (structural conditions exist, no output), <em>in progress</em> (active work), <em>early output</em> (paper or result published). Method validated retroactively against 11 Atlas breakthroughs: 10 of 11 flagged, ~3.5 year average lead time.</p>
+  </div>
+</div>
+
+<!-- Sheet -->
+<div class="grid">
+  <div class="g-wide stream-space-top">
+    <h2 class="heading-medium">The Sheet</h2>
   </div>
 </div>
 
 <div class="grid">
-  <div class="g-content">
-    <div id="content"></div>
+  <div class="g-wide" style="padding-top:24px">
+    <div class="toolbar">
+      <input type="text" id="filter-text" placeholder="Filter by finding, field, researcher…" autocomplete="off">
+      <select id="filter-stage">
+        <option value="">All stages</option>
+        <option value="early_output">Early output</option>
+        <option value="in_progress">In progress</option>
+        <option value="configuration">Configuration</option>
+      </select>
+      <select id="filter-conf">
+        <option value="">All confidence</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <select id="filter-signal">
+        <option value="">All detection methods</option>
+      </select>
+      <span class="result-count" id="result-count"></span>
+    </div>
+    <div class="sheet-wrap">
+      <table class="sheet" id="sheet">
+        <thead>
+          <tr>
+            <th data-key="number"     data-type="num" class="col-num">#<span class="sort-ind"></span></th>
+            <th data-key="title"      data-type="str">Finding<span class="sort-ind"></span></th>
+            <th data-key="fieldA"     data-type="str">Origin field<span class="sort-ind"></span></th>
+            <th data-key="fieldB"     data-type="str">Destination field<span class="sort-ind"></span></th>
+            <th data-key="stage"      data-type="str">Stage<span class="sort-ind"></span></th>
+            <th data-key="confSort"   data-type="num">Conf.<span class="sort-ind"></span></th>
+            <th data-key="signalList" data-type="str">Detected via<span class="sort-ind"></span></th>
+          </tr>
+        </thead>
+        <tbody id="sheet-body"></tbody>
+      </table>
+      <div class="no-results" id="no-results" style="display:none">No matches.</div>
+    </div>
   </div>
 </div>
 
+<!-- Methodology -->
 <div class="grid">
-  <div class="g-content">
-    <footer>
-      <p><a href="index.html">&larr; Back to Random Walk Research</a></p>
-    </footer>
+  <div class="g-wide">
+    <aside class="method-section">
+      <div class="method-heading">Definition</div>
+      <dl class="method-list">
+        <div>
+          <dt>lab portfolio scan</dt>
+          <dd>A single lab runs active projects in two distant domains. Confirmed from group page listings.</dd>
+        </div>
+        <div>
+          <dt>researcher migration</dt>
+          <dd>Training and current work span different fields. Identified via dissertation subject versus current affiliation.</dd>
+        </div>
+        <div>
+          <dt>grant bridge</dt>
+          <dd>A single grant spans two distant funding programs, or one PI holds active grants in unrelated fields. Cross-referenced via NSF Award Search and NIH RePORTER.</dd>
+        </div>
+        <div>
+          <dt>cross-citation</dt>
+          <dd>A paper cites literature from a distant field. Detected via OpenAlex API.</dd>
+        </div>
+        <div>
+          <dt>dissertation span</dt>
+          <dd>A thesis whose chapters or committee members span two fields that do not usually overlap.</dd>
+        </div>
+        <div>
+          <dt>institutional adjacency</dt>
+          <dd>Two labs share a building, seminar series, or campus.</dd>
+        </div>
+      </dl>
+    </aside>
   </div>
 </div>
 
-<script src="radar_data.js"></script>
+<!-- Data -->
+<script>
+var RADAR = [
+  {
+    number: 1,
+    title: "Glutathione drives breast cancer metastasis via mitochondrial signaling",
+    summary: "Mitochondrial glutathione enables breast cancer metastasis through a signaling role independent of its antioxidant function.",
+    researcher: "Kivanc Birsoy lab, Rockefeller University",
+    fieldA: "Cell metabolism",
+    fieldB: "Metastatic oncology",
+    stage: "early_output",
+    confidence: "high",
+    signals: [
+      { type: "Cross-citation", evidence: "Paper cites mitochondrial metabolism and metastasis biology literature." },
+      { type: "Lab portfolio", evidence: "Birsoy lab runs parallel projects on metabolic diseases and cancer metabolism." }
+    ],
+    link: "https://www.rockefeller.edu/news/38146-mitochondrial-antioxidant-found-to-drive-breast-cancer-metastasis/",
+    published: "Cancer Discovery, August 2025"
+  },
+  {
+    number: 2,
+    title: "Two antibiotics from uncultured soil bacteria via metagenomic synthesis",
+    summary: "Soil metagenomic DNA used to computationally predict and chemically synthesize two antibiotics with previously unobserved mechanisms.",
+    researcher: "Sean F. Brady lab, Rockefeller University",
+    fieldA: "Metagenomics / DNA sequencing",
+    fieldB: "Antibiotic discovery",
+    stage: "early_output",
+    confidence: "high",
+    signals: [
+      { type: "Cross-citation", evidence: "Nature Biotechnology paper cites soil metagenomics and clinical antimicrobial resistance literature." },
+      { type: "Researcher migration", evidence: "Brady trained in organic chemistry, moved to environmental metagenomics, now applies both to drug discovery." }
+    ],
+    link: "https://www.rockefeller.edu/news/38239-hundreds-of-new-bacteria-and-two-potential-antibiotics-found-in-soil/",
+    published: "Nature Biotechnology, 2025"
+  },
+  {
+    number: 3,
+    title: "Mycelium electrical signaling mapped to computational logic gates",
+    summary: "Electrical spike patterns in fungal mycelium networks measured and mapped to computational logic operations.",
+    researcher: "Andrew Adamatzky, University of the West of England",
+    fieldA: "Fungal biology",
+    fieldB: "Unconventional computing",
+    stage: "early_output",
+    confidence: "medium",
+    signals: [
+      { type: "Researcher migration", evidence: "Adamatzky trained in mathematics and computer science; runs a lab on biological computing substrates." },
+      { type: "Lab portfolio", evidence: "Unconventional Computing Laboratory runs concurrent projects on mycelium networks, slime mold optimization, and chemical computing." },
+      { type: "Cross-citation", evidence: "Preprints cite mycological network topology and neuromorphic computing papers." }
+    ]
+  },
+  {
+    number: 4,
+    title: "Spider silk proteins produced by engineered cyanobacteria",
+    summary: "Photosynthetic cyanobacteria engineered to produce spider silk proteins from sunlight and CO₂; mechanical properties match natural silk.",
+    researcher: "Fuzhong Zhang, Washington University in St. Louis",
+    fieldA: "Synthetic biology / metabolic engineering",
+    fieldB: "High-performance structural materials",
+    stage: "early_output",
+    confidence: "high",
+    signals: [
+      { type: "Lab portfolio", evidence: "Zhang lab runs parallel projects on cyanobacterial metabolic engineering and recombinant spider silk production." },
+      { type: "Cross-citation", evidence: "2025 Nature Communications paper cites photosynthetic biomanufacturing and spider silk mechanical property literature." },
+      { type: "Researcher migration", evidence: "Zhang's PhD was in chemical engineering (biofuels); postdoc work moved to protein materials." }
+    ]
+  },
+  {
+    number: 5,
+    title: "Tardigrade proteins stabilize biologics at room temperature",
+    summary: "Tardigrade desiccation-tolerance proteins used to stabilize vaccines and biologics at room temperature, removing cold-chain storage requirements.",
+    researcher: "Silvia Campello & Thomas Boothby",
+    fieldA: "Extremophile biology",
+    fieldB: "Vaccine logistics / biopharmaceuticals",
+    stage: "early_output",
+    confidence: "high",
+    signals: [
+      { type: "Researcher migration", evidence: "Boothby trained in molecular biology of tardigrades; applies desiccation-tolerance proteins to human biologics." },
+      { type: "Grant bridge", evidence: "DARPA-funded project spanning extremophile biology and field-deployable therapeutics." },
+      { type: "Cross-citation", evidence: "2024 bioRxiv preprint cites tardigrade CAHS protein literature and cold-chain logistics papers." }
+    ]
+  },
+  {
+    number: 6,
+    title: "Negative thermal expansion material from magnetic materials research",
+    summary: "Material that contracts on heating identified during work on magnetic oxide materials.",
+    researcher: "Masaki Azuma, Kano Hatayama et al., Institute of Science Tokyo",
+    fieldA: "Magnetic materials",
+    fieldB: "Precision engineering",
+    stage: "early_output",
+    confidence: "high",
+    signals: [
+      { type: "Cross-citation", evidence: "JACS paper spans magnetic materials and thermal expansion physics." },
+      { type: "Lab portfolio", evidence: "Azuma lab works on magnetic oxide materials and structural phase transitions." }
+    ],
+    published: "Journal of the American Chemical Society, 2025"
+  },
+  {
+    number: 7,
+    title: "Adaptive cancer therapy via Lotka-Volterra ecology models",
+    summary: "Adaptive chemotherapy protocol derived from Lotka-Volterra predator-prey models, addressing resistance selection under maximum-dose treatment. In clinical trials.",
+    researcher: "Robert Gatenby, Jeffrey West, Joel Brown et al.",
+    fieldA: "Evolutionary ecology (Lotka-Volterra)",
+    fieldB: "Cancer treatment",
+    stage: "early_output",
+    confidence: "high",
+    signals: [
+      { type: "Cross-citation", evidence: "Oncology papers cite Lotka-Volterra ecology literature." },
+      { type: "Researcher migration", evidence: "Gatenby trained as a radiologist; self-taught in mathematical ecology." }
+    ],
+    published: "535 citations"
+  },
+  {
+    number: 8,
+    title: "Amyloid beta / fibrinogen co-assembly disrupts blood-brain barrier",
+    summary: "Amyloid beta and fibrinogen co-assemble into abnormal clots that disrupt the blood-brain barrier; neither protein alone produces this pathology.",
+    researcher: "Sidney Strickland lab, Rockefeller University",
+    fieldA: "Blood clotting (hematology)",
+    fieldB: "Neurodegeneration",
+    stage: "in_progress",
+    confidence: "high",
+    signals: [
+      { type: "Lab portfolio", evidence: "Strickland lab runs projects spanning fibrinolysis, vascular biology, and neurodegeneration." },
+      { type: "Cross-citation", evidence: "Papers cite hemostasis and amyloid literature." }
+    ]
+  },
+  {
+    number: 9,
+    title: "Endogenous retrovirus reactivation in ALS motor neurons",
+    summary: "Human endogenous retroviruses reactivate in ALS motor neurons; lab investigating whether silencing them slows disease progression.",
+    researcher: "Molly Gale Hammell, Cold Spring Harbor Laboratory",
+    fieldA: "Virology / transposon biology",
+    fieldB: "Neurodegeneration (ALS)",
+    stage: "in_progress",
+    confidence: "high",
+    signals: [
+      { type: "Grant bridge", evidence: "NIH R01 spanning NINDS (neurological disorders) and NHGRI (genomics)." },
+      { type: "Researcher migration", evidence: "PhD in computational biology; postdoc in transposable element regulation; current lab applies to motor neuron disease." },
+      { type: "Cross-citation", evidence: "Publications cite endogenous retrovirus and ALS clinical literature." }
+    ]
+  },
+  {
+    number: 10,
+    title: "Origami fold patterns applied to cardiac stent design",
+    summary: "Origami fold patterns from compliant mechanisms research applied to cardiac stent design for improved packing ratio and deployment uniformity.",
+    researcher: "Larry Howell, Brigham Young University",
+    fieldA: "Computational geometry / origami mathematics",
+    fieldB: "Interventional cardiology",
+    stage: "in_progress",
+    confidence: "high",
+    signals: [
+      { type: "Lab portfolio", evidence: "Compliant Mechanisms Research Group runs concurrent projects on origami mechanisms, surgical instruments, and space structures." },
+      { type: "Researcher migration", evidence: "Postdocs include a biomedical engineer previously at Medtronic cardiovascular devices." },
+      { type: "Grant bridge", evidence: "NSF EFRI grant spanning Engineering and Mathematical/Physical Sciences." },
+      { type: "Institutional adjacency", evidence: "BYU mechanical and biomedical engineering share lab space." }
+    ]
+  },
+  {
+    number: 11,
+    title: "Anti-Bredt cage molecules synthesized",
+    summary: "Cage-shaped molecules with anti-Bredt double bonds synthesized, contradicting a century-old prediction that such structures could not exist.",
+    researcher: "Neil Garg, Ken Houk, UCLA",
+    fieldA: "Synthetic organic chemistry",
+    fieldB: "3D drug design",
+    stage: "in_progress",
+    confidence: "high",
+    signals: [
+      { type: "Lab portfolio", evidence: "Garg and Houk labs combine synthetic and computational chemistry; synthesis required both." },
+      { type: "Cross-citation", evidence: "Nature Chemistry paper cites strained organic synthesis and pharmaceutical scaffold literature." }
+    ],
+    published: "Nature Chemistry, January 2026"
+  },
+  {
+    number: 12,
+    title: "NOVA1 amino acid variant linked to vocal communication",
+    summary: "An amino acid variant in the RNA-binding protein NOVA1, absent in Neanderthals and Denisovans, alters vocal communication in mice; linked to human language disorders.",
+    researcher: "Robert B. Darnell, Erich D. Jarvis labs, Rockefeller University",
+    fieldA: "Evolutionary genetics",
+    fieldB: "Language science / speech pathology",
+    stage: "in_progress",
+    confidence: "medium",
+    signals: [
+      { type: "Lab portfolio", evidence: "Darnell lab (RNA biology) and Jarvis lab (vocal learning evolution) both at Rockefeller." },
+      { type: "Institutional adjacency", evidence: "Same campus, different departments, shared seminars." }
+    ]
+  },
+  {
+    number: 13,
+    title: "Hopf bifurcation governs hearing across animal kingdom",
+    summary: "Ex vivo mammalian cochlea apparatus used to demonstrate that Hopf bifurcation governs auditory transduction across insects, fish, birds, and mammals.",
+    researcher: "A. James Hudspeth lab, Rockefeller University",
+    fieldA: "Nonlinear dynamics (Hopf bifurcation)",
+    fieldB: "Auditory biology",
+    stage: "in_progress",
+    confidence: "high",
+    signals: [
+      { type: "Cross-citation", evidence: "Papers cite nonlinear dynamics and auditory neuroscience literature." },
+      { type: "Researcher migration", evidence: "Hudspeth trained in physics; career in biophysics of hearing." }
+    ]
+  },
+  {
+    number: 14,
+    title: "PARP inhibitor talazoparib clears psoriasis in mouse model",
+    summary: "Talazoparib, a PARP inhibitor approved for cancer, clears psoriasis in mouse models by forcing keratinocyte differentiation rather than reducing inflammation.",
+    researcher: "Frontiers in Pharmacology authors",
+    fieldA: "Oncology (PARP inhibitors)",
+    fieldB: "Dermatology",
+    stage: "in_progress",
+    confidence: "medium",
+    signals: [
+      { type: "Cross-citation", evidence: "Paper cites PARP inhibitor oncology literature and keratinocyte differentiation biology." }
+    ],
+    published: "Frontiers in Pharmacology, 2025"
+  },
+  {
+    number: 15,
+    title: "Acoustic levitation for pharmaceutical crystallization",
+    summary: "Drug compounds crystallized mid-air in acoustic levitation, avoiding container-wall contamination during pharmaceutical manufacturing.",
+    researcher: "Marco Andrade, University of São Paulo",
+    fieldA: "Acoustics / fluid dynamics",
+    fieldB: "Pharmaceutical manufacturing",
+    stage: "configuration",
+    confidence: "medium",
+    signals: [
+      { type: "Lab portfolio", evidence: "Andrade's lab runs concurrent projects on acoustic levitation physics and containerless processing of small molecules." },
+      { type: "Dissertation span", evidence: "Current PhD students have committee members from physics and pharmaceutical sciences." },
+      { type: "Institutional adjacency", evidence: "Physics and pharmaceutical sciences share a building on the Butantã campus." }
+    ]
+  },
+  {
+    number: 16,
+    title: "Seismological signal detection adapted to cardiac arrhythmia",
+    summary: "Seismological signal-detection algorithms (P-wave earthquake warning) being adapted to detect precursor signals for cardiac arrhythmias.",
+    researcher: "Qingkai Kong, UC Berkeley / collaborating with UCSF Cardiology",
+    fieldA: "Seismology / signal processing",
+    fieldB: "Cardiology",
+    stage: "configuration",
+    confidence: "medium",
+    signals: [
+      { type: "Institutional adjacency", evidence: "Berkeley Seismological Laboratory and UCSF Medical Center launched a joint seminar on signal detection in 2025." },
+      { type: "Researcher migration", evidence: "Kong's PhD in seismology (MyShake app); current postdoc previously worked on wearable ECG signal processing." },
+      { type: "Lab portfolio", evidence: "MyShake project uses smartphone accelerometers for P-wave detection; same early-signal detection problem exists in cardiac monitoring." }
+    ]
+  },
+  {
+    number: 17,
+    title: "Coral intracellular tissue tolerance studied for transplant immunology",
+    summary: "Coral innate immune mechanisms that permit intracellular acceptance of symbiont tissue being characterized for mammalian transplant-tolerance applications.",
+    researcher: "Nikki Traylor-Knowles, University of Miami / Rosenstiel School",
+    fieldA: "Marine invertebrate immunology",
+    fieldB: "Transplant immunology",
+    stage: "configuration",
+    confidence: "medium",
+    signals: [
+      { type: "Lab portfolio", evidence: "CRISPR Coral Lab studies innate immune tolerance in organisms that accept foreign tissue despite having immune systems." },
+      { type: "Dissertation span", evidence: "A current PhD student has committee members from marine biology and immunology." },
+      { type: "Cross-citation", evidence: "Lab publications cite cnidarian immunity and mammalian immune tolerance papers." }
+    ]
+  },
+  {
+    number: 18,
+    title: "Fermentation reaction-network modeling applied to battery electrolytes",
+    summary: "Reaction-network models developed for fermentation applied to predict electrolyte degradation in lithium-ion batteries.",
+    researcher: "Linda Broadbelt, Northwestern University",
+    fieldA: "Biochemical engineering / fermentation science",
+    fieldB: "Battery materials science",
+    stage: "configuration",
+    confidence: "medium",
+    signals: [
+      { type: "Grant bridge", evidence: "DOE-funded project on bio-derived electrolyte solvents, co-PI'd with a fermentation science researcher." },
+      { type: "Lab portfolio", evidence: "Broadbelt's group models complex reaction networks in both metabolic engineering and polymer degradation." },
+      { type: "Institutional adjacency", evidence: "Northwestern chemical engineering and materials science share the Technological Institute building." }
+    ]
+  },
+  {
+    number: 19,
+    title: "Matched filtering shared between whale-call bioacoustics and LIGO",
+    summary: "Matched filtering methods for separating whale calls from ocean noise shared with LIGO gravitational wave detection pipelines via a joint postdoc.",
+    researcher: "Michelle Fournet, Cornell / collaborating with LIGO Hanford",
+    fieldA: "Bioacoustics / cetacean communication",
+    fieldB: "Gravitational wave astrophysics",
+    stage: "configuration",
+    confidence: "medium",
+    signals: [
+      { type: "Institutional adjacency", evidence: "Cornell hosts the K. Lisa Yang Center for Conservation Bioacoustics and has ties to the LIGO Scientific Collaboration." },
+      { type: "Researcher migration", evidence: "A postdoc in Fournet's bioacoustics lab previously worked on matched filtering at LIGO Livingston." },
+      { type: "Lab portfolio", evidence: "Bioacoustics lab's matched filtering pipeline for whale calls uses signal processing similar to LIGO's chirp detection." }
+    ]
+  },
+  {
+    number: 20,
+    title: "Molecule with half-Möbius electron topology synthesized",
+    summary: "Molecule with half-Möbius electron topology synthesized and characterized via quantum computing simulation.",
+    researcher: "IBM Research + university collaborators",
+    fieldA: "Quantum computing",
+    fieldB: "Topological chemistry",
+    stage: "configuration",
+    confidence: "medium",
+    signals: [
+      { type: "Lab portfolio", evidence: "IBM Research runs concurrent projects on quantum computing hardware and molecular simulation." },
+      { type: "Cross-citation", evidence: "Paper cites topological quantum matter and synthetic chemistry literature." }
+    ],
+    link: "https://newsroom.ibm.com/2026-03-05-ibm-and-university-researchers-create-a-never-before-seen-molecule-and-prove-its-exotic-nature-with-quantum-computing",
+    published: "March 2026"
+  },
+  {
+    number: 21,
+    title: "Phase transition mathematics applied to Amazon tipping points",
+    summary: "Statistical-physics phase transition framework applied to the Amazon ecosystem, identifying multiple stable states and tipping thresholds.",
+    researcher: "Bernardo M. Flores, Encarni Montoya, Boris Sakschewski et al.",
+    fieldA: "Statistical physics (phase transitions)",
+    fieldB: "Tropical ecology",
+    stage: "configuration",
+    confidence: "high",
+    signals: [
+      { type: "Cross-citation", evidence: "Nature paper cites phase transition physics literature in an ecology journal." },
+      { type: "Researcher migration", evidence: "Multiple authors trained in physics; now work in earth system science." }
+    ],
+    published: "Nature, February 2024"
+  },
+  {
+    number: 22,
+    title: "Rate-dependent rice compression informs self-adjusting metamaterial",
+    summary: "Rate-dependent mechanical anomaly in compressed rice grains used as design principle for a self-adjusting soft-robot metamaterial.",
+    researcher: "Materials science group (2026)",
+    fieldA: "Food science",
+    fieldB: "Soft robotics / metamaterials",
+    stage: "configuration",
+    confidence: "medium",
+    signals: [
+      { type: "Cross-citation", evidence: "Paper cites granular material physics and metamaterial design literature." }
+    ],
+    published: "April 2026"
+  },
+  {
+    number: 23,
+    title: "Atom probe tomography applied to marine biomineralization",
+    summary: "Atom probe tomography and synchrotron beamlines used to characterize biomineralization in sea urchin spicules and chiton teeth. Same lab runs marine embryo culture and high-vacuum instrumentation.",
+    researcher: "Derk Joester, Northwestern University",
+    fieldA: "Advanced materials characterization (atom probe, synchrotron)",
+    fieldB: "Marine organism biology (sea urchins, chitons, acantharia)",
+    stage: "configuration",
+    confidence: "high",
+    signals: [
+      { type: "Lab portfolio", evidence: "Biomineral Engineering Group lists active projects in atom probe tomography for dental enamel and sea urchin spicule crystallization." },
+      { type: "Dissertation span", evidence: "Graduate students train in both high-vacuum materials characterization and marine organism culture." }
+    ],
+    link: "https://joester.mccormick.northwestern.edu"
+  },
+  {
+    number: 24,
+    title: "Gas vesicles as genetically encoded ultrasound contrast agents",
+    summary: "Bacteria engineered to express gas vesicles as genetically encoded ultrasound contrast agents. Lab runs ultrasound signal processing and molecular cloning in parallel.",
+    researcher: "Mikhail Shapiro, Caltech",
+    fieldA: "Acoustic physics / ultrasound engineering",
+    fieldB: "Synthetic biology / microbial engineering",
+    stage: "configuration",
+    confidence: "high",
+    signals: [
+      { type: "Lab portfolio", evidence: "Lab page lists active projects in IEEE-published ultrasound imaging methods and Nature-published synthetic gene circuits." },
+      { type: "Cross-citation", evidence: "2025 publications span IEEE TMI and npj Acoustics alongside synthetic biology journals." }
+    ],
+    link: "https://shapirolab.caltech.edu"
+  },
+  {
+    number: 25,
+    title: "Insect biomechanics lab designs frugal medical devices",
+    summary: "Lab studies cicada droplet superpulsion and springtail latch-mediated acceleration. Same group designs 20-cent centrifuges and 96-cent hearing aids, with insect biomechanics informing device design.",
+    researcher: "Saad Bhamla, Georgia Tech",
+    fieldA: "Ultrafast insect biophysics",
+    fieldB: "Frugal science medical devices",
+    stage: "configuration",
+    confidence: "high",
+    signals: [
+      { type: "Lab portfolio", evidence: "Bhamla Lab lists active projects in Nature-published insect biomechanics and Schmidt Sciences-funded frugal health devices." },
+      { type: "Cross-citation", evidence: "Insect urination physics (Nature) directly informed nozzle designs for frugal devices." }
+    ],
+    link: "https://bhamla.gatech.edu"
+  },
+  {
+    number: 26,
+    title: "Magnetoelectric nanodiscs for wireless gut-brain stimulation",
+    summary: "Magnetoelectric nanodiscs synthesized in-house used for wireless neural stimulation in gut-brain circuit experiments. PI holds appointments in Materials Science and Brain & Cognitive Sciences.",
+    researcher: "Polina Anikeeva, MIT",
+    fieldA: "Magnetic nanomaterial synthesis / fiber fabrication",
+    fieldB: "Gut-brain axis neuroscience",
+    stage: "configuration",
+    confidence: "high",
+    signals: [
+      { type: "Lab portfolio", evidence: "Bioelectronics Group lists active projects in magnetic nanoparticle synthesis (Nature Nanotechnology, 2025) and gut-brain neural circuit mapping." },
+      { type: "Researcher migration", evidence: "Materials scientist by training; holds dual appointment in Materials Science and Brain & Cognitive Sciences." }
+    ],
+    link: "https://bioelectronics.mit.edu"
+  },
+  {
+    number: 27,
+    title: "Rigid origami applied to aortic and cerebral aneurysm stents",
+    summary: "Rigid origami and retractable structure research applied to aortic stent grafts and cerebral aneurysm flow diverters. Commercialized through Oxford Endovascular.",
+    researcher: "Zhong You, University of Oxford",
+    fieldA: "Origami mathematics / deployable structures",
+    fieldB: "Endovascular medical devices",
+    stage: "early_output",
+    confidence: "high",
+    signals: [
+      { type: "Lab portfolio", evidence: "Lab develops deployable space antennas, origami metamaterials, and clinical endovascular devices concurrently." },
+      { type: "Grant bridge", evidence: "EPSRC-funded origami mechanics research applied to clinical devices via university spin-off." }
+    ],
+    link: "https://eng.ox.ac.uk/people/zhong-you"
+  }
+];
+</script>
+
+<!-- Render -->
 <script>
 (function() {
-  var PATTERNS = {
-    weird_substances: {
-      number: '01',
-      name: 'Weird Substances',
-      intro: 'Natural or synthetic materials exhibiting properties that don\u2019t make sense within their current context and have no known application. The substance exists, the property is real and measured, but nobody knows what it\u2019s for or what to do with it.',
-      history: 'From the research: Gila monster venom peptide that mimicked a human hormone but lasted 1000x longer (GLP-1 drugs). Mold that killed bacteria (penicillin). Coal tar that tasted sweet (saccharin). Crop fungicide that also killed human fungal infections (azole antifungals).'
-    },
-    defense_surplus: {
-      number: '02',
-      name: 'Defense / Military Surplus',
-      intro: 'Proven capabilities developed for military purposes that have no civilian translation pathway \u2014 yet. Technologies, data, materials, or knowledge that exist and work but are trapped behind classification, institutional inertia, or the simple fact that civilian researchers don\u2019t know about them.',
-      history: 'From the research: ARPANET \u2192 internet. Radar \u2192 microwave ovens. Atomic clocks \u2192 GPS. Nuclear isotope separation \u2192 medical imaging. Gun barrel steel \u2192 stainless steel. Synthetic rubber for war \u2192 Silly Putty.'
-    },
-    therapeutic_side_effects: {
-      number: '03',
-      name: 'Therapeutic Side Effects',
-      intro: 'Drugs, devices, or interventions producing effects in biological systems they weren\u2019t targeting \u2014 because the body is a system and interventions cascade unpredictably. The side effect is documented and reproducible, but it doesn\u2019t fit anyone\u2019s research program because it\u2019s in the wrong therapeutic area.',
-      history: 'From the research: Failed angina drug \u2192 Viagra. Diabetes drug \u2192 weight loss. Blood pressure drug \u2192 hair growth (minoxidil). Surgical shock drug \u2192 first antipsychotic (chlorpromazine). Reserpine \u2192 dopamine discovery \u2192 Parkinson\u2019s treatment.'
-    },
-    instruments_anomalies: {
-      number: '04',
-      name: 'Instruments Seeing Things They Shouldn\u2019t',
-      intro: 'Tools, sensors, or measurement systems detecting signals, patterns, or phenomena that don\u2019t fit the intended observation. The signal is real \u2014 it replicates, it\u2019s above noise, it has structure \u2014 but it doesn\u2019t correspond to anything in the current theoretical framework.',
-      history: 'From the research: Cathode ray tube \u2192 X-rays. Satellite antenna calibration \u2192 cosmic microwave background. Cloud chamber \u2192 positron. MRI blood oxygenation studies \u2192 fMRI. LIGO detecting black hole mergers in the mass gap.'
-    },
-    interesting_failures: {
-      number: '05',
-      name: 'Interesting Failures',
-      intro: 'Experiments that \u201Cdidn\u2019t work\u201D for their intended purpose but produced residuals \u2014 substances, data, observations \u2014 with unexplained or unexploited properties.',
-      history: 'From the research: Failed strong adhesive \u2192 Post-it Notes. Failed refrigerant \u2192 Teflon. Failed rubber \u2192 vulcanization. Failed gun sight plastic \u2192 super glue. Failed quinine synthesis \u2192 synthetic dyes \u2192 pharmaceutical industry. Abandoned GaN research \u2192 blue LEDs.'
-    },
-    structural_analogies: {
-      number: '06',
-      name: 'Structural Analogies Waiting to Be Noticed',
-      intro: 'A principle, mechanism, or mathematical structure well-understood in one field that maps onto an unsolved problem in another field \u2014 but the two fields haven\u2019t connected.',
-      history: 'From the research: Burdock burrs \u2192 Velcro. Geodesic domes \u2192 buckyball structure. Solitaire probability \u2192 Monte Carlo method. Game theory \u2192 GANs. Algae photoreceptor \u2192 optogenetics.'
-    }
-  };
-
-  var patternOrder = ['weird_substances', 'defense_surplus', 'therapeutic_side_effects', 'instruments_anomalies', 'interesting_failures', 'structural_analogies'];
-
-  function escHtml(s) {
-    if (!s) return '';
-    var d = document.createElement('div');
-    d.textContent = s;
-    return d.innerHTML;
+  function esc(s) {
+    if (s == null) return '';
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  var content = document.getElementById('content');
-  var html = '';
+  function confSort(c) { return c === 'high' ? 3 : c === 'medium' ? 2 : c === 'low' ? 1 : 0; }
 
-  patternOrder.forEach(function(pkey) {
-    var pat = PATTERNS[pkey];
-    var items = CURIOSITIES.filter(function(c) { return c.pattern === pkey; })
-      .sort(function(a, b) { return (b.poke_factor || 0) - (a.poke_factor || 0); });
+  function confBar(level) {
+    var n = level === 'high' ? 3 : level === 'medium' ? 2 : level === 'low' ? 1 : 0;
+    var html = '<span class="confidence-bar ' + level + '">';
+    for (var i = 0; i < 3; i++) html += '<span class="dot' + (i < n ? ' filled' : '') + '"></span>';
+    return html + '</span>';
+  }
 
-    if (items.length === 0) return;
-
-    html += '<div class="stream-space-top">';
-    html += '<div class="pattern-number">Pattern ' + pat.number + '</div>';
-    html += '<h3 class="pattern-title">' + pat.name + '</h3>';
-    html += '<p class="pattern-intro">' + pat.intro + '</p>';
-    html += '<p class="pattern-history">' + pat.history + '</p>';
-
-    items.forEach(function(c) {
-      var pokeClass = (c.poke_factor || 0) >= 9 ? ' high' : '';
-      html += '<div class="c-item" onclick="this.classList.toggle(\'open\')">';
-      html += '<div class="c-head">';
-      html += '<div class="c-title">' + escHtml(c.title) + '</div>';
-      html += '<div class="c-poke' + pokeClass + '">' + (c.poke_factor || '') + '</div>';
-      html += '</div>';
-      html += '<div class="c-desc">' + escHtml(c.description ? c.description.substring(0, 200) + (c.description.length > 200 ? '\u2026' : '') : '') + '</div>';
-      html += '<div class="c-meta">' + escHtml(c.fields) + ' \u00b7 ' + (c.year || '') + '</div>';
-
-      html += '<div class="c-detail"><div class="c-detail-body">';
-      if (c.why_its_weird) {
-        html += '<div class="c-weird">' + escHtml(c.why_its_weird) + '</div>';
-      }
-      if (c.description) {
-        html += '<div class="c-full-desc">' + escHtml(c.description) + '</div>';
-      }
-      if (c.source) {
-        html += '<div class="c-field"><span class="dl">Source \u2014 </span>' + escHtml(c.source) + '</div>';
-      }
-      if (c.who_noticed) {
-        html += '<div class="c-field"><span class="dl">Who noticed \u2014 </span>' + escHtml(c.who_noticed) + '</div>';
-      }
-      if (c.who_doesnt_know) {
-        html += '<div class="c-field"><span class="dl">Who doesn\u2019t know \u2014 </span>' + escHtml(c.who_doesnt_know) + '</div>';
-      }
-      if (c.follow_up_status) {
-        html += '<div class="c-field"><span class="dl">Follow-up \u2014 </span>' + escHtml(c.follow_up_status) + '</div>';
-      }
-      html += '</div></div>';
-      html += '</div>';
-    });
-
-    html += '</div>';
+  var rows = RADAR.map(function(r) {
+    var signalTypes = r.signals.map(function(s) { return s.type; });
+    return {
+      number: r.number,
+      title: r.title,
+      summary: r.summary,
+      fieldA: r.fieldA,
+      fieldB: r.fieldB,
+      stage: r.stage,
+      confidence: r.confidence,
+      confSort: confSort(r.confidence),
+      signalList: signalTypes.join(' · '),
+      signalTypes: signalTypes,
+      signals: r.signals,
+      researcher: r.researcher,
+      published: r.published || '',
+      link: r.link || ''
+    };
   });
 
-  content.innerHTML = html;
+  var signalsSet = {};
+  rows.forEach(function(r) { r.signalTypes.forEach(function(s) { signalsSet[s] = true; }); });
+  var fSignal = document.getElementById('filter-signal');
+  Object.keys(signalsSet).sort().forEach(function(s) {
+    var o = document.createElement('option');
+    o.value = s; o.textContent = s;
+    fSignal.appendChild(o);
+  });
+
+  var tbody = document.getElementById('sheet-body');
+  var COLSPAN = 7;
+
+  function renderDetail(r) {
+    var html = '<div class="detail-body">';
+
+    if (r.researcher) {
+      html += '<div class="detail-row"><div class="detail-label">Researcher</div>' +
+              '<div class="detail-value">' + esc(r.researcher) + '</div></div>';
+    }
+    if (r.published) {
+      html += '<div class="detail-row"><div class="detail-label">Published</div>' +
+              '<div class="detail-value dim">' + esc(r.published) + '</div></div>';
+    }
+    html += '<div class="detail-row"><div class="detail-label">Crossing</div>' +
+            '<div class="detail-value dim">' + esc(r.fieldA) + ' → ' + esc(r.fieldB) + '</div></div>';
+
+    html += '<div class="detail-row"><div class="detail-label">Definition</div><div class="detail-value"><ul class="signal-list">';
+    r.signals.forEach(function(s) {
+      html += '<li><span class="signal-type">' + esc(s.type) + '</span>' + esc(s.evidence) + '</li>';
+    });
+    html += '</ul></div></div>';
+
+    if (r.link) {
+      html += '<div class="detail-row"><div class="detail-label">Source</div>' +
+              '<div class="detail-value"><a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.link) + '</a></div></div>';
+    }
+
+    html += '</div>';
+    return html;
+  }
+
+  function render(list) {
+    tbody.innerHTML = '';
+    if (!list.length) {
+      document.getElementById('no-results').style.display = 'block';
+      document.getElementById('result-count').textContent = '0 of ' + rows.length;
+      return;
+    }
+    document.getElementById('no-results').style.display = 'none';
+
+    var frag = document.createDocumentFragment();
+    list.forEach(function(r) {
+      var stageClass = r.stage.replace(/_/g, '-');
+      var stageLabel = r.stage.replace(/_/g, ' ');
+
+      var tr = document.createElement('tr');
+      tr.className = 'row';
+      tr.innerHTML =
+        '<td class="col-num"><span class="caret">▸</span> ' + esc(r.number) + '</td>' +
+        '<td class="col-finding"><div class="finding-title">' + esc(r.title) + '</div>' +
+          '<div class="finding-summary">' + esc(r.summary) + '</div></td>' +
+        '<td class="col-origin">' + esc(r.fieldA) + '</td>' +
+        '<td class="col-dest">' + esc(r.fieldB) + '</td>' +
+        '<td class="col-stage"><span class="stage-pill ' + stageClass + '">' + esc(stageLabel) + '</span></td>' +
+        '<td class="col-conf">' + confBar(r.confidence) + '</td>' +
+        '<td class="col-signals">' + esc(r.signalList) + '</td>';
+
+      var detail = document.createElement('tr');
+      detail.className = 'detail';
+      detail.innerHTML = '<td colspan="' + COLSPAN + '">' + renderDetail(r) + '</td>';
+
+      tr.addEventListener('click', function() {
+        var open = tr.classList.toggle('open');
+        detail.classList.toggle('open', open);
+      });
+
+      frag.appendChild(tr);
+      frag.appendChild(detail);
+    });
+    tbody.appendChild(frag);
+    document.getElementById('result-count').textContent = list.length + ' of ' + rows.length;
+  }
+
+  // Sort
+  var sortKey = 'number', sortDir = 1;
+  function applySort(list) {
+    var th = document.querySelector('th[data-key="' + sortKey + '"]');
+    var type = th ? th.dataset.type : 'str';
+    return list.slice().sort(function(a, b) {
+      var va = a[sortKey], vb = b[sortKey];
+      if (type === 'num') { va = +va || 0; vb = +vb || 0; return (va - vb) * sortDir; }
+      va = (va || '').toString().toLowerCase();
+      vb = (vb || '').toString().toLowerCase();
+      if (va < vb) return -1 * sortDir;
+      if (va > vb) return 1 * sortDir;
+      return 0;
+    });
+  }
+  function updateSortIndicators() {
+    document.querySelectorAll('th[data-key]').forEach(function(th) {
+      th.classList.remove('sorted');
+      th.querySelector('.sort-ind').textContent = '';
+    });
+    var th = document.querySelector('th[data-key="' + sortKey + '"]');
+    if (th) {
+      th.classList.add('sorted');
+      th.querySelector('.sort-ind').textContent = sortDir > 0 ? '▴' : '▾';
+    }
+  }
+  document.querySelectorAll('th[data-key]').forEach(function(th) {
+    th.addEventListener('click', function() {
+      var k = th.dataset.key;
+      if (sortKey === k) sortDir = -sortDir;
+      else { sortKey = k; sortDir = 1; }
+      updateSortIndicators();
+      refresh();
+    });
+  });
+
+  // Filter
+  var fText = document.getElementById('filter-text');
+  var fStage = document.getElementById('filter-stage');
+  var fConf = document.getElementById('filter-conf');
+
+  function applyFilter(list) {
+    var q = fText.value.trim().toLowerCase();
+    var stage = fStage.value, conf = fConf.value, signal = fSignal.value;
+    return list.filter(function(r) {
+      if (stage && r.stage !== stage) return false;
+      if (conf && r.confidence !== conf) return false;
+      if (signal && r.signalTypes.indexOf(signal) === -1) return false;
+      if (q) {
+        var hay = (r.title + ' ' + r.summary + ' ' + r.fieldA + ' ' + r.fieldB + ' ' +
+                   r.researcher + ' ' + r.signalList + ' ' + r.published).toLowerCase();
+        if (hay.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+  }
+
+  function refresh() {
+    render(applySort(applyFilter(rows)));
+  }
+
+  [fText, fStage, fConf, fSignal].forEach(function(el) {
+    el.addEventListener('input', refresh);
+    el.addEventListener('change', refresh);
+  });
+
+  updateSortIndicators();
+  refresh();
 })();
 </script>
 
+<!-- Header random walk animation -->
 <script>
 (function() {
   var wrap = document.getElementById('header-wrap');
@@ -559,6 +1349,38 @@
     if (y > h) y = h - 10;
     ctx.beginPath();
     ctx.moveTo(x, y);
+  });
+})();
+</script>
+
+<div class="about-overlay" id="about-overlay">
+  <div class="about-wrapper">
+    <div class="about-shadow"></div>
+    <div class="about-modal">
+    <button class="about-close" id="about-close">&times;</button>
+    <p>Ara Varma is a designer based in San Francisco. She was an Associate at SOSV ($1.5b deep tech VC) and worked in sales at Loft Orbital. In these roles, she encountered many people on their own random walks, building interesting science.</p>
+    <p>This project catalogues and formalizes what many know to be true: funding research in one area often leads to value in unexpected areas. We document the positive unintended consequences of high-intensity research, and seek to understand how we can support more.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var overlay = document.getElementById('about-overlay');
+  var link = document.getElementById('about-link');
+  var close = document.getElementById('about-close');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    overlay.classList.add('open');
+  });
+  close.addEventListener('click', function() {
+    overlay.classList.remove('open');
+  });
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') overlay.classList.remove('open');
   });
 })();
 </script>

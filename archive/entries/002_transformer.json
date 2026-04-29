@@ -1,0 +1,110 @@
+{
+  "number": "002",
+  "discovery_name": "The Transformer / Modern AI",
+  "tracker_summary": {
+    "invention": "The Transformer architecture \u2014 a neural network design relying entirely on self-attention mechanisms, eliminating recurrence and convolution",
+    "inventor": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin (Google Brain / Google Research)",
+    "date": "June 12, 2017 (arXiv preprint); NeurIPS 2017",
+    "current_use": "Foundation of virtually every large language model: GPT-4, Claude, Gemini, LLaMA, Mistral, and thousands of derivative systems",
+    "initial_funding_source": "Google LLC (internal research budget, Google Brain team)",
+    "initial_funding_reason": "Improve Google Translate's neural machine translation quality and computational efficiency",
+    "chain_length": "14 steps \u00b7 ~70 years"
+  },
+  "the_x": "The need to improve Google Translate \u2014 a commercial product serving hundreds of millions of users daily, funded by Google's advertising revenue",
+  "the_y": "The Transformer architecture: the universal substrate of the modern AI revolution, enabling GPT, BERT, Claude, Gemini, and the entire large language model ecosystem",
+  "summary": "In 2017, a team of eight researchers at Google published a 15-page paper titled 'Attention Is All You Need' with the modest goal of making machine translation faster. They had no idea they were writing the foundational document of a technological revolution. But the lineage runs much deeper \u2014 through two devastating AI winters, multiple funding collapses, and decades of academic unfashionability. The chain runs from McCulloch and Pitts in 1943, through the brutal Minsky-Papert critique that nearly killed the field, through backpropagation's revival, through LSTMs, through attention mechanisms \u2014 and finally to eight engineers who were just trying to make a translation product work better.",
+  "chain": [
+    {
+      "year": "1943\u20131958",
+      "who": "Warren McCulloch, Walter Pitts; Frank Rosenblatt",
+      "where": "University of Chicago; Cornell Aeronautical Laboratory",
+      "what_they_were_doing": "McCulloch and Pitts modeled the neuron mathematically; Rosenblatt built the first trainable network for the U.S. Navy.",
+      "the_jump": "Rosenblatt added a learning rule \u2014 the first proto-gradient-descent, the seed of everything that followed.",
+      "funding": "U.S. Office of Naval Research",
+      "critical": true
+    },
+    {
+      "year": "1969",
+      "who": "Marvin Minsky and Seymour Papert",
+      "where": "MIT, Cambridge, Massachusetts",
+      "what_they_were_doing": "Published 'Perceptrons,' proving single-layer nets couldn't solve XOR \u2014 neural network funding collapsed for over a decade.",
+      "the_jump": "Neural network research became professionally toxic. Graduate students were advised against the field.",
+      "funding": "N/A \u2014 DARPA dramatically reduced neural network grants",
+      "critical": true
+    },
+    {
+      "year": "1974\u20131986",
+      "who": "Paul Werbos; David Rumelhart, Geoffrey Hinton, Ronald Williams",
+      "where": "Harvard; UC San Diego; Carnegie Mellon",
+      "what_they_were_doing": "Rumelhart, Hinton, and Williams published backpropagation in Nature, making multi-layer networks trainable for the first time.",
+      "the_jump": "Backpropagation provided the missing ingredient for deep networks and triggered an explosion of renewed interest.",
+      "funding": "NSF; DARPA; Sloan Foundation",
+      "critical": true
+    },
+    {
+      "year": "1997",
+      "who": "Sepp Hochreiter and J\u00fcrgen Schmidhuber",
+      "where": "IDSIA, Lugano; TU Munich",
+      "what_they_were_doing": "Published Long Short-Term Memory, solving the vanishing gradient problem with gating mechanisms.",
+      "the_jump": "LSTMs kept neural networks alive through the second AI winter \u2014 without them, no trained researchers exist to build what came next.",
+      "funding": "Swiss National Science Foundation",
+      "critical": true
+    },
+    {
+      "year": "2006\u20132012",
+      "who": "Geoffrey Hinton, Yann LeCun, Yoshua Bengio; Krizhevsky, Sutskever, Hinton",
+      "where": "University of Toronto; NYU; Universit\u00e9 de Montr\u00e9al",
+      "what_they_were_doing": "CIFAR united the three researchers during the AI winter; AlexNet won ImageNet 2012 by a margin that ended all debate.",
+      "the_jump": "AlexNet trained on two $500 GPUs crushed every competitor. Every major tech company immediately began aggressively hiring deep learning researchers.",
+      "funding": "CIFAR; NSERC; Canadian Foundation for Innovation",
+      "critical": true
+    },
+    {
+      "year": "2014\u20132015",
+      "who": "Sutskever, Vinyals, Le; Bahdanau, Cho, Bengio",
+      "where": "Google Brain; Universit\u00e9 de Montr\u00e9al",
+      "what_they_were_doing": "Seq2seq compressed sentences into fixed vectors; Bahdanau attention let the decoder dynamically weight each input word instead.",
+      "the_jump": "Bahdanau attention is the direct ancestor of self-attention in the Transformer. The core idea survived essentially unchanged into 2017.",
+      "funding": "Google LLC; CIFAR; NSERC",
+      "critical": true
+    },
+    {
+      "year": "2016\u20132017",
+      "who": "Google NMT team; Ashish Vaswani et al.",
+      "where": "Google Brain, Mountain View and New York",
+      "what_they_were_doing": "GNMT deployed to 500M daily users but was too slow to parallelize; Vaswani's team eliminated recurrence entirely with multi-head self-attention.",
+      "the_jump": "The question 'how do we make Google Translate faster?' accidentally produced the substrate of the entire modern AI revolution.",
+      "funding": "Google LLC",
+      "critical": true
+    },
+    {
+      "year": "2018\u20132024",
+      "who": "OpenAI, Google DeepMind, Anthropic, Meta AI, hundreds more",
+      "where": "San Francisco; London; Mountain View; globally",
+      "what_they_were_doing": "BERT, GPT-1 through GPT-4, Claude, Gemini, LLaMA \u2014 every major AI system built on the Transformer.",
+      "the_jump": "A 1943 theoretical neuron paper \u2192 two near-extinction AI winters \u2192 eight engineers fixing a translation product \u2192 the most consequential architecture of the 21st century.",
+      "funding": "Microsoft invested $13B in OpenAI; aggregate AI investment exceeded $500B by 2024",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "McCulloch & Pitts (1943). Bulletin of Mathematical Biophysics, 5, 115\u2013133. https://doi.org/10.1007/BF02478259",
+    "Rosenblatt, F. (1958). Psychological Review, 65(6), 386\u2013408. https://doi.org/10.1037/h0042519",
+    "Minsky & Papert (1969). Perceptrons. MIT Press.",
+    "Rumelhart, Hinton, Williams (1986). Nature, 323, 533\u2013536. https://doi.org/10.1038/323533a0",
+    "Hochreiter, S. (1991). Diploma thesis, TU Munich. http://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf",
+    "Hochreiter & Schmidhuber (1997). Neural Computation, 9(8), 1735\u20131780. https://doi.org/10.1162/neco.1997.9.8.1735",
+    "Hinton & Salakhutdinov (2006). Science, 313, 504\u2013507. https://doi.org/10.1126/science.1127647",
+    "Krizhevsky, Sutskever, Hinton (2012). NeurIPS 2012. https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+    "Sutskever, Vinyals, Le (2014). NeurIPS 2014. https://arxiv.org/abs/1409.3215",
+    "Bahdanau, Cho, Bengio (2014). ICLR 2015. https://arxiv.org/abs/1409.0473",
+    "Wu et al. (2016). Google NMT. https://arxiv.org/abs/1609.08144",
+    "Vaswani et al. (2017). 'Attention Is All You Need.' NeurIPS 2017. https://arxiv.org/abs/1706.03762",
+    "Devlin et al. (2018). BERT. https://arxiv.org/abs/1810.04805",
+    "Radford et al. (2018). GPT-1. https://openai.com/research/language-unsupervised",
+    "Brown et al. (2020). GPT-3. https://arxiv.org/abs/2005.14165",
+    "OpenAI (2023). GPT-4 Technical Report. https://arxiv.org/abs/2303.08774",
+    "CIFAR Neural Computation program. https://cifar.ca/research-programs/",
+    "Metz, C. (2021). Genius Makers. Dutton/Penguin."
+  ]
+}

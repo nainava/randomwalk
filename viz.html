@@ -156,7 +156,7 @@
 
   <!-- Panel 4: Geography Chord Diagram -->
   <div class="viz-panel" id="panel-geography">
-    <h2>Geography of Serendipity</h2>
+    <h2>Geography of Accidents</h2>
     <p class="viz-desc">Each ribbon connects a country of origin to an outcome industry. The thickness represents the number of discoveries flowing through that connection.</p>
     <div id="legend-geography" class="legend"></div>
     <div class="viz-container" id="viz-geography"></div>
@@ -196,22 +196,20 @@
 
   // --- Color palettes ---
   const mechColors = {
-    serendipity: '#0f766e',
-    failed_experiment: '#b45309',
+    accident: '#0f766e',
+    salvaged_failure: '#b45309',
     cross_pollination: '#6d28d9',
     analogy: '#7c3aed',
     side_effect: '#dc2626',
-    tool_migration: '#059669',
-    misapplication: '#db2777'
+    tool_migration: '#059669'
   };
   const mechLabels = {
-    serendipity: 'Serendipity',
-    failed_experiment: 'Failed Experiment',
+    accident: 'Accident',
+    salvaged_failure: 'Salvaged Failure',
     cross_pollination: 'Cross-Pollination',
     analogy: 'Analogy',
     side_effect: 'Side Effect',
-    tool_migration: 'Tool Migration',
-    misapplication: 'Misapplication'
+    tool_migration: 'Tool Migration'
   };
 
   // Category colors for the knowledge web

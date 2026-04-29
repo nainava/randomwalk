@@ -29,7 +29,7 @@ const VIZ_TAGS = [
     outcome_industry: "Pharma",
     institution_types: ["University", "Corporation"],
     geography_origin: "Hungary / US", geography_outcome: "Global",
-    era: "1978–2020", mechanism: "failed_experiment" },
+    era: "1978–2020", mechanism: "salvaged_failure" },
 
   { number: "004", name: "The Internet",
     funding_sources: ["DARPA", "NSF", "US Military"],
@@ -56,7 +56,7 @@ const VIZ_TAGS = [
     outcome_industry: "Pharma",
     institution_types: ["University", "Government Lab"],
     geography_origin: "UK", geography_outcome: "Global",
-    era: "1928–1945", mechanism: "serendipity" },
+    era: "1928–1945", mechanism: "accident" },
 
   { number: "007", name: "Viagra",
     funding_sources: ["Pfizer"],
@@ -74,7 +74,7 @@ const VIZ_TAGS = [
     outcome_industry: "Pharma",
     institution_types: ["Government Lab"],
     geography_origin: "Australia", geography_outcome: "Global",
-    era: "1949–1970", mechanism: "serendipity" },
+    era: "1949–1970", mechanism: "accident" },
 
   { number: "009", name: "Microwave Oven",
     funding_sources: ["US Military", "Raytheon"],
@@ -83,7 +83,7 @@ const VIZ_TAGS = [
     outcome_industry: "Consumer Goods",
     institution_types: ["Corporation"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "1945–1967", mechanism: "serendipity" },
+    era: "1945–1967", mechanism: "accident" },
 
   { number: "010", name: "Teflon (PTFE)",
     funding_sources: ["DuPont"],
@@ -92,7 +92,7 @@ const VIZ_TAGS = [
     outcome_industry: "Materials / Aerospace",
     institution_types: ["Corporation"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "1938–1960s", mechanism: "serendipity" },
+    era: "1938–1960s", mechanism: "accident" },
 
   { number: "011", name: "Post-it Notes",
     funding_sources: ["3M"],
@@ -101,7 +101,7 @@ const VIZ_TAGS = [
     outcome_industry: "Consumer Goods",
     institution_types: ["Corporation"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "1968–1980", mechanism: "failed_experiment" },
+    era: "1968–1980", mechanism: "salvaged_failure" },
 
   // === 40 Suggestion Entries ===
   { number: "012", name: "Vulcanized Rubber",
@@ -111,7 +111,7 @@ const VIZ_TAGS = [
     outcome_industry: "Transportation / Industry",
     institution_types: ["Independent Inventor"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "failed_experiment" },
+    era: "pre-1950", mechanism: "salvaged_failure" },
 
   { number: "013", name: "Cardiac Pacemaker",
     funding_sources: ["University of Buffalo"],
@@ -120,7 +120,7 @@ const VIZ_TAGS = [
     outcome_industry: "Medical Devices",
     institution_types: ["University"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "1950-2000", mechanism: "failed_experiment" },
+    era: "1950-2000", mechanism: "salvaged_failure" },
 
   { number: "014", name: "X-Rays",
     funding_sources: ["University of Würzburg"],
@@ -129,7 +129,7 @@ const VIZ_TAGS = [
     outcome_industry: "Medical Devices",
     institution_types: ["University"],
     geography_origin: "Germany", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "serendipity" },
+    era: "pre-1950", mechanism: "accident" },
 
   { number: "015", name: "Saccharin",
     funding_sources: ["Johns Hopkins"],
@@ -138,7 +138,7 @@ const VIZ_TAGS = [
     outcome_industry: "Consumer Goods",
     institution_types: ["University"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "serendipity" },
+    era: "pre-1950", mechanism: "accident" },
 
   { number: "016", name: "Safety Glass",
     funding_sources: ["Personal / Self-funded"],
@@ -147,7 +147,7 @@ const VIZ_TAGS = [
     outcome_industry: "Transportation / Industry",
     institution_types: ["Independent Inventor"],
     geography_origin: "France", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "serendipity" },
+    era: "pre-1950", mechanism: "accident" },
 
   { number: "017", name: "Velcro",
     funding_sources: ["Personal / Self-funded"],
@@ -165,7 +165,7 @@ const VIZ_TAGS = [
     outcome_industry: "Energy / Medicine",
     institution_types: ["University"],
     geography_origin: "France", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "failed_experiment" },
+    era: "pre-1950", mechanism: "salvaged_failure" },
 
   { number: "019", name: "Super Glue",
     funding_sources: ["Eastman Kodak", "US Military"],
@@ -174,7 +174,7 @@ const VIZ_TAGS = [
     outcome_industry: "Consumer Goods",
     institution_types: ["Corporation"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "failed_experiment" },
+    era: "pre-1950", mechanism: "salvaged_failure" },
 
   { number: "020", name: "Pulsars",
     funding_sources: ["UK Science Research Council"],
@@ -183,7 +183,7 @@ const VIZ_TAGS = [
     outcome_industry: "Science",
     institution_types: ["University"],
     geography_origin: "UK", geography_outcome: "Global",
-    era: "1950-2000", mechanism: "serendipity" },
+    era: "1950-2000", mechanism: "accident" },
 
   { number: "021", name: "Cosmic Microwave Background",
     funding_sources: ["Bell Labs / AT&T"],
@@ -192,7 +192,7 @@ const VIZ_TAGS = [
     outcome_industry: "Science",
     institution_types: ["Corporation"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "1950-2000", mechanism: "serendipity" },
+    era: "1950-2000", mechanism: "accident" },
 
   { number: "022", name: "GPS",
     funding_sources: ["US Navy", "DARPA", "US Military"],
@@ -219,7 +219,7 @@ const VIZ_TAGS = [
     outcome_industry: "Pharma",
     institution_types: ["University"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "1950-2000", mechanism: "misapplication" },
+    era: "1950-2000", mechanism: "cross_pollination" },
 
   { number: "025", name: "Blue LEDs",
     funding_sources: ["Nichia Corporation"],
@@ -228,7 +228,7 @@ const VIZ_TAGS = [
     outcome_industry: "Consumer Goods",
     institution_types: ["Corporation"],
     geography_origin: "Japan", geography_outcome: "Global",
-    era: "1950-2000", mechanism: "failed_experiment" },
+    era: "1950-2000", mechanism: "salvaged_failure" },
 
   { number: "026", name: "Kevlar",
     funding_sources: ["DuPont"],
@@ -237,7 +237,7 @@ const VIZ_TAGS = [
     outcome_industry: "Defense / Aerospace",
     institution_types: ["Corporation"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "1950-2000", mechanism: "failed_experiment" },
+    era: "1950-2000", mechanism: "salvaged_failure" },
 
   { number: "027", name: "Warfarin",
     funding_sources: ["USDA", "University of Wisconsin"],
@@ -255,7 +255,7 @@ const VIZ_TAGS = [
     outcome_industry: "Consumer Goods",
     institution_types: ["Corporation"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "serendipity" },
+    era: "pre-1950", mechanism: "accident" },
 
   { number: "029", name: "LSD",
     funding_sources: ["Sandoz"],
@@ -264,7 +264,7 @@ const VIZ_TAGS = [
     outcome_industry: "Pharma",
     institution_types: ["Corporation"],
     geography_origin: "Switzerland", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "serendipity" },
+    era: "pre-1950", mechanism: "accident" },
 
   { number: "030", name: "Stainless Steel",
     funding_sources: ["British Military"],
@@ -273,7 +273,7 @@ const VIZ_TAGS = [
     outcome_industry: "Materials / Aerospace",
     institution_types: ["Government Lab"],
     geography_origin: "UK", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "serendipity" },
+    era: "pre-1950", mechanism: "accident" },
 
   { number: "031", name: "Minoxidil (Rogaine)",
     funding_sources: ["Upjohn"],
@@ -291,7 +291,7 @@ const VIZ_TAGS = [
     outcome_industry: "Consumer Goods",
     institution_types: ["Corporation"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "failed_experiment" },
+    era: "pre-1950", mechanism: "salvaged_failure" },
 
   { number: "033", name: "Chlorpromazine",
     funding_sources: ["French Navy", "Rhône-Poulenc"],
@@ -318,7 +318,7 @@ const VIZ_TAGS = [
     outcome_industry: "Consumer Goods",
     institution_types: ["University"],
     geography_origin: "UK", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "failed_experiment" },
+    era: "pre-1950", mechanism: "salvaged_failure" },
 
   { number: "036", name: "Azole Antifungals",
     funding_sources: ["ICI", "Janssen Pharmaceutica"],
@@ -345,7 +345,7 @@ const VIZ_TAGS = [
     outcome_industry: "Medical Devices",
     institution_types: ["Nonprofit"],
     geography_origin: "UK", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "serendipity" },
+    era: "pre-1950", mechanism: "accident" },
 
   { number: "039", name: "Positron (Antimatter)",
     funding_sources: ["Caltech", "NSF"],
@@ -354,7 +354,7 @@ const VIZ_TAGS = [
     outcome_industry: "Science",
     institution_types: ["University"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "serendipity" },
+    era: "pre-1950", mechanism: "accident" },
 
   { number: "040", name: "Integrated Circuit",
     funding_sources: ["Texas Instruments", "US Military"],
@@ -381,7 +381,7 @@ const VIZ_TAGS = [
     outcome_industry: "Pharma",
     institution_types: ["University"],
     geography_origin: "US", geography_outcome: "Global",
-    era: "1950-2000", mechanism: "failed_experiment" },
+    era: "1950-2000", mechanism: "salvaged_failure" },
 
   { number: "043", name: "Monte Carlo Method",
     funding_sources: ["US Military", "Los Alamos"],
@@ -435,7 +435,7 @@ const VIZ_TAGS = [
     outcome_industry: "Agriculture",
     institution_types: ["Corporation", "Government Lab"],
     geography_origin: "Germany", geography_outcome: "Global",
-    era: "pre-1950", mechanism: "misapplication" },
+    era: "pre-1950", mechanism: "tool_migration" },
 
   { number: "049", name: "AlphaFold",
     funding_sources: ["Google / DeepMind"],
@@ -462,5 +462,5 @@ const VIZ_TAGS = [
     outcome_industry: "Energy / Medicine",
     institution_types: ["Corporation"],
     geography_origin: "Switzerland", geography_outcome: "Global",
-    era: "1950-2000", mechanism: "failed_experiment" }
+    era: "1950-2000", mechanism: "salvaged_failure" }
 ];

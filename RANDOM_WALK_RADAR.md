@@ -27,7 +27,7 @@ Here's the schema for each entry:
   "field_of_origin": "",
   "field_of_impact": "",
   "field_distance": "same / adjacent / distant / unrelated",
-  "mechanism_of_accident": "serendipity / tool_migration / side_effect / failed_experiment / cross_pollination / misapplication / analogy",
+  "mechanism_of_accident": "accident / salvaged_failure / side_effect / cross_pollination / tool_migration / analogy",
   "was_funding_aligned_with_outcome": true/false,
   "impact_scale": "transformative / major / significant",
   "brief_narrative": "2-3 sentence story of what actually happened",
@@ -52,7 +52,7 @@ After completing these 10, suggest 40 more discoveries that fit this pattern, pr
 - Diversity of fields (not just biomedical)
 - Diversity of eras (pre-1950, 1950-2000, post-2000)
 - Diversity of funding sources (government, corporate R&D, academic, military, private)
-- Diversity of accident mechanisms (not all serendipity — include tool migrations, failed experiments, cross-pollinations)
+- Diversity of accident mechanisms (not all accidents — include tool migrations, salvaged failures, cross-pollinations)
 ```
 
 ### Prompt: Analysis & Pattern Extraction
@@ -177,7 +177,7 @@ Design the interactive dashboard UI for this. I want users to be able to:
 - Click into any area to see the full evidence and hypothesis
 - See a visualization of which indicators are strongest across all areas
 
-The aesthetic should be clean, data-forward, and serious — like a Bloomberg terminal for scientific serendipity, not like an Analogue Group website. Think: the seriousness of The Economist meets the interactivity of Observable notebooks.
+The aesthetic should be clean, data-forward, and serious — like a Bloomberg terminal for research accidents, not like an Analogue Group website. Think: the seriousness of The Economist meets the interactivity of Observable notebooks.
 ```
 
 ### Prompt: Generating the Initial 100 Areas

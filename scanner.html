@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Walk: Finder</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #ffffff;
+    --fg: #000000;
+    --fgMix3: #555555;
+    --fgMix5: #8d8d8d;
+    --fgMix6: #aaaaaa;
+    --highlight: #E4001C;
+    --border: #c6c6c6;
+
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    --bodySize: 22px;
+    --bodyLH: 1.4;
+    --bodyMargin: calc(var(--bodyLH) * var(--bodySize));
+
+    --streamSpacing: calc(130 / 1680 * 100vw);
+    --gridGap: 10px;
+    --gridMargin: 20px;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gridGap);
+    padding: 0 var(--gridMargin);
+    max-width: 1680px;
+    margin: 0 auto;
+  }
+  .g-content { grid-column: 3 / 9; }
+
+  nav {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fgMix5);
+    padding: 14px var(--gridMargin);
+    display: flex;
+    justify-content: space-between;
+    max-width: 1680px;
+    margin: 0 auto;
+  }
+  nav a { color: var(--fgMix5); text-decoration: none; }
+  nav a:hover { color: var(--fg); }
+  nav .nav-links { display: flex; gap: 20px; }
+
+  .article-title {
+    font-family: var(--sans);
+    font-size: 100px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    padding-top: var(--streamSpacing);
+    padding-bottom: var(--streamSpacing);
+  }
+
+  .prose {
+    font-family: var(--serif);
+    font-size: var(--bodySize);
+    line-height: var(--bodyLH);
+    font-feature-settings: 'onum';
+  }
+  .prose p { margin-bottom: var(--bodyMargin); }
+  .prose p:last-child { margin-bottom: 0; }
+
+  .prose p:first-of-type::first-letter {
+    float: left;
+    font-family: var(--serif);
+    font-size: 5.2em;
+    line-height: 0.72;
+    padding-right: 8px;
+    padding-top: 8px;
+    font-weight: 600;
+    color: var(--highlight);
+  }
+
+  .stream-space { padding-top: var(--streamSpacing); padding-bottom: var(--streamSpacing); }
+  .stream-space-top { padding-top: var(--streamSpacing); }
+
+  /* ---- Channel sections ---- */
+  .channel {
+    padding-top: calc(var(--streamSpacing) * 1.2);
+    padding-bottom: calc(var(--streamSpacing) * 0.8);
+  }
+  .channel + .channel { border-top: 1px solid var(--border); }
+
+  .channel-number {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fgMix5);
+    margin-bottom: 8px;
+  }
+  .channel-title {
+    font-family: var(--sans);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .channel-desc {
+    font-family: var(--serif);
+    font-size: var(--bodySize);
+    line-height: var(--bodyLH);
+    color: var(--fgMix3);
+    margin-bottom: var(--bodyMargin);
+  }
+  .channel-precedent {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: var(--bodyLH);
+    color: var(--fgMix5);
+    font-style: italic;
+    padding-left: 1.5em;
+    border-left: 1px solid var(--fgMix5);
+    margin-bottom: var(--bodyMargin);
+  }
+
+  /* ---- Scan controls ---- */
+  .scan-controls {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .scan-field {
+    flex: 1;
+    min-width: 160px;
+  }
+  .scan-label {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--fgMix5);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .scan-select, .scan-input {
+    font-family: var(--sans);
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    width: 100%;
+    outline: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .scan-select:focus, .scan-input:focus { border-color: var(--fg); }
+  .scan-btn {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 9px 28px;
+    background: var(--fg);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .scan-btn:hover { background: var(--highlight); }
+  .scan-btn:disabled { background: var(--fgMix6); cursor: not-allowed; }
+
+  .scan-status {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fgMix5);
+    min-height: 20px;
+    margin-bottom: 8px;
+  }
+  .spinner {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border: 2px solid var(--border);
+    border-top-color: var(--highlight);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ---- Result cards ---- */
+  .result-card {
+    padding: var(--bodyMargin) 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .result-card:first-child { border-top: 1px solid var(--border); }
+
+  .result-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .result-title {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .result-score {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fgMix5);
+    flex-shrink: 0;
+  }
+  .result-score.high { color: var(--highlight); font-weight: 700; }
+
+  .result-fields {
+    margin-top: 6px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .field-tag {
+    font-family: var(--sans);
+    font-size: 12px;
+    padding: 2px 10px;
+    border: 1px solid var(--border);
+    color: var(--fgMix3);
+  }
+  .field-tag.home { border-color: var(--fgMix5); }
+  .field-tag.distant { border-color: var(--highlight); color: var(--highlight); }
+  .field-arrow {
+    font-size: 12px;
+    color: var(--fgMix6);
+  }
+
+  .result-meta {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fgMix6);
+    margin-top: 6px;
+  }
+
+  .result-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  .result-card.open .result-detail {
+    max-height: 1200px;
+    transition: max-height 0.7s ease;
+  }
+  .result-detail-body {
+    padding-top: var(--bodyMargin);
+  }
+  .result-abstract {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: var(--bodyLH);
+    color: var(--fgMix3);
+    margin-bottom: 16px;
+  }
+  .result-field-row {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: var(--bodyLH);
+    color: var(--fgMix3);
+    margin-bottom: 8px;
+  }
+  .result-field-row .dl {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--fgMix5);
+  }
+  .result-link {
+    font-family: var(--sans);
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  .result-link a { color: var(--highlight); text-decoration: none; }
+  .result-link a:hover { text-decoration: underline; }
+
+  .cross-cite {
+    border-left: 2px solid var(--highlight);
+    padding-left: 16px;
+    margin-bottom: 12px;
+  }
+  .cross-cite-title {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .cross-cite-field {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--highlight);
+  }
+
+  /* ---- Nomination form ---- */
+  .form-section {
+    padding-top: calc(var(--streamSpacing) * 1.5);
+    padding-bottom: calc(var(--streamSpacing) * 1);
+    border-top: 1px solid var(--fg);
+  }
+  .form-title {
+    font-family: var(--sans);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .form-intro {
+    font-family: var(--serif);
+    font-size: var(--bodySize);
+    line-height: var(--bodyLH);
+    color: var(--fgMix3);
+    font-style: italic;
+    margin-bottom: calc(var(--bodyMargin) * 1.5);
+  }
+  .nom-form { max-width: 600px; }
+  .form-field { margin-bottom: 28px; }
+  .form-label {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .form-hint {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--fgMix5);
+    font-style: italic;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .form-input, .form-textarea {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: var(--bodyLH);
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--fg); }
+  .form-textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-optional {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--fgMix6);
+    margin-left: 6px;
+    font-weight: 400;
+  }
+  .form-submit {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 40px;
+    background: var(--fg);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .form-submit:hover { background: var(--highlight); }
+  .form-footer {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--fgMix6);
+    margin-top: 12px;
+  }
+
+  .empty-state {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--fgMix5);
+    font-style: italic;
+    padding: var(--bodyMargin) 0;
+  }
+
+  .signal-box {
+    background: #fafafa;
+    border-left: 3px solid var(--highlight);
+    padding: 20px 24px;
+    margin-bottom: var(--bodyMargin);
+  }
+  .signal-label {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--highlight);
+    margin-bottom: 8px;
+  }
+  .signal-text {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: var(--bodyLH);
+    color: var(--fg);
+  }
+
+  footer {
+    padding-top: calc(var(--streamSpacing) * 2);
+    padding-bottom: var(--streamSpacing);
+  }
+  footer p {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fgMix5);
+  }
+  footer a { color: var(--fgMix5); text-decoration: underline; text-decoration-color: var(--fgMix6); text-underline-offset: 2px; }
+  footer a:hover { text-decoration-color: var(--highlight); }
+
+  @media (max-width: 1024px) {
+    :root { --bodySize: 20px; }
+    .article-title { font-size: 56px; }
+    .channel-title, .form-title { font-size: 24px; }
+    .g-content { grid-column: 2 / 11; }
+  }
+  @media (max-width: 768px) {
+    :root { --bodySize: 18px; --gridMargin: 16px; --streamSpacing: calc(65 / 768 * 100vw); }
+    .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .g-content { grid-column: 1 / -1; }
+    .article-title { font-size: 40px; }
+    .scan-controls { flex-direction: column; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  /* ---- Random walk canvas ---- */
+  .header-wrap { position: relative; }
+  .header-wrap canvas {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+  }
+  .header-wrap .grid { position: relative; z-index: 1; }
+
+  @media print {
+    nav { display: none; }
+    .header-wrap canvas { display: none; }
+    .result-detail { max-height: none !important; overflow: visible !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Random Walk<span style="color:#8d8d8d">: Atlas</span></a>
+  <div class="nav-links">
+    <a href="radar.html">Radar</a>
+    <span>Finder</span>
+  </div>
+</nav>
+
+<div class="header-wrap" id="header-wrap">
+  <canvas id="rw-canvas"></canvas>
+  <div class="grid">
+    <div class="g-content">
+      <h1 class="article-title">Random Walk<span style="color:#8d8d8d">: Finder</span></h1>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="g-content prose">
+    <p>The atlas proves the pattern exists &mdash; breakthroughs emerge when someone carries an idea from one field into another. But the atlas is retrospective. This tool detects random walks while they&rsquo;re happening. Three automated channels scan live research data for cross-pollination signals. A fourth channel takes nominations from people who recognize the pattern in real time.</p>
+  </div>
+</div>
+
+<!-- ============ CHANNEL 1: CROSS-CITATION SCRAPER ============ -->
+<div class="grid">
+  <div class="g-content">
+    <div class="channel" id="channel-1">
+      <div class="channel-number">Channel 01</div>
+      <h2 class="channel-title">Cross-Citation Scraper</h2>
+      <p class="channel-desc">When a paper in field A cites a paper from unrelated field B, that&rsquo;s a bibliometric fingerprint of cross-pollination. A neuroscience paper citing materials science. A CS paper citing evolutionary biology. These are the textual traces of someone carrying an idea across a boundary.</p>
+      <div class="channel-precedent">The mechanism that produced optogenetics (algae biology &rarr; neuroscience), AlphaFold (game AI &rarr; structural biology), and cisplatin (electrochemistry &rarr; oncology).</div>
+
+      <div class="scan-controls">
+        <div class="scan-field">
+          <label class="scan-label">Field A</label>
+          <select class="scan-select" id="ch1-fieldA">
+            <option value="C86803240">Biology</option>
+            <option value="C71924100">Medicine</option>
+            <option value="C41008148" selected>Computer Science</option>
+            <option value="C121332964">Physics</option>
+            <option value="C185592680">Chemistry</option>
+            <option value="C33923547">Mathematics</option>
+            <option value="C127413603">Engineering</option>
+            <option value="C192562407">Materials Science</option>
+            <option value="C15744967">Psychology</option>
+            <option value="C162324750">Economics</option>
+            <option value="C127313418">Geology</option>
+            <option value="C39432304">Environmental Science</option>
+            <option value="C17744445">Political Science</option>
+            <option value="C144024400">Sociology</option>
+          </select>
+        </div>
+        <div class="scan-field">
+          <label class="scan-label">Field B (the unexpected citation)</label>
+          <select class="scan-select" id="ch1-fieldB">
+            <option value="C86803240" selected>Biology</option>
+            <option value="C71924100">Medicine</option>
+            <option value="C41008148">Computer Science</option>
+            <option value="C121332964">Physics</option>
+            <option value="C185592680">Chemistry</option>
+            <option value="C33923547">Mathematics</option>
+            <option value="C127413603">Engineering</option>
+            <option value="C192562407">Materials Science</option>
+            <option value="C15744967">Psychology</option>
+            <option value="C162324750">Economics</option>
+            <option value="C127313418">Geology</option>
+            <option value="C39432304">Environmental Science</option>
+            <option value="C17744445">Political Science</option>
+            <option value="C144024400">Sociology</option>
+          </select>
+        </div>
+        <button class="scan-btn" id="ch1-btn" onclick="scanCrossCitations()">Scan</button>
+      </div>
+      <div class="scan-status" id="ch1-status"></div>
+      <div id="ch1-results"></div>
+    </div>
+
+    <!-- ============ CHANNEL 2: BORDER-CROSSERS ============ -->
+    <div class="channel" id="channel-2">
+      <div class="channel-number">Channel 02</div>
+      <h2 class="channel-title">Border-Crossers</h2>
+      <p class="channel-desc">Researchers whose recent papers are in a different field than their historical body of work. When someone&rsquo;s home expertise doesn&rsquo;t match what they&rsquo;re publishing now, they&rsquo;re carrying knowledge across a boundary.</p>
+      <div class="channel-precedent">Eng was a VA hormone researcher who presented Gila monster venom work at the American Diabetes Association conference. That border-crossing produced GLP-1 drugs.</div>
+
+      <div class="scan-controls">
+        <div class="scan-field">
+          <label class="scan-label">Scan papers in</label>
+          <select class="scan-select" id="ch2-field">
+            <option value="C86803240">Biology</option>
+            <option value="C71924100" selected>Medicine</option>
+            <option value="C41008148">Computer Science</option>
+            <option value="C121332964">Physics</option>
+            <option value="C185592680">Chemistry</option>
+            <option value="C33923547">Mathematics</option>
+            <option value="C127413603">Engineering</option>
+            <option value="C192562407">Materials Science</option>
+            <option value="C15744967">Psychology</option>
+            <option value="C162324750">Economics</option>
+          </select>
+        </div>
+        <button class="scan-btn" id="ch2-btn" onclick="scanBorderCrossers()">Scan</button>
+      </div>
+      <div class="scan-status" id="ch2-status"></div>
+      <div id="ch2-results"></div>
+    </div>
+
+    <!-- ============ CHANNEL 3: FAILED EXPERIMENT RESIDUALS ============ -->
+    <div class="channel" id="channel-3">
+      <div class="channel-number">Channel 03</div>
+      <h2 class="channel-title">Failed Experiment Residuals</h2>
+      <p class="channel-desc">Terminated clinical trials that didn&rsquo;t hit their primary endpoint &mdash; but documented unexpected observations in adverse events or secondary outcomes. &ldquo;Failure&rdquo; is defined relative to the original goal, but the residual has real properties.</p>
+      <div class="channel-precedent">Post-it Notes came from a failed adhesive. Viagra from a failed blood pressure drug. Teflon from a failed refrigerant. This channel systematizes what those discoveries left to chance.</div>
+
+      <div class="scan-controls">
+        <div class="scan-field">
+          <label class="scan-label">Search terminated trials for</label>
+          <input class="scan-input" id="ch3-query" type="text" value="unexpected improvement" placeholder="e.g. unexpected improvement, incidental finding">
+        </div>
+        <button class="scan-btn" id="ch3-btn" onclick="scanFailedTrials()">Scan</button>
+      </div>
+      <div class="scan-status" id="ch3-status"></div>
+      <div id="ch3-results"></div>
+    </div>
+
+    <!-- ============ CHANNEL 4: OPEN NOMINATIONS ============ -->
+    <div class="channel form-section" id="channel-4">
+      <div class="channel-number">Channel 04</div>
+      <h2 class="form-title">Open Nominations</h2>
+      <p class="form-intro">The discoveries in our atlas all started with someone working at an unexpected intersection. Know someone doing that right now? It takes three minutes.</p>
+
+      <form class="nom-form" id="nom-form" onsubmit="return handleSubmit(event)">
+        <div class="form-field">
+          <label class="form-label">Who is working at an unexpected intersection?</label>
+          <span class="form-hint">Self-nominations welcome. Name, or a link to their work.</span>
+          <input class="form-input" type="text" name="who" required placeholder="Name or link to their work">
+        </div>
+        <div class="form-field">
+          <label class="form-label">What are the two fields colliding?</label>
+          <span class="form-hint">Their background and the new domain they&rsquo;re applying it to.</span>
+          <div class="form-row">
+            <input class="form-input" type="text" name="field_a" required placeholder="Field A (home field)">
+            <input class="form-input" type="text" name="field_b" required placeholder="Field B (new domain)">
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">What&rsquo;s the connection they&rsquo;ve found?</label>
+          <span class="form-hint">2&ndash;3 sentences. What insight or technique from field A are they bringing to field B?</span>
+          <textarea class="form-textarea" name="connection" required placeholder="What are they carrying across the boundary?"></textarea>
+        </div>
+        <div class="form-field">
+          <label class="form-label">How deep are they?</label>
+          <span class="form-hint">Casually interested or intensely committed? How long? Have they published, presented, or built anything at the intersection?</span>
+          <textarea class="form-textarea" name="depth" required placeholder="Evidence of commitment"></textarea>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Why does this matter?<span class="form-optional">Optional</span></label>
+          <span class="form-hint">What could it lead to?</span>
+          <textarea class="form-textarea" name="why" placeholder="Your intuition about where this could go"></textarea>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Your email<span class="form-optional">Optional</span></label>
+          <input class="form-input" type="email" name="email" placeholder="you@example.com">
+        </div>
+        <button type="submit" class="form-submit">Submit Nomination</button>
+        <p class="form-footer">No account required. Submissions are reviewed monthly.</p>
+      </form>
+      <div id="form-success" style="display:none;">
+        <div class="signal-box" style="margin-top:var(--bodyMargin);">
+          <div class="signal-label">Submitted</div>
+          <div class="signal-text">Thank you. We review nominations monthly and will reach out if we&rsquo;d like to learn more.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="g-content">
+    <footer>
+      <p><a href="index.html">&larr; Back to Random Walk Research</a></p>
+    </footer>
+  </div>
+</div>
+
+<!-- ============ FINDER ENGINE ============ -->
+<script>
+(function() {
+  'use strict';
+
+  // ---- Config ----
+  var OA = 'https://api.openalex.org';
+  var MAIL = 'mailto=finder@randomwalk.research';
+  var CT = 'https://clinicaltrials.gov/api/v2/studies';
+
+  // ---- OpenAlex level-0 concept IDs and names ----
+  var CONCEPTS = {
+    C86803240:  'Biology',
+    C71924100:  'Medicine',
+    C41008148:  'Computer Science',
+    C121332964: 'Physics',
+    C185592680: 'Chemistry',
+    C33923547:  'Mathematics',
+    C127413603: 'Engineering',
+    C192562407: 'Materials Science',
+    C15744967:  'Psychology',
+    C162324750: 'Economics',
+    C127313418: 'Geology',
+    C39432304:  'Environmental Science',
+    C17744445:  'Political Science',
+    C144024400: 'Sociology',
+    C144133560: 'Business',
+    C95457728:  'History',
+    C136764020: 'Art',
+    C138885662: 'Philosophy',
+    C205649164: 'Geography'
+  };
+
+  // ---- Field clusters for distance scoring ----
+  var CLUSTER_MAP = {};
+  function addCluster(name, ids) { ids.forEach(function(id) { CLUSTER_MAP[id] = name; }); }
+  addCluster('life',     ['C86803240','C71924100']);
+  addCluster('physical', ['C121332964','C185592680','C192562407']);
+  addCluster('tech',     ['C41008148','C33923547','C127413603']);
+  addCluster('social',   ['C162324750','C15744967','C144024400','C17744445','C144133560']);
+  addCluster('earth',    ['C127313418','C39432304','C205649164']);
+  addCluster('human',    ['C136764020','C95457728','C138885662']);
+
+  // Pairwise cluster distances (1=same, 2=adjacent, 3=distant)
+  var CDIST = {
+    'life-physical': 2, 'life-tech': 3, 'life-social': 2, 'life-earth': 2, 'life-human': 3,
+    'physical-tech': 2, 'physical-social': 3, 'physical-earth': 2, 'physical-human': 3,
+    'tech-social': 2, 'tech-earth': 3, 'tech-human': 3,
+    'social-earth': 2, 'social-human': 2,
+    'earth-human': 3
+  };
+
+  function clusterDist(id1, id2) {
+    var c1 = CLUSTER_MAP[id1], c2 = CLUSTER_MAP[id2];
+    if (!c1 || !c2) return 2;
+    if (c1 === c2) return 1;
+    var key = [c1, c2].sort().join('-');
+    return CDIST[key] || 2;
+  }
+
+  function conceptName(id) { return CONCEPTS[id] || id; }
+
+  // Extract level-0 concept IDs from a work's concepts array
+  function getLevel0(concepts) {
+    if (!concepts) return [];
+    var seen = {};
+    return concepts.filter(function(c) {
+      if (c.level !== 0) return false;
+      var id = c.id.replace('https://openalex.org/', '');
+      if (seen[id]) return false;
+      seen[id] = true;
+      c._shortId = id;
+      return true;
+    });
+  }
+
+  // Reconstruct abstract from inverted index
+  function reconstructAbstract(inv) {
+    if (!inv) return '';
+    var words = [];
+    Object.keys(inv).forEach(function(word) {
+      inv[word].forEach(function(pos) { words[pos] = word; });
+    });
+    return words.join(' ').substring(0, 500);
+  }
+
+  function escHtml(s) {
+    if (!s) return '';
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function setStatus(id, html) { document.getElementById(id + '-status').innerHTML = html; }
+  function setResults(id, html) { document.getElementById(id + '-results').innerHTML = html; }
+
+  function delay(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
+
+  // ---- CHANNEL 1: Cross-Citation Scraper ----
+  window.scanCrossCitations = async function() {
+    var btn = document.getElementById('ch1-btn');
+    btn.disabled = true;
+    setStatus('ch1', '<span class="spinner"></span>Querying OpenAlex for cross-field papers...');
+    setResults('ch1', '');
+
+    var fieldA = document.getElementById('ch1-fieldA').value;
+    var fieldB = document.getElementById('ch1-fieldB').value;
+
+    if (fieldA === fieldB) {
+      setStatus('ch1', 'Pick two different fields.');
+      btn.disabled = false;
+      return;
+    }
+
+    try {
+      // Find recent papers tagged with BOTH fields
+      var url = OA + '/works?filter=from_publication_date:2025-01-01,' +
+        'concepts.id:' + fieldA + ',concepts.id:' + fieldB + ',' +
+        'type:article,referenced_works_count:<80' +
+        '&sort=publication_date:desc&per_page=25' +
+        '&select=id,display_name,authorships,concepts,publication_date,' +
+        'referenced_works_count,cited_by_count,primary_location,abstract_inverted_index' +
+        '&' + MAIL;
+
+      var resp = await fetch(url);
+      if (!resp.ok) throw new Error('OpenAlex returned ' + resp.status);
+      var data = await resp.json();
+
+      if (!data.results || data.results.length === 0) {
+        setStatus('ch1', 'No cross-field papers found for this combination. Try a different pair.');
+        btn.disabled = false;
+        return;
+      }
+
+      setStatus('ch1', '<span class="spinner"></span>Found ' + data.results.length + ' papers. Scoring...');
+
+      // Score each paper by cross-field distance
+      var scored = data.results.map(function(w) {
+        var l0 = getLevel0(w.concepts);
+        var dist = clusterDist(fieldA, fieldB);
+        // Weight by how strongly the paper is tagged with each concept
+        var scoreA = 0, scoreB = 0;
+        l0.forEach(function(c) {
+          if (c._shortId === fieldA) scoreA = c.score;
+          if (c._shortId === fieldB) scoreB = c.score;
+        });
+        // Higher score when both fields are strongly present and fields are distant
+        var rawScore = dist * Math.min(scoreA, scoreB) * 10;
+        // Penalty for too many references (surveys)
+        if (w.referenced_works_count > 50) rawScore *= 0.7;
+        // Bonus for cited papers (someone noticed)
+        if (w.cited_by_count > 5) rawScore *= 1.1;
+        var score = Math.min(10, Math.round(rawScore * 10) / 10);
+
+        return { work: w, score: score, l0: l0 };
+      });
+
+      scored.sort(function(a, b) { return b.score - a.score; });
+
+      // Now for top 5, fetch their referenced works to find specific cross-citations
+      var top = scored.slice(0, 10);
+      setStatus('ch1', '<span class="spinner"></span>Fetching cross-citations for top results...');
+
+      for (var i = 0; i < Math.min(5, top.length); i++) {
+        var refIds = top[i].work.referenced_works;
+        if (refIds && refIds.length > 0) {
+          // Take a sample of references (max 30)
+          var sample = refIds.slice(0, 30).map(function(r) {
+            return r.replace('https://openalex.org/', '');
+          });
+          try {
+            await delay(120); // polite rate limiting
+            var refUrl = OA + '/works?filter=openalex_id:' + sample.join('|') +
+              '&select=id,display_name,concepts&per_page=30&' + MAIL;
+            var refResp = await fetch(refUrl);
+            if (refResp.ok) {
+              var refData = await refResp.json();
+              // Find references from the "other" field
+              var crossRefs = [];
+              (refData.results || []).forEach(function(ref) {
+                var refL0 = getLevel0(ref.concepts);
+                refL0.forEach(function(c) {
+                  // Is this reference from the distant field?
+                  if (c._shortId === fieldB && c.score > 0.3) {
+                    crossRefs.push({
+                      title: ref.display_name,
+                      field: conceptName(c._shortId),
+                      score: c.score
+                    });
+                  }
+                });
+              });
+              top[i].crossRefs = crossRefs.slice(0, 3);
+            }
+          } catch(e) { /* skip reference fetch errors */ }
+        }
+      }
+
+      // Render results
+      var nameA = conceptName(fieldA);
+      var nameB = conceptName(fieldB);
+      setStatus('ch1', top.length + ' cross-field papers found (' + nameA + ' + ' + nameB + ')');
+
+      var html = '';
+      top.forEach(function(item) {
+        var w = item.work;
+        var authors = (w.authorships || []).slice(0, 3).map(function(a) {
+          return a.author ? a.author.display_name : '';
+        }).filter(Boolean).join(', ');
+        if ((w.authorships || []).length > 3) authors += ' et al.';
+        var abs = reconstructAbstract(w.abstract_inverted_index);
+        var date = w.publication_date || '';
+        var journal = (w.primary_location && w.primary_location.source) ? w.primary_location.source.display_name : '';
+        var oaId = w.id ? w.id.replace('https://openalex.org/', '') : '';
+        var scoreClass = item.score >= 6 ? ' high' : '';
+
+        html += '<div class="result-card" onclick="this.classList.toggle(\'open\')">';
+        html += '<div class="result-head">';
+        html += '<div class="result-title">' + escHtml(w.display_name) + '</div>';
+        html += '<div class="result-score' + scoreClass + '">' + item.score + '</div>';
+        html += '</div>';
+        html += '<div class="result-fields">';
+        html += '<span class="field-tag home">' + escHtml(nameA) + '</span>';
+        html += '<span class="field-arrow">&rarr;</span>';
+        html += '<span class="field-tag distant">' + escHtml(nameB) + '</span>';
+        html += '</div>';
+        html += '<div class="result-meta">' + escHtml(authors) + (date ? ' &middot; ' + date : '') + (journal ? ' &middot; ' + escHtml(journal) : '') + '</div>';
+
+        html += '<div class="result-detail"><div class="result-detail-body">';
+        if (abs) {
+          html += '<div class="result-abstract">' + escHtml(abs) + '</div>';
+        }
+        html += '<div class="result-field-row"><span class="dl">References &mdash; </span>' + (w.referenced_works_count || 0) + ' papers</div>';
+        html += '<div class="result-field-row"><span class="dl">Cited by &mdash; </span>' + (w.cited_by_count || 0) + '</div>';
+
+        if (item.crossRefs && item.crossRefs.length > 0) {
+          html += '<div style="margin-top:16px;margin-bottom:8px;"><span class="dl">CROSS-FIELD CITATIONS FOUND:</span></div>';
+          item.crossRefs.forEach(function(cr) {
+            html += '<div class="cross-cite">';
+            html += '<div class="cross-cite-title">' + escHtml(cr.title) + '</div>';
+            html += '<div class="cross-cite-field">' + escHtml(cr.field) + ' (score: ' + Math.round(cr.score * 100) + '%)</div>';
+            html += '</div>';
+          });
+        }
+
+        if (oaId) {
+          html += '<div class="result-link"><a href="https://openalex.org/' + oaId + '" target="_blank" rel="noopener">View on OpenAlex &rarr;</a></div>';
+        }
+        html += '</div></div>';
+        html += '</div>';
+      });
+
+      setResults('ch1', html);
+
+    } catch(err) {
+      setStatus('ch1', 'Error: ' + escHtml(err.message));
+    }
+    btn.disabled = false;
+  };
+
+  // ---- CHANNEL 2: Border-Crossers ----
+  window.scanBorderCrossers = async function() {
+    var btn = document.getElementById('ch2-btn');
+    btn.disabled = true;
+    setStatus('ch2', '<span class="spinner"></span>Finding recent papers...');
+    setResults('ch2', '');
+
+    var targetField = document.getElementById('ch2-field').value;
+    var targetName = conceptName(targetField);
+
+    try {
+      // Get recent papers in the target field
+      var url = OA + '/works?filter=from_publication_date:2025-01-01,' +
+        'concepts.id:' + targetField + ',type:article' +
+        '&sort=publication_date:desc&per_page=50' +
+        '&select=id,display_name,authorships,concepts,publication_date,primary_location,abstract_inverted_index' +
+        '&' + MAIL;
+
+      var resp = await fetch(url);
+      if (!resp.ok) throw new Error('OpenAlex returned ' + resp.status);
+      var data = await resp.json();
+
+      if (!data.results || data.results.length === 0) {
+        setStatus('ch2', 'No papers found.');
+        btn.disabled = false;
+        return;
+      }
+
+      setStatus('ch2', '<span class="spinner"></span>Checking ' + data.results.length + ' papers for border-crossers...');
+
+      // For each paper, check if the first author's primary field differs from target
+      var borderCrossers = [];
+
+      for (var i = 0; i < data.results.length; i++) {
+        var w = data.results[i];
+        var firstAuthor = (w.authorships && w.authorships[0] && w.authorships[0].author) ? w.authorships[0].author : null;
+        if (!firstAuthor || !firstAuthor.id) continue;
+
+        var authorId = firstAuthor.id.replace('https://openalex.org/', '');
+
+        // Rate limit
+        if (borderCrossers.length >= 8) break; // stop after finding enough
+        await delay(120);
+
+        try {
+          var authUrl = OA + '/authors/' + authorId + '?select=id,display_name,x_concepts,works_count,summary_stats&' + MAIL;
+          var authResp = await fetch(authUrl);
+          if (!authResp.ok) continue;
+          var author = await authResp.json();
+
+          // Get author's top concept (their "home field")
+          var xc = author.x_concepts || [];
+          // Filter to level-0 only and sort by score
+          var authorL0 = xc.filter(function(c) { return c.level === 0; })
+            .sort(function(a, b) { return b.score - a.score; });
+
+          if (authorL0.length === 0) continue;
+
+          var homeId = authorL0[0].id.replace('https://openalex.org/', '');
+          var homeCluster = CLUSTER_MAP[homeId];
+          var targetCluster = CLUSTER_MAP[targetField];
+
+          // Is their home field in a different cluster than the target?
+          if (homeCluster && targetCluster && homeCluster !== targetCluster) {
+            var dist = clusterDist(homeId, targetField);
+            borderCrossers.push({
+              work: w,
+              author: author,
+              homeField: conceptName(homeId),
+              homeId: homeId,
+              targetField: targetName,
+              dist: dist,
+              authorL0: authorL0.slice(0, 5),
+              score: dist * (authorL0[0].score || 0.5) * 3.3
+            });
+          }
+        } catch(e) { /* skip author fetch errors */ }
+
+        setStatus('ch2', '<span class="spinner"></span>Checked ' + (i + 1) + '/' + data.results.length + ' papers. Found ' + borderCrossers.length + ' border-crossers...');
+      }
+
+      borderCrossers.sort(function(a, b) { return b.score - a.score; });
+
+      if (borderCrossers.length === 0) {
+        setStatus('ch2', 'No border-crossers found in recent ' + targetName + ' papers. Try a different field.');
+        btn.disabled = false;
+        return;
+      }
+
+      setStatus('ch2', borderCrossers.length + ' border-crossers found publishing in ' + targetName);
+
+      var html = '';
+      borderCrossers.forEach(function(bc) {
+        var w = bc.work;
+        var abs = reconstructAbstract(w.abstract_inverted_index);
+        var date = w.publication_date || '';
+        var journal = (w.primary_location && w.primary_location.source) ? w.primary_location.source.display_name : '';
+        var scoreClass = bc.score >= 6 ? ' high' : '';
+
+        html += '<div class="result-card" onclick="this.classList.toggle(\'open\')">';
+        html += '<div class="result-head">';
+        html += '<div class="result-title">' + escHtml(bc.author.display_name) + '</div>';
+        html += '<div class="result-score' + scoreClass + '">' + Math.round(bc.score * 10) / 10 + '</div>';
+        html += '</div>';
+        html += '<div class="result-fields">';
+        html += '<span class="field-tag home">' + escHtml(bc.homeField) + '</span>';
+        html += '<span class="field-arrow">&rarr;</span>';
+        html += '<span class="field-tag distant">' + escHtml(bc.targetField) + '</span>';
+        html += '</div>';
+        html += '<div class="result-meta">' + escHtml(w.display_name) + (date ? ' &middot; ' + date : '') + '</div>';
+
+        html += '<div class="result-detail"><div class="result-detail-body">';
+
+        // Author's field breakdown
+        html += '<div style="margin-bottom:16px;"><span class="dl">AUTHOR\'S HISTORICAL FIELDS:</span></div>';
+        bc.authorL0.forEach(function(c) {
+          var pct = Math.round((c.score || 0) * 100);
+          html += '<div class="result-field-row">' + escHtml(c.display_name) + ' &mdash; ' + pct + '%</div>';
+        });
+        html += '<div class="result-field-row"><span class="dl">Total works &mdash; </span>' + (bc.author.works_count || 0) + '</div>';
+
+        if (abs) {
+          html += '<div class="result-abstract" style="margin-top:16px;">' + escHtml(abs) + '</div>';
+        }
+        if (journal) {
+          html += '<div class="result-field-row"><span class="dl">Published in &mdash; </span>' + escHtml(journal) + '</div>';
+        }
+
+        var authorOaId = bc.author.id ? bc.author.id.replace('https://openalex.org/', '') : '';
+        if (authorOaId) {
+          html += '<div class="result-link"><a href="https://openalex.org/' + authorOaId + '" target="_blank" rel="noopener">View author on OpenAlex &rarr;</a></div>';
+        }
+
+        html += '</div></div>';
+        html += '</div>';
+      });
+
+      setResults('ch2', html);
+
+    } catch(err) {
+      setStatus('ch2', 'Error: ' + escHtml(err.message));
+    }
+    btn.disabled = false;
+  };
+
+  // ---- CHANNEL 3: Failed Trials ----
+  window.scanFailedTrials = async function() {
+    var btn = document.getElementById('ch3-btn');
+    btn.disabled = true;
+    setStatus('ch3', '<span class="spinner"></span>Querying ClinicalTrials.gov...');
+    setResults('ch3', '');
+
+    var query = document.getElementById('ch3-query').value || 'unexpected improvement';
+
+    var url = CT + '?query.term=' + encodeURIComponent(query) +
+      '&filter.overallStatus=TERMINATED,COMPLETED' +
+      '&filter.resultsFirstPostDate=2020-01-01,' +
+      '&fields=protocolSection&pageSize=20';
+
+    try {
+      var resp = await fetch(url);
+      if (!resp.ok) {
+        // Might be CORS — provide fallback
+        throw new Error('Status ' + resp.status + '. ClinicalTrials.gov may block browser requests.');
+      }
+      var data = await resp.json();
+
+      var studies = data.studies || [];
+      if (studies.length === 0) {
+        setStatus('ch3', 'No terminated trials found for "' + escHtml(query) + '". Try different keywords.');
+        btn.disabled = false;
+        return;
+      }
+
+      setStatus('ch3', studies.length + ' trials found for "' + escHtml(query) + '"');
+
+      var html = '';
+      studies.forEach(function(study) {
+        var p = study.protocolSection || {};
+        var id = (p.identificationModule || {});
+        var status = (p.statusModule || {});
+        var desc = (p.descriptionModule || {});
+        var cond = (p.conditionsModule || {});
+
+        var nctId = id.nctId || '';
+        var title = id.briefTitle || id.officialTitle || 'Untitled';
+        var conditions = (cond.conditions || []).join(', ');
+        var summary = (desc.briefSummary || '').substring(0, 400);
+        var whyStopped = status.whyStopped || '';
+        var overallStatus = status.overallStatus || '';
+
+        html += '<div class="result-card" onclick="this.classList.toggle(\'open\')">';
+        html += '<div class="result-head">';
+        html += '<div class="result-title">' + escHtml(title) + '</div>';
+        html += '<div class="result-score">' + escHtml(overallStatus) + '</div>';
+        html += '</div>';
+        if (conditions) {
+          html += '<div class="result-fields">';
+          conditions.split(', ').slice(0, 4).forEach(function(c) {
+            html += '<span class="field-tag">' + escHtml(c) + '</span>';
+          });
+          html += '</div>';
+        }
+        html += '<div class="result-meta">' + escHtml(nctId) + (whyStopped ? ' &middot; ' + escHtml(whyStopped) : '') + '</div>';
+
+        html += '<div class="result-detail"><div class="result-detail-body">';
+        if (summary) {
+          html += '<div class="result-abstract">' + escHtml(summary) + (summary.length >= 400 ? '...' : '') + '</div>';
+        }
+        if (whyStopped) {
+          html += '<div class="result-field-row"><span class="dl">Why stopped &mdash; </span>' + escHtml(whyStopped) + '</div>';
+        }
+        if (nctId) {
+          html += '<div class="result-link"><a href="https://clinicaltrials.gov/study/' + nctId + '" target="_blank" rel="noopener">View on ClinicalTrials.gov &rarr;</a></div>';
+        }
+        html += '</div></div>';
+        html += '</div>';
+      });
+
+      setResults('ch3', html);
+
+    } catch(err) {
+      // CORS fallback
+      var directUrl = 'https://clinicaltrials.gov/search?term=' + encodeURIComponent(query) + '&status=TERMINATED&status=COMPLETED&results=With';
+      setStatus('ch3', escHtml(err.message) + ' <a href="' + directUrl + '" target="_blank" rel="noopener" style="color:var(--highlight)">Search directly on ClinicalTrials.gov &rarr;</a>');
+    }
+    btn.disabled = false;
+  };
+
+  // ---- CHANNEL 4: Nominations ----
+  window.handleSubmit = function(e) {
+    e.preventDefault();
+    var form = document.getElementById('nom-form');
+    var data = {};
+    var fields = form.querySelectorAll('input, textarea');
+    for (var i = 0; i < fields.length; i++) {
+      if (fields[i].name) data[fields[i].name] = fields[i].value;
+    }
+    var nominations = JSON.parse(localStorage.getItem('rw_nominations') || '[]');
+    data.submitted_at = new Date().toISOString();
+    nominations.push(data);
+    localStorage.setItem('rw_nominations', JSON.stringify(nominations));
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    return false;
+  };
+
+})();
+</script>
+
+<!-- ---- Random walk canvas ---- -->
+<script>
+(function() {
+  var wrap = document.getElementById('header-wrap');
+  var canvas = document.getElementById('rw-canvas');
+  var ctx = canvas.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  var x, y, w, h;
+  var title = wrap.querySelector('.article-title');
+  var flipped = false;
+  var totalSteps = 0;
+
+  var GRID = 20;
+  var gridCols, gridRows, visited;
+
+  function initGrid() {
+    gridCols = Math.ceil(w / GRID);
+    gridRows = Math.ceil(h / GRID);
+    visited = new Uint8Array(gridCols * gridRows);
+  }
+
+  function markVisited() {
+    var col = Math.floor(x / GRID);
+    var row = Math.floor(y / GRID);
+    if (col >= 0 && col < gridCols && row >= 0 && row < gridRows) {
+      visited[row * gridCols + col] = 1;
+    }
+  }
+
+  function getCoverage() {
+    var r = title.getBoundingClientRect();
+    var wr = wrap.getBoundingClientRect();
+    var tx = r.left - wr.left, ty = r.top - wr.top;
+    var tw = r.width, th = r.height;
+    var c0 = Math.floor(tx / GRID), c1 = Math.ceil((tx + tw) / GRID);
+    var r0 = Math.floor(ty / GRID), r1 = Math.ceil((ty + th) / GRID);
+    var total = 0, filled = 0;
+    for (var row = r0; row < r1 && row < gridRows; row++) {
+      for (var col = c0; col < c1 && col < gridCols; col++) {
+        if (col >= 0 && row >= 0) {
+          total++;
+          if (visited[row * gridCols + col]) filled++;
+        }
+      }
+    }
+    return total > 0 ? filled / total : 0;
+  }
+
+  function resize() {
+    w = wrap.offsetWidth;
+    h = wrap.offsetHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+    var tr = title.getBoundingClientRect();
+    var wr = wrap.getBoundingClientRect();
+    x = (tr.left - wr.left) + tr.width * 0.3 + (Math.random() - 0.5) * 40;
+    y = (tr.top - wr.top) + tr.height * 0.5 + (Math.random() - 0.5) * 20;
+    initGrid();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  }
+
+  resize();
+
+  var step = 8;
+  var stepsPerFrame = 4;
+
+  function tick() {
+    for (var i = 0; i < stepsPerFrame; i++) {
+      var angle = Math.random() * Math.PI * 2;
+      x += Math.cos(angle) * step;
+      y += Math.sin(angle) * step;
+      if (x < 0) x = -x;
+      if (x > w) x = 2 * w - x;
+      if (y < 0) y = -y;
+      if (y > h) y = 2 * h - y;
+      ctx.lineTo(x, y);
+      markVisited();
+      totalSteps++;
+    }
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+
+    if (!flipped && totalSteps % 120 === 0) {
+      if (getCoverage() > 0.85) {
+        flipped = true;
+        title.style.transition = 'background 0.6s ease, color 0.6s ease';
+        title.style.background = 'var(--highlight)';
+        title.style.color = '#ffffff';
+        var sub = title.querySelector('span');
+        if (sub) {
+          sub.style.transition = 'color 0.6s ease';
+          sub.style.color = '#ffcccc';
+        }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+
+  window.addEventListener('resize', function() {
+    var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    w = wrap.offsetWidth;
+    h = wrap.offsetHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.putImageData(imgData, 0, 0);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+    initGrid();
+    if (x > w) x = w - 10;
+    if (y > h) y = h - 10;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  });
+})();
+</script>
+</body>
+</html>

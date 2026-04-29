@@ -1,0 +1,109 @@
+{
+  "number": "001",
+  "discovery_name": "GLP-1 Weight Loss Drugs (Ozempic, Wegovy, Mounjaro)",
+  "tracker_summary": {
+    "invention": "GLP-1 receptor agonist drugs for type 2 diabetes and obesity",
+    "inventor": "Chain began with Joel Habener (GLP-1 discovery), John Eng (exendin-4 isolation), and was commercialized through Amylin Pharmaceuticals and later Novo Nordisk/Eli Lilly",
+    "date": "Scientific chain: 1967\u20132024; First FDA approval (exenatide): 2005; Semaglutide for obesity: 2021",
+    "current_use": "Treatment of type 2 diabetes and obesity; active investigation for Alzheimer's disease, addiction, NASH, and cardiovascular disease",
+    "initial_funding_source": "U.S. Veterans Administration (VA) and National Institutes of Health (NIH)",
+    "initial_funding_reason": "Basic research into venom peptides as probes for mammalian physiology; diabetes research at VA hospitals",
+    "chain_length": "12 steps \u00b7 57+ years"
+  },
+  "the_x": "NIH-funded basic research into Gila monster lizard venom peptides, conducted at a VA hospital with catalog-ordered reptiles",
+  "the_y": "A $100+ billion global market for GLP-1 obesity drugs, with emerging applications in Alzheimer's disease, addiction, and metabolic disorders",
+  "summary": "In the 1980s, a VA endocrinologist named John Eng, working in a small laboratory at the Bronx Veterans Affairs Medical Center, ordered Gila monster venom from a biological supply catalog on a hunch that reptile venoms might contain peptides that mimic or illuminate human gut hormones. After years of painstaking isolation work, Eng identified a peptide he called exendin-4, which turned out to be a near-perfect mimic of the human hormone GLP-1 \u2014 but dramatically more stable. When Eng tried to patent the discovery through the VA, the institution declined. Eng patented it himself, presented a poster at an ADA conference, and a small San Diego biotech saw it. Thirty years later, 9% of the U.S. population is projected to be on GLP-1 drugs by the end of the decade.",
+  "chain": [
+    {
+      "year": "1967\u20131983",
+      "who": "Rosalyn Yalow, Joel Habener, Graeme Bell",
+      "where": "Bronx VA; Massachusetts General Hospital; University of Chicago",
+      "what_they_were_doing": "Yalow's VA radioimmunoassay enabled gut hormone detection; Habener cloned proglucagon, discovering GLP-1.",
+      "the_jump": "GLP-1 emerged not from diabetes research but from gene sequencing done with no therapeutic target in mind.",
+      "funding": "NIH; Veterans Administration",
+      "critical": true
+    },
+    {
+      "year": "1986\u20131987",
+      "who": "Jens Juul Holst; Svetlana Mojsov / Joel Habener",
+      "where": "University of Copenhagen; Massachusetts General Hospital",
+      "what_they_were_doing": "GLP-1 stimulates insulin only when blood sugar is elevated \u2014 theoretically impossible to cause dangerous hypoglycemia.",
+      "the_jump": "This glucose-dependent safety profile reframed GLP-1 from biological curiosity to therapeutic target.",
+      "funding": "Danish Medical Research Council; NIH; Novo Nordisk",
+      "critical": true
+    },
+    {
+      "year": "1990\u20131992",
+      "who": "Dr. John Eng",
+      "where": "Bronx Veterans Affairs Medical Center",
+      "what_they_were_doing": "Ordered Gila monster venom from a catalog; hypothesized an animal eating few times yearly evolved extreme metabolic peptides.",
+      "the_jump": "Eng isolated exendin-4 \u2014 53% homology to GLP-1, resistant to degradation, far longer half-life than any mammalian equivalent.",
+      "funding": "Veterans Administration",
+      "critical": true
+    },
+    {
+      "year": "1993\u20131994",
+      "who": "Dr. John Eng",
+      "where": "Bronx VA; Washington D.C.",
+      "what_they_were_doing": "VA declined to patent exendin-4; Eng filed the patent out of pocket and presented findings as a conference poster.",
+      "the_jump": "Had Eng not personally filed, exendin-4 enters the public domain with no commercialization pathway. The VA's refusal accidentally preserved the innovation.",
+      "funding": "Personal funds",
+      "critical": true
+    },
+    {
+      "year": "1996",
+      "who": "Andrew Young, Amylin Pharmaceuticals",
+      "where": "ADA Annual Meeting; San Diego",
+      "what_they_were_doing": "Young saw Eng's poster, recognized exendin-4's stability, licensed the patent to begin development as exenatide.",
+      "the_jump": "A single conference poster was the entire commercialization mechanism \u2014 no formal tech transfer, no institutional deal.",
+      "funding": "Amylin Pharmaceuticals venture capital",
+      "critical": true
+    },
+    {
+      "year": "1999\u20132005",
+      "who": "Amylin Pharmaceuticals; Eli Lilly; FDA",
+      "where": "San Diego; Indianapolis; Silver Spring MD",
+      "what_they_were_doing": "Amylin nearly went bankrupt before Eli Lilly partnership rescued trials; FDA approved exenatide (Byetta) April 2005.",
+      "the_jump": "Weight loss appeared as an unexpected secondary finding in trial data \u2014 the 'side effect' that would become a hundred-billion-dollar indication.",
+      "funding": "Eli Lilly co-development agreement",
+      "critical": true
+    },
+    {
+      "year": "2000\u20132021",
+      "who": "Lotte Bjerre Knudsen, Novo Nordisk; STEP trial investigators",
+      "where": "Denmark; global trial sites",
+      "what_they_were_doing": "Fatty acid modification enabled once-weekly dosing; STEP 1 showed 14.9% body weight reduction \u2014 unprecedented without surgery.",
+      "the_jump": "STEP trials reframed obesity as a biological disease with a pharmaceutical solution, triggering a global paradigm shift.",
+      "funding": "Novo Nordisk internal R&D",
+      "critical": true
+    },
+    {
+      "year": "2023\u2013present",
+      "who": "NIH National Institute on Aging; Novo Nordisk",
+      "where": "Copenhagen; London; Baltimore",
+      "what_they_were_doing": "GLP-1 receptors found widely in the brain; users showed lower Alzheimer's rates; Phase 3 trials launched.",
+      "the_jump": "NIH-funded venom peptide biology now funds brain disease trials \u2014 the same programs that mapped peptide receptors in the 1970s underpin the Alzheimer's hypothesis.",
+      "funding": "NIH; Novo Nordisk; ARPA-H",
+      "critical": false
+    }
+  ],
+  "sources": [
+    "Eng J. (1992). Exendin-4 isolation from Heloderma suspectum venom. Journal of Biological Chemistry. https://www.jbc.org/article/S0021-9258(19)50235-3/pdf",
+    "Eng J, Andrews PC, Kleinman WA, Singh L, Raufman JP. Purification and structure of exendin-3. J Biol Chem. 1992;267(12):7402-5. https://pubmed.ncbi.nlm.nih.gov/1313797/",
+    "Bell GI, Santerre RF, Mullenbach GT. Hamster preproglucagon contains the sequence of glucagon and two related peptides. Nature. 1983;302:716-718. https://doi.org/10.1038/302716a0",
+    "Mojsov S, Weir GC, Habener JF. Insulinotropin: glucagon-like peptide I (7-37). J Clin Invest. 1987;79(2):616-619. https://doi.org/10.1172/JCI104130",
+    "Holst JJ. The physiology of glucagon-like peptide 1. Physiol Rev. 2007;87(4):1409-1439. https://doi.org/10.1152/physrev.00034.2006",
+    "Drucker DJ. Mechanisms of Action and Therapeutic Application of Glucagon-like Peptide-1. Cell Metabolism. 2018;27(4):740-756. https://doi.org/10.1016/j.cmet.2018.03.001",
+    "FDA approval letter for Byetta (exenatide), NDA 021773, April 28, 2005. https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2005/021773ltr.pdf",
+    "Marso SP, et al. Liraglutide and Cardiovascular Outcomes in Type 2 Diabetes (LEADER trial). N Engl J Med. 2016;375:311-322. https://doi.org/10.1056/NEJMoa1603827",
+    "Wilding JPH, et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP 1). N Engl J Med. 2021;384:989-1002. https://doi.org/10.1056/NEJMoa2032183",
+    "FDA approval of Wegovy, June 4, 2021. https://www.fda.gov/news-events/press-announcements/fda-approves-new-drug-treatment-chronic-weight-management-first-2014",
+    "Novo Nordisk EVOKE trial overview. https://www.novonordisk.com/research-and-pipeline/research-approach/cardiovascular-metabolic-renal/alzheimers-disease.html",
+    "Knudsen LB, Lau J. The Discovery and Development of Liraglutide and Semaglutide. Front Endocrinol. 2019;10:155. https://doi.org/10.3389/fendo.2019.00155",
+    "US Patent 5,424,286 \u2014 Exendin-4 analogues (inventor: John Eng). https://patents.google.com/patent/US5424286",
+    "Yalow RS, Berson SA. Immunoassay of endogenous plasma insulin in man. J Clin Invest. 1960;39:1157-1175. https://doi.org/10.1172/JCI104130",
+    "Novo Nordisk Annual Report 2023 \u2014 semaglutide sales exceeding $21 billion. https://www.novonordisk.com/investors/annual-report.html",
+    "EVOKE trial: ClinicalTrials.gov NCT04777396. https://clinicaltrials.gov/study/NCT04777396",
+    "Cohen D. The Ozempic effect. The Guardian, 2023. https://www.theguardian.com/society/2023/sep/04/ozempic-semaglutide-weight-loss-drug"
+  ]
+}

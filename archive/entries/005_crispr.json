@@ -1,0 +1,95 @@
+{
+  "number": "005",
+  "discovery_name": "CRISPR Gene Editing",
+  "tracker_summary": {
+    "invention": "CRISPR-Cas9 programmable gene editing",
+    "inventor": "Jennifer Doudna, Emmanuelle Charpentier (key 2012 paper); Francisco Mojica (foundational discovery); Feng Zhang (first mammalian cell application)",
+    "date": "2012 (landmark Science paper); 1987 (initial observation); 2023 (first FDA-approved therapy)",
+    "current_use": "Treating sickle cell disease and beta-thalassemia (FDA-approved Casgevy, 2023); cancer immunotherapy; agricultural bioengineering; diagnostics",
+    "initial_funding_source": "Japanese Ministry of Education (Ishino, 1987); Spanish Ministry of Education / University of Alicante (Mojica, 1990s)",
+    "initial_funding_reason": "Basic microbiology research into E. coli DNA replication; ecology of salt-tolerant microorganisms in Mediterranean saltpans",
+    "chain_length": "11 steps \u00b7 36 years"
+  },
+  "the_x": "Curiosity-driven funding for obscure microbial ecology and bacterial genetics with no envisioned application",
+  "the_y": "A programmable molecular scissors capable of rewriting the human genome, yielding the first curative gene therapies for inherited blood disorders and a 2020 Nobel Prize",
+  "summary": "In 1987 a Japanese microbiologist noticed something strange in an E. coli gene sequence. A Spanish graduate student later spent years wading through salt marshes near Alicante studying microbes no one cared about, and noticed the same pattern. His papers were rejected for years. He coined the acronym CRISPR and slowly pieced together that bacteria were running a sophisticated adaptive immune system. Yogurt-company scientists proved it. Then Jennifer Doudna and Emmanuelle Charpentier realized the bacterial machinery could be reprogrammed as a universal genetic cut-and-paste tool. In 2023 the FDA approved the first CRISPR therapy \u2014 36 years after Ishino's footnote.",
+  "chain": [
+    {
+      "year": "1987",
+      "who": "Yoshizumi Ishino and colleagues",
+      "where": "Osaka University, Japan",
+      "what_they_were_doing": "Sequencing E. coli; flagged anomalous clustered repeats in a footnote.",
+      "the_jump": null,
+      "funding": "Japanese Ministry of Education (Monbusho).",
+      "critical": true
+    },
+    {
+      "year": "1989\u20132003",
+      "who": "Francisco Mojica",
+      "where": "University of Alicante; Santa Pola salt marshes",
+      "what_they_were_doing": "PhD student found identical repeats in saltpan archaea; spent a decade piecing together their function.",
+      "the_jump": "In October 2003, BLAST revealed spacer sequences matched viral DNA \u2014 bacteria were storing genetic mugshots of past infections.",
+      "funding": "Spanish Ministry of Education; Spanish MCYT grant BMC2000-1385.",
+      "critical": true
+    },
+    {
+      "year": "2007",
+      "who": "Philippe Horvath and Rodolphe Barrangou",
+      "where": "Danisco A/S, France and Wisconsin",
+      "what_they_were_doing": "Protecting yogurt cultures from phages; showed survivors acquired new spacers matching the attacker.",
+      "the_jump": "Definitive experimental proof \u2014 published in Science from a corporate dairy lab \u2014 that CRISPR is a heritable adaptive immune system.",
+      "funding": "Danisco A/S.",
+      "critical": true
+    },
+    {
+      "year": "2011\u20132012",
+      "who": "Emmanuelle Charpentier and Jennifer Doudna",
+      "where": "Ume\u00e5 University; UC Berkeley",
+      "what_they_were_doing": "Engineered a single guide RNA; showed Cas9 could cut any chosen DNA target.",
+      "the_jump": "Leap from 'bacteria use this to fight viruses' to 'a 20-letter RNA sequence can cut any DNA in any organism.' CRISPR became a tool.",
+      "funding": "HHMI; NIH; Gates Foundation; Swedish Research Council.",
+      "critical": true
+    },
+    {
+      "year": "2012\u20132013",
+      "who": "Feng Zhang",
+      "where": "Broad Institute, Cambridge, Massachusetts",
+      "what_they_were_doing": "Applied CRISPR-Cas9 in mammalian cells; filed the eukaryotic-use patent.",
+      "the_jump": "Crossed the threshold from bacterial biochemistry to therapeutic relevance \u2014 and triggered the billion-dollar patent war.",
+      "funding": "NIH Director's Pioneer Award; Broad Institute; HHMI.",
+      "critical": true
+    },
+    {
+      "year": "2018",
+      "who": "He Jiankui",
+      "where": "Southern University of Science and Technology, Shenzhen",
+      "what_they_were_doing": "Secretly implanted CRISPR-edited embryos; announced twin girls with CCR5 edits via YouTube.",
+      "the_jump": "NEAR-DEATH MOMENT: Threatened global research bans. Doudna's swift moratorium call preserved public trust enough to keep clinical programs alive.",
+      "funding": "Southern University of Science and Technology.",
+      "critical": true
+    },
+    {
+      "year": "2020\u20132023",
+      "who": "Nobel Committee; Vertex / CRISPR Therapeutics; Victoria Gray",
+      "where": "Stockholm; clinical sites across USA and Europe",
+      "what_they_were_doing": "Doudna and Charpentier won the 2020 Nobel Prize; FDA approved Casgevy on December 8, 2023.",
+      "the_jump": "A bacterial footnote became a Nobel Prize and an FDA-approved cure for sickle cell disease \u2014 36 years later.",
+      "funding": "Nobel Foundation; Vertex Pharmaceuticals; NIH NHLBI.",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "Ishino Y, et al. (1987). J Bacteriology, 169(12):5429\u20135433. https://doi.org/10.1128/jb.169.12.5429-5433.1987",
+    "Mojica FJM, et al. (2005). J Mol Evol, 60(2):174\u2013182. https://doi.org/10.1007/s00239-004-0046-3",
+    "Jansen R, et al. (2002). Mol Microbiology, 43(6):1565\u20131575. https://doi.org/10.1046/j.1365-2958.2002.02839.x",
+    "Barrangou R, et al. (2007). Science, 315(5819):1709\u20131712. https://doi.org/10.1126/science.1138140",
+    "Deltcheva E, et al. (2011). Nature, 471:602\u2013607. https://doi.org/10.1038/nature09886",
+    "Jinek M, et al. (2012). Science, 337(6096):816\u2013821. https://doi.org/10.1126/science.1225829",
+    "Cong L, et al. (2013). Science, 339(6121):819\u2013823. https://doi.org/10.1126/science.1231143",
+    "Nobel Prize in Chemistry 2020. https://www.nobelprize.org/prizes/chemistry/2020/advanced-information/",
+    "FDA approval of Casgevy, Dec 8, 2023. https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
+    "Isaacson W. (2021). The Code Breaker. Simon & Schuster.",
+    "Mojica FJM. (2016). FEMS Microbiol Letters. https://doi.org/10.1093/femsle/fnw056",
+    "Doudna JA. (2019). Science, 366(6467):777. https://doi.org/10.1126/science.aba1751"
+  ]
+}

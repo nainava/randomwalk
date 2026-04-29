@@ -1,0 +1,70 @@
+{
+  "number": "007",
+  "discovery_name": "Viagra (Sildenafil)",
+  "tracker_summary": {
+    "invention": "Phosphodiesterase-5 inhibitor for erectile dysfunction",
+    "inventor": "Simon Campbell, David Roberts, and research team at Pfizer Sandwich, UK",
+    "date": "FDA approved March 27, 1998",
+    "current_use": "Treatment of erectile dysfunction and pulmonary arterial hypertension",
+    "initial_funding_source": "Pfizer Inc. internal R&D budget",
+    "initial_funding_reason": "Developing a treatment for angina pectoris and hypertension",
+    "chain_length": "7 steps \u00b7 18 years"
+  },
+  "the_x": "Pfizer's cardiovascular drug research program targeting angina and hypertension",
+  "the_y": "First oral treatment for erectile dysfunction, generating over $1.9 billion annually at peak",
+  "summary": "Pfizer chemists set out to find a new angina drug by inhibiting PDE5 to relax coronary blood vessels. The compound UK-92480 showed modest cardiovascular effects but produced a striking unreported side effect in male patients. Rather than abandon the compound, Pfizer physician Ian Osterloh championed investigating the side effect, pivoting the entire program to erectile dysfunction. The result was Viagra, approved in 1998 \u2014 2.9 million prescriptions in the first three months.",
+  "chain": [
+    {
+      "year": "1980\u20131989",
+      "who": "Pfizer Central Research, Simon Campbell, David Roberts",
+      "where": "Pfizer Sandwich, Kent, UK",
+      "what_they_were_doing": "Designing PDE5-inhibiting compounds to relax blood vessels; identified UK-92480 (sildenafil) as lead.",
+      "the_jump": null,
+      "funding": "Pfizer Inc.",
+      "critical": false
+    },
+    {
+      "year": "1991\u20131993",
+      "who": "Pfizer clinical trials team",
+      "where": "UK and Wales (including Morriston Hospital, Swansea)",
+      "what_they_were_doing": "Phase I/II trials for angina \u2014 modest blood pressure reduction, limited antianginal effect.",
+      "the_jump": "Male participants were reluctant to return unused pills. Nurses noted unreported erections as a side effect.",
+      "funding": "Pfizer Inc.",
+      "critical": true
+    },
+    {
+      "year": "1993",
+      "who": "Dr. Ian Osterloh",
+      "where": "Pfizer Sandwich, UK",
+      "what_they_were_doing": "Reviewed failed cardiovascular data and informal side-effect reports from trial nurses.",
+      "the_jump": "NEAR-DEATH MOMENT: Osterloh argued against shelving UK-92480 and proposed formally investigating the erectile effect \u2014 reversing the program's trajectory entirely.",
+      "funding": "Pfizer Inc.",
+      "critical": true
+    },
+    {
+      "year": "1994\u20131997",
+      "who": "Pfizer global clinical development team",
+      "where": "USA, Europe, Brazil",
+      "what_they_were_doing": "21 double-blind trials, over 3,000 men; demonstrated efficacy and acceptable safety for erectile dysfunction.",
+      "the_jump": null,
+      "funding": "Pfizer Inc.",
+      "critical": false
+    },
+    {
+      "year": "1998",
+      "who": "U.S. Food and Drug Administration",
+      "where": "Washington, D.C.",
+      "what_they_were_doing": "FDA approved Viagra on March 27, 1998 \u2014 the first oral pill for erectile dysfunction.",
+      "the_jump": "A failed angina drug became one of the most commercially successful pharmaceuticals in history, later repurposed as Revatio for pulmonary arterial hypertension.",
+      "funding": "N/A.",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "Osterloh IH. 'The discovery and development of Viagra.' https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3731515/",
+    "Boolell M, et al. 'Sildenafil, a novel effective oral therapy for male erectile dysfunction.' BJU. 1996;78(2):257-261. https://pubmed.ncbi.nlm.nih.gov/8813947/",
+    "Goldstein I, et al. 'Oral sildenafil in the treatment of erectile dysfunction.' NEJM. 1998;338(20):1397-1404. https://www.nejm.org/doi/full/10.1056/NEJM199805143382001",
+    "Campbell SF. 'Science, art and drug discovery: a personal perspective.' Clinical Science. 2000;99(4):255-260. https://pubmed.ncbi.nlm.nih.gov/10995571/",
+    "FDA Drug Approval History for Sildenafil. https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=020895"
+  ]
+}

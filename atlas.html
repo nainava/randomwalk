@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Walk — Atlas</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500;1,8..60,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #ffffff;
+    --fg: #000000;
+    --fgMix3: #555555;
+    --fgMix5: #8d8d8d;
+    --fgMix6: #aaaaaa;
+    --highlight: #E4001C;
+    --border: #c6c6c6;
+    --borderLight: #e5e5e5;
+    --rowHover: #fafafa;
+    --rowOpen: #f5f5f5;
+
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    --bodySize: 22px;
+    --bodyLH: 1.4;
+    --bodyMargin: calc(var(--bodyLH) * var(--bodySize));
+
+    --streamSpacing: calc(130 / 1680 * 100vw);
+
+    --gridGap: 10px;
+    --gridMargin: 20px;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: var(--sans);
+    background: #ffffff;
+    color: var(--fg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gridGap);
+    padding: 0 var(--gridMargin);
+    max-width: 1680px;
+    margin: 0 auto;
+  }
+  .g-content { grid-column: 3 / 9; }
+  .g-wide    { grid-column: 2 / 12; }
+  .g-full    { grid-column: 1 / -1; }
+
+  nav {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fgMix5);
+    padding: 14px var(--gridMargin);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1680px;
+    margin: 0 auto;
+  }
+  nav a { color: var(--fgMix5); text-decoration: none; }
+  nav a:hover { color: var(--fg); }
+  nav .nav-brand { letter-spacing: -0.01em; }
+  nav .nav-brand a { color: inherit; }
+  nav .nav-right { display: flex; gap: 20px; }
+
+  .article-title {
+    font-family: var(--sans);
+    font-size: 100px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    padding-top: var(--streamSpacing);
+    padding-bottom: var(--streamSpacing);
+  }
+  .article-title .title-text {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 4px 8px;
+    margin: -4px -8px;
+    transition: background 0.6s ease, color 0.6s ease;
+  }
+
+  .stream-space { padding-top: var(--streamSpacing); padding-bottom: var(--streamSpacing); }
+  .stream-space-top { padding-top: var(--streamSpacing); }
+  .stream-space-bottom { padding-bottom: var(--streamSpacing); }
+
+  .stat-line {
+    font-family: var(--serif);
+    font-size: var(--bodySize);
+    line-height: var(--bodyLH);
+    font-style: italic;
+    color: var(--fgMix5);
+  }
+
+  .heading-medium {
+    font-family: var(--sans);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  /* ---------- Sankey ---------- */
+  .viz-section { padding-top: var(--streamSpacing); padding-bottom: 40px; }
+  #sankey-svg { display: block; width: 100%; height: auto; }
+  .viz-caption {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fgMix5);
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+  .s-label   { font-family: var(--serif); font-size: 13px; fill: var(--fgMix3); }
+  .s-label-r { font-family: var(--serif); font-size: 13px; fill: var(--fgMix3); text-anchor: end; }
+
+  /* ---------- Toolbar ---------- */
+  .toolbar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 13px;
+  }
+  .toolbar input[type="text"],
+  .toolbar select {
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 7px 9px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    border-radius: 2px;
+    outline: none;
+  }
+  .toolbar input[type="text"]:focus,
+  .toolbar select:focus { border-color: var(--fg); }
+  .toolbar input[type="text"] { flex: 1 1 240px; min-width: 180px; }
+  .toolbar .result-count { color: var(--fgMix5); margin-left: auto; }
+
+  /* ---------- Table ---------- */
+  .sheet-wrap { overflow-x: auto; margin-top: 16px; }
+  table.sheet {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  table.sheet thead th {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    text-align: left;
+    font-weight: 600;
+    color: var(--fgMix3);
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    user-select: none;
+    z-index: 2;
+  }
+  table.sheet thead th[data-key] { cursor: pointer; }
+  table.sheet thead th[data-key]:hover { color: var(--fg); }
+  table.sheet thead th .sort-ind {
+    display: inline-block;
+    width: 10px;
+    color: var(--fgMix6);
+    margin-left: 4px;
+  }
+  table.sheet thead th.sorted .sort-ind { color: var(--highlight); }
+  table.sheet thead th.num, table.sheet tbody td.num { text-align: right; }
+
+  table.sheet tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--borderLight);
+    vertical-align: top;
+    color: var(--fg);
+  }
+  table.sheet tbody tr.row { cursor: pointer; }
+  table.sheet tbody tr.row:hover td { background: var(--rowHover); }
+  table.sheet tbody tr.row.open td { background: var(--rowOpen); }
+
+  td.col-num     { color: var(--fgMix5); font-variant-numeric: tabular-nums; width: 56px; }
+  td.col-name    { font-weight: 600; min-width: 180px; max-width: 260px; }
+  td.col-year    { color: var(--fgMix3); white-space: nowrap; font-variant-numeric: tabular-nums; width: 64px; text-align: right; }
+  td.col-span    { color: var(--fgMix3); white-space: nowrap; font-variant-numeric: tabular-nums; width: 68px; text-align: right; }
+  td.col-cross   { white-space: nowrap; width: 72px; color: var(--fgMix5); }
+  td.col-cross.yes { color: var(--highlight); font-weight: 600; }
+  td.col-origin, td.col-outcome { color: var(--fgMix3); white-space: nowrap; max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
+  td.col-funder  { color: var(--fgMix3); white-space: nowrap; }
+  td.col-funders { color: var(--fgMix3); white-space: nowrap; font-variant-numeric: tabular-nums; width: 60px; text-align: right; }
+  td.col-mech    { color: var(--fgMix3); white-space: nowrap; font-style: italic; }
+  td.col-nd      { color: var(--fgMix5); white-space: nowrap; font-variant-numeric: tabular-nums; width: 92px; text-align: right; }
+  td.col-nd.hi   { color: var(--highlight); font-weight: 600; }
+  td.col-depth   { color: var(--fgMix5); white-space: nowrap; font-variant-numeric: tabular-nums; width: 76px; text-align: right; }
+
+  td .caret {
+    display: inline-block;
+    width: 12px;
+    color: var(--fgMix6);
+    font-size: 11px;
+    transition: transform 0.2s ease;
+  }
+  tr.row.open td .caret { transform: rotate(90deg); color: var(--highlight); }
+
+  /* ---------- Expanded row ---------- */
+  tr.detail { display: none; }
+  tr.detail.open { display: table-row; }
+  tr.detail td {
+    padding: 0;
+    background: var(--rowOpen);
+    border-bottom: 1px solid var(--border);
+  }
+  .detail-body {
+    padding: 20px 24px 24px;
+    max-width: 1320px;
+  }
+  .detail-prose {
+    max-width: 1100px;
+  }
+  .detail-xy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 760px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--borderLight);
+  }
+  .detail-xy-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fgMix5);
+    margin-bottom: 6px;
+  }
+  .detail-x, .detail-y {
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .detail-x { color: var(--fgMix3); }
+  .detail-y { color: var(--highlight); font-style: italic; }
+
+  .detail-summary {
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--fg);
+    margin-bottom: 18px;
+    text-indent: 1.2em;
+  }
+  .detail-jump {
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--fgMix3);
+    padding-left: 0.8em;
+    border-left: 2px solid var(--highlight);
+  }
+  .detail-heading {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fgMix5);
+    margin-bottom: 10px;
+    margin-top: 4px;
+  }
+
+  .chain-para {
+    font-family: var(--serif);
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--fg);
+    margin-bottom: 6px;
+  }
+  .chain-para .yr { color: var(--highlight); }
+  .chain-para .lead { font-weight: 600; }
+  .chain-para .loc, .chain-para .fund {
+    font-style: italic;
+    color: var(--fgMix5);
+    font-size: 12px;
+  }
+  .chain-jump {
+    font-family: var(--serif);
+    font-size: 12.5px;
+    line-height: 1.45;
+    font-style: italic;
+    color: var(--fgMix3);
+    padding-left: 0.9em;
+    border-left: 1px solid var(--fgMix5);
+    margin-bottom: 10px;
+  }
+  .chain-jump.nd {
+    color: var(--highlight);
+    border-left-color: var(--highlight);
+  }
+
+  .fn {
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px solid var(--borderLight);
+  }
+  .fn ol { list-style: decimal; padding-left: 20px; }
+  .fn li {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--fgMix5);
+    line-height: 1.5;
+    margin-bottom: 0.3em;
+    word-break: break-word;
+  }
+  .fn a {
+    color: var(--fgMix3);
+    text-decoration: underline;
+    text-decoration-color: var(--fgMix6);
+    text-underline-offset: 2px;
+  }
+  .fn a:hover { text-decoration-color: var(--highlight); }
+
+  .no-results {
+    padding: 40px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--fgMix5);
+    text-align: center;
+  }
+
+  /* ---------- Mechanism glossary footnote ---------- */
+  .legend {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--fgMix3);
+  }
+  .legend-heading {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fgMix5);
+    margin-bottom: 14px;
+  }
+  .legend-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 36px;
+    row-gap: 12px;
+  }
+  .legend-list dt {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--fg);
+    margin-bottom: 2px;
+  }
+  .legend-list dd {
+    margin: 0;
+    color: var(--fgMix3);
+  }
+  .legend-list dd em {
+    color: var(--fgMix5);
+    font-style: italic;
+  }
+  @media (max-width: 768px) {
+    .legend-list { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Closing / Footer ---------- */
+  .closing-link {
+    font-family: var(--serif);
+    font-size: var(--bodySize);
+    font-style: italic;
+    padding-top: var(--streamSpacing);
+    padding-bottom: var(--streamSpacing);
+  }
+  .closing-link a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-color: var(--fgMix6);
+    text-underline-offset: 3px;
+  }
+  .closing-link a:hover { text-decoration-color: var(--highlight); }
+
+  footer {
+    padding-top: calc(var(--streamSpacing) * 2);
+    padding-bottom: var(--streamSpacing);
+  }
+  footer p {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--fgMix5);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    :root { --bodySize: 20px; }
+    .article-title { font-size: 56px; }
+    .heading-medium { font-size: 21px; }
+    .g-content { grid-column: 2 / 12; }
+    .g-wide { grid-column: 1 / -1; }
+    .detail-body { padding: 16px 20px; }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --bodySize: 18px;
+      --gridMargin: 16px;
+      --streamSpacing: calc(65 / 768 * 100vw);
+    }
+    .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .g-content { grid-column: 1 / -1; }
+    .g-wide { grid-column: 1 / -1; }
+    .article-title { font-size: 40px; }
+    table.sheet { font-size: 12px; }
+    table.sheet tbody td { padding: 7px 8px; }
+    .detail-xy-grid { grid-template-columns: 1fr; gap: 12px; }
+    .detail-body { padding: 14px 16px; }
+  }
+
+  /* ---------- Random walk canvas ---------- */
+  .header-wrap { position: relative; }
+  .header-wrap canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .header-wrap .grid { position: relative; z-index: 1; }
+
+  @media print {
+    nav { display: none; }
+    tr.detail { display: table-row !important; }
+    .header-wrap canvas { display: none; }
+    .about-overlay { display: none; }
+    .toolbar { display: none; }
+  }
+
+  /* ---------- About (sticky note) ---------- */
+  .about-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .about-overlay.open { display: flex; align-items: center; justify-content: center; }
+
+  .about-wrapper {
+    position: relative;
+    width: fit-content;
+  }
+  /* separate blurred shadow layer, offset down-right, behind the note */
+  .about-shadow {
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.18);
+    filter: blur(12px);
+    border-radius: 4px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .about-modal {
+    width: 260px;
+    min-height: 260px;
+    padding: 22px;
+    background: #e6f23a;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    cursor: default;
+    transform: rotate(0.6deg);
+  }
+  /* 135deg light source */
+  .about-modal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), transparent 60%);
+  }
+  .about-modal p {
+    margin: 0 0 14px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #222;
+  }
+  .about-modal .about-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand"><a href="index.html">Random Walk</a></span>
+  <div class="nav-right">
+    <span style="color:var(--fg);font-weight:600">Atlas</span>
+    <a href="radar.html">Radar</a>
+    <a href="#" id="about-link">About</a>
+  </div>
+</nav>
+
+<div class="header-wrap" id="header-wrap">
+  <canvas id="rw-canvas"></canvas>
+  <div class="grid">
+    <div class="g-content">
+      <h1 class="article-title"><span class="title-text">Random Walk<span style="color:#8d8d8d">: Atlas</span></span></h1>
+    </div>
+  </div>
+</div>
+
+<!-- Sankey — full bleed -->
+<div class="grid">
+  <div class="g-wide viz-section">
+    <svg id="sankey-svg" viewBox="0 0 960 500"></svg>
+    <p class="viz-caption">Each flow traces funding sources to outcome categories across 51 discoveries. Width indicates the number of discoveries following each path. Many flows cross categorical boundaries — money invested in one field producing breakthroughs in another.</p>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="g-wide" style="padding-top:40px">
+    <h2 class="heading-medium">The Sheet</h2>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="g-wide" style="padding-top:20px">
+    <div class="toolbar">
+      <input type="text" id="filter-text" placeholder="Filter by name, funder, field…" autocomplete="off">
+      <select id="filter-era"><option value="">All eras</option></select>
+      <select id="filter-funder"><option value="">All funders</option></select>
+      <select id="filter-inst"><option value="">All institutions</option></select>
+      <select id="filter-mech"><option value="">All mechanisms</option></select>
+      <select id="filter-crossed">
+        <option value="">All</option>
+        <option value="Yes">Crossed fields</option>
+        <option value="No">Same field</option>
+      </select>
+      <select id="filter-depth">
+        <option value="">All</option>
+        <option value="full">Full chains</option>
+        <option value="short">Shorts</option>
+      </select>
+      <span class="result-count" id="result-count"></span>
+    </div>
+    <div class="sheet-wrap">
+      <table class="sheet" id="sheet">
+        <thead>
+          <tr>
+            <th data-key="number"        data-type="num" class="col-num">#<span class="sort-ind"></span></th>
+            <th data-key="name"          data-type="str" class="col-name">Discovery<span class="sort-ind"></span></th>
+            <th data-key="year"          data-type="num" class="num">Year<span class="sort-ind"></span></th>
+            <th data-key="spanSort"      data-type="num" class="num">Span (yrs)<span class="sort-ind"></span></th>
+            <th>Crossed</th>
+            <th>Origin field</th>
+            <th>Outcome field</th>
+            <th>Funder type</th>
+            <th data-key="numFunders"    data-type="num" class="num"># Funders<span class="sort-ind"></span></th>
+            <th>Mechanism</th>
+            <th data-key="nearDeathSort" data-type="num" class="num">Near-deaths<span class="sort-ind"></span></th>
+            <th data-key="depthSort"     data-type="num" class="num">Depth<span class="sort-ind"></span></th>
+          </tr>
+        </thead>
+        <tbody id="sheet-body"></tbody>
+      </table>
+      <div class="no-results" id="no-results" style="display:none">No matches.</div>
+    </div>
+
+    <aside class="legend">
+      <div class="legend-heading">Mechanisms</div>
+      <dl class="legend-list">
+        <div>
+          <dt>accident</dt>
+          <dd>An unplanned signal drifts in from outside the experiment; the researcher notices. <em>Penicillin: mold contaminated a plate.</em></dd>
+        </div>
+        <div>
+          <dt>salvaged failure</dt>
+          <dd>The planned experiment ran as designed but produced the wrong result; the researcher kept the wrong result. <em>Super Glue: formula failed as a gunsight, stuck to everything.</em></dd>
+        </div>
+        <div>
+          <dt>side effect</dt>
+          <dd>A treatment developed for condition A turns out to do something useful for unrelated condition B. <em>Viagra: angina trial, patients reported erections.</em></dd>
+        </div>
+        <div>
+          <dt>cross pollination</dt>
+          <dd>A researcher who sits at the intersection of two fields imports method knowledge from one into the other. <em>GLP-1: an endocrinologist uses reptile venom biology to probe human gut hormones.</em></dd>
+        </div>
+        <div>
+          <dt>tool migration</dt>
+          <dd>A concrete artifact — instrument, dataset, codebase, infrastructure — built for task A gets reused for task B. <em>Transformer: translation architecture becomes the backbone of general-purpose AI.</em></dd>
+        </div>
+        <div>
+          <dt>analogy</dt>
+          <dd>A pattern observed in nature or another domain is deliberately borrowed as a design. <em>Velcro: burrs on a dog's fur become a fastener.</em></dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</div>
+
+<script src="entries.js"></script>
+<script src="viz_tags.js"></script>
+<script>
+(function() {
+
+  function parseSourceLink(src) {
+    var m = src.match(/(https?:\/\/[^\s"<>]+)/);
+    if (m) {
+      var url = m[1].replace(/[.,;)]+$/, '');
+      var text = src.replace(m[0], '').trim().replace(/\s+/g, ' ').replace(/^\s*[,.\s]+/, '').replace(/[,.\s]+$/, '');
+      return (text ? text + ' ' : '') + '<a href="' + url + '" target="_blank">' + url + '</a>';
+    }
+    return src;
+  }
+
+  function isND(s) {
+    return s && (s.toUpperCase().indexOf('NEAR-DEATH') !== -1 || s.toUpperCase().indexOf('NEAR DEATH') !== -1);
+  }
+
+  function esc(s) {
+    if (s == null) return '';
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // Pull all 4-digit years out of a string
+  function yearsIn(s) {
+    if (!s) return [];
+    var m = String(s).match(/\b(1[89]\d{2}|20\d{2})\b/g);
+    return m ? m.map(Number) : [];
+  }
+
+  // Count chain steps flagged as near-death
+  function countNearDeaths(chain) {
+    if (!chain) return 0;
+    var n = 0;
+    chain.forEach(function(s) { if (s.the_jump && isND(s.the_jump)) n++; });
+    return n;
+  }
+
+  // For a full entry, derive [start, end] years from chain[].year
+  function chainYearRange(chain) {
+    if (!chain || !chain.length) return null;
+    var all = [];
+    chain.forEach(function(st) { all = all.concat(yearsIn(st.year)); });
+    if (!all.length) return null;
+    return [Math.min.apply(null, all), Math.max.apply(null, all)];
+  }
+
+  // Shared funder-type mapping (also used by sankey below)
+  var FUNDER_FM = {
+    'NIH': 'NIH', 'Veterans Administration': 'NIH', 'NIDDK': 'NIH',
+    'DARPA': 'Military & Defense', 'US Military': 'Military & Defense', 'British War Office': 'Military & Defense', 'ARPA': 'Military & Defense',
+    'NSF': 'Government', 'DOE': 'Government', 'US/UK Gov': 'Government', 'Medical Research Committee': 'Government', 'NSERC': 'Government',
+    'Google': 'Industry', 'Pfizer': 'Industry', '3M': 'Industry', 'DuPont': 'Industry', 'Raytheon': 'Industry', 'BioNTech': 'Industry', 'Xerox': 'Industry', 'Bell Labs': 'Industry', 'IBM': 'Industry', 'AT&T': 'Industry', 'Novo Nordisk': 'Industry',
+    'CIFAR': 'Foundations', 'HHMI': 'Foundations', 'Rockefeller Foundation': 'Foundations', 'Howard Hughes Medical Institute': 'Foundations',
+    'Hungarian Academy of Sciences': 'Foreign Gov’t', 'Japanese Ministry of Education': 'Foreign Gov’t', 'Spanish Ministry of Education': 'Foreign Gov’t', 'Danish Medical Research Council': 'Foreign Gov’t', 'Australian State Hospital': 'Foreign Gov’t',
+    'University of Buffalo': 'Universities', 'Johns Hopkins': 'Universities', 'University of Würzburg': 'Universities',
+    'Personal / Self-funded': 'Self-funded'
+  };
+  function funderType(n) {
+    if (!n) return '';
+    if (FUNDER_FM[n]) return FUNDER_FM[n];
+    if (/ministry|academy|council|danish|hungarian|japanese|spanish|australian|british|french/i.test(n)) return 'Foreign Gov’t';
+    if (/university|college|institute|school/i.test(n)) return 'Universities';
+    if (/foundation|trust|endowment|hhmi|cifar/i.test(n)) return 'Foundations';
+    if (/personal|self/i.test(n)) return 'Self-funded';
+    if (/nih|nsf|doe|va |veterans|arpa|darpa|military/i.test(n)) return 'Government';
+    return 'Industry';
+  }
+
+  var entryMap = {}, suggMap = {};
+  (typeof ENTRIES !== 'undefined' ? ENTRIES : []).forEach(function(e) { entryMap[e.number] = e; });
+  (typeof SUGGESTIONS !== 'undefined' ? SUGGESTIONS : []).forEach(function(s) { suggMap[s.number] = s; });
+
+  var rows = (typeof VIZ_TAGS !== 'undefined' ? VIZ_TAGS : []).map(function(v) {
+    var entry = entryMap[v.number];
+    var sugg  = suggMap[v.number];
+    var isFull = !!entry;
+    var name = (entry && entry.discovery_name) || (sugg && sugg.name) || v.name;
+    var x = (entry && entry.the_x) || (sugg && sugg.the_x) || '';
+    var y = (entry && entry.the_y) || (sugg && sugg.the_y) || '';
+    var primaryFunder = (v.funding_sources && v.funding_sources[0]) || '';
+    var numFunders = (v.funding_sources || []).length;
+    var steps = isFull && entry.chain ? entry.chain.length : 0;
+    var nd = isFull ? countNearDeaths(entry.chain) : null;
+
+    // Year + span: compute directly from data
+    var year = null, span = null;
+    if (isFull) {
+      var rng = chainYearRange(entry.chain);
+      if (rng) { year = rng[0]; span = rng[1] - rng[0]; }
+    } else {
+      // Shorts: pick first concrete year from key_jump / the_x / the_y
+      var candidates = yearsIn((sugg && sugg.key_jump) || '')
+        .concat(yearsIn((sugg && sugg.the_x) || ''))
+        .concat(yearsIn((sugg && sugg.the_y) || ''));
+      if (candidates.length) year = candidates[0];
+    }
+
+    var origin  = v.origin_field  || '';
+    var outcome = v.outcome_field || '';
+    var crossed = (origin && outcome && origin !== outcome) ? 'Yes' : 'No';
+
+    return {
+      number: v.number,
+      name: name,
+      x: x,
+      y: y,
+      era: v.era || '',
+      year: year == null ? 9999 : year,      // sort bucket for missing
+      yearDisplay: year == null ? '—' : String(year),
+      span: span,
+      spanSort: span == null ? -1 : span,
+      crossed: crossed,
+      originField: origin,
+      outcomeField: outcome,
+      originCategory: v.origin_category || '',
+      outcomeCategory: v.outcome_category || '',
+      funderType: funderType(primaryFunder),
+      funderRaw: primaryFunder,
+      numFunders: numFunders,
+      mechanism: (v.mechanism || '').replace(/_/g, ' '),
+      institution: (v.institution_types && v.institution_types[0]) || '',
+      geo: v.geography_origin || '',
+      nearDeath: nd,
+      nearDeathSort: nd == null ? -1 : nd,
+      depth: isFull ? 'full' : 'short',
+      depthSort: isFull ? steps : -1,
+      steps: steps,
+      isFull: isFull,
+      entry: entry,
+      sugg: sugg
+    };
+  });
+
+  // ---------- Filter dropdowns ----------
+  function uniqSorted(arr) {
+    var seen = {};
+    arr.forEach(function(v) { if (v) seen[v] = true; });
+    return Object.keys(seen).sort();
+  }
+  function eraSortKey(era) {
+    if (!era) return 9999;
+    if (/pre-1950/i.test(era)) return 1900;
+    var m = era.match(/(\d{4})/);
+    return m ? parseInt(m[1], 10) : 9999;
+  }
+  var eras = uniqSorted(rows.map(function(r) { return r.era; }));
+  eras.sort(function(a, b) { return eraSortKey(a) - eraSortKey(b); });
+  var funders = uniqSorted(rows.map(function(r) { return r.funderType; }));
+  var insts   = uniqSorted(rows.map(function(r) { return r.institution; }));
+  var mechs   = uniqSorted(rows.map(function(r) { return r.mechanism; }));
+
+  function populate(sel, items) {
+    items.forEach(function(v) {
+      var o = document.createElement('option');
+      o.value = v; o.textContent = v;
+      sel.appendChild(o);
+    });
+  }
+  populate(document.getElementById('filter-era'), eras);
+  populate(document.getElementById('filter-funder'), funders);
+  populate(document.getElementById('filter-inst'), insts);
+  populate(document.getElementById('filter-mech'), mechs);
+
+  // ---------- Render ----------
+  var tbody = document.getElementById('sheet-body');
+  var COLSPAN = 12;
+
+  function renderDetailHTML(r) {
+    var html = '<div class="detail-body">';
+    html += '<div class="detail-xy-grid">' +
+      '<div><div class="detail-xy-label">Funded (X)</div><div class="detail-x">' + esc(r.x) + '</div></div>' +
+      '<div><div class="detail-xy-label">Discovered (Y)</div><div class="detail-y">' + esc(r.y) + '</div></div>' +
+    '</div>';
+
+    html += '<div class="detail-prose">';
+    if (r.isFull) {
+      var e = r.entry;
+      if (e.summary) html += '<div class="detail-summary">' + esc(e.summary) + '</div>';
+      if (e.chain && e.chain.length) {
+        html += '<div class="detail-heading">The Chain</div>';
+        e.chain.forEach(function(step) {
+          html += '<p class="chain-para">' +
+            '<span class="lead"><span class="yr">' + esc(step.year || '') + '</span> — ' + esc(step.who || '') + '.</span> ';
+          if (step.where) html += '<span class="loc">' + esc(step.where) + '.</span> ';
+          html += esc(step.what_they_were_doing || '');
+          if (step.funding) html += ' <span class="fund">(' + esc(step.funding) + ')</span>';
+          html += '</p>';
+          if (step.the_jump) {
+            html += '<div class="chain-jump' + (isND(step.the_jump) ? ' nd' : '') + '">' + esc(step.the_jump) + '</div>';
+          }
+        });
+      }
+      if (e.sources && e.sources.length) {
+        html += '<div class="fn"><ol>';
+        e.sources.forEach(function(s) { html += '<li>' + parseSourceLink(s) + '</li>'; });
+        html += '</ol></div>';
+      }
+    } else if (r.sugg && r.sugg.key_jump) {
+      html += '<div class="detail-heading">The Jump</div>';
+      html += '<div class="detail-jump">' + esc(r.sugg.key_jump) + '</div>';
+    }
+    html += '</div>';
+
+    html += '</div>';
+    return html;
+  }
+
+  function render(list) {
+    tbody.innerHTML = '';
+    if (!list.length) {
+      document.getElementById('no-results').style.display = 'block';
+      document.getElementById('result-count').textContent = '0 of ' + rows.length;
+      return;
+    }
+    document.getElementById('no-results').style.display = 'none';
+
+    var frag = document.createDocumentFragment();
+    list.forEach(function(r) {
+      var tr = document.createElement('tr');
+      tr.className = 'row';
+      tr.dataset.num = r.number;
+      tr.innerHTML =
+        '<td class="col-num"><span class="caret">▸</span> ' + esc(r.number) + '</td>' +
+        '<td class="col-name">' + esc(r.name) + '</td>' +
+        '<td class="col-year">' + esc(r.yearDisplay) + '</td>' +
+        '<td class="col-span">' + (r.span == null ? '—' : r.span) + '</td>' +
+        '<td class="col-cross' + (r.crossed === 'Yes' ? ' yes' : '') + '">' + esc(r.crossed) + '</td>' +
+        '<td class="col-origin" title="' + esc(r.originField) + '">' + esc(r.originField) + '</td>' +
+        '<td class="col-outcome" title="' + esc(r.outcomeField) + '">' + esc(r.outcomeField) + '</td>' +
+        '<td class="col-funder">' + esc(r.funderType) + '</td>' +
+        '<td class="col-funders">' + r.numFunders + '</td>' +
+        '<td class="col-mech">' + esc(r.mechanism) + '</td>' +
+        '<td class="col-nd' + (r.nearDeath && r.nearDeath >= 2 ? ' hi' : '') + '">' + (r.nearDeath == null ? '—' : r.nearDeath) + '</td>' +
+        '<td class="col-depth">' + (r.isFull ? r.steps + ' steps' : '—') + '</td>';
+
+      var detail = document.createElement('tr');
+      detail.className = 'detail';
+      detail.dataset.num = r.number;
+      detail.innerHTML = '<td colspan="' + COLSPAN + '">' + renderDetailHTML(r) + '</td>';
+
+      tr.addEventListener('click', function() {
+        var open = tr.classList.toggle('open');
+        detail.classList.toggle('open', open);
+      });
+
+      frag.appendChild(tr);
+      frag.appendChild(detail);
+    });
+    tbody.appendChild(frag);
+    document.getElementById('result-count').textContent = list.length + ' of ' + rows.length;
+  }
+
+  // ---------- Sort ----------
+  var sortKey = 'number', sortDir = 1;
+  function applySort(list) {
+    var th = document.querySelector('th[data-key="' + sortKey + '"]');
+    var type = th ? th.dataset.type : 'str';
+    return list.slice().sort(function(a, b) {
+      var va = a[sortKey], vb = b[sortKey];
+      if (type === 'num') { va = +va || 0; vb = +vb || 0; return (va - vb) * sortDir; }
+      va = (va || '').toString().toLowerCase();
+      vb = (vb || '').toString().toLowerCase();
+      if (va < vb) return -1 * sortDir;
+      if (va > vb) return 1 * sortDir;
+      return 0;
+    });
+  }
+
+  function updateSortIndicators() {
+    document.querySelectorAll('th[data-key]').forEach(function(th) {
+      th.classList.remove('sorted');
+      th.querySelector('.sort-ind').textContent = '';
+    });
+    var th = document.querySelector('th[data-key="' + sortKey + '"]');
+    if (th) {
+      th.classList.add('sorted');
+      th.querySelector('.sort-ind').textContent = sortDir > 0 ? '▴' : '▾';
+    }
+  }
+
+  document.querySelectorAll('th[data-key]').forEach(function(th) {
+    th.addEventListener('click', function() {
+      var k = th.dataset.key;
+      if (sortKey === k) sortDir = -sortDir;
+      else { sortKey = k; sortDir = 1; }
+      updateSortIndicators();
+      refresh();
+    });
+  });
+
+  // ---------- Filter ----------
+  var fText    = document.getElementById('filter-text');
+  var fEra     = document.getElementById('filter-era');
+  var fFunder  = document.getElementById('filter-funder');
+  var fInst    = document.getElementById('filter-inst');
+  var fMech    = document.getElementById('filter-mech');
+  var fCrossed = document.getElementById('filter-crossed');
+  var fDepth   = document.getElementById('filter-depth');
+
+  function applyFilter(list) {
+    var q = fText.value.trim().toLowerCase();
+    var era = fEra.value, funder = fFunder.value, inst = fInst.value,
+        mech = fMech.value, cross = fCrossed.value, depth = fDepth.value;
+    return list.filter(function(r) {
+      if (era && r.era !== era) return false;
+      if (funder && r.funderType !== funder) return false;
+      if (inst && r.institution !== inst) return false;
+      if (mech && r.mechanism !== mech) return false;
+      if (cross && r.crossed !== cross) return false;
+      if (depth && r.depth !== depth) return false;
+      if (q) {
+        var hay = (r.name + ' ' + r.x + ' ' + r.y + ' ' + r.funderRaw + ' ' + r.funderType + ' ' +
+                   r.originField + ' ' + r.outcomeField + ' ' + r.originCategory + ' ' + r.outcomeCategory + ' ' +
+                   r.mechanism + ' ' + r.era + ' ' + r.institution + ' ' + r.geo).toLowerCase();
+        if (hay.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+  }
+
+  function refresh() {
+    render(applySort(applyFilter(rows)));
+  }
+
+  [fText, fEra, fFunder, fInst, fMech, fCrossed, fDepth].forEach(function(el) {
+    el.addEventListener('input', refresh);
+    el.addEventListener('change', refresh);
+  });
+
+  updateSortIndicators();
+  refresh();
+
+  // ---------- Sankey ----------
+  (function() {
+    if (typeof VIZ_TAGS === 'undefined') return;
+
+    var flows = {};
+    VIZ_TAGS.forEach(function(t) {
+      var o = t.outcome_category;
+      var s = t.funding_sources && t.funding_sources.length ? funderType(t.funding_sources[0]) : 'Other';
+      var k = s + '|' + o;
+      flows[k] = (flows[k] || 0) + 1;
+    });
+
+    var L = {}, R = {};
+    Object.keys(flows).forEach(function(k) {
+      var p = k.split('|');
+      L[p[0]] = (L[p[0]] || 0) + flows[k];
+      R[p[1]] = (R[p[1]] || 0) + flows[k];
+    });
+
+    var la = Object.keys(L).sort(function(a, b) { return L[b] - L[a]; });
+    var ra = Object.keys(R).sort(function(a, b) { return R[b] - R[a]; });
+
+    var W = 960, H = 500, nw = 8, lx = 150, rx = W - 250, pad = 14, t0 = 20;
+    var tl = la.reduce(function(s, n) { return s + L[n]; }, 0);
+    var tr = ra.reduce(function(s, n) { return s + R[n]; }, 0);
+    var ul = (H - t0 - 20 - pad * (la.length - 1)) / tl;
+    var ur = (H - t0 - 20 - pad * (ra.length - 1)) / tr;
+
+    var lp = {}, y = t0;
+    la.forEach(function(n) { var h = Math.max(L[n] * ul, 3); lp[n] = { y: y, h: h, u: 0 }; y += h + pad; });
+    var rp = {}; y = t0;
+    ra.forEach(function(n) { var h = Math.max(R[n] * ur, 3); rp[n] = { y: y, h: h, u: 0 }; y += h + pad; });
+
+    var colors = { 'NIH': '#E4001C', 'Military & Defense': '#555', 'Industry': '#8a7050', 'Government': '#666', 'Foreign Gov’t': '#777', 'Foundations': '#555', 'Universities': '#666', 'Self-funded': '#888' };
+
+    var svg = document.getElementById('sankey-svg');
+    var out = '';
+
+    var fk = Object.keys(flows).sort(function(a, b) { return flows[b] - flows[a]; });
+    fk.forEach(function(k) {
+      var p = k.split('|'), ln = p[0], rn = p[1], c = flows[k];
+      var l = lp[ln], r = rp[rn];
+      var fh = c * Math.min(ul, ur);
+      var y1 = l.y + l.u + fh / 2, y2 = r.y + r.u + fh / 2;
+      l.u += fh; r.u += fh;
+      var x1 = lx + nw, x2 = rx;
+      var cx1 = x1 + (x2 - x1) * 0.38, cx2 = x1 + (x2 - x1) * 0.62;
+      out += '<path d="M' + x1 + ',' + y1 + ' C' + cx1 + ',' + y1 + ' ' + cx2 + ',' + y2 + ' ' + x2 + ',' + y2 + '" fill="none" stroke="' + (colors[ln] || '#999') + '" stroke-width="' + Math.max(fh, 1.5) + '" stroke-opacity="0.2"/>';
+    });
+
+    la.forEach(function(n) {
+      var p = lp[n];
+      out += '<rect x="' + lx + '" y="' + p.y + '" width="' + nw + '" height="' + p.h + '" fill="' + (colors[n] || '#999') + '" rx="1"/>';
+      out += '<text class="s-label-r" x="' + (lx - 10) + '" y="' + (p.y + p.h / 2 + 4) + '">' + n + '</text>';
+    });
+    ra.forEach(function(n) {
+      var p = rp[n];
+      out += '<rect x="' + rx + '" y="' + p.y + '" width="' + nw + '" height="' + p.h + '" fill="#666" rx="1"/>';
+      out += '<text class="s-label" x="' + (rx + nw + 10) + '" y="' + (p.y + p.h / 2 + 4) + '">' + n + '</text>';
+    });
+
+    svg.innerHTML = out;
+  })();
+
+})();
+</script>
+
+<script>
+(function() {
+  var wrap = document.getElementById('header-wrap');
+  var canvas = document.getElementById('rw-canvas');
+  var ctx = canvas.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  var x, y, w, h;
+  var title = wrap.querySelector('.title-text');
+  var flipped = false;
+  var totalSteps = 0;
+
+  var GRID = 20;
+  var gridCols, gridRows, visited;
+
+  function initGrid() {
+    gridCols = Math.ceil(w / GRID);
+    gridRows = Math.ceil(h / GRID);
+    visited = new Uint8Array(gridCols * gridRows);
+  }
+
+  function markVisited() {
+    var col = Math.floor(x / GRID);
+    var row = Math.floor(y / GRID);
+    if (col >= 0 && col < gridCols && row >= 0 && row < gridRows) {
+      visited[row * gridCols + col] = 1;
+    }
+  }
+
+  function getCoverage() {
+    var r = title.getBoundingClientRect();
+    var wr = wrap.getBoundingClientRect();
+    var tx = r.left - wr.left, ty = r.top - wr.top;
+    var tw = r.width, th = r.height;
+    var c0 = Math.floor(tx / GRID), c1 = Math.ceil((tx + tw) / GRID);
+    var r0 = Math.floor(ty / GRID), r1 = Math.ceil((ty + th) / GRID);
+    var total = 0, filled = 0;
+    for (var row = r0; row < r1 && row < gridRows; row++) {
+      for (var col = c0; col < c1 && col < gridCols; col++) {
+        if (col >= 0 && row >= 0) {
+          total++;
+          if (visited[row * gridCols + col]) filled++;
+        }
+      }
+    }
+    return total > 0 ? filled / total : 0;
+  }
+
+  function resize() {
+    w = wrap.offsetWidth;
+    h = wrap.offsetHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+    var tr = title.getBoundingClientRect();
+    var wr = wrap.getBoundingClientRect();
+    x = (tr.left - wr.left) + tr.width * 0.3 + (Math.random() - 0.5) * 40;
+    y = (tr.top - wr.top) + tr.height * 0.5 + (Math.random() - 0.5) * 20;
+    initGrid();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  }
+
+  resize();
+
+  var step = 8;
+  var stepsPerFrame = 4;
+
+  function tick() {
+    for (var i = 0; i < stepsPerFrame; i++) {
+      var angle = Math.random() * Math.PI * 2;
+      x += Math.cos(angle) * step;
+      y += Math.sin(angle) * step;
+      if (x < 0) x = -x;
+      if (x > w) x = 2 * w - x;
+      if (y < 0) y = -y;
+      if (y > h) y = 2 * h - y;
+      ctx.lineTo(x, y);
+      markVisited();
+      totalSteps++;
+    }
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+
+    if (!flipped && totalSteps % 120 === 0) {
+      if (getCoverage() > 0.85) {
+        flipped = true;
+        title.style.transition = 'background 0.6s ease, color 0.6s ease';
+        title.style.background = 'var(--highlight)';
+        title.style.color = '#ffffff';
+        var sub = title.querySelector('span');
+        if (sub) {
+          sub.style.transition = 'color 0.6s ease';
+          sub.style.color = '#ffcccc';
+        }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+
+  window.addEventListener('resize', function() {
+    var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    w = wrap.offsetWidth;
+    h = wrap.offsetHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.putImageData(imgData, 0, 0);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+    initGrid();
+    if (x > w) x = w - 10;
+    if (y > h) y = h - 10;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  });
+})();
+</script>
+
+<div class="about-overlay" id="about-overlay">
+  <div class="about-wrapper">
+    <div class="about-shadow"></div>
+    <div class="about-modal">
+    <button class="about-close" id="about-close">&times;</button>
+    <p>Ara Varma is a designer based in San Francisco. She was an Associate at SOSV ($1.5b deep tech VC) and worked in sales at Loft Orbital. In these roles, she encountered many people on their own random walks, building interesting science.</p>
+    <p>This project catalogues and formalizes what many know to be true: funding research in one area often leads to value in unexpected areas. We document the positive unintended consequences of high-intensity research, and seek to understand how we can support more.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var overlay = document.getElementById('about-overlay');
+  var link = document.getElementById('about-link');
+  var close = document.getElementById('about-close');
+
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    overlay.classList.add('open');
+  });
+  close.addEventListener('click', function() {
+    overlay.classList.remove('open');
+  });
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') overlay.classList.remove('open');
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "number": "009",
+  "discovery_name": "Microwave Oven",
+  "tracker_summary": {
+    "invention": "Microwave oven (magnetron-generated microwave radiation to heat food)",
+    "inventor": "Percy LeBaron Spencer (discovery); Raytheon Corporation (commercialization)",
+    "date": "Patent filed 1945; first commercial sale 1947; first home model (Amana Radarange) 1967",
+    "current_use": "Over 90% of US households; global market ~$10 billion annually",
+    "initial_funding_source": "U.S. government defense contracts (radar procurement for WWII)",
+    "initial_funding_reason": "Manufacturing magnetrons for Allied radar systems",
+    "chain_length": "7 steps \u00b7 27 years"
+  },
+  "the_x": "U.S. military funding of magnetron production for WWII radar systems",
+  "the_y": "The microwave oven, now in over 1 billion households worldwide",
+  "summary": "Raytheon was manufacturing magnetrons for Allied radar under massive wartime contracts. Engineer Percy Spencer, walking past an active magnetron in 1945, noticed a chocolate bar in his pocket had melted. He aimed microwaves at popcorn kernels (they popped) and an egg (it exploded in a colleague's face). Raytheon filed a patent within months. The first commercial unit was 5.5 feet tall, weighed 750 pounds, and cost $5,000. It took 22 years for a subsidiary to shrink it to a countertop appliance.",
+  "chain": [
+    {
+      "year": "1940\u20131945",
+      "who": "Raytheon Manufacturing; Percy Spencer",
+      "where": "Waltham, Massachusetts",
+      "what_they_were_doing": "Mass-producing cavity magnetrons for Allied radar \u2014 2,600 units per day by 1944.",
+      "the_jump": null,
+      "funding": "U.S. Army Signal Corps and Navy defense contracts.",
+      "critical": false
+    },
+    {
+      "year": "1945",
+      "who": "Percy LeBaron Spencer",
+      "where": "Raytheon laboratories, Waltham, Massachusetts",
+      "what_they_were_doing": "Walking past an active magnetron; noticed a chocolate bar in his shirt pocket had melted.",
+      "the_jump": "Spencer recognized microwave emissions as the heat source and immediately began deliberate experiments: popcorn kernels popped; an egg exploded in a colleague's face.",
+      "funding": "Raytheon defense contract R&D.",
+      "critical": true
+    },
+    {
+      "year": "1945",
+      "who": "Percy Spencer / Raytheon",
+      "where": "Waltham, Massachusetts",
+      "what_they_were_doing": "Built a metal box to contain microwave energy around food; filed U.S. Patent 2,495,429.",
+      "the_jump": "Spencer received Raytheon's standard patent bonus: $2. He never received royalties.",
+      "funding": "Raytheon Corp.",
+      "critical": false
+    },
+    {
+      "year": "1947",
+      "who": "Raytheon Corporation",
+      "where": "USA (commercial kitchens)",
+      "what_they_were_doing": "Launched the 'Radarange' \u2014 5.5 feet tall, 750 pounds, water-cooled, $5,000.",
+      "the_jump": null,
+      "funding": "Raytheon commercial revenue.",
+      "critical": false
+    },
+    {
+      "year": "1967",
+      "who": "Amana Refrigeration Inc. (Raytheon subsidiary)",
+      "where": "Amana, Iowa",
+      "what_they_were_doing": "Launched first compact countertop home microwave: Amana Radarange at $495.",
+      "the_jump": "Two decades of magnetron miniaturization converted a 750-pound radar component into a kitchen appliance. By 1986, over 25% of US households owned one.",
+      "funding": "Raytheon/Amana commercial investment.",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "U.S. Patent 2,495,429 \u2014 Spencer, Percy L. 'Method of Treating Foodstuffs.' 1945. https://patents.google.com/patent/US2495429",
+    "Osepchuk JM. 'A history of microwave heating applications.' IEEE Trans MTT. 1984;32(9):1200-1224. https://ieeexplore.ieee.org/document/1132831",
+    "Smithsonian Institution. 'The development of the microwave oven.' https://americanhistory.si.edu/collections/search/object/nmah_1065261",
+    "IEEE History Center. 'Percy Spencer and the Microwave Oven.' https://ethw.org/Percy_Spencer_and_the_Microwave_Oven",
+    "Scott, Otto J. 'The Creative Ordeal: The Story of Raytheon.' Atheneum. 1974."
+  ]
+}

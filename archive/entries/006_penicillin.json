@@ -1,0 +1,83 @@
+{
+  "number": "006",
+  "discovery_name": "Penicillin",
+  "tracker_summary": {
+    "invention": "Mass-produced antibiotic medicine",
+    "inventor": "Alexander Fleming (discovery), Howard Florey, Ernst Chain, and Norman Heatley (therapeutic development)",
+    "date": "Discovery: September 1928; First therapeutic use: 1941; Mass production: 1943\u20131944",
+    "current_use": "Penicillin and derivatives remain among the most widely prescribed antibiotics globally; annual antibiotic market exceeds $40 billion",
+    "initial_funding_source": "British War Office / Medical Research Committee \u2014 World War I wound infection research",
+    "initial_funding_reason": "Catastrophic mortality from infected battlefield wounds in WWI",
+    "chain_length": "11 steps \u00b7 26 years"
+  },
+  "the_x": "British War Office funding for WWI wound-infection bacteriology research at St. Mary's Hospital, London",
+  "the_y": "The world's first mass-produced antibiotic, saving an estimated 200 million lives in the 20th century",
+  "summary": "The story of penicillin is not one flash of genius but a 16-year chain of accidents, neglect, wartime desperation, and transatlantic collaboration. Fleming's 1928 contaminated petri dish was real but unactionable \u2014 he couldn't purify the compound, and the medical establishment ignored his paper for a decade. It restarted only when Florey and Chain at Oxford, funded by the Rockefeller Foundation, picked it up in 1939. Their first patient nearly died when they ran out of drug. Florey flew to America with mold in his coat lining. A lab assistant found the highest-yielding mold in history on a Peoria cantaloupe. By D-Day, enough penicillin existed to treat every Allied wounded soldier.",
+  "chain": [
+    {
+      "year": "1914\u20131918",
+      "who": "Alexander Fleming, Almroth Wright",
+      "where": "Western Front; St. Mary's Hospital, London",
+      "what_they_were_doing": "Watched antiseptics kill white blood cells faster than bacteria in infected wounds.",
+      "the_jump": null,
+      "funding": "British War Office; Medical Research Committee.",
+      "critical": true
+    },
+    {
+      "year": "1928",
+      "who": "Alexander Fleming",
+      "where": "St. Mary's Hospital, London",
+      "what_they_were_doing": "Returned from vacation; Penicillium mold had drifted onto a staph dish, leaving a clear kill zone.",
+      "the_jump": "Fleming couldn't purify or stabilize it. His 1929 paper was largely ignored; he stopped pursuing it by 1931.",
+      "funding": "Medical Research Council; St. Mary's Hospital.",
+      "critical": true
+    },
+    {
+      "year": "1939",
+      "who": "Howard Florey, Ernst Chain, Norman Heatley",
+      "where": "Sir William Dunn School of Pathology, Oxford",
+      "what_they_were_doing": "Found Fleming's paper in a literature search; Heatley built extraction apparatus from milk churns.",
+      "the_jump": "May 25, 1940: all untreated mice died; all penicillin-treated mice survived.",
+      "funding": "Rockefeller Foundation; MRC; Nuffield Trust.",
+      "critical": true
+    },
+    {
+      "year": "1941",
+      "who": "Florey, Heatley, Chain; Albert Alexander (patient)",
+      "where": "Radcliffe Infirmary, Oxford; then USA",
+      "what_they_were_doing": "First human patient's fever broke in 24 hours \u2014 then they ran out of drug, recycled penicillin from his urine, and he died. Florey flew to America with mold spores rubbed into his coat lining.",
+      "the_jump": "NEAR-DEATH MOMENT: Alexander's death proved the drug worked but Oxford's micro-batch production was wholly inadequate. Only American industrial scale could save it.",
+      "funding": "MRC emergency wartime grant; Rockefeller Foundation; US OSRD.",
+      "critical": true
+    },
+    {
+      "year": "1943",
+      "who": "Mary K. Hunt ('Moldy Mary')",
+      "where": "USDA NRRL, Peoria, Illinois",
+      "what_they_were_doing": "Found a cantaloupe at a local market yielding 200x more penicillin than Fleming's strain.",
+      "the_jump": "After mutagenesis, 1,000x yield. Virtually all penicillin today descends from that cantaloupe.",
+      "funding": "USDA NRRL; War Production Board.",
+      "critical": true
+    },
+    {
+      "year": "1943\u20131944",
+      "who": "Pfizer, Merck, Squibb, Eli Lilly",
+      "where": "Brooklyn; Rahway; Indianapolis",
+      "what_they_were_doing": "Pfizer converted a Brooklyn ice plant into a fermentation facility under War Production Board contracts.",
+      "the_jump": "By June 1944: 650 billion units per month. By D-Day, enough to treat every wounded Allied soldier.",
+      "funding": "War Production Board guaranteed procurement; US Army Surgeon General.",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "Fleming A (1929). British J Experimental Pathology, 10(3):226\u2013236. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2048009/",
+    "Chain E, Florey HW, et al. (1940). The Lancet, 236(6104):226\u2013228. https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(01)08728-1/fulltext",
+    "Lax E (2004). The Mold in Dr. Florey's Coat. Henry Holt.",
+    "ACS (1999). Discovery and Development of Penicillin. https://www.acs.org/content/acs/en/education/whatischemistry/landmarks/flemingpenicillin.html",
+    "Nobel Prize 1945. https://www.nobelprize.org/prizes/medicine/1945/ceremony-speech/",
+    "NLM/NIH. 'The Discovery and Development of Penicillin 1928\u20131945.' https://www.nlm.nih.gov/exhibition/penicillin/index.html",
+    "Neushul P (1993). J History of Medicine, 48(4):371\u2013395. https://doi.org/10.1093/jhmas/48.4.371",
+    "Rockefeller Foundation Annual Report 1939. https://www.rockefellerfoundation.org/report/annual-report-1939/",
+    "Hafner K, Lyon M. Where Wizards Stay Up Late. Simon & Schuster, 1996."
+  ]
+}

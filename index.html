@@ -3,29 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Random Walk: Atlas</title>
+<title>Random Walk — Randomness, reconstructed</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500;1,8..60,600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
     --bg: #ffffff;
-    --fg: #000000;
+    --fg: #121212;
+    --fgMix2: #2a2a2a;
     --fgMix3: #555555;
     --fgMix5: #8d8d8d;
     --fgMix6: #aaaaaa;
     --highlight: #E4001C;
     --border: #c6c6c6;
+    --rule: #dcdcdc;
 
     --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
     --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-    --bodySize: 22px;
-    --bodyLH: 1.4;
-    --bodyMargin: calc(var(--bodyLH) * var(--bodySize)); /* 30.8px */
+    --bodySize: 20px;
+    --bodyLH: 1.55;
+    --bodyMargin: 1.1em;
 
     --streamSpacing: calc(130 / 1680 * 100vw);
 
@@ -33,20 +35,18 @@
     --gridMargin: 20px;
   }
 
-  html {
-    font-size: 16px;
-  }
+  html { font-size: 16px; }
 
   body {
     font-family: var(--sans);
-    background: var(--bg);
+    background: #ffffff;
     color: var(--fg);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* ---------- 12-column grid ---------- */
+  /* ---------- 12-col grid ---------- */
   .grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -55,15 +55,10 @@
     max-width: 1680px;
     margin: 0 auto;
   }
-  .g-content {
-    grid-column: 3 / 9;
-  }
-  .g-wide {
-    grid-column: 2 / 12;
-  }
-  .g-full {
-    grid-column: 1 / -1;
-  }
+  .g-essay   { grid-column: 4 / 10; }
+  .g-content { grid-column: 3 / 9; }
+  .g-wide    { grid-column: 2 / 12; }
+  .g-full    { grid-column: 1 / -1; }
 
   /* ---------- Nav ---------- */
   nav {
@@ -77,695 +72,357 @@
     max-width: 1680px;
     margin: 0 auto;
   }
-  nav a {
-    color: var(--fgMix5);
-    text-decoration: none;
-    text-decoration-skip-ink: auto;
-  }
-  nav a:hover {
-    color: var(--fg);
-  }
+  nav a { color: var(--fgMix5); text-decoration: none; }
+  nav a:hover { color: var(--fg); }
+  nav .nav-brand { color: var(--fg); font-weight: 600; letter-spacing: -0.01em; }
+  nav .nav-brand a { color: inherit; }
+  nav .nav-right { display: flex; gap: 20px; }
 
-  /* ---------- Article title ---------- */
+  /* ---------- Header / hero ---------- */
+  .header-wrap { position: relative; }
+  .header-wrap canvas {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+  }
+  .header-wrap .grid { position: relative; z-index: 1; }
+
   .article-title {
     font-family: var(--sans);
     font-size: 100px;
     font-weight: 700;
     letter-spacing: -0.02em;
-    line-height: 1.2;
+    line-height: 1.05;
+    color: var(--fg);
     padding-top: var(--streamSpacing);
     padding-bottom: var(--streamSpacing);
   }
-  .article-title .title-text {
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-    padding: 4px 8px;
-    transition: background 0.6s ease, color 0.6s ease;
+
+  .article-deck {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--fgMix3);
+    max-width: 38em;
+    margin-bottom: 48px;
   }
 
-  .article-byline {
+  .article-meta {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 13px;
     color: var(--fgMix5);
     padding-bottom: var(--streamSpacing);
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
+  .article-meta .byline { color: var(--fg); font-weight: 600; }
+  .article-meta .byline span { color: var(--fgMix5); font-weight: 400; }
 
-  /* ---------- Body prose ---------- */
+  /* ---------- Prose ---------- */
   .prose {
     font-family: var(--serif);
     font-size: var(--bodySize);
     line-height: var(--bodyLH);
-    font-feature-settings: 'onum';
+    font-feature-settings: 'onum', 'kern', 'liga';
+    color: var(--fgMix2);
+    text-align: justify;
     hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-spacing: 0.01em;
   }
   .prose p {
     margin-bottom: var(--bodyMargin);
   }
-  .prose p:last-child {
-    margin-bottom: 0;
-  }
+  .prose p:last-child { margin-bottom: 0; }
 
-  /* Drop cap */
-  .prose p:first-of-type::first-letter {
-    float: left;
+  /* Raised cap — W rises above line 1; "arfarin" sits inline beside it */
+  .prose p.first-para::first-letter {
     font-family: var(--serif);
-    font-size: 5.2em;
-    line-height: 0.72;
-    padding-right: 8px;
-    padding-top: 8px;
     font-weight: 600;
     color: var(--highlight);
+    font-size: 3em;
+    line-height: 0.9;
+    padding-right: 0.03em;
   }
 
-  /* ---------- Section spacing ---------- */
-  .stream-space {
-    padding-top: var(--streamSpacing);
-    padding-bottom: var(--streamSpacing);
-  }
-  .stream-space-top {
-    padding-top: var(--streamSpacing);
-  }
-  .stream-space-bottom {
-    padding-bottom: var(--streamSpacing);
-  }
-
-  /* ---------- Stat line ---------- */
-  .stat-line {
+  /* Pull quote */
+  .pullquote {
     font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
+    font-size: 30px;
+    line-height: 1.25;
+    font-weight: 500;
+    color: var(--fg);
     font-style: italic;
-    color: var(--fgMix5);
+    letter-spacing: -0.01em;
+    margin: 2em 0 2em;
+    padding: 0.4em 0 0.4em 24px;
+    border-left: 3px solid var(--highlight);
+    max-width: 24em;
   }
 
-  /* ---------- Section headings ---------- */
-  .heading-medium {
+  /* Small caps run-in for emphasis */
+  .prose strong {
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  /* ---------- End mark (miniature random walk) ---------- */
+  .end-mark {
+    display: inline-block;
+    width: 22px;
+    height: 12px;
+    margin-left: 6px;
+    color: var(--highlight);
+    vertical-align: baseline;
+    transform: translateY(1px);
+  }
+  .end-mark path, .end-mark polyline { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Further reading ---------- */
+  .further {
+    margin-top: calc(var(--streamSpacing) * 1.2);
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .further-kicker {
     font-family: var(--sans);
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    font-weight: 600;
+    margin-bottom: 20px;
   }
-
-  .heading-small {
-    font-family: var(--sans);
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
+  .further-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
   }
-
-  /* ---------- Full-bleed viz ---------- */
-  .viz-section {
-    padding-top: var(--streamSpacing);
-    padding-bottom: var(--streamSpacing);
-  }
-  #sankey-svg {
+  .further-card {
     display: block;
-    width: 100%;
-    height: auto;
+    text-decoration: none;
+    color: inherit;
+    padding: 20px 0 8px;
+    border-top: 2px solid var(--fg);
+    transition: border-color 0.2s ease;
   }
-  .viz-caption {
+  .further-card:hover { border-top-color: var(--highlight); }
+  .further-card .fc-label {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     color: var(--fgMix5);
-    line-height: 1.5;
-    margin-top: 16px;
+    margin-bottom: 10px;
+    font-weight: 600;
   }
-  .s-label {
+  .further-card .fc-title {
     font-family: var(--serif);
-    font-size: 13px;
-    fill: var(--fgMix3);
-  }
-  .s-label-r {
-    font-family: var(--serif);
-    font-size: 13px;
-    fill: var(--fgMix3);
-    text-anchor: end;
-  }
-
-  /* ---------- Entries ---------- */
-  .entry {
-    padding-top: var(--bodyMargin);
-    padding-bottom: var(--bodyMargin);
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-  }
-  .entry:first-child {
-    border-top: 1px solid var(--border);
-  }
-
-  .entry-name {
-    font-family: var(--sans);
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.15;
     letter-spacing: -0.02em;
-    line-height: 1.25;
+    font-weight: 600;
+    color: var(--fg);
     margin-bottom: 8px;
   }
-  .entry-xy-line {
+  .further-card .fc-desc {
     font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
+    font-size: 17px;
+    line-height: 1.45;
     color: var(--fgMix3);
-    margin-top: 4px;
   }
-  .entry-xy-line .xy-sep {
-    color: var(--highlight);
-  }
-  .entry-xy-line .xy-end {
-    color: var(--highlight);
-    font-style: italic;
-  }
-  .entry-cue {
-    font-family: var(--serif);
-    font-size: 14px;
-    font-style: italic;
-    color: var(--fgMix5);
-    margin-top: 8px;
-  }
-
-  /* Gatefold */
-  .entry-fold {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-  }
-  .entry.open .entry-fold {
-    max-height: 20000px;
-    transition: max-height 0.8s ease;
-  }
-  .entry.open .entry-cue { display: none; }
-
-  .fold-body {
-    padding-top: var(--bodyMargin);
-  }
-
-  /* X / Y */
-  .xy-label {
+  .further-card .fc-arrow {
     font-family: var(--sans);
     font-size: 14px;
-    color: var(--fgMix5);
-    margin-bottom: 4px;
-  }
-  .xy-x {
-    font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
-    color: var(--fgMix3);
-    margin-bottom: var(--bodyMargin);
-  }
-  .xy-arrow {
-    font-size: 22px;
     color: var(--highlight);
-    margin-bottom: var(--bodyMargin);
-  }
-  .xy-y {
-    font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
-    color: var(--highlight);
-    font-style: italic;
-    margin-bottom: var(--bodyMargin);
-  }
-
-  .entry-summary {
-    font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
-    color: var(--fgMix3);
-    margin-bottom: var(--bodyMargin);
-    text-indent: 2em;
-  }
-
-  /* Chain prose */
-  .chain-heading {
-    font-family: var(--sans);
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-    margin-bottom: var(--bodyMargin);
-  }
-
-  .chain-para {
-    font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
-    color: var(--fg);
-    margin-bottom: var(--bodyMargin);
-  }
-  .chain-para .yr {
-    color: var(--highlight);
-  }
-  .chain-para .lead {
     font-weight: 600;
-  }
-  .chain-para .loc {
-    font-style: italic;
-    color: var(--fgMix5);
-    font-size: 18px;
-  }
-  .chain-para .fund {
-    font-style: italic;
-    color: var(--fgMix5);
-    font-size: 18px;
-  }
-
-  /* Jump — blockquote style */
-  .chain-jump {
-    font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
-    font-style: italic;
-    color: var(--fgMix3);
-    padding-left: 1.5em;
-    border-left: 1px solid var(--fgMix5);
-    margin-bottom: var(--bodyMargin);
-  }
-  .chain-jump.nd {
-    color: var(--highlight);
-    border-left-color: var(--highlight);
-  }
-
-  /* Footnotes */
-  .fn {
-    margin-top: calc(var(--bodyMargin) * 2);
-    padding-top: var(--bodyMargin);
-    border-top: 1px solid var(--border);
-  }
-  .fn ol {
-    list-style: decimal;
-    padding-left: 24px;
-  }
-  .fn li {
-    font-family: var(--sans);
-    font-size: 14px;
-    color: var(--fgMix5);
-    line-height: 1.5;
-    margin-bottom: 0.5em;
-    word-break: break-word;
-  }
-  .fn a {
-    color: var(--fgMix3);
-    text-decoration: underline;
-    text-decoration-color: var(--fgMix6);
-    text-underline-offset: 2px;
-  }
-  .fn a:hover {
-    text-decoration-color: var(--highlight);
-  }
-
-  /* ---------- 40 Shorter entries ---------- */
-  .shorts-intro {
-    font-family: var(--serif);
-    font-size: var(--bodySize);
-    line-height: var(--bodyLH);
-    color: var(--fgMix3);
-    margin-bottom: calc(var(--bodyMargin) * 2);
-  }
-
-  .short-item {
-    margin-bottom: calc(var(--bodyMargin) * 1.5);
-  }
-  .short-item-name {
-    font-family: var(--sans);
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-    margin-bottom: 4px;
-  }
-  .short-item-text {
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: var(--bodyLH);
-    color: var(--fgMix3);
-  }
-  .short-item-text .yhl { color: var(--highlight); font-style: italic; }
-  .short-item-jump {
-    font-family: var(--serif);
-    font-size: 18px;
-    color: var(--fgMix5);
-    font-style: italic;
-    line-height: var(--bodyLH);
-    margin-top: 4px;
-  }
-  .short-item-meta {
-    font-family: var(--sans);
-    font-size: 14px;
-    color: var(--fgMix6);
-    margin-top: 4px;
-  }
-
-  /* ---------- Closing ---------- */
-  .closing-link {
-    font-family: var(--serif);
-    font-size: var(--bodySize);
-    font-style: italic;
-    padding-top: var(--streamSpacing);
-    padding-bottom: var(--streamSpacing);
-  }
-  .closing-link a {
-    color: var(--fg);
-    text-decoration: underline;
-    text-decoration-color: var(--fgMix6);
-    text-underline-offset: 3px;
-  }
-  .closing-link a:hover {
-    text-decoration-color: var(--highlight);
+    margin-top: 12px;
   }
 
   /* ---------- Footer ---------- */
   footer {
-    padding-top: calc(var(--streamSpacing) * 2);
+    padding-top: calc(var(--streamSpacing) * 1.4);
     padding-bottom: var(--streamSpacing);
   }
   footer p {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 13px;
     color: var(--fgMix5);
   }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 1024px) {
-    :root {
-      --bodySize: 20px;
-    }
+    :root { --bodySize: 19px; }
     .article-title { font-size: 56px; }
-    .heading-medium { font-size: 21px; }
-    .heading-small, .chain-heading, .entry-name { font-size: 18px; }
-    .g-content { grid-column: 2 / 11; }
-    .g-wide { grid-column: 1 / -1; }
+    .article-deck { font-size: 22px; }
+    .g-essay   { grid-column: 2 / 12; }
+    .g-content { grid-column: 2 / 12; }
+    .g-wide    { grid-column: 1 / -1; }
   }
-
   @media (max-width: 768px) {
     :root {
       --bodySize: 18px;
       --gridMargin: 16px;
       --streamSpacing: calc(65 / 768 * 100vw);
     }
-    .grid {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-    .g-content { grid-column: 1 / -1; }
-    .g-wide { grid-column: 1 / -1; }
+    .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .g-essay, .g-content, .g-wide { grid-column: 1 / -1; }
     .article-title { font-size: 40px; }
-  }
-
-  /* ---------- Random walk canvas ---------- */
-  .header-wrap {
-    position: relative;
-  }
-  .header-wrap canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .header-wrap .grid {
-    position: relative;
-    z-index: 1;
+    .article-deck { font-size: 19px; }
+    .pullquote { font-size: 22px; }
+    .further-grid { grid-template-columns: 1fr; gap: 16px; }
+    .further-card .fc-title { font-size: 22px; }
   }
 
   @media print {
     nav { display: none; }
-    .entry-fold { max-height: none !important; overflow: visible !important; }
-    .entry-cue { display: none; }
     .header-wrap canvas { display: none; }
+    .about-overlay { display: none; }
+  }
+
+  /* ---------- About (sticky note) ---------- */
+  .about-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .about-overlay.open { display: flex; align-items: center; justify-content: center; }
+
+  .about-wrapper {
+    position: relative;
+    width: fit-content;
+  }
+  /* separate blurred shadow layer, offset down-right, behind the note */
+  .about-shadow {
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.18);
+    filter: blur(12px);
+    border-radius: 4px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .about-modal {
+    width: 260px;
+    min-height: 260px;
+    padding: 22px;
+    background: #e6f23a;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    cursor: default;
+    transform: rotate(0.6deg);
+  }
+  /* 135deg light source */
+  .about-modal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), transparent 60%);
+  }
+  .about-modal p {
+    margin: 0 0 14px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #222;
+  }
+  .about-modal .about-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <span>Random Walk<span style="color:#8d8d8d">: Atlas</span></span>
-  <a href="radar.html">Radar</a>
+  <span class="nav-brand"><a href="index.html">Random Walk</a></span>
+  <div class="nav-right">
+    <a href="atlas.html">Atlas</a>
+    <a href="radar.html">Radar</a>
+    <a href="#" id="about-link">About</a>
+  </div>
 </nav>
 
 <div class="header-wrap" id="header-wrap">
   <canvas id="rw-canvas"></canvas>
   <div class="grid">
     <div class="g-content">
-      <h1 class="article-title"><span class="title-text">Random Walk<span style="color:#8d8d8d">: Atlas</span></span></h1>
+      <h1 class="article-title">Randomness, reconstructed</h1>
     </div>
   </div>
-
 </div><!-- /header-wrap -->
 
 <div class="grid">
-  <div class="g-content prose">
-    <p>A  VA endocrinologist orders lizard venom from a catalog. A Hungarian biochemist sews cash into a teddy bear to flee a country that cut her funding. A graduate student in Spain spends a decade getting papers rejected about bacterial DNA repeats nobody cares about. A team at Google tries to make a translation product faster. These acts of randomness have given us weight-loss drugs, mRNA vaccines, CRISPR gene editing, and generative AI. Random walks can change the world.</p>
+  <div class="g-essay prose">
 
-    <p>Below, we track a dataset of discoveries where money went one place and the breakthrough arrived in a different place entirely. We attribute the chain of major discoveries, through the people, decades, funding sources, institutions, and randomness that brought them into the world.</p>
+    <p class="first-para">Warfarin, the world's most prescribed anticoagulant, was first used as rat poison. It was first isolated from a dead cow that hemorrhaged from moldy clover. Three of the 2020's most consequential inventions &mdash; GLP-1s, the transformer, and mRNA vaccines &mdash; were also results of decades-long, multi-researcher chains of discovery. The origins of these innovations vary, but they share an appearance of randomness. The first discovery in these chains was targeted at a goal entirely separate from its most impactful result (to date). Yet, when we trace these discoveries from the point of origin, we find instead a series of rational, nonrandom discoveries and re-purposing of novel science, that zig and zag into a final form.</p>
 
-    <p>We see that funding random science and preserving our findings can indeed change the world, along with chance encounters, lab accidents, failed experiments, side effects, and luck.</p>
+    <p>The chain of events that led to the commercialization of the GLP-1 began in 1967, nearly half a century before the first GLP-1 was approved for weight loss in 2014. Rosalyn Yalow's radioimmunoassay enabled gut hormone detection, and Joel Habener discovered GLP-1. The discovery of the GLP-1, funded by the NIH and Veterans Administration, emerged from gene sequencing done without a therapeutic target in mind. GLP-1 became a therapeutic target in the 1980s, when it was discovered that they stimulate insulin only when blood sugar is elevated (natural safe mode against hypoglycemia).</p>
+
+    <p>In 1990, John Eng from the Bronx VA famously ordered Gila monster venom from a catalog, hypothesizing an animal eating a few times yearly evolved extreme metabolic peptides. Eng isolated exendin-4 (53% homology to GLP-1), patented it himself when the VA declined to patent, and presented his findings as a conference poster. At the 1996 ADA Annual Meeting, Amylin Pharmaceutical's Andrew Young saw this poster and licensed Eng's patent. This turned into an FDA-approved exenatide (Byetta) in April 2005 thanks to an Eli Lilly partnership that rescued trials from bankruptcy. Exenatide marked the entrance of GLP-1 as a drug class, increased the commercial imperative for GLP-1 R&amp;D at pharmaceutical companies, and surfaced a weight loss signal in trials.</p>
+
+    <p>Parallel to Amylin, Novo Nordisk began decades of R&amp;D after GLP-1 was validated as a therapeutic concept (1980s). Developed atop the human GLP-1 biology, Novo's internal program was a journey from liraglutide to semaglutide &mdash; and onward to Ozempic and Wegovy. Today, it is predicted that 9% of the global population will be on some GLP-1 variant. The downstream effects of this are near-impossible to quantify, as GLP-1 receptors are in trials for addiction and brain disease.</p>
+
+    <p>When we consider this series of events, we find contingent ingenuity (contingent in the sense of dependent upon). We know of John Eng's Gila monster because of pathways discovered decades prior, although this does not take away from his brilliance. Same too with Amylin: although they did not win commercially, their success with exenatide improved conditions by which others widely commercialized GLP-1s. For these weightloss superhero drugs, the initial funding source was governmental, and the necessary-but-insufficient pre-breakthrough was in measurement infrastructure (measure small amounts of hormone in blood). Next, GLP-1 was discovered from gene sequencing, and all that follows has been downstream of these critical, seemingly unrelated infrastructure investments. Ozempic required convergence of four independently-directed programs, none of which targeted weight loss, over five decades.</p>
+
+    <p>The transformer, the foundation of modern generative AI, was built during an internal research Google project, the goal of which was to improve Google Translate's neural machine translation quality and computational efficiency. The transformer was an essential building block in the large language models that have irrevocably changed the world. The foundation of conventional machine learning was built starting with the 1943 modeling of the neuron, funded by the U.S. Navy. This proto-gradient-descent was the seed for what followed. In the decades that followed, researchers ebbed and flowed with the field, with key breakthroughs (backpropagation, Long Short-Term Memory, AlexNet win, and Bahdanau attention) keeping neural networks alive through AI winters. In 2017, Google Brain researched the question of &ldquo;how do we make Google Translate faster?&rdquo; and produced the transformer, an architecture that eliminated recurrence with multi-head self-attention. Its direct ancestor is Bahdanau. Ashish Vaswani and his team successfully solved the business question, but &ldquo;Attention is All You Need&rdquo; changed the world. OpenAI, Google DeepMind, and Anthropic all build their AI systems atop the Transformer.</p>
+
+    <p>Once again, we see contingent ingenuity, a team focused on a specific problem, with ripple effects that would have been near-impossible to predict at the time of publication. In this instance, the single origin involved public funding, but nearly all major advancements came from free cash flow surplus flowing from the 2010 apex of Big Tech (namely, Google). When we look back at the history of the transformer, one may consider when this technology would have been discovered, save for the internal R&amp;D funds at a private giant. The issue with counterfactuals is that we will never know, but once again directed research yields major surplus.</p>
+
+    <p>mRNA vaccines, including the Covid-19 vaccine, were also a result of decades of rejected grants, institutional demotion, and foundational biological research. In this scenario, it is one researcher's stubborn and heterodox view that pushes early mRNA research. Katalin Kariko had a chance encounter with another researcher at the University of Pennsylvania library, and their collaboration was formed. They published a paper in Immunity finding one substitution that prevents immune rejection of synthetic mRNA. This paper was ignored until a stem cell biologist found platform potential in this technology.</p>
+
+    <p>The internet was borne of a Cold War-era proposal to chop messages into addressed blocks through a distributed mesh to survive nuclear attack. Penicillin was discovered as mold drifted onto a staph dish; this paper was picked up from a literature search. Viagra initially targeted angina and hypertension. The microwave oven's origins trace to Raytheon mass-producing cavity magnetrons for Allied radar systems during World War II. Teflon came from a refrigerant R&amp;D program at DuPont. We see these apparent random walks in the background of our lives: vulcanized rubber, the cardiac pacemaker, x-rays, saccharin (artificial sweetener), GPS, graphene, kevlar, nylon, stainless steel, minoxidil, lithium-ion batteries, fMRI, and synthetic fertilizer.</p>
+
+    <div class="pullquote">There is a randomness mirage occurring when directed research collides with directed research.</div>
+
+    <p>If mapped, we could see scientific progress often resembles a random walk through an idea space, ignoring dimensions for the sake of this thought exercise. However, a random walk is defined such that each subsequent step occurs with equal probability, not influenced by the previous step. The apparent randomness we trace in science emerges from many locally-directed, high-intensity paths that collide. These collisions create discontinuous jumps in value, sometimes with extreme lag, and thus the objective is refined. So, there is a randomness mirage occurring when directed research collides with directed research.</p>
+
+    <p>In the examples we trace, the initial research target was specific (can we trace small amounts of blood? Can we improve Google Translate? Can we create stronger military materials?). We find the goal itself changes. Thus, the research objective mutates into the state we understand today. When we ask, &ldquo;why do we have fertilizer today?&rdquo;, that question assumes such a question could be traced. Though the full answer could better come from: &ldquo;what came of wartime (WWI) Germany seeking alternatives in their explosives supply chain?&rdquo; The objective of peacetime feeding arrived later, after effective research was done in a different direction.</p>
+
+    <p>These innovations can be the downstream result of public funding, private funding, decades of staccato work, and individual brilliance. If we could quantify it, the optimal outcome is a large multiplier on a small initial seed of public or private funding. In the best case, $181M in initial funding led to $15.8T in measured economic value. This is the case of the successful innovations tracked in this project. However, such an ROI calculation is imperfect, as R&amp;D is an amorphous, hard-to-track blob whose results are often failures, incremental, or interpreted as such for now.</p>
+
+    <p>Let's consider the levers in our equation. To improve the likelihood a system of scientific discovery creates these curious, multi-hop innovations, we can adjust the count of journeys upon which researchers embark and increase the likelihood of collisions.</p>
+
+    <p>We can increase the quantity of reagents in the system (fund more science, toward the end of a variety of objective functions). We can increase the quantity of hypothesis-testing grants with modest deliverables, as we find many pivotal experiments were cheap.</p>
+
+    <p>We can incentivize collision. The current incentives in science discourage collision density. Reproducibility, failure, and anomalies are under-rewarded in research. What might the world look like if we could encourage the sharing of scraps of science on the cutting room floor, within larger and larger groups? The bar could be lowered for publishing intermediate results and partial findings. Researchers could be incentivized if their anomalous finding is utilized by people in other fields. We could reward those who happen to be upstream of a wonderful, apparent random walk.</p>
+
+    <p>Then, we can fund cross-pollination directly. Imagine heating up the reaction vat, such that particles collide more. The siloing of conference culture has moved us away from this method of collision. Instead, we could subsidize cross-pollination and paid sabbaticals at institutions in adjacent fields. We can neither predict when nor guarantee that two researchers chat at a party, that a scientist excavates an abandoned paper during literature review. Instead, we can hope to induce the marginal collision &mdash; to bring to life a technology that may lay dormant for decades more.<svg class="end-mark" viewBox="0 0 22 12" aria-hidden="true"><polyline points="1,7 4,3 7,9 11,4 14,8 18,2 21,6"/></svg></p>
+
   </div>
 </div>
 
-<div class="grid">
-  <div class="g-content stream-space">
-    <p class="stat-line" id="stat-line"></p>
-  </div>
-</div>
-
-<!-- Sankey — full bleed -->
-<div class="grid">
-  <div class="g-wide viz-section">
-    <svg id="sankey-svg" viewBox="0 0 960 500"></svg>
-    <p class="viz-caption">Each flow traces funding sources to outcome categories across 51 discoveries. Width indicates the number of discoveries following each path. Many flows cross categorical boundaries — money invested in one field producing breakthroughs in another.</p>
-  </div>
-</div>
-
-<div class="grid">
-  <div class="g-content stream-space-top">
-    <h2 class="heading-medium">The Chains</h2>
-  </div>
-</div>
-
-<div class="grid">
-  <div class="g-content">
-    <div id="entries-list"></div>
-  </div>
-</div>
-
-<div class="grid">
-  <div class="g-content stream-space">
-    <h2 class="heading-medium">40 More Random Walks</h2>
-  </div>
-</div>
-
-<div class="grid">
-  <div class="g-content">
-    <p class="shorts-intro">Each of these discoveries followed the same pattern — investment in X, breakthrough in Y. The chains are shorter here, but the structural randomness is the same.</p>
-    <div id="suggestions-list"></div>
-  </div>
-</div>
-
-<div class="grid">
-  <div class="g-content">
-    <div class="closing-link">
-      <a href="radar.html">The Radar &rarr;</a>
+<div class="about-overlay" id="about-overlay">
+  <div class="about-wrapper">
+    <div class="about-shadow"></div>
+    <div class="about-modal">
+    <button class="about-close" id="about-close">&times;</button>
+    <p>Ara Varma is a designer based in San Francisco. She was an Associate at SOSV ($1.5b deep tech VC) and worked in sales at Loft Orbital. In these roles, she encountered many people on their own random walks, building interesting science.</p>
+    <p>This project catalogues and formalizes what many know to be true: funding research in one area often leads to value in unexpected areas. We document the positive unintended consequences of high-intensity research, and seek to understand how we can support more.</p>
     </div>
   </div>
 </div>
-
-<div class="grid">
-  <div class="g-content">
-    <footer>
-      <p>A Tideloop project.</p>
-    </footer>
-  </div>
-</div>
-
-<script src="entries.js"></script>
-<script src="viz_tags.js"></script>
-<script>
-(function() {
-
-  function parseSourceLink(src) {
-    var m = src.match(/(https?:\/\/[^\s"<>]+)/);
-    if (m) {
-      var url = m[1].replace(/[.,;)]+$/, '');
-      var text = src.replace(m[0], '').trim().replace(/\s+/g, ' ').replace(/^\s*[,.\s]+/, '').replace(/[,.\s]+$/, '');
-      return (text ? text + ' ' : '') + '<a href="' + url + '" target="_blank">' + url + '</a>';
-    }
-    return src;
-  }
-
-  function isND(s) {
-    return s && (s.toUpperCase().indexOf('NEAR-DEATH') !== -1 || s.toUpperCase().indexOf('NEAR DEATH') !== -1);
-  }
-
-  // Stats
-  var ts = ENTRIES.reduce(function(s, e) { return s + (e.chain ? e.chain.length : 0); }, 0);
-  var sr = ENTRIES.reduce(function(s, e) { return s + (e.sources ? e.sources.length : 0); }, 0);
-  document.getElementById('stat-line').textContent =
-    (ENTRIES.length + SUGGESTIONS.length) + ' discoveries. ' + ts + ' chain steps. ' + sr + ' sources.';
-
-  // Entries
-  var list = document.getElementById('entries-list');
-  ENTRIES.forEach(function(entry) {
-    var el = document.createElement('div');
-    el.className = 'entry';
-
-    // Short X and Y for the header
-    var ts = entry.tracker_summary || {};
-    var xShort = ts.initial_funding_reason || entry.the_x || '';
-    if (xShort.length > 80) xShort = xShort.substring(0, 80) + '\u2026';
-    var yShort = ts.invention || entry.the_y || '';
-    if (yShort.length > 80) yShort = yShort.substring(0, 80) + '\u2026';
-
-    var html = '<div class="entry-name">' + entry.discovery_name + '</div>' +
-      '<div class="entry-xy-line">' + xShort + ' <span class="xy-sep">\u2192</span> <span class="xy-end">' + yShort + '</span></div>' +
-      '<div class="entry-cue">Read the full chain \u2192</div>';
-
-    html += '<div class="entry-fold"><div class="fold-body">';
-
-    html += '<div class="xy-label">What was funded</div>' +
-      '<div class="xy-x">' + (entry.the_x || '') + '</div>' +
-      '<div class="xy-arrow">\u2193</div>' +
-      '<div class="xy-label">What was discovered</div>' +
-      '<div class="xy-y">' + (entry.the_y || '') + '</div>';
-
-    if (entry.summary) {
-      html += '<div class="entry-summary">' + entry.summary + '</div>';
-    }
-
-    if (entry.chain && entry.chain.length) {
-      html += '<div class="chain-heading">The Chain</div>';
-      entry.chain.forEach(function(step) {
-        html += '<p class="chain-para">' +
-          '<span class="lead"><span class="yr">' + (step.year || '') + '</span> \u2014 ' + (step.who || '') + '.</span> ';
-        if (step.where) html += '<span class="loc">' + step.where + '.</span> ';
-        html += (step.what_they_were_doing || '');
-        if (step.funding) html += ' <span class="fund">(' + step.funding + ')</span>';
-        html += '</p>';
-        if (step.the_jump) {
-          html += '<div class="chain-jump' + (isND(step.the_jump) ? ' nd' : '') + '">' + step.the_jump + '</div>';
-        }
-      });
-    }
-
-    if (entry.sources && entry.sources.length) {
-      html += '<div class="fn"><ol>';
-      entry.sources.forEach(function(s) { html += '<li>' + parseSourceLink(s) + '</li>'; });
-      html += '</ol></div>';
-    }
-
-    html += '</div></div>';
-    el.innerHTML = html;
-    el.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A') return;
-      el.classList.toggle('open');
-    });
-    list.appendChild(el);
-  });
-
-  // 40 shorter
-  var sl = document.getElementById('suggestions-list');
-  SUGGESTIONS.forEach(function(s) {
-    var mech = (s.mechanism || '').replace(/_/g, ' ');
-    sl.insertAdjacentHTML('beforeend',
-      '<div class="short-item">' +
-        '<div class="short-item-name">' + s.name + '</div>' +
-        '<div class="short-item-text">From ' + s.the_x + ' \u2192 <span class="yhl">' + s.the_y + '</span></div>' +
-        '<div class="short-item-jump">' + s.key_jump + '</div>' +
-        '<div class="short-item-meta">' + mech + ' \u00b7 ' + (s.era || '') + '</div>' +
-      '</div>'
-    );
-  });
-
-  // Sankey
-  (function() {
-    if (typeof VIZ_TAGS === 'undefined') return;
-
-    var fm = {
-      'NIH': 'NIH', 'Veterans Administration': 'NIH', 'NIDDK': 'NIH',
-      'DARPA': 'Military & Defense', 'US Military': 'Military & Defense', 'British War Office': 'Military & Defense', 'ARPA': 'Military & Defense',
-      'NSF': 'Government', 'DOE': 'Government', 'US/UK Gov': 'Government', 'Medical Research Committee': 'Government', 'NSERC': 'Government',
-      'Google': 'Industry', 'Pfizer': 'Industry', '3M': 'Industry', 'DuPont': 'Industry', 'Raytheon': 'Industry', 'BioNTech': 'Industry', 'Xerox': 'Industry', 'Bell Labs': 'Industry', 'IBM': 'Industry', 'AT&T': 'Industry', 'Novo Nordisk': 'Industry',
-      'CIFAR': 'Foundations', 'HHMI': 'Foundations', 'Rockefeller Foundation': 'Foundations', 'Howard Hughes Medical Institute': 'Foundations',
-      'Hungarian Academy of Sciences': 'Foreign Gov\u2019t', 'Japanese Ministry of Education': 'Foreign Gov\u2019t', 'Spanish Ministry of Education': 'Foreign Gov\u2019t', 'Danish Medical Research Council': 'Foreign Gov\u2019t', 'Australian State Hospital': 'Foreign Gov\u2019t',
-      'University of Buffalo': 'Universities', 'Johns Hopkins': 'Universities', 'University of W\u00fcrzburg': 'Universities',
-      'Personal / Self-funded': 'Self-funded'
-    };
-
-    function cl(n) {
-      if (fm[n]) return fm[n];
-      if (/ministry|academy|council|danish|hungarian|japanese|spanish|australian|british|french/i.test(n)) return 'Foreign Gov\u2019t';
-      if (/university|college|institute|school/i.test(n)) return 'Universities';
-      if (/foundation|trust|endowment|hhmi|cifar/i.test(n)) return 'Foundations';
-      if (/personal|self/i.test(n)) return 'Self-funded';
-      if (/nih|nsf|doe|va |veterans|arpa|darpa|military/i.test(n)) return 'Government';
-      return 'Industry';
-    }
-
-    var flows = {};
-    VIZ_TAGS.forEach(function(t) {
-      var o = t.outcome_category;
-      var s = t.funding_sources && t.funding_sources.length ? cl(t.funding_sources[0]) : 'Other';
-      var k = s + '|' + o;
-      flows[k] = (flows[k] || 0) + 1;
-    });
-
-    var L = {}, R = {};
-    Object.keys(flows).forEach(function(k) {
-      var p = k.split('|');
-      L[p[0]] = (L[p[0]] || 0) + flows[k];
-      R[p[1]] = (R[p[1]] || 0) + flows[k];
-    });
-
-    var la = Object.keys(L).sort(function(a, b) { return L[b] - L[a]; });
-    var ra = Object.keys(R).sort(function(a, b) { return R[b] - R[a]; });
-
-    var W = 960, H = 500, nw = 8, lx = 150, rx = W - 150, pad = 14, t0 = 20;
-    var tl = la.reduce(function(s, n) { return s + L[n]; }, 0);
-    var tr = ra.reduce(function(s, n) { return s + R[n]; }, 0);
-    var ul = (H - t0 - 20 - pad * (la.length - 1)) / tl;
-    var ur = (H - t0 - 20 - pad * (ra.length - 1)) / tr;
-
-    var lp = {}, y = t0;
-    la.forEach(function(n) { var h = Math.max(L[n] * ul, 3); lp[n] = { y: y, h: h, u: 0 }; y += h + pad; });
-    var rp = {}; y = t0;
-    ra.forEach(function(n) { var h = Math.max(R[n] * ur, 3); rp[n] = { y: y, h: h, u: 0 }; y += h + pad; });
-
-    var colors = { 'NIH': '#E4001C', 'Military & Defense': '#555', 'Industry': '#8a7050', 'Government': '#666', 'Foreign Gov\u2019t': '#777', 'Foundations': '#555', 'Universities': '#666', 'Self-funded': '#888' };
-
-    var svg = document.getElementById('sankey-svg');
-    var out = '';
-
-    var fk = Object.keys(flows).sort(function(a, b) { return flows[b] - flows[a]; });
-    fk.forEach(function(k) {
-      var p = k.split('|'), ln = p[0], rn = p[1], c = flows[k];
-      var l = lp[ln], r = rp[rn];
-      var fh = c * Math.min(ul, ur);
-      var y1 = l.y + l.u + fh / 2, y2 = r.y + r.u + fh / 2;
-      l.u += fh; r.u += fh;
-      var x1 = lx + nw, x2 = rx;
-      var cx1 = x1 + (x2 - x1) * 0.38, cx2 = x1 + (x2 - x1) * 0.62;
-      out += '<path d="M' + x1 + ',' + y1 + ' C' + cx1 + ',' + y1 + ' ' + cx2 + ',' + y2 + ' ' + x2 + ',' + y2 + '" fill="none" stroke="' + (colors[ln] || '#999') + '" stroke-width="' + Math.max(fh, 1.5) + '" stroke-opacity="0.2"/>';
-    });
-
-    la.forEach(function(n) {
-      var p = lp[n];
-      out += '<rect x="' + lx + '" y="' + p.y + '" width="' + nw + '" height="' + p.h + '" fill="' + (colors[n] || '#999') + '" rx="1"/>';
-      out += '<text class="s-label-r" x="' + (lx - 10) + '" y="' + (p.y + p.h / 2 + 4) + '">' + n + '</text>';
-    });
-    ra.forEach(function(n) {
-      var p = rp[n];
-      out += '<rect x="' + rx + '" y="' + p.y + '" width="' + nw + '" height="' + p.h + '" fill="#666" rx="1"/>';
-      out += '<text class="s-label" x="' + (rx + nw + 10) + '" y="' + (p.y + p.h / 2 + 4) + '">' + n + '</text>';
-    });
-
-    svg.innerHTML = out;
-  })();
-
-})();
-</script>
 
 <script>
 (function() {
@@ -774,47 +431,6 @@
   var ctx = canvas.getContext('2d');
   var dpr = window.devicePixelRatio || 1;
   var x, y, w, h;
-  var title = wrap.querySelector('.title-text');
-  var flipped = false;
-  var totalSteps = 0;
-
-  // Grid size for coverage tracking
-  var GRID = 20;
-  var gridCols, gridRows, visited;
-
-  function initGrid() {
-    gridCols = Math.ceil(w / GRID);
-    gridRows = Math.ceil(h / GRID);
-    visited = new Uint8Array(gridCols * gridRows);
-  }
-
-  function markVisited() {
-    var col = Math.floor(x / GRID);
-    var row = Math.floor(y / GRID);
-    if (col >= 0 && col < gridCols && row >= 0 && row < gridRows) {
-      visited[row * gridCols + col] = 1;
-    }
-  }
-
-  function getCoverage() {
-    // Check coverage in the title's bounding box
-    var r = title.getBoundingClientRect();
-    var wr = wrap.getBoundingClientRect();
-    var tx = r.left - wr.left, ty = r.top - wr.top;
-    var tw = r.width, th = r.height;
-    var c0 = Math.floor(tx / GRID), c1 = Math.ceil((tx + tw) / GRID);
-    var r0 = Math.floor(ty / GRID), r1 = Math.ceil((ty + th) / GRID);
-    var total = 0, filled = 0;
-    for (var row = r0; row < r1 && row < gridRows; row++) {
-      for (var col = c0; col < c1 && col < gridCols; col++) {
-        if (col >= 0 && row >= 0) {
-          total++;
-          if (visited[row * gridCols + col]) filled++;
-        }
-      }
-    }
-    return total > 0 ? filled / total : 0;
-  }
 
   function resize() {
     w = wrap.offsetWidth;
@@ -827,16 +443,11 @@
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
     ctx.lineWidth = 1;
     ctx.lineCap = 'round';
-    // Start near the title
-    var tr = title.getBoundingClientRect();
-    var wr = wrap.getBoundingClientRect();
-    x = (tr.left - wr.left) + tr.width * 0.3 + (Math.random() - 0.5) * 40;
-    y = (tr.top - wr.top) + tr.height * 0.5 + (Math.random() - 0.5) * 20;
-    initGrid();
+    x = w * 0.5 + (Math.random() - 0.5) * 40;
+    y = h * 0.5 + (Math.random() - 0.5) * 20;
     ctx.beginPath();
     ctx.moveTo(x, y);
   }
-
   resize();
 
   var step = 8;
@@ -852,30 +463,12 @@
       if (y < 0) y = -y;
       if (y > h) y = 2 * h - y;
       ctx.lineTo(x, y);
-      markVisited();
-      totalSteps++;
     }
     ctx.stroke();
     ctx.beginPath();
     ctx.moveTo(x, y);
-
-    // Check for easter egg every ~2 seconds
-    if (!flipped && totalSteps % 120 === 0) {
-      if (getCoverage() > 0.85) {
-        flipped = true;
-        title.style.transition = 'background 0.6s ease, color 0.6s ease';
-        title.style.background = 'var(--highlight)';
-        title.style.color = '#ffffff';
-        var sub = title.querySelector('span');
-        if (sub) {
-          sub.style.transition = 'color 0.6s ease';
-          sub.style.color = '#ffcccc';
-        }
-      }
-    }
     requestAnimationFrame(tick);
   }
-
   requestAnimationFrame(tick);
 
   window.addEventListener('resize', function() {
@@ -891,7 +484,6 @@
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
     ctx.lineWidth = 1;
     ctx.lineCap = 'round';
-    initGrid();
     if (x > w) x = w - 10;
     if (y > h) y = h - 10;
     ctx.beginPath();
@@ -899,5 +491,27 @@
   });
 })();
 </script>
+
+<script>
+(function() {
+  var overlay = document.getElementById('about-overlay');
+  var link = document.getElementById('about-link');
+  var close = document.getElementById('about-close');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    overlay.classList.add('open');
+  });
+  close.addEventListener('click', function() {
+    overlay.classList.remove('open');
+  });
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') overlay.classList.remove('open');
+  });
+})();
+</script>
+
 </body>
 </html>

@@ -1,0 +1,96 @@
+{
+  "number": "003",
+  "discovery_name": "mRNA Vaccines",
+  "tracker_summary": {
+    "invention": "Lipid nanoparticle-encapsulated modified mRNA vaccines",
+    "inventor": "Katalin Karik\u00f3 and Drew Weissman (key discovery); commercialized via Moderna and BioNTech",
+    "date": "Core discovery: 2005 (modified mRNA); COVID-19 application: 2020\u20132021",
+    "current_use": "COVID-19 vaccines; pipeline for influenza, RSV, HIV, cancer immunotherapy, and rare genetic diseases",
+    "initial_funding_source": "Hungarian Academy of Sciences (1978\u20131985); later NIH and American Heart Association grants (repeatedly rejected)",
+    "initial_funding_reason": "Basic research into RNA biology and gene therapy; not specifically targeted at vaccines",
+    "chain_length": "13 steps \u00b7 42 years"
+  },
+  "the_x": "Decades of rejected grants, institutional demotion, and basic biochemistry research into how messenger RNA interacts with the innate immune system \u2014 work considered a scientific dead end",
+  "the_y": "Two COVID-19 vaccines authorized in under a year, protecting hundreds of millions of people and demonstrating a universal platform for rapid vaccine development",
+  "summary": "In 1978, a young Hungarian biochemist named Katalin Karik\u00f3 became captivated by the idea that synthetic mRNA could instruct human cells to produce their own medicines. For more than two decades, nearly every institution, grant committee, and peer review panel told her she was wrong. She lost her faculty position at UPenn, was demoted, had her salary cut, and watched her NIH grant applications fail year after year. In 2005, collaborating with Drew Weissman, she discovered that substituting pseudouridine for uridine in synthetic mRNA allowed it to slip past the immune system's sentinels. That single insight \u2014 published in Immunity and largely ignored \u2014 unlocked mRNA as a therapeutic platform. When SARS-CoV-2 emerged in January 2020, both Moderna and BioNTech had optimized mRNA platforms ready. Pfizer-BioNTech received FDA authorization 326 days after the virus's genome was sequenced.",
+  "chain": [
+    {
+      "year": "1978\u20131985",
+      "who": "Katalin Karik\u00f3",
+      "where": "Hungarian Academy of Sciences, Szeged",
+      "what_they_were_doing": "Early RNA-lipid delivery research; state funding cut; smuggled $900 in a teddy bear and emigrated.",
+      "the_jump": "Without this desperate emigration, the research stops entirely.",
+      "funding": "Hungarian Academy of Sciences",
+      "critical": true
+    },
+    {
+      "year": "1989\u20131995",
+      "who": "Katalin Karik\u00f3, UPenn administration",
+      "where": "University of Pennsylvania",
+      "what_they_were_doing": "Every NIH grant application rejected; UPenn demoted Karik\u00f3, cut her salary, told her career was over \u2014 same year she was diagnosed with cancer.",
+      "the_jump": "Most researchers would have left. Karik\u00f3 stayed, supporting herself on other scientists' projects while continuing mRNA work on the side.",
+      "funding": "Reduced UPenn salary; no independent grants",
+      "critical": true
+    },
+    {
+      "year": "1997\u20131998",
+      "who": "Katalin Karik\u00f3 and Drew Weissman",
+      "where": "University of Pennsylvania",
+      "what_they_were_doing": "Met at a photocopier in the UPenn library and agreed to collaborate with no dedicated funding.",
+      "the_jump": "A chance encounter at a photocopier initiated the collaboration that would solve the central problem of mRNA therapeutics.",
+      "funding": "Weissman's NIH HIV vaccine grants (adjacent)",
+      "critical": true
+    },
+    {
+      "year": "2005",
+      "who": "Katalin Karik\u00f3 and Drew Weissman",
+      "where": "University of Pennsylvania",
+      "what_they_were_doing": "Substituting pseudouridine for uridine prevents immune rejection of synthetic mRNA \u2014 published in Immunity, largely ignored.",
+      "the_jump": "The immune system's rejection was not fundamental but an artifact of unmodified nucleosides. One paper unlocked the entire field.",
+      "funding": "NIH (Weissman lab)",
+      "critical": true
+    },
+    {
+      "year": "2010",
+      "who": "Derrick Rossi; Robert Langer, Noubar Afeyan",
+      "where": "Harvard Stem Cell Institute; Boston",
+      "what_they_were_doing": "Rossi used modified mRNA to reprogram adult cells into stem cells, saw platform potential, co-founded Moderna.",
+      "the_jump": "A stem cell biologist read an immunology paper ignored by pharma and immediately understood it as a platform technology.",
+      "funding": "Flagship Pioneering",
+      "critical": true
+    },
+    {
+      "year": "2013\u20132019",
+      "who": "U\u011fur \u015eahin, \u00d6zlem T\u00fcreci (BioNTech); Barney Graham, Jason McLellan (NIAID); Moderna",
+      "where": "Mainz, Germany; NIH Bethesda; Cambridge MA",
+      "what_they_were_doing": "BioNTech hired Karik\u00f3 as SVP; NIAID developed prefusion spike stabilization; Moderna ran Phase I trials.",
+      "the_jump": "Two independent threads \u2014 modified mRNA and spike protein stabilization \u2014 matured in parallel, ready to be combined the moment a new pathogen appeared.",
+      "funding": "BioNTech private capital; NIAID intramural; Moderna/BARDA",
+      "critical": true
+    },
+    {
+      "year": "January 2020 \u2013 December 2020",
+      "who": "Moderna; Pfizer-BioNTech; FDA",
+      "where": "Cambridge MA; Mainz Germany; global trial sites",
+      "what_they_were_doing": "Within 48 hours of genome release, both companies designed vaccine candidates; Phase III showed 94\u201395% efficacy; FDA authorized both vaccines by December 18.",
+      "the_jump": "Forty-two years after Karik\u00f3 began RNA work in Szeged, the technology she refused to abandon was authorized as the fastest vaccine in human history.",
+      "funding": "Operation Warp Speed; US government advance purchase agreements",
+      "critical": true
+    }
+  ],
+  "sources": [
+    "Karik\u00f3 K, et al. (2005). Suppression of RNA recognition by Toll-like receptors. Immunity, 23(2):165-75. https://doi.org/10.1016/j.immuni.2005.06.008",
+    "Karik\u00f3 K, et al. (2008). Incorporation of pseudouridine into mRNA. Mol Ther, 16(11):1833-40. https://doi.org/10.1038/mt.2008.200",
+    "Warren L, et al. (2010). Reprogramming with synthetic modified mRNA. Cell Stem Cell, 7(5):618-30. https://doi.org/10.1016/j.stem.2010.08.012",
+    "Baden LR, et al. (2021). Efficacy of mRNA-1273. N Engl J Med, 384(5):403-416. https://doi.org/10.1056/NEJMoa2035389",
+    "Polack FP, et al. (2020). Safety and Efficacy of BNT162b2. N Engl J Med, 383(27):2603-2615. https://doi.org/10.1056/NEJMoa2034577",
+    "Wrapp D, et al. (2020). Cryo-EM structure of 2019-nCoV spike. Science, 367(6483):1260-1263. https://doi.org/10.1126/science.abb2507",
+    "Nobel Prize 2023 Scientific Background. https://www.nobelprize.org/prizes/medicine/2023/advanced-information/",
+    "Kolata G (2021). Kati Karik\u00f3 Helped Shield the World. NYT. https://www.nytimes.com/2021/04/08/health/coronavirus-mrna-kariko.html",
+    "Garde D, Saltzman J (2020). The story of mRNA. STAT News. https://www.statnews.com/2020/11/10/the-story-of-mrna-how-a-once-dismissed-idea-became-a-leading-technology-in-the-covid-vaccine-race/",
+    "Lasker Foundation 2021 Award. https://laskerfoundation.org/winners/mrna-vaccine-technology/",
+    "Dolgin E (2021). The tangled history of mRNA vaccines. Nature, 597:318-324. https://doi.org/10.1038/d41586-021-02483-w",
+    "FDA EUA letter, Pfizer-BioNTech, Dec 11, 2020. https://www.fda.gov/media/144412/download",
+    "FDA EUA letter, Moderna, Dec 18, 2020. https://www.fda.gov/media/144636/download"
+  ]
+}

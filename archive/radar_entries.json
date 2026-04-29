@@ -1,0 +1,595 @@
+[
+  {
+    "title": "The body’s main protective molecule drives cancer spread",
+    "researcher": "Kivanc Birsoy lab, Rockefeller University",
+    "field_a": "Cell metabolism",
+    "field_b": "Metastatic oncology",
+    "stage": "early_output",
+    "confidence": "high",
+    "one_liner": "Glutathione — the antioxidant your cells make to protect themselves — is what enables breast cancer to metastasize. And it doesn’t work as an antioxidant when it does it.",
+    "why_interesting": "The molecule everyone assumed was protective is doing something completely different inside the mitochondria of metastatic cells — it’s signaling, not scavenging.",
+    "signals": [
+      {
+        "type": "Cross-citation",
+        "evidence": "Paper cites both mitochondrial metabolism and metastasis biology — fields that rarely overlap at the mechanistic level."
+      },
+      {
+        "type": "Lab portfolio",
+        "evidence": "Birsoy lab runs simultaneous projects on metabolic diseases and cancer metabolism."
+      }
+    ],
+    "link": "https://www.rockefeller.edu/news/38146-mitochondrial-antioxidant-found-to-drive-breast-cancer-metastasis/",
+    "published": "Cancer Discovery, August 2025"
+  },
+  {
+    "title": "Mining DNA from bacteria that can’t be grown — two new antibiotics",
+    "researcher": "Sean F. Brady lab, Rockefeller University",
+    "field_a": "Metagenomics / DNA sequencing",
+    "field_b": "Antibiotic discovery",
+    "stage": "early_output",
+    "confidence": "high",
+    "one_liner": "Sean Brady realized 99% of soil bacteria can’t be cultured in labs. He built a way to extract their DNA, predict compounds computationally, then synthesize them. Found two antibiotics with novel mechanisms.",
+    "why_interesting": "Two entirely new antibiotic mechanisms from organisms nobody has ever grown. The method opens access to 99% of microbial chemistry that was previously invisible.",
+    "signals": [
+      {
+        "type": "Cross-citation",
+        "evidence": "Nature Biotechnology paper cites both soil metagenomics and clinical antimicrobial resistance literature."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "Brady trained in organic chemistry, pivoted to environmental metagenomics, now applies both to drug discovery."
+      }
+    ],
+    "link": "https://www.rockefeller.edu/news/38239-hundreds-of-new-bacteria-and-two-potential-antibiotics-found-in-soil/",
+    "published": "Nature Biotechnology, 2025"
+  },
+  {
+    "title": "Mycelium electrical signaling meets computational architecture",
+    "researcher": "Andrew Adamatzky, University of the West of England",
+    "field_a": "Fungal biology",
+    "field_b": "Unconventional computing",
+    "stage": "early_output",
+    "confidence": "medium",
+    "one_liner": "A computing lab is measuring electrical spike patterns in fungal mycelium networks and mapping them to computational logic gates. The fungi produce consistent, reproducible signals.",
+    "why_interesting": "If mycelial networks can perform computation, the substrate is self-growing, self-repairing, and carbon-negative. No one in materials science for electronics is watching fungal biology.",
+    "signals": [
+      {
+        "type": "Researcher migration",
+        "evidence": "Adamatzky trained in mathematics and computer science, now runs a lab focused on biological computing substrates."
+      },
+      {
+        "type": "Lab portfolio",
+        "evidence": "Unconventional Computing Laboratory simultaneously runs projects on mycelium networks, slime mold optimization, and chemical computing."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "Preprints cite both mycological network topology and neuromorphic computing papers."
+      }
+    ]
+  },
+  {
+    "title": "Spider silk protein expression in photosynthetic bacteria",
+    "researcher": "Fuzhong Zhang, Washington University in St. Louis",
+    "field_a": "Synthetic biology / metabolic engineering",
+    "field_b": "High-performance structural materials",
+    "stage": "early_output",
+    "confidence": "high",
+    "one_liner": "A synthetic biology lab engineered photosynthetic cyanobacteria to produce spider silk proteins using only sunlight and CO₂. The silk matches natural spider silk’s mechanical properties.",
+    "why_interesting": "Spider silk is stronger than steel by weight but has never been producible at scale. The solution came from biofuel researchers, not materials scientists — because they understood microbial production platforms.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Zhang lab runs parallel projects on cyanobacterial metabolic engineering and recombinant spider silk production."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "2025 Nature Communications paper cites both photosynthetic biomanufacturing and spider silk mechanical property literature."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "Zhang’s PhD was in chemical engineering (biofuels); postdoc pivoted to protein materials."
+      }
+    ]
+  },
+  {
+    "title": "Tardigrade proteins for room-temperature biologics storage",
+    "researcher": "Silvia Campello & Thomas Boothby",
+    "field_a": "Extremophile biology",
+    "field_b": "Vaccine logistics / biopharmaceuticals",
+    "stage": "early_output",
+    "confidence": "high",
+    "one_liner": "Tardigrades survive desiccation using proteins that vitrify their cells. Those same proteins can stabilize vaccines and biologics at room temperature — eliminating cold-chain requirements.",
+    "why_interesting": "The cold chain costs $17B/year globally. The solution may come from a 1mm animal that can survive the vacuum of space.",
+    "signals": [
+      {
+        "type": "Researcher migration",
+        "evidence": "Boothby trained in molecular biology of tardigrades; now applies desiccation-tolerance proteins to stabilize human biologics."
+      },
+      {
+        "type": "Grant bridge",
+        "evidence": "DARPA-funded project explicitly bridging extremophile biology and field-deployable therapeutics."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "2024 bioRxiv preprint cites both tardigrade CAHS protein literature and cold-chain logistics papers."
+      }
+    ]
+  },
+  {
+    "title": "A material that shrinks when you heat it — discovered by accident",
+    "researcher": "Masaki Azuma, Kano Hatayama et al., Institute of Science Tokyo",
+    "field_a": "Magnetic materials",
+    "field_b": "Precision engineering",
+    "stage": "early_output",
+    "confidence": "high",
+    "one_liner": "A team engineering stronger magnets accidentally created a material that contracts when heated — the opposite of virtually every known material.",
+    "why_interesting": "Materials that shrink when heated are valuable for precision instruments. Nobody in precision engineering would have thought to look in magnetic materials research.",
+    "signals": [
+      {
+        "type": "Cross-citation",
+        "evidence": "JACS paper spans magnetic materials and thermal expansion physics."
+      },
+      {
+        "type": "Lab portfolio",
+        "evidence": "Azuma lab works on both magnetic oxide materials and structural phase transitions."
+      }
+    ],
+    "published": "Journal of the American Chemical Society, 2025"
+  },
+  {
+    "title": "Treating tumors like invasive species — ecology math in oncology",
+    "researcher": "Robert Gatenby, Jeffrey West, Joel Brown et al.",
+    "field_a": "Evolutionary ecology (Lotka-Volterra)",
+    "field_b": "Cancer treatment",
+    "stage": "early_output",
+    "confidence": "high",
+    "one_liner": "Radiologist Robert Gatenby started reading ecology textbooks and realized standard cancer treatment creates the same problem as overusing pesticides: you select for resistant organisms.",
+    "why_interesting": "Adaptive therapy is now in clinical trials. A field that didn’t exist before a radiologist started reading outside his specialty.",
+    "signals": [
+      {
+        "type": "Cross-citation",
+        "evidence": "Oncology papers cite Lotka-Volterra ecology literature — two fields with no shared conference circuit."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "Gatenby trained as a radiologist; self-taught in mathematical ecology."
+      }
+    ],
+    "published": "535 citations"
+  },
+  {
+    "title": "Two harmless proteins create Alzheimer’s pathology — but only together",
+    "researcher": "Sidney Strickland lab, Rockefeller University",
+    "field_a": "Blood clotting (hematology)",
+    "field_b": "Neurodegeneration",
+    "stage": "in_progress",
+    "confidence": "high",
+    "one_liner": "Amyloid beta and fibrinogen are each harmless alone. Together, they form abnormal clots that destroy the blood-brain barrier. Nobody found this because hematologists don’t study neurodegeneration.",
+    "why_interesting": "The pathology emerges only from the interaction of two proteins from two fields that rarely overlap. Finding it required someone at the intersection of vascular biology and neuroscience.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Strickland lab runs projects spanning fibrinolysis, vascular biology, and neurodegeneration."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "Papers cite both hemostasis and amyloid literature."
+      }
+    ]
+  },
+  {
+    "title": "Ancient viral DNA fragments activating in neurodegenerative disease",
+    "researcher": "Molly Gale Hammell, Cold Spring Harbor Laboratory",
+    "field_a": "Virology / transposon biology",
+    "field_b": "Neurodegeneration (ALS)",
+    "stage": "in_progress",
+    "confidence": "high",
+    "one_liner": "Human endogenous retroviruses — ancient viral DNA making up 8% of our genome — appear to reactivate in motor neurons of ALS patients. A transposon biologist is investigating whether silencing them slows disease.",
+    "why_interesting": "ALS research has focused on protein aggregation for decades. If the driver is viral reactivation, the entire therapeutic paradigm shifts to antiretrovirals — drugs that already exist.",
+    "signals": [
+      {
+        "type": "Grant bridge",
+        "evidence": "NIH R01 spanning NINDS (neurological disorders) and NHGRI (genomics) — two institutes that rarely co-fund."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "Hammell’s PhD was in computational biology; postdoc pivoted to transposable element regulation; current lab applies this to motor neuron disease."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "Publications cite both endogenous retrovirus literature and ALS clinical research."
+      }
+    ]
+  },
+  {
+    "title": "Origami mathematics for deployable medical stents",
+    "researcher": "Larry Howell, Brigham Young University",
+    "field_a": "Computational geometry / origami mathematics",
+    "field_b": "Interventional cardiology",
+    "stage": "in_progress",
+    "confidence": "high",
+    "one_liner": "A compliant mechanisms lab applies origami fold patterns to design cardiac stents that pack smaller and deploy more uniformly than existing designs.",
+    "why_interesting": "Stent deployment uniformity is the primary predictor of long-term outcomes. The mathematics for optimal deployment already exists in origami theory — cardiologists just don’t read computational geometry journals.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Compliant Mechanisms Research Group runs projects on origami mechanisms, surgical instruments, and space structures simultaneously."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "Postdocs include a biomedical engineer previously at Medtronic cardiovascular devices."
+      },
+      {
+        "type": "Grant bridge",
+        "evidence": "NSF EFRI grant bridging Engineering and Mathematical/Physical Sciences."
+      },
+      {
+        "type": "Institutional adjacency",
+        "evidence": "BYU mechanical and biomedical engineering share lab space."
+      }
+    ]
+  },
+  {
+    "title": "Chemists break a 100-year-old ‘impossible’ rule",
+    "researcher": "Neil Garg, Ken Houk, UCLA",
+    "field_a": "Synthetic organic chemistry",
+    "field_b": "3D drug design",
+    "stage": "in_progress",
+    "confidence": "high",
+    "one_liner": "UCLA chemists created cage-shaped molecules with warped double bonds — structures that Bredt’s rule, established over a century ago, said could not exist.",
+    "why_interesting": "Modern drug development is running out of flat molecular scaffolds. These rigid 3D cage molecules open an entirely new design space for pharmaceuticals.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Garg and Houk labs combine synthetic chemistry and computational chemistry — the synthesis required both."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "Nature Chemistry paper cites both strained organic synthesis and pharmaceutical scaffold literature."
+      }
+    ],
+    "published": "Nature Chemistry, January 2026"
+  },
+  {
+    "title": "One amino acid separates human speech from Neanderthal silence",
+    "researcher": "Robert B. Darnell, Erich D. Jarvis labs, Rockefeller University",
+    "field_a": "Evolutionary genetics",
+    "field_b": "Language science / speech pathology",
+    "stage": "in_progress",
+    "confidence": "medium",
+    "one_liner": "A single amino acid variant in the RNA-binding protein NOVA1, absent in Neanderthals and Denisovans, alters vocal communication. It links to modern language disorders.",
+    "why_interesting": "Connects evolutionary genomics to clinical speech pathology — a crossing between evolutionary biology, molecular genetics, and clinical neuroscience that none of those fields would have found independently.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Darnell lab (RNA biology) and Jarvis lab (vocal learning evolution) are both at Rockefeller."
+      },
+      {
+        "type": "Institutional adjacency",
+        "evidence": "Same campus, different departments, shared seminars."
+      }
+    ]
+  },
+  {
+    "title": "Bifurcation theory unifies hearing from insects to humans",
+    "researcher": "A. James Hudspeth lab, Rockefeller University",
+    "field_a": "Nonlinear dynamics (Hopf bifurcation)",
+    "field_b": "Auditory biology",
+    "stage": "in_progress",
+    "confidence": "high",
+    "one_liner": "A physicist built a device to keep a mammalian cochlea alive outside the body, then showed a Hopf bifurcation governs hearing across the entire animal kingdom.",
+    "why_interesting": "A single physics framework explains how ears work from flies to humans. The framework came from physics, the evidence from engineering a new instrument, the implication is biological.",
+    "signals": [
+      {
+        "type": "Cross-citation",
+        "evidence": "Papers cite both nonlinear dynamics and auditory neuroscience literature."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "Hudspeth trained in physics, built career in biophysics of hearing."
+      }
+    ]
+  },
+  {
+    "title": "A cancer drug treats psoriasis — by the wrong mechanism",
+    "researcher": "Frontiers in Pharmacology authors",
+    "field_a": "Oncology (PARP inhibitors)",
+    "field_b": "Dermatology",
+    "stage": "in_progress",
+    "confidence": "medium",
+    "one_liner": "Talazoparib, a cancer drug that breaks DNA repair, clears psoriasis in mice. It’s pro-inflammatory — which should make skin disease worse. It doesn’t.",
+    "why_interesting": "The mechanism of benefit is entirely different from the drug’s designed purpose. A pro-inflammatory drug improving an inflammatory disease by forcing cell differentiation.",
+    "signals": [
+      {
+        "type": "Cross-citation",
+        "evidence": "Paper cites both PARP inhibitor oncology literature and keratinocyte differentiation biology."
+      }
+    ],
+    "published": "Frontiers in Pharmacology, 2025"
+  },
+  {
+    "title": "Acoustic levitation for pharmaceutical crystallization",
+    "researcher": "Marco Andrade, University of São Paulo",
+    "field_a": "Acoustics / fluid dynamics",
+    "field_b": "Pharmaceutical manufacturing",
+    "stage": "configuration",
+    "confidence": "medium",
+    "one_liner": "An acoustics lab is levitating drug compounds in mid-air using sound waves to crystallize them without container contamination — a major problem in pharma manufacturing.",
+    "why_interesting": "Container-wall effects are a billion-dollar quality problem in drug manufacturing. Acoustics researchers solved the contactless handling problem for other reasons. Nobody in pharma reads acoustics journals.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Andrade’s lab runs simultaneous projects on acoustic levitation physics and containerless processing of small molecules."
+      },
+      {
+        "type": "Dissertation span",
+        "evidence": "Current PhD students have committee members from both physics and pharmaceutical sciences."
+      },
+      {
+        "type": "Institutional adjacency",
+        "evidence": "Physics and pharmaceutical sciences share a building on the Butantã campus."
+      }
+    ]
+  },
+  {
+    "title": "Earthquake early warning algorithms for cardiac arrhythmia detection",
+    "researcher": "Qingkai Kong, UC Berkeley / collaborating with UCSF Cardiology",
+    "field_a": "Seismology / signal processing",
+    "field_b": "Cardiology",
+    "stage": "configuration",
+    "confidence": "medium",
+    "one_liner": "Seismologists who built algorithms to detect earthquakes seconds before shaking arrives are adapting them to detect cardiac arrhythmias milliseconds before they become dangerous.",
+    "why_interesting": "Both problems involve detecting a weak precursor signal in noisy data before a catastrophic event. Seismology has 50 years of signal processing expertise that cardiologists have never accessed.",
+    "signals": [
+      {
+        "type": "Institutional adjacency",
+        "evidence": "Berkeley Seismological Laboratory and UCSF Medical Center launched a joint seminar on ‘signal detection in noisy systems’ in 2025."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "Kong’s PhD was in seismology (MyShake app); a current postdoc previously worked on wearable ECG signal processing."
+      },
+      {
+        "type": "Lab portfolio",
+        "evidence": "MyShake project uses smartphone accelerometers to detect P-waves — the same early-signal detection problem exists in cardiac monitoring."
+      }
+    ]
+  },
+  {
+    "title": "Coral reef symbiosis mechanisms for solid organ transplant tolerance",
+    "researcher": "Nikki Traylor-Knowles, University of Miami / Rosenstiel School",
+    "field_a": "Marine invertebrate immunology",
+    "field_b": "Transplant immunology",
+    "stage": "configuration",
+    "confidence": "medium",
+    "one_liner": "Corals routinely accept foreign living tissue into their cells without immune rejection. A marine biologist is mapping how they do it, with implications for organ transplant tolerance.",
+    "why_interesting": "Transplant immunology has spent decades trying to induce tolerance in mammals. Corals solved this problem 500 million years ago. Nobody in transplant medicine reads cnidarian immunology.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "CRISPR Coral Lab studies innate immune tolerance in organisms that accept foreign tissue despite having immune systems."
+      },
+      {
+        "type": "Dissertation span",
+        "evidence": "A current PhD student has committee members from both marine biology and immunology."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "Lab publications cite both cnidarian immunity and mammalian immune tolerance papers."
+      }
+    ]
+  },
+  {
+    "title": "Fermentation microbiome analytics applied to lithium-ion battery electrolytes",
+    "researcher": "Linda Broadbelt, Northwestern University",
+    "field_a": "Biochemical engineering / fermentation science",
+    "field_b": "Battery materials science",
+    "stage": "configuration",
+    "confidence": "medium",
+    "one_liner": "A chemical engineer who models fermentation reaction networks is applying the same framework to predict electrolyte degradation in lithium-ion batteries — because the reaction network topology is identical.",
+    "why_interesting": "Battery electrolyte degradation is a key barrier to EV lifespan. The modeling tools already exist in fermentation science but have never been applied to electrochemistry.",
+    "signals": [
+      {
+        "type": "Grant bridge",
+        "evidence": "DOE-funded project on bio-derived electrolyte solvents, co-PI’d with a fermentation science researcher."
+      },
+      {
+        "type": "Lab portfolio",
+        "evidence": "Broadbelt’s group models complex reaction networks in both metabolic engineering and polymer degradation."
+      },
+      {
+        "type": "Institutional adjacency",
+        "evidence": "Northwestern chemical engineering and materials science share the Technological Institute building."
+      }
+    ]
+  },
+  {
+    "title": "Whale song pattern analysis for gravitational wave signal detection",
+    "researcher": "Michelle Fournet, Cornell / collaborating with LIGO Hanford",
+    "field_a": "Bioacoustics / cetacean communication",
+    "field_b": "Gravitational wave astrophysics",
+    "stage": "configuration",
+    "confidence": "medium",
+    "one_liner": "Bioacousticians who separate whale calls from ocean noise and LIGO physicists who separate gravitational waves from detector noise use identical matched filtering mathematics. A shared postdoc is bridging the two.",
+    "why_interesting": "LIGO’s next-generation detectors need to extract weaker signals from noisier data. Bioacousticians have been solving a harder version of this problem for decades.",
+    "signals": [
+      {
+        "type": "Institutional adjacency",
+        "evidence": "Cornell hosts both the K. Lisa Yang Center for Conservation Bioacoustics and has ties to the LIGO Scientific Collaboration."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "A postdoc in Fournet’s bioacoustics lab previously worked on matched filtering at LIGO Livingston."
+      },
+      {
+        "type": "Lab portfolio",
+        "evidence": "The bioacoustics lab’s matched filtering pipeline for whale calls uses signal processing nearly identical to LIGO’s chirp detection."
+      }
+    ]
+  },
+  {
+    "title": "First molecule with half-Möbius electron topology",
+    "researcher": "IBM Research + university collaborators",
+    "field_a": "Quantum computing",
+    "field_b": "Topological chemistry",
+    "stage": "configuration",
+    "confidence": "medium",
+    "one_liner": "IBM and university researchers created a molecule where electrons travel in a corkscrew pattern. This topology had never been synthesized, observed, or even formally predicted.",
+    "why_interesting": "Topological properties in molecules could enable entirely new types of materials with unusual electronic, magnetic, or optical behaviors.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "IBM Research runs simultaneous projects on quantum computing hardware and molecular simulation."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "Paper cites both topological quantum matter and synthetic chemistry literature."
+      }
+    ],
+    "link": "https://newsroom.ibm.com/2026-03-05-ibm-and-university-researchers-create-a-never-before-seen-molecule-and-prove-its-exotic-nature-with-quantum-computing",
+    "published": "March 2026"
+  },
+  {
+    "title": "Physics of magnets and fluids explains when the Amazon will collapse",
+    "researcher": "Bernardo M. Flores, Encarni Montoya, Boris Sakschewski et al.",
+    "field_a": "Statistical physics (phase transitions)",
+    "field_b": "Tropical ecology",
+    "stage": "configuration",
+    "confidence": "high",
+    "one_liner": "Researchers applied the actual mathematical framework for phase transitions in magnets and fluids — not a metaphor — to show the Amazon forest has multiple stable states it can tip between.",
+    "why_interesting": "This is not a metaphorical use of ‘tipping point.’ They used the same math that describes how water becomes ice. 462 citations.",
+    "signals": [
+      {
+        "type": "Cross-citation",
+        "evidence": "Nature paper cites phase transition physics literature in an ecology journal."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "Multiple authors trained in physics, now working in earth system science."
+      }
+    ],
+    "published": "Nature, February 2024"
+  },
+  {
+    "title": "Rice weakens under fast pressure, strengthens under slow",
+    "researcher": "Materials science group (2026)",
+    "field_a": "Food science",
+    "field_b": "Soft robotics / metamaterials",
+    "stage": "configuration",
+    "confidence": "medium",
+    "one_liner": "Someone studying rice compression discovered a rate-dependent mechanical anomaly. They used it to build a self-adjusting metamaterial for soft robots.",
+    "why_interesting": "A food grain leading to programmable engineering materials is exactly the kind of crossing nobody plans for.",
+    "signals": [
+      {
+        "type": "Cross-citation",
+        "evidence": "Paper cites both granular material physics and metamaterial design literature."
+      }
+    ],
+    "published": "April 2026"
+  },
+  {
+    "title": "Atom probe tomography meets sea urchin embryology",
+    "researcher": "Derk Joester, Northwestern University",
+    "field_a": "Advanced materials characterization (atom probe, synchrotron)",
+    "field_b": "Marine organism biology (sea urchins, chitons, acantharia)",
+    "stage": "configuration",
+    "confidence": "high",
+    "one_liner": "A materials scientist operates $2M atom probes and synchrotron beamlines to study how sea urchins grow single-crystal calcite spicules and how chitons build the hardest biomineral teeth known. Students culture marine embryos and run high-vacuum instruments in the same lab.",
+    "why_interesting": "Understanding how acantharians concentrate strontium 10,000x above seawater levels under ambient conditions could unlock room-temperature synthesis routes for piezoelectric ceramics, bypassing the high-temperature processing that dominates industry.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Biomineral Engineering Group lists active projects in both atom probe tomography for dental enamel and sea urchin spicule crystallization."
+      },
+      {
+        "type": "Dissertation span",
+        "evidence": "Graduate students must master both high-vacuum materials characterization and marine organism culture."
+      }
+    ],
+    "link": "https://joester.mccormick.northwestern.edu"
+  },
+  {
+    "title": "Ultrasound physics meets synthetic biology inside a single lab",
+    "researcher": "Mikhail Shapiro, Caltech",
+    "field_a": "Acoustic physics / ultrasound engineering",
+    "field_b": "Synthetic biology / microbial engineering",
+    "stage": "configuration",
+    "confidence": "high",
+    "one_liner": "Students in this lab do both acoustic signal processing and molecular cloning. They engineer bacteria to express gas vesicles as genetically encoded ultrasound contrast agents — living cells you can see on an ultrasound.",
+    "why_interesting": "Genetically encoded acoustic reporters could enable real-time ultrasound monitoring of engineered microbial therapeutics inside the body, merging synthetic biology’s programmability with ultrasound’s depth penetration.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Lab page lists active projects in both IEEE-published ultrasound imaging methods and Nature-published synthetic gene circuits."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "2025 publications span IEEE TMI (acoustics) and npj Acoustics alongside synthetic biology journals."
+      }
+    ],
+    "link": "https://shapirolab.caltech.edu"
+  },
+  {
+    "title": "Insect urination physics produces 96-cent hearing aids",
+    "researcher": "Saad Bhamla, Georgia Tech",
+    "field_a": "Ultrafast insect biophysics",
+    "field_b": "Frugal science medical devices",
+    "stage": "configuration",
+    "confidence": "high",
+    "one_liner": "A lab studying how cicadas exploit droplet superpulsion to urinate and how springtails achieve 100g accelerations simultaneously invents 20-cent centrifuges and 96-cent hearing aids. The insect work directly feeds the device work.",
+    "why_interesting": "The springtail’s latch-mediated spring mechanism could be miniaturized into mechanical triggers for point-of-care diagnostics needing precise single-use actuation without electronics.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Bhamla Lab lists active projects in both Nature-published insect biomechanics and Schmidt Sciences-funded frugal health devices."
+      },
+      {
+        "type": "Cross-citation",
+        "evidence": "Insect urination physics (Nature) directly informed nozzle designs for frugal devices."
+      }
+    ],
+    "link": "https://bhamla.gatech.edu"
+  },
+  {
+    "title": "Magnetic nanomaterials fabrication meets gut-brain neuroscience",
+    "researcher": "Polina Anikeeva, MIT",
+    "field_a": "Magnetic nanomaterial synthesis / fiber fabrication",
+    "field_b": "Gut-brain axis neuroscience",
+    "stage": "configuration",
+    "confidence": "high",
+    "one_liner": "An MIT materials scientist synthesizes magnetoelectric nanodiscs in a clean room, then uses them to wirelessly stimulate neurons and probe gut-brain circuits in living animals. Named head of Materials Science while holding a Brain and Cognitive Sciences appointment.",
+    "why_interesting": "Wireless magnetic nanomaterials designed for brain stimulation could become a new modality for the enteric nervous system, revealing materials-science-tractable mechanisms behind gut-brain disorders.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Bioelectronics Group lists active projects in both magnetic nanoparticle synthesis (Nature Nanotechnology, 2025) and gut-brain neural circuit mapping."
+      },
+      {
+        "type": "Researcher migration",
+        "evidence": "Materials scientist by training, now holds dual appointment in Materials Science and Brain & Cognitive Sciences."
+      }
+    ],
+    "link": "https://bioelectronics.mit.edu"
+  },
+  {
+    "title": "Origami deployable structures engineer designs brain aneurysm stents",
+    "researcher": "Zhong You, University of Oxford",
+    "field_a": "Origami mathematics / deployable structures",
+    "field_b": "Endovascular medical devices",
+    "stage": "early_output",
+    "confidence": "high",
+    "one_liner": "A mathematician who publishes on rigid origami and retractable roofs invented the first origami-based stent graft for aortic aneurysms, then a cerebral aneurysm flow diverter. Founded Oxford Endovascular to commercialize it.",
+    "why_interesting": "Origami metamaterials that perform logic operations could yield ‘smart’ stents that mechanically sense blood flow changes and autonomously reconfigure without electronics.",
+    "signals": [
+      {
+        "type": "Lab portfolio",
+        "evidence": "Lab simultaneously develops deployable space antennas, origami metamaterials with logic operations, and clinical endovascular devices."
+      },
+      {
+        "type": "Grant bridge",
+        "evidence": "EPSRC-funded origami mechanics research applied to clinical devices via university spin-off."
+      }
+    ],
+    "link": "https://eng.ox.ac.uk/people/zhong-you"
+  }
+]
