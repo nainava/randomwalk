@@ -10,6 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500;1,8..60,600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  ::selection { background: #0033FF; color: #fff; }
+  ::-moz-selection { background: #0033FF; color: #fff; }
+  text::selection, tspan::selection { fill: #fff; }
+  text::-moz-selection, tspan::-moz-selection { fill: #fff; }
 
   :root {
     --bg: #ffffff;
@@ -858,7 +862,7 @@
       tr.className = 'row';
       tr.dataset.num = r.number;
       tr.innerHTML =
-        '<td class="col-num"><span class="caret">▸</span> ' + esc(r.number) + '</td>' +
+        '<td class="col-num">' + esc(r.number) + '</td>' +
         '<td class="col-name">' + esc(r.name) + '</td>' +
         '<td class="col-year">' + esc(r.yearDisplay) + '</td>' +
         '<td class="col-span">' + (r.span == null ? '—' : r.span) + '</td>' +
@@ -1042,44 +1046,15 @@
   var ctx = canvas.getContext('2d');
   var dpr = window.devicePixelRatio || 1;
   var x, y, w, h;
-  var title = wrap.querySelector('.title-text');
-  var flipped = false;
-  var totalSteps = 0;
+  var STEP = 12;
 
-  var GRID = 20;
-  var gridCols, gridRows, visited;
+  function snap(v) { return Math.round(v / STEP) * STEP; }
 
-  function initGrid() {
-    gridCols = Math.ceil(w / GRID);
-    gridRows = Math.ceil(h / GRID);
-    visited = new Uint8Array(gridCols * gridRows);
-  }
-
-  function markVisited() {
-    var col = Math.floor(x / GRID);
-    var row = Math.floor(y / GRID);
-    if (col >= 0 && col < gridCols && row >= 0 && row < gridRows) {
-      visited[row * gridCols + col] = 1;
-    }
-  }
-
-  function getCoverage() {
-    var r = title.getBoundingClientRect();
-    var wr = wrap.getBoundingClientRect();
-    var tx = r.left - wr.left, ty = r.top - wr.top;
-    var tw = r.width, th = r.height;
-    var c0 = Math.floor(tx / GRID), c1 = Math.ceil((tx + tw) / GRID);
-    var r0 = Math.floor(ty / GRID), r1 = Math.ceil((ty + th) / GRID);
-    var total = 0, filled = 0;
-    for (var row = r0; row < r1 && row < gridRows; row++) {
-      for (var col = c0; col < c1 && col < gridCols; col++) {
-        if (col >= 0 && row >= 0) {
-          total++;
-          if (visited[row * gridCols + col]) filled++;
-        }
-      }
-    }
-    return total > 0 ? filled / total : 0;
+  function setStrokeStyle() {
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.07)';
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'square';
+    ctx.lineJoin = 'miter';
   }
 
   function resize() {
@@ -1090,56 +1065,34 @@
     canvas.style.width = w + 'px';
     canvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
-    ctx.lineWidth = 1;
-    ctx.lineCap = 'round';
-    var tr = title.getBoundingClientRect();
-    var wr = wrap.getBoundingClientRect();
-    x = (tr.left - wr.left) + tr.width * 0.3 + (Math.random() - 0.5) * 40;
-    y = (tr.top - wr.top) + tr.height * 0.5 + (Math.random() - 0.5) * 20;
-    initGrid();
+    setStrokeStyle();
+    x = snap(w * 0.5);
+    y = snap(h * 0.5);
     ctx.beginPath();
     ctx.moveTo(x, y);
   }
-
   resize();
 
-  var step = 8;
-  var stepsPerFrame = 4;
+  var stepsPerFrame = 3;
 
   function tick() {
     for (var i = 0; i < stepsPerFrame; i++) {
-      var angle = Math.random() * Math.PI * 2;
-      x += Math.cos(angle) * step;
-      y += Math.sin(angle) * step;
-      if (x < 0) x = -x;
-      if (x > w) x = 2 * w - x;
-      if (y < 0) y = -y;
-      if (y > h) y = 2 * h - y;
+      var d = Math.floor(Math.random() * 4);
+      if (d === 0) x += STEP;
+      else if (d === 1) x -= STEP;
+      else if (d === 2) y += STEP;
+      else y -= STEP;
+      if (x < STEP) x = STEP * 2 - x;
+      if (x > w - STEP) x = 2 * (w - STEP) - x;
+      if (y < STEP) y = STEP * 2 - y;
+      if (y > h - STEP) y = 2 * (h - STEP) - y;
       ctx.lineTo(x, y);
-      markVisited();
-      totalSteps++;
     }
     ctx.stroke();
     ctx.beginPath();
     ctx.moveTo(x, y);
-
-    if (!flipped && totalSteps % 120 === 0) {
-      if (getCoverage() > 0.85) {
-        flipped = true;
-        title.style.transition = 'background 0.6s ease, color 0.6s ease';
-        title.style.background = 'var(--highlight)';
-        title.style.color = '#ffffff';
-        var sub = title.querySelector('span');
-        if (sub) {
-          sub.style.transition = 'color 0.6s ease';
-          sub.style.color = '#ffcccc';
-        }
-      }
-    }
     requestAnimationFrame(tick);
   }
-
   requestAnimationFrame(tick);
 
   window.addEventListener('resize', function() {
@@ -1152,12 +1105,9 @@
     canvas.style.height = h + 'px';
     ctx.putImageData(imgData, 0, 0);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
-    ctx.lineWidth = 1;
-    ctx.lineCap = 'round';
-    initGrid();
-    if (x > w) x = w - 10;
-    if (y > h) y = h - 10;
+    setStrokeStyle();
+    if (x > w - STEP) x = w - STEP;
+    if (y > h - STEP) y = h - STEP;
     ctx.beginPath();
     ctx.moveTo(x, y);
   });
@@ -1169,8 +1119,8 @@
     <div class="about-shadow"></div>
     <div class="about-modal">
     <button class="about-close" id="about-close">&times;</button>
-    <p>Ara Varma is a designer based in San Francisco. She was an Associate at SOSV ($1.5b deep tech VC) and worked in sales at Loft Orbital. In these roles, she encountered many people on their own random walks, building interesting science.</p>
-    <p>This project catalogues and formalizes what many know to be true: funding research in one area often leads to value in unexpected areas. We document the positive unintended consequences of high-intensity research, and seek to understand how we can support more.</p>
+    <p>The Random Walk Project is dedicated to unexpected science: when directed research collides with other directed research. The transformer was meant to improve Google Translate. Warfarin began as rat poison. Penicillin sat in a literature search before it became medicine. We seek to better understand the past and identify the future research that powers our world.</p>
+    <p>Founder Ara Varma was previously at HAX (SOSV) and Loft Orbital. Random Walk is open-source because great science is a public good. Our ultimate goal is to induce more collisions that bring the next breakthrough to the world a little sooner.</p>
     </div>
   </div>
 </div>
